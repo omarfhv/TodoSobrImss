@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/botonblanco"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+
+
+
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="TRAMITE:\n "
+        android:textColor="#D31B1B"
+        android:textSize="20dp"
+        >
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/t2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Deberá de acudir a la Secretaria de Previsión Social  de su Sección Sindical.\n"
+        android:textColor="#0024F7"
+        android:textSize="20dp"
+        >
+
+    </TextView>
+
+
+    <TextView
+        android:id="@+id/t4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="O tambien lo puede realizar a traves de sus DELEGADOS de sus determinadas Adcripciones. "
+        android:textColor="#154f3a"
+        android:textSize="20dp"
+        >
+
+    </TextView>
+
+
+
+
+
+    <Button
+        android:id="@+id/botoncont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="onclick"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/boton_principal"
+        android:text="      Continuar       "
+        android:textColor="#FFFFFF" />
+</LinearLayout>

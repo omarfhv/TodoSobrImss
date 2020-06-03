@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/botonblanco"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+
+    <TextView
+        android:id="@+id/texto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Cuando un trabajador necesite llegar después de los
+30 minutos de tolerancia a la entrada de sus labores, requerirá
+invariablemente de un pase de entrada con solicitud previa y
+debidamente autorizado por el Jefe de la Dependencia o de quien haga
+sus veces y el visto bueno del Jefe inmediato superior, con la
+indicación expresa de la hora en que habrá de iniciar su jornada. El
+tiempo de que disponga se descontará del sueldo.
+El registro de entrada se hará con la constancia de tener concedido el
+pase de entrada."
+        android:textColor="#154f3a"
+        android:gravity="center"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/botoncont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="onclick"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/boton_principal"
+        android:text="      Continuar       "
+        android:textColor="#ffffff" />
+</LinearLayout>

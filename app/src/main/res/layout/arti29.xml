@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/botonblanco"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+
+    <TextView
+        android:id="@+id/texto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Cuando los trabajadores tengan que atender trámites
+relacionados con el desempeño de sus labores que requieran su
+ausencia de la dependencia de su adscripción, pero dentro del mismo
+edificio o unidad de servicios, lo harán mediante la expresa
+autorización del Jefe inmediato superior.\n Cuando los trabajadores necesiten salir del edificio o unidad de
+servicios para atender asuntos oficiales del Instituto o del Sindicato, así como para recibir atención médica especializada en segundo o
+tercer nivel, estudios de laboratorio y/o gabinete, previa comprobación
+o llegar después de la hora de entrada a sus labores, el Instituto
+concederá el pase de salida o de entrada, con solicitud previa
+debidamente requisitada, en el cual se consignará el tiempo estimado
+para el desempeño de la comisión, de la atención médica citada o de
+los estudios de laboratorio y/o gabinete. El trabajador registrará tanto
+la salida como el regreso a sus labores. Cuando el tiempo que emplee
+el trabajador en el desempeño de la comisión rebase el tiempo
+estimado en forma tal que le impida registrar con puntualidad su salida
+oficial, el Jefe de su adscripción lo certificará así para relevar al
+trabajador de las sanciones correspondientes. El tiempo de que así se
+disponga se considera tiempo efectivo de labores. Para los efectos de
+los estímulos a que se refiere el Artículo 93 de este Reglamento, se
+incrementarán los contadores correspondientes como registro puntual
+cuando se haya concedido pase de entrada oficial."
+        android:textColor="#154f3a"
+        android:gravity="center"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/botoncont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="onclick"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/boton_principal"
+        android:text="      Continuar       "
+        android:textColor="#ffffff" />
+</LinearLayout>

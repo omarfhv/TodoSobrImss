@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TiposDeContrato">
+
+
+    <TextView
+        android:id="@+id/texto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" TIPOS DE TRABAJADORES EN EL IMSS."
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="#154f3a"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_below="@+id/texto1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/botoncontrato"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_below="@+id/texto1"
+                        android:id="@+id/texto2"
+                        android:layout_marginVertical="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Trabajadores de base: Son todos aquellos que ocupan en forma
+definitiva un puesto tabulado conforme a las normas de este Contrato.\n NOTA: CUENTAN CON LA BT09 "
+                        android:textColor="#EE1111"
+                        android:gravity="center"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/botoncontratoees"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_below="@+id/texto2"
+                        android:id="@+id/texto3"
+                        android:layout_marginVertical="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Trabajadores a obra determinada: Son los contratados para realizar un
+trabajo específico, concluido el cual se extingue la relación de trabajo."
+                        android:textColor="#673AB7"
+                        android:gravity="center"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/botoncontrator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_below="@+id/texto3"
+                        android:id="@+id/texto4"
+                        android:layout_marginVertical="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Trabajadores de Confianza: Son todos aquellos que realizan
+funciones de dirección, inspección, vigilancia y fiscalización de
+carácter general y no tabuladas, así como las relacionadas con trabajos
+personales del patrón dentro del Instituto.\n NOTA: SE DIVIDEN EN CONFIANZAS TIPO |A| Y TIPO |B|"
+                        android:textColor="#FF5722"
+                        android:gravity="center"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/botoncontratoee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_below="@+id/texto4"
+                        android:id="@+id/texto5"
+                        android:layout_marginVertical="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Trabajadores interinos: Son los trabajadores de base que sustituyen
+en ausencias temporales a otros de base."
+                        android:textColor="#16867C"
+                        android:gravity="center"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/botoncontratoe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="230dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_below="@+id/texto5"
+                        android:id="@+id/texto6"
+                        android:layout_marginVertical="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Son todos aquellos que sin ser de base,
+ocupan temporalmente el puesto de pie de rama o categoría autónoma
+de un trabajador de base durante la ausencia de éste por vacaciones,
+incapacidades, licencias o permisos y en los casos sujetos a juicio. El
+trabajador sustituto será nombrado en los casos en que la vaca\n NOTA: SON TRABAJADORES CON CONTRATOS CORTOS LLAMADOS |08| (CADA 15 DIAS SE LE RENUEVA EL CONTRATO) O CONTRATOS EXTENSOS LLAMADOS |02|"
+                        android:textColor="#0A8FCC"
+                        android:gravity="center"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

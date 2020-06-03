@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/boton_principal"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+
+
+    <TextView
+        android:id="@+id/asegu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aseguramiento para los familiares políticos, comprendidos hasta el 4° grado\n de parentesco por consanguinidad del cónyuge del trabajador."
+        android:textSize="15dp"
+        android:textColor="#154f3a"
+        android:textStyle="bold"
+
+        />
+
+
+    <ScrollView
+        android:id="@+id/scrol2"
+        android:layout_below="@+id/asegu"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+
+        android:layout_margin="5dp">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="500dp"
+            android:background="@drawable/graficapoli"
+            />
+
+    </ScrollView>
+
+    <Button
+        android:layout_below="@+id/scrol2"
+        android:id="@+id/botoncont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="10dp"
+        android:background="@drawable/botonblanco"
+        android:onClick="onclick"
+        android:text="      Continuar       "
+        android:textColor="#154f3a" />
+
+
+</RelativeLayout>
+

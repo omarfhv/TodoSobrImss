@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.todimssayuda.todosobrimss">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".SliderAdapterCalendario" />
+        <activity android:name=".CaledarioCompleto" />
+        <activity android:name=".Calendario" />
+        <activity android:name=".RecuperaSoporte" />
+        <activity android:name=".RecuActivos" />
+        <activity android:name=".RecuJubilados" />
+        <activity android:name=".RecuperarContrasena" />
+        <activity android:name=".SeguroFacul" />
+        <activity android:name=".Recaida" />
+        <activity android:name=".Incapacidades" />
+        <activity android:name=".TiposDeContrato" />
+        <activity android:name=".Jubilacion" />
+        <activity android:name=".Festivos" />
+        <activity android:name=".Sustis" />
+        <activity android:name=".PliegoTesta" />
+        <activity android:name=".InfoPases" />
+        <activity android:name=".Pases" />
+        <activity android:name=".Permutas" />
+        <activity android:name=".Tabulador" />
+        <activity android:name=".Faltas" />
+        <activity android:name=".ModificacionesContra" />
+        <activity android:name=".ContratoColectivoTrabajadores" />
+        <activity android:name=".RolVacacional" />
+        <activity android:name=".Noticias" />
+        <activity android:name=".Promociones" />
+        <activity android:name=".Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
