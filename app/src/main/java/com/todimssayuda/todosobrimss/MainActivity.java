@@ -180,7 +180,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
 
             case R.id.botontarjeton:
+                Intent intent131t = new Intent(this, Calendario.class);
+                startActivity(intent131t);
 
+                finish();
 
                 break;
 
