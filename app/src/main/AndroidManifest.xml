@@ -40,6 +40,8 @@
         <activity android:name=".RolVacacional" />
         <activity android:name=".Noticias" />
         <activity android:name=".Promociones" />
+        <activity android:name=".SubMenuActivos" />
+        <activity android:name=".WbView" />
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

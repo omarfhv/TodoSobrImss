@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">TodIMSS</string>
+    <string name="mensajeinicio">Ya podrás recibir NOTIFICACIONES en tu celular, cuando llegue el Tarjetón o alguna noticia relevante del instituto.
+    En esta aplicacion no se piden datos, solo te lleva a la pagina
+    oficial del IMSS para descargar el tarjeton tanto activos como jubilados
+    Tambien obtendras algunos documentos de consulta podras ver promociones.</string>
+    <string name="adbannertest">ca-app-pub-9129010539844350/9085930606</string>
+    <string name="adinter">ca-app-pub-9129010539844350/3517030849</string>
+    <string name="whats">WhatsApp</string>
+    <string name="compartir">Compartir</string>
+    <string name="atras">Atras</string>
+    <string name="action_settings">Settings</string>
+    <string name="linkapp">https://play.google.com/store/apps/details?id=com.aojhev.imssconsultas</string>
 </resources>
