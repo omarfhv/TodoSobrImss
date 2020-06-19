@@ -45,6 +45,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.io.File;
 
@@ -59,8 +63,9 @@ public class WbView extends AppCompatActivity implements View.OnClickListener {
     ColorDrawable dialogColor;
     boolean quincenab, mesb, yearb;
     Button btndescargar;
+    private AdView mAdView;
+    InterstitialAd mInterstitialAd;
     static int[] id = new int[]{R.drawable.ins1, R.drawable.ins2, R.drawable.ins3, R.drawable.ins4, R.drawable.ins5, R.drawable.ins6, R.drawable.ins7};
-
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +80,10 @@ public class WbView extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.web_view);
         instruccionesdialogo(false);
         imv = findViewById(R.id.imagevi);
+        mAdView = findViewById(R.id.adView1);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
 
 
@@ -82,7 +91,18 @@ public class WbView extends AppCompatActivity implements View.OnClickListener {
         webview = findViewById(R.id.WebView);
         btndescargar = findViewById(R.id.btndescargar);
         btndescargar.setOnClickListener(this);
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.adinter));
+        AdRequest adRequest1 = new AdRequest.Builder().build();
+        mInterstitialAd.loadAd(adRequest1);
+        mInterstitialAd.setAdListener(new AdListener(){
 
+            @Override
+            public void onAdClosed() {
+
+
+            }
+        });
         validaPermisos();
 
 

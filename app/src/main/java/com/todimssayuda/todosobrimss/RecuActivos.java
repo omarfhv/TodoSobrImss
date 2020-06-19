@@ -32,6 +32,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
@@ -46,7 +49,8 @@ public class RecuActivos extends AppCompatActivity {
     Button btndescargar;
     //InterstitialAd mInterstitialAd;
     static int[] id = new int[]{R.drawable.q, R.drawable.q1, R.drawable.q3, R.drawable.q4, R.drawable.q5, R.drawable.q6, R.drawable.q7, R.drawable.q8};
-    //private AdView mAdView;
+    //
+    private AdView mAdView;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -64,9 +68,9 @@ public class RecuActivos extends AppCompatActivity {
         imv = findViewById(R.id.imagevi);
 
 
-        //mAdView = findViewById(R.id.adView9);
-     //   AdRequest adRequest = new AdRequest.Builder().build();
-       // mAdView.loadAd(adRequest);
+        mAdView = findViewById(R.id.adView1);
+        AdRequest adRequest = new AdRequest.Builder().build();
+       mAdView.loadAd(adRequest);
 
         progresbar = findViewById(R.id.pgbr);
         webview = findViewById(R.id.WebView);

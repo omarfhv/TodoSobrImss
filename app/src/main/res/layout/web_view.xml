@@ -30,16 +30,29 @@
         android:id="@+id/btndescargar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/adView10"
 
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
         android:layout_toLeftOf="@+id/pgbr"
         android:layout_toStartOf="@+id/pgbr"
         android:background="@drawable/botonprincipal"
-        android:text="  Descargar  "
+        android:text="  Descargar"
+        android:layout_above="@+id/adView1"
+
         android:textColor="#ffffff" />
 
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+
+        ads:adSize="SMART_BANNER"
+
+        ads:adUnitId="@string/adbanner"
+        android:layout_alignParentLeft="true" />
 
 </RelativeLayout>

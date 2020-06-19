@@ -15,6 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import static android.Manifest.permission.CALL_PHONE;
 
 public class RecuperarContrasena extends AppCompatActivity implements View.OnClickListener {
@@ -24,7 +27,7 @@ public class RecuperarContrasena extends AppCompatActivity implements View.OnCli
     private Intent intentllamada;
     LinearLayout botonrecujubilados, botonrecuactivos, botonsoportetecnico;
     ColorDrawable dialogColor;
-  //  private AdView mAdView;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +39,9 @@ public class RecuperarContrasena extends AppCompatActivity implements View.OnCli
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         setContentView(R.layout.activity_recuperar_contrasena);
-    //    mAdView = findViewById(R.id.adView1);
-      //  AdRequest adRequest = new AdRequest.Builder().build();
-        //mAdView.loadAd(adRequest);
+       mAdView = findViewById(R.id.adView1);
+       AdRequest adRequest = new AdRequest.Builder().build();
+       mAdView.loadAd(adRequest);
 
 
 

@@ -29,17 +29,19 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class Noticias extends AppCompatActivity {
-    // AdView mAdView;
 
     ProgressBar progresbar;
     WebView webview;
     ImageView imv;
     ColorDrawable dialogColor;
-    //private AdView mAdView;
+    private AdView mAdView;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -55,9 +57,9 @@ public class Noticias extends AppCompatActivity {
         imv = findViewById(R.id.imagevi);
 
 
-       /* mAdView = findViewById(R.id.adView9);
+       mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);*/
+        mAdView.loadAd(adRequest);
 
         progresbar = findViewById(R.id.pgbr);
         webview = findViewById(R.id.WebView);

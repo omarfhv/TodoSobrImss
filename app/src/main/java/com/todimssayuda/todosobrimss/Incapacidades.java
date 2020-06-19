@@ -10,12 +10,14 @@ import android.view.View;
 import android.widget.Button;
 
 import com.github.barteksc.pdfviewer.PDFView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class Incapacidades extends AppCompatActivity implements View.OnClickListener {
 
     PDFView pdfView;
     Button btnrecaida;
-    //private AdView mAdView;
+    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +29,10 @@ public class Incapacidades extends AppCompatActivity implements View.OnClickList
         }
 
         setContentView(R.layout.activity_incapacidades);
-        //mAdView = findViewById(R.id.adView1);
-        //AdRequest adRequest = new AdRequest.Builder().build();
-        //mAdView.loadAd(adRequest);
+        mAdView = findViewById(R.id.adView1);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
         pdfView = (PDFView)findViewById(R.id.pdfView);
         btnrecaida=findViewById(R.id.btnrecaida);

@@ -13,21 +13,29 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.barteksc.pdfviewer.PDFView;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono;
+    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta;
     SharedPreferences sharedPref;
     PDFView pdfView;
 
 
-    //  private AdView mAdView;
+    private AdView mAdView;
     int califica;
-    //InterstitialAd mInterstitialAd;
+    InterstitialAd mInterstitialAd;
     ColorDrawable dialogColor;
 
 
@@ -37,16 +45,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
 
-      /*  mAdView = findViewById(R.id.adView1);
+        mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
 
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-9129010539844350/9620578226");
+       mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-2736592244570345/9645372492");
         AdRequest adRequest1 = new AdRequest.Builder().build();
         mInterstitialAd.loadAd(adRequest1);
-        mInterstitialAd.setAdListener(new AdListener());*/
+        mInterstitialAd.setAdListener(new AdListener());
 
         sharedPref = getSharedPreferences("inicio", Context.MODE_PRIVATE);
         califica = sharedPref.getInt("califica", 0);
@@ -56,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             califica = 0;
         } else
             califica++;
+
+
+
 
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putInt("califica", califica);
@@ -127,6 +138,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botonbono = findViewById(R.id.botonbono);
         botonbono.setOnClickListener(this);
 
+        botonpresta = findViewById(R.id.botonprestamos);
+        botonpresta.setOnClickListener(this);
+
 
 
     }
@@ -148,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botonsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentae4 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.heisenbergtao.manualsupervivencia"));
+                Intent intentae4 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.todimssayuda.todosobrimss"));
                 startActivity(intentae4);
             }
         });
@@ -180,10 +194,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
 
             case R.id.botontarjeton:
-                Intent intent131t = new Intent(this, SubMenuActivos.class);
-                startActivity(intent131t);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                final LayoutInflater inflater1 = getLayoutInflater();
+                View vi = inflater1.inflate(R.layout.dialogo_tarjeton, null);
+                builder.setView(vi);
+                final AlertDialog dialog = builder.create();
+                dialog.setCancelable(true);
+                dialog.getWindow().setBackgroundDrawable(dialogColor);
+                Button botonok = vi.findViewById(R.id.botoncont);
+                final RadioButton rbtna = vi.findViewById(R.id.rbtna);
+                final RadioButton rbtnj = vi.findViewById(R.id.rbtnj);
+                botonok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
-                finish();
+                        if (rbtna.isChecked()) {
+                            Intent intent1 = new Intent(MainActivity.this, SubMenuActivos.class);
+                            startActivity(intent1);
+                            finish();
+                        }
+                        if (rbtnj.isChecked()) {
+                            Intent intentae4 = new Intent(Intent.ACTION_VIEW, Uri.parse("http://rh.imss.gob.mx/tarjetonjubilados/(S(lpvgwevvhy0ja2padtk4t12e))/default.aspx"));
+                            startActivity(intentae4);
+                        }
+
+
+                    }
+                });
+
+                dialog.show();
 
                 break;
 
@@ -222,9 +261,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.botonconsulta:
+                Toast toast3 = new Toast(getApplicationContext());
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.toast,
+                        (ViewGroup) findViewById(R.id.lytLayout));
 
+                TextView txtMsg = layout.findViewById(R.id.txtMensaje);
+                txtMsg.setText("Esto puede tardar unos segundos, favor de esperar " +
+                        "GRACIAS");
 
+                toast3.setDuration(Toast.LENGTH_LONG);
+                toast3.setView(layout);
+                toast3.show();
+
+                Intent intent11111 = new Intent(this, Consulta.class);
+                startActivity(intent11111);
+                finish();
                 break;
+
 
             case R.id.botoncont:
 
@@ -254,7 +308,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.botoncursos:
+                Toast toast4 = new Toast(getApplicationContext());
+                LayoutInflater inflater4 = getLayoutInflater();
+                View layout4 = inflater4.inflate(R.layout.toast,
+                        (ViewGroup) findViewById(R.id.lytLayout));
 
+                TextView txtMsg4 = layout4.findViewById(R.id.txtMensaje);
+                txtMsg4.setText("Proximamente estaremos subiendo las becas para el proximo año " +
+                        "GRACIAS");
+
+                toast4.setDuration(Toast.LENGTH_LONG);
+                toast4.setView(layout4);
+                toast4.show();
 
                 break;
 
@@ -345,9 +410,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.botonbono:
+                Intent intent1312to = new Intent(this, Declaracion.class);
+                startActivity(intent1312to);
 
+                finish();
 
                 break;
+
+
+            case R.id.botonprestamos:
+                Intent intent1312to1 = new Intent(this, Prestaciones.class);
+                startActivity(intent1312to1);
+
+                finish();
+
+                break;
+
 
 
         }

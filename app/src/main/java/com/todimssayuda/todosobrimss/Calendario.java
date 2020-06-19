@@ -11,9 +11,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class Calendario extends AppCompatActivity implements View.OnClickListener{
     LinearLayout botoncalencomple;
-    //AdView mAdView;
+    AdView mAdView;
     private static final float MIN_SCALE = 0.7f;
     private static final float MIN_ALPHA = 0.3f;
 
@@ -22,9 +25,9 @@ public class Calendario extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendario);
 
-      //  mAdView = findViewById(R.id.adView1);
-        //AdRequest adRequest = new AdRequest.Builder().build();
-        //mAdView.loadAd(adRequest);
+        mAdView = findViewById(R.id.adView1);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         //botonatras
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);

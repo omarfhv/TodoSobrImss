@@ -13,12 +13,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class SeguroFacul extends AppCompatActivity implements View.OnClickListener {
 
 
     LinearLayout botondirectprimera, botondirecrenovacio, botonpoliticos, botongraficadirecto, botongraficapoliticos;
     ColorDrawable dialogColor;
-//    private AdView mAdView;
+    private AdView mAdView;
 
 
     @Override
@@ -32,9 +35,9 @@ public class SeguroFacul extends AppCompatActivity implements View.OnClickListen
         }
 
         setContentView(R.layout.activity_seguro_facul);
-        //mAdView = findViewById(R.id.adView1);
-        //AdRequest adRequest = new AdRequest.Builder().build();
-        //mAdView.loadAd(adRequest);
+        mAdView = findViewById(R.id.adView1);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
         botondirectprimera = findViewById(R.id.botonfamidirectosprimera);

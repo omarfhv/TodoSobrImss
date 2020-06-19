@@ -13,12 +13,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class Pases extends AppCompatActivity implements View.OnClickListener {
 
 
     LinearLayout botoninfopas, botoninfoomi;
     ColorDrawable dialogColor;
- //   private AdView mAdView;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +33,9 @@ public class Pases extends AppCompatActivity implements View.OnClickListener {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         setContentView(R.layout.activity_pases);
-       // mAdView = findViewById(R.id.adView1);
-        //AdRequest adRequest = new AdRequest.Builder().build();
-        //mAdView.loadAd(adRequest);
+        mAdView = findViewById(R.id.adView1);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
 

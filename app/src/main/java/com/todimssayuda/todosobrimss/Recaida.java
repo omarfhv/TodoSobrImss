@@ -8,11 +8,13 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 
 import com.github.barteksc.pdfviewer.PDFView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class Recaida extends AppCompatActivity {
 
     PDFView pdfView;
-    //private AdView mAdView;
+    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +26,9 @@ public class Recaida extends AppCompatActivity {
         }
 
         setContentView(R.layout.imagen);
-        //mAdView = findViewById(R.id.adView1);
-        //AdRequest adRequest = new AdRequest.Builder().build();
-        //mAdView.loadAd(adRequest);
+        mAdView = findViewById(R.id.adView1);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         pdfView = (PDFView)findViewById(R.id.pdfView);
         //  pdfView.fromFile("Convenio.pdf").load();

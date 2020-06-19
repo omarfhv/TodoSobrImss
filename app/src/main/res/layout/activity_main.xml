@@ -297,12 +297,12 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/contra" />
+                        android:background="@drawable/dec" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bono"
+                        android:text="Declaracion ANUAL"
                         android:gravity="center"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
@@ -567,6 +567,31 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/botonprestamos"
+                    android:layout_width="150dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/boton_principal"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/preta" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Prestamos por Categoria"
+                        android:textAlignment="center"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
             </LinearLayout>
 
 
@@ -592,5 +617,16 @@
         android:layout_centerHorizontal="true"
         android:visibility="gone" />
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
 
+        ads:adSize="SMART_BANNER"
+
+        ads:adUnitId="@string/adbanner"
+        android:layout_alignParentLeft="true" />
 </RelativeLayout>

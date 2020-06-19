@@ -9,12 +9,14 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.github.barteksc.pdfviewer.PDFView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class Jubilacion extends AppCompatActivity {
 
     PDFView pdfView;
     TextView textView1;
-    //private AdView mAdView;
+    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +29,9 @@ public class Jubilacion extends AppCompatActivity {
 
         setContentView(R.layout.imagen1
         );
-        //mAdView = findViewById(R.id.adView1);
-        //AdRequest adRequest = new AdRequest.Builder().build();
-       // mAdView.loadAd(adRequest);
+        mAdView = findViewById(R.id.adView1);
+        AdRequest adRequest = new AdRequest.Builder().build();
+       mAdView.loadAd(adRequest);
 
         textView1 = (TextView) findViewById(R.id.texto1);
         pdfView = (PDFView)findViewById(R.id.pdfView);

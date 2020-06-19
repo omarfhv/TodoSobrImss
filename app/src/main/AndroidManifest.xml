@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.todimssayuda.todosobrimss">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,7 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".Calculadora"></activity>
+        <activity android:name=".Prestaciones" />
+        <activity android:name=".Declaracion" />
+        <activity android:name=".PDFAdapter" />
+        <activity android:name=".PdfActivity" />
+        <activity android:name=".Consulta" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".SliderAdapterCalendario" />
         <activity android:name=".CaledarioCompleto" />
         <activity android:name=".Calendario" />
@@ -49,6 +57,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2736592244570345~6727086187" />
     </application>
 
 </manifest>

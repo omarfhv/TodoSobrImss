@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class TiposDeContrato extends AppCompatActivity {
 
-    //private AdView mAdView;
+    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +26,9 @@ public class TiposDeContrato extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_tipos_de_contrato);
-        //mAdView = findViewById(R.id.adView1);
-        //AdRequest adRequest = new AdRequest.Builder().build();
-        //mAdView.loadAd(adRequest);
+        mAdView = findViewById(R.id.adView1);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
 

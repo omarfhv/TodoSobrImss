@@ -8,11 +8,13 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 
 import com.github.barteksc.pdfviewer.PDFView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class ModificacionesContra extends AppCompatActivity {
 
     PDFView pdfView;
-   // private AdView mAdView;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +28,9 @@ public class ModificacionesContra extends AppCompatActivity {
 
         setContentView(R.layout.imagen);
         pdfView = (PDFView)findViewById(R.id.pdfView);
-       /* mAdView = findViewById(R.id.adView1);
+        mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);*/
+        mAdView.loadAd(adRequest);
 
         //  pdfView.fromFile("Convenio.pdf").load();
         pdfView.fromAsset("modificacion.pdf").load();

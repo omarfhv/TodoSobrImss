@@ -17,6 +17,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import static android.Manifest.permission.CALL_PHONE;
 
 public class RecuperaSoporte extends AppCompatActivity implements View.OnClickListener {
@@ -26,7 +29,7 @@ public class RecuperaSoporte extends AppCompatActivity implements View.OnClickLi
     private Intent intentllamada;
     LinearLayout botoncorreo, botonllamada;
     ColorDrawable dialogColor;
-    //private AdView mAdView;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +41,9 @@ public class RecuperaSoporte extends AppCompatActivity implements View.OnClickLi
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         setContentView(R.layout.activity_recupera_soporte);
-        //mAdView = findViewById(R.id.adView1);
-        //AdRequest adRequest = new AdRequest.Builder().build();
-        //mAdView.loadAd(adRequest);
+        mAdView = findViewById(R.id.adView1);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
 
