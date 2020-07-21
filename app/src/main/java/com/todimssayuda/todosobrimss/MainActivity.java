@@ -28,7 +28,7 @@ import com.google.android.gms.ads.InterstitialAd;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta;
+    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda;
     SharedPreferences sharedPref;
     PDFView pdfView;
 
@@ -140,6 +140,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         botonpresta = findViewById(R.id.botonprestamos);
         botonpresta.setOnClickListener(this);
+
+        botonsegunda = findViewById(R.id.botonsegundadejulio);
+        botonsegunda.setOnClickListener(this);
 
 
 
@@ -425,6 +428,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
 
                 break;
+
+            case R.id.botonsegundadejulio:
+                Intent intent1312to1f = new Intent(this, SegundaDeJulio.class);
+                startActivity(intent1312to1f);
+
+                finish();
+
+                break;
+
 
 
 

@@ -16,7 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Calculadora"></activity>
+        <activity android:name=".ProporcionalJulio"></activity>
+        <activity android:name=".SegundaDeJulio" />
+        <activity android:name=".Bono" />
+        <activity android:name=".Calculadora" />
         <activity android:name=".Prestaciones" />
         <activity android:name=".Declaracion" />
         <activity android:name=".PDFAdapter" />
