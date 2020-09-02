@@ -28,7 +28,7 @@ import com.google.android.gms.ads.InterstitialAd;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda;
+    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas;
     SharedPreferences sharedPref;
     PDFView pdfView;
 
@@ -143,6 +143,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         botonsegunda = findViewById(R.id.botonsegundadejulio);
         botonsegunda.setOnClickListener(this);
+
+        botoncalcuvacas = findViewById(R.id.botoncalcuvaca);
+        botoncalcuvacas.setOnClickListener(this);
 
 
 
@@ -432,6 +435,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.botonsegundadejulio:
                 Intent intent1312to1f = new Intent(this, SegundaDeJulio.class);
                 startActivity(intent1312to1f);
+
+                finish();
+
+                break;
+
+            case R.id.botoncalcuvaca:
+                Intent intent1312to1fa = new Intent(this, MarcasDeInclusion.class);
+                startActivity(intent1312to1fa);
 
                 finish();
 

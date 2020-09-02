@@ -16,7 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ProporcionalJulio"></activity>
+        <activity android:name=".CalcuVacas"></activity>
+        <activity android:name=".AnoMas" />
+        <activity android:name=".AnoCinco" />
+        <activity android:name=".AnoCuatro" />
+        <activity android:name=".AnoTres" />
+        <activity android:name=".AnoDos" />
+        <activity android:name=".AnoUno" />
+        <activity android:name=".MarcasDeInclusion" />
+        <activity android:name=".ProporcionalJulio" />
         <activity android:name=".SegundaDeJulio" />
         <activity android:name=".Bono" />
         <activity android:name=".Calculadora" />
