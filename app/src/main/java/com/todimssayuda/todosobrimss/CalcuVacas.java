@@ -79,7 +79,7 @@ public class CalcuVacas extends AppCompatActivity implements View.OnClickListene
                     double resultado = ((aux1 / 30) *aux2);
                     double resultado2 = (((aux1 / 30) *aux3)*.25);
                     DecimalFormat formato = new DecimalFormat("$0,000.00");
-                    tvResultado.setText("048 Su pago de vacaciones fraccionadas o vendidas es = " + formato.format(resultado));
+                    tvResultado.setText("048 Su pago de vacaciones fraccionadas o pagadas es = " + formato.format(resultado));
                     tvprima.setText("029 Su Pago de Prima Vacacional es = "+ formato.format(resultado2));
 
                 }catch (NumberFormatException e){
@@ -99,7 +99,7 @@ public class CalcuVacas extends AppCompatActivity implements View.OnClickListene
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.segunda, menu);
+        getMenuInflater().inflate(R.menu.menuvacas, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -112,7 +112,7 @@ public class CalcuVacas extends AppCompatActivity implements View.OnClickListene
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 finish();
                 break;
-            case R.id.modificacionescontrato:
+            case R.id.vacasinfo:
                 instruccionesdialogo(true);
 
                 break;
@@ -138,7 +138,7 @@ public class CalcuVacas extends AppCompatActivity implements View.OnClickListene
         sharedPref = getSharedPreferences("instruccionesa", Context.MODE_PRIVATE);
         if (!sharedPref.getBoolean("instruccionesa", false) || def) {
             final AlertDialog.Builder constructor = new AlertDialog.Builder(this);
-            View vista = getLayoutInflater().inflate(R.layout.instruccionessegunda, null);
+            View vista = getLayoutInflater().inflate(R.layout.instrucionesvacas, null);
             constructor.setView(vista);
             final AlertDialog dialogo = constructor.create();
             dialogo.getWindow().setBackgroundDrawable(dialogColor);

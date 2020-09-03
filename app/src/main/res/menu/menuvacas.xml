@@ -12,7 +12,7 @@
 
 
     <item
-        android:id="@+id/modificacionescontrato"
+        android:id="@+id/vacasinfo"
         android:icon="@drawable/info"
         android:title="Agenda IMSS"
         yourapp:showAsAction="ifRoom" />
