@@ -28,7 +28,7 @@ import com.google.android.gms.ads.InterstitialAd;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas;
+    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas, botoncajadeahorro;
     SharedPreferences sharedPref;
     PDFView pdfView;
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-2736592244570345/9645372492");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         AdRequest adRequest1 = new AdRequest.Builder().build();
         mInterstitialAd.loadAd(adRequest1);
         mInterstitialAd.setAdListener(new AdListener());
@@ -147,6 +147,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botoncalcuvacas = findViewById(R.id.botoncalcuvaca);
         botoncalcuvacas.setOnClickListener(this);
 
+        botoncajadeahorro = findViewById(R.id.botoncajadeahorro);
+        botoncajadeahorro.setOnClickListener(this);
+
 
 
     }
@@ -178,7 +181,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
 
                 dialog.dismiss();
-               // mInterstitialAd.show();
+                mInterstitialAd.show();
 
 
 
@@ -447,6 +450,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
 
                 break;
+
+            case R.id.botoncajadeahorro:
+                Intent intentdajaaa = new Intent(this, CajaAhorro.class);
+                startActivity(intentdajaaa);
+                finish();
+
+
+                break;
+
 
 
 

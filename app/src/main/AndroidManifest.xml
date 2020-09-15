@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CalcuVacas"></activity>
+        <activity android:name=".CajaAhorro"></activity>
+        <activity android:name=".CalcuVacas" />
         <activity android:name=".AnoMas" />
         <activity android:name=".AnoCinco" />
         <activity android:name=".AnoCuatro" />
