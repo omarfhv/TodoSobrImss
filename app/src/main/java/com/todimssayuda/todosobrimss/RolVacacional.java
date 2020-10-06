@@ -6,15 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-public class RolVacacional extends AppCompatActivity {
+public class RolVacacional extends AppCompatActivity implements View.OnClickListener {
 
     PDFView pdfView;
     private AdView mAdView;
+    LinearLayout botonroles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +29,13 @@ public class RolVacacional extends AppCompatActivity {
         }
 
 
-        setContentView(R.layout.imagen);
+        setContentView(R.layout.activity_rol_vacacional21);
       mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        botonroles = findViewById(R.id.roles21);
+        botonroles.setOnClickListener(this);
+
 
 
         pdfView = findViewById(R.id.pdfView);
@@ -60,5 +66,12 @@ public class RolVacacional extends AppCompatActivity {
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent11 = new Intent(this, RolVacacional21.class);
+        startActivity(intent11);
+        finish();
     }
 }

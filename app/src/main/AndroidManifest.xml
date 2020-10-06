@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CajaAhorro"></activity>
+        <activity android:name=".RolVacacional21"></activity>
+        <activity android:name=".Festivos21" />
+        <activity android:name=".CajaAhorro" />
         <activity android:name=".CalcuVacas" />
         <activity android:name=".AnoMas" />
         <activity android:name=".AnoCinco" />

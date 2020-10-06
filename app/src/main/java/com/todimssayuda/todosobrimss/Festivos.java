@@ -6,15 +6,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-public class Festivos extends AppCompatActivity {
+public class Festivos extends AppCompatActivity implements View.OnClickListener{
 
     PDFView pdfView;
     private AdView mAdView;
+    LinearLayout botonfestivo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +30,12 @@ public class Festivos extends AppCompatActivity {
         }
 
 
-        setContentView(R.layout.imagen);
+        setContentView(R.layout.festivos);
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
+        botonfestivo = findViewById(R.id.festivos21);
+        botonfestivo.setOnClickListener(this);
 
         pdfView = findViewById(R.id.pdfView);
 
@@ -60,5 +65,12 @@ public class Festivos extends AppCompatActivity {
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void onClick(View v) {
+        Intent intent11 = new Intent(this, Festivos21.class);
+        startActivity(intent11);
+        finish();
     }
 }
