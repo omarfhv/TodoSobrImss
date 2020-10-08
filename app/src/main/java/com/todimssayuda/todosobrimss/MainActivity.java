@@ -12,6 +12,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -26,6 +28,9 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas, botoncajadeahorro;
@@ -37,13 +42,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int califica;
     InterstitialAd mInterstitialAd;
     ColorDrawable dialogColor;
-
+    LinearLayout bloqueo;
+    Button link ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
+        final Calendar c = Calendar.getInstance();
+        int yy = c.get(Calendar.YEAR);
+        int  mm = c.get(Calendar.MONTH);
+
+        bloqueo = findViewById(R.id.bloqueo);
+        link = findViewById(R.id.botonenlacefb);
+       if (yy < 2021 )
+           bloqueo.setVisibility(View.INVISIBLE);
 
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -58,6 +73,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         sharedPref = getSharedPreferences("inicio", Context.MODE_PRIVATE);
         califica = sharedPref.getInt("califica", 0);
+        boolean binfo = sharedPref.getBoolean("infoinicio", true);
+        if (binfo)
+        dialogoinfo();
 
         if (califica == 8) {
             dialogocalifica();
@@ -150,10 +168,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botoncajadeahorro = findViewById(R.id.botoncajadeahorro);
         botoncajadeahorro.setOnClickListener(this);
 
+        link.setOnClickListener(this);
 
 
     }
+    private void dialogoinfo() {
 
+        final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        final LayoutInflater inflater = getLayoutInflater();
+        View vi = inflater.inflate(R.layout.dialogocalifica, null);
+        builder.setView(vi);
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(true);
+        ColorDrawable dialogColor = new ColorDrawable(Color.GRAY);
+        dialogColor.setAlpha(0);
+        dialog.getWindow().setBackgroundDrawable(dialogColor);
+        TextView txtconf = vi.findViewById(R.id.txtcalifica);
+        txtconf.setText("La información proporcionada por esta aplicación es solo para facilitarle el acceso para el descargo del tarjetón que se obtiene directamente de los sitios http://rh.imss.gob.mx/TarjetonDigital/ y http://rh.imss.gob.mx/tarjetonjubilados/(S(ilsapuvnqy5bppvgfk3nghep))/default.aspx . Así como la facilidad de consultar  varios documentos que se encuentran en la página del https://sntss.org.mx/ y por último obtener de una manera más fácil la información de la caja de ahorros que se proporciona del link https://www.cpasntss.mx/ y con todo esto ayudar a los trabajadores del instituto\n" +
+                "Sin embargo, no hacemos ninguna representación o garantía de ningún tipo, expresa o implícita, con respecto a la precisión, adecuación, validez, confiabilidad, disponibilidad o integridad de cualquier información en los Sitios [o nuestra aplicación móvil].");
+        Button botonsi = vi.findViewById(R.id.botonsi);
+        botonsi.setVisibility(View.INVISIBLE);
+        Button botonno = vi.findViewById(R.id.botonno);
+        botonno.setText("Ok");
+        botonno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putBoolean("infoinicio", false);
+                editor.apply();
+                dialog.dismiss();
+                mInterstitialAd.show();
+                
+            }
+        });
+
+        dialog.show();
+
+    }
 
 
     private void dialogocalifica() {
@@ -201,6 +252,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
 
         switch (view.getId()){
+            case R.id.botonenlacefb:
+                Intent intentfb = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/tarjetondigitalimss/"));
+                startActivity(intentfb);
+
+
+                break;
 
             case R.id.botontarjeton:
                 final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -467,6 +524,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menuinfo, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.botoninfo:
+                    dialogoinfo();
+                break;
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

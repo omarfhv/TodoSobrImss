@@ -49,8 +49,8 @@ public class Calculadora extends AppCompatActivity {
         btnSumar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                double aux1 = Double.valueOf(et1.getText().toString());
-                double aux2 = Double.valueOf(et2.getText().toString());
+                double aux1 = Double.parseDouble(et1.getText().toString());
+                double aux2 = Double.parseDouble(et2.getText().toString());
                 double resultado = ((aux1 + aux2)/15)*46;
                 double resultado2= (aux1 + aux2 )*6;
                 DecimalFormat formato = new DecimalFormat("$00,000.00");
