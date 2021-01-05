@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+    android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:orientation="vertical"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:background="@drawable/botonblanco"
+    tools:context=".Calculadora">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calculo del Concepto 049 AGUINALDO y \nConcepto 047 Anticipo de Aguinaldo."
+        android:textColor="#154f3a"
+        android:textSize="23dp">
+
+    </TextView>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText1"
+        android:hint="Concepto 002"
+        android:inputType="number"
+        android:digits="0123456789."
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:hint="Concepto 011"
+        android:inputType="number"
+        android:digits="0123456789."
+        android:layout_below="@+id/editText1"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CALCULAR"
+        android:textColor="#154f3a"
+        android:background="@drawable/botonblanco"
+        android:id="@+id/btnSumar"
+        android:layout_marginBottom="25dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CALCULAR PROPORCIONAL"
+        android:textColor="#154f3a"
+        android:layout_gravity="center"
+        android:background="@drawable/botonblanco"
+        android:id="@+id/btnpropocional"
+        android:layout_marginBottom="10dp"
+        />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Su AGUINALDO aproximado es de = "
+        android:textColor="#154f3a"
+        android:id="@+id/textViewResultado" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Su Anticipo de AGUINALDO es de = "
+        android:textColor="#154f3a"
+        android:id="@+id/textViewResultado2" />
+
+
+
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+
+        ads:adSize="SMART_BANNER"
+
+        ads:adUnitId="@string/adbanner"
+        android:layout_alignParentLeft="true" />
+
+</LinearLayout>

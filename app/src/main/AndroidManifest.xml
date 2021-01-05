@@ -16,7 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RolVacacional21"></activity>
+        <activity android:name=".ProporcionalAguinaldo"></activity>
+        <activity android:name=".Aguinaldo" />
+        <activity android:name=".Beca" />
+        <activity android:name=".RolVacacional21" />
         <activity android:name=".Festivos21" />
         <activity android:name=".CajaAhorro" />
         <activity android:name=".CalcuVacas" />

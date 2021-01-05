@@ -33,7 +33,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas, botoncajadeahorro;
+    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas, botoncajadeahorro, botonaguinaldo;
     SharedPreferences sharedPref;
     PDFView pdfView;
 
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         bloqueo = findViewById(R.id.bloqueo);
         link = findViewById(R.id.botonenlacefb);
-       if (yy < 2021 )
+       if (yy < 2022 )
            bloqueo.setVisibility(View.INVISIBLE);
 
         mAdView = findViewById(R.id.adView1);
@@ -167,6 +167,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         botoncajadeahorro = findViewById(R.id.botoncajadeahorro);
         botoncajadeahorro.setOnClickListener(this);
+
+        botonaguinaldo = findViewById(R.id.botonaguinaldo);
+        botonaguinaldo.setOnClickListener(this);
 
         link.setOnClickListener(this);
 
@@ -374,7 +377,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.botoncursos:
-                Toast toast4 = new Toast(getApplicationContext());
+               /* Toast toast4 = new Toast(getApplicationContext());
                 LayoutInflater inflater4 = getLayoutInflater();
                 View layout4 = inflater4.inflate(R.layout.toast,
                         (ViewGroup) findViewById(R.id.lytLayout));
@@ -385,8 +388,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 toast4.setDuration(Toast.LENGTH_LONG);
                 toast4.setView(layout4);
-                toast4.show();
+                toast4.show();*/
+                Intent intentdajaa12671 = new Intent(this, Beca.class);
+                startActivity(intentdajaa12671);
 
+                finish();
                 break;
 
             case R.id.botonpermutas:
@@ -398,8 +404,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.botonpases:
-                Intent intentdajaa12671 = new Intent(this, Pases.class);
-                startActivity(intentdajaa12671);
+                Intent intentdajaa126712 = new Intent(this, Pases.class);
+                startActivity(intentdajaa126712);
 
                 finish();
 
@@ -511,6 +517,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.botoncajadeahorro:
                 Intent intentdajaaa = new Intent(this, CajaAhorro.class);
                 startActivity(intentdajaaa);
+                finish();
+
+
+                break;
+
+            case R.id.botonaguinaldo:
+                Intent intentdajaaa1 = new Intent(this, Aguinaldo.class);
+                startActivity(intentdajaaa1);
                 finish();
 
 
