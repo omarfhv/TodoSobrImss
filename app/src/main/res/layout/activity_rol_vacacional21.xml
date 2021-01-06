@@ -17,28 +17,6 @@
 
     </com.github.barteksc.pdfviewer.PDFView>
 
-    <LinearLayout
-        android:layout_above="@id/adView1"
-        android:id="@+id/roles21"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:background="@drawable/boton_principal"
-        android:gravity="center"
-        android:orientation="vertical">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Roles Vacacional 2021"
-            android:textSize="20dp"
-            android:textColor="#ffffff"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView1"

@@ -13,7 +13,7 @@ import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-public class RolVacacional extends AppCompatActivity implements View.OnClickListener {
+public class RolVacacional extends AppCompatActivity {
 
     PDFView pdfView;
     private AdView mAdView;
@@ -33,14 +33,13 @@ public class RolVacacional extends AppCompatActivity implements View.OnClickList
       mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-        botonroles = findViewById(R.id.roles21);
-        botonroles.setOnClickListener(this);
+
 
 
 
         pdfView = findViewById(R.id.pdfView);
 
-        pdfView.fromAsset("roles.pdf").load();
+        pdfView.fromAsset("festiveinti.pdf").load();
 
     }
     @Override
@@ -68,10 +67,5 @@ public class RolVacacional extends AppCompatActivity implements View.OnClickList
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(View view) {
-        Intent intent11 = new Intent(this, RolVacacional21.class);
-        startActivity(intent11);
-        finish();
-    }
+
 }
