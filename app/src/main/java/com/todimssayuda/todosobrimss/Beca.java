@@ -40,7 +40,7 @@ public class Beca extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            startActivity(new Intent(getBaseContext(), MainActivity.class)
+            startActivity(new Intent(getBaseContext(), CursosIm.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
             return true;
@@ -53,7 +53,7 @@ public class Beca extends AppCompatActivity {
 
 
         if (item.getItemId() == android.R.id.home) {
-            startActivity(new Intent(getBaseContext(), MainActivity.class)
+            startActivity(new Intent(getBaseContext(), CursosIm.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
         }
