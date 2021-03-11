@@ -20,7 +20,7 @@ public class SliderAdapterCalendario extends PagerAdapter {
     Context context;
     LayoutInflater inflater;
     Activity activity;
-    public int[] listaimagenes = {R.mipmap.enero20,R.mipmap.febrero20, R.mipmap.marzo20, R.mipmap.abril20, R.mipmap.mayo20, R.mipmap.junio20, R.mipmap.julio,
+    public int[] listaimagenes = {R.mipmap.enero20,R.mipmap.febrero20, R.mipmap.marzo20, R.mipmap.abril20, R.mipmap.mayo20, R.mipmap.junio20, R.mipmap.julio20,
             R.mipmap.agosto20, R.mipmap.septiembre20, R.mipmap.octubre20, R.mipmap.noviembre20, R.mipmap.diciembre20};
     SharedPreferences sharedPref;
 

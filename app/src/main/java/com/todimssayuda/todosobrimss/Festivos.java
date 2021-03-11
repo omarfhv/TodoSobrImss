@@ -13,7 +13,7 @@ import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-public class Festivos extends AppCompatActivity implements View.OnClickListener{
+public class Festivos extends AppCompatActivity{
 
     PDFView pdfView;
     private AdView mAdView;
@@ -34,12 +34,11 @@ public class Festivos extends AppCompatActivity implements View.OnClickListener{
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-        botonfestivo = findViewById(R.id.festivos21);
-        botonfestivo.setOnClickListener(this);
+
 
         pdfView = findViewById(R.id.pdfView);
 
-        pdfView.fromAsset("festivos.pdf").load();
+        pdfView.fromAsset("rolveinti.pdf").load();
 
     }
     @Override
@@ -68,9 +67,5 @@ public class Festivos extends AppCompatActivity implements View.OnClickListener{
     }
 
 
-    public void onClick(View v) {
-        Intent intent11 = new Intent(this, Festivos21.class);
-        startActivity(intent11);
-        finish();
-    }
+
 }

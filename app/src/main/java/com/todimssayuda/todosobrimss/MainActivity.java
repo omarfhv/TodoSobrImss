@@ -33,7 +33,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas, botoncajadeahorro;
+    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario;
     SharedPreferences sharedPref;
     PDFView pdfView;
 
@@ -99,8 +99,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botonpromociones = findViewById(R.id.botonpromociones);
         botonpromociones.setOnClickListener(this);
 
-        botonnoticias = findViewById(R.id.botonnoticias);
-        botonnoticias.setOnClickListener(this);
+        botonenterate = findViewById(R.id.botonenterate);
+        botonenterate.setOnClickListener(this);
 
         botonrol = findViewById(R.id.botonrol);
         botonrol.setOnClickListener(this);
@@ -167,6 +167,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         botoncajadeahorro = findViewById(R.id.botoncajadeahorro);
         botoncajadeahorro.setOnClickListener(this);
+
+        botonaguinaldo = findViewById(R.id.botonaguinaldo);
+        botonaguinaldo.setOnClickListener(this);
+
+        botonhipotecario = findViewById(R.id.botonhipotecario);
+        botonhipotecario.setOnClickListener(this);
 
         link.setOnClickListener(this);
 
@@ -312,8 +318,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-            case R.id.botonnoticias:
-                Intent intentd0ajaa = new Intent(this, MenuPrincipalAgenda.class);
+            case R.id.botonenterate:
+                Intent intentd0ajaa = new Intent(this, Noticias.class);
                 startActivity(intentd0ajaa);
                 finish();
 
@@ -374,7 +380,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.botoncursos:
-                Toast toast4 = new Toast(getApplicationContext());
+               /* Toast toast4 = new Toast(getApplicationContext());
                 LayoutInflater inflater4 = getLayoutInflater();
                 View layout4 = inflater4.inflate(R.layout.toast,
                         (ViewGroup) findViewById(R.id.lytLayout));
@@ -385,8 +391,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 toast4.setDuration(Toast.LENGTH_LONG);
                 toast4.setView(layout4);
-                toast4.show();
+                toast4.show();*/
+                Intent intentdajaa12671 = new Intent(this, CursosIm.class);
+                startActivity(intentdajaa12671);
 
+                finish();
                 break;
 
             case R.id.botonpermutas:
@@ -398,8 +407,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.botonpases:
-                Intent intentdajaa12671 = new Intent(this, Pases.class);
-                startActivity(intentdajaa12671);
+                Intent intentdajaa126712 = new Intent(this, Pases.class);
+                startActivity(intentdajaa126712);
 
                 finish();
 
@@ -516,7 +525,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
 
+            case R.id.botonaguinaldo:
+                Intent intentdajaaa1 = new Intent(this, Aguinaldo.class);
+                startActivity(intentdajaaa1);
+                finish();
 
+
+                break;
+
+            case R.id.botonhipotecario:
+                Intent intentd0ajaaw = new Intent(this, PrestamoHipotecario.class);
+                startActivity(intentd0ajaaw);
+                finish();
+
+                break;
 
 
 
