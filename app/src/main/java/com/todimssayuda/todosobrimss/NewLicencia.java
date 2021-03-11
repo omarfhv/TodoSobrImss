@@ -21,10 +21,10 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,25 +44,25 @@ import java.util.Calendar;
 
 import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-import static android.app.DatePickerDialog.OnDateSetListener;
 
-public class New extends AppCompatActivity implements View.OnClickListener {
+public class NewLicencia extends AppCompatActivity implements View.OnClickListener {
 
     final int COD_SELECCIONA = 10;
     final int COD_FOTO = 0;
     final Calendar c = Calendar.getInstance();
-    public static String CARPETA_RAIZ = "MisImagenesIMSS/";
-    public static String RUTA_IMAGEN= CARPETA_RAIZ + "PasesIMSS";
-    Button add_el, botonCarga, fechabtn;
-    EditText lastname, horas, motivo;
-    RadioButton entrada, salida, intermedio;
-    TextView textfecha;
-    ImageView imagen;
+    public static String RUTA_IMAGEN = New.CARPETA_RAIZ + "LicenciaIMSS";
+    Button add_ellicencia, botonCargarlicencia, fechabtninicio, fechabtnfinal;
+    EditText motivolicencia;
+    TextView textfechainicio, textfechafinal;
+    ImageView imagenlicencia;
+    CheckBox sueldo;
     boolean foto = false;
-    String path, fecha, radiobutn, imagenid, mes, dia;
-    private int diaint, mesint, ano;
+    String path, fechainiciolicencia, fechafinal, rbtnlicencia, mesinicio, diainicio,
+            mesfinal, diafinal, anoinicio, anofinal;
     private AdView mAdView;
-    InterstitialAd mInterstitialAd;
+     InterstitialAd mInterstitialAd;
+    //private int diaintinicio, mesintinicio, anoinicio;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,48 +71,44 @@ public class New extends AppCompatActivity implements View.OnClickListener {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new);
-        add_el = findViewById(R.id.add_element);
-        add_el.setOnClickListener(this);
-        horas = findViewById(R.id.horas);
-        motivo = findViewById(R.id.motivo);
-        textfecha = findViewById(R.id.textfecha);
-        entrada = findViewById(R.id.entrada);
-        entrada.setChecked(true);
-        salida = findViewById(R.id.salida);
-        intermedio = findViewById(R.id.intermedio);
-        imagen = findViewById(R.id.imagemId);
-        botonCarga = findViewById(R.id.btnCargarImg);
-        botonCarga.setOnClickListener(this);
-        fechabtn = findViewById(R.id.fechabtn);
-        fechabtn.setOnClickListener(this);
-        diaint = c.get(Calendar.DAY_OF_MONTH);
-        mesint = c.get(Calendar.MONTH);
-        ano = c.get(Calendar.YEAR);
+        setContentView(R.layout.activity_new_licencia);
+        add_ellicencia = (Button) findViewById(R.id.add_elementlicencia);
+        add_ellicencia.setOnClickListener(this);
+        motivolicencia = (EditText) findViewById(R.id.motivolicencia);
+        textfechainicio = (TextView) findViewById(R.id.textfechainicio);
+        textfechafinal = (TextView) findViewById(R.id.textfechafinal);
+        sueldo = findViewById(R.id.chbxsueldo);
+        imagenlicencia = (ImageView) findViewById(R.id.imagemIdlicencia);
+        botonCargarlicencia = (Button) findViewById(R.id.btnCargarImglicencia);
+        botonCargarlicencia.setOnClickListener(this);
+        fechabtninicio = findViewById(R.id.fechabtniniciolicencia);
+        fechabtninicio.setOnClickListener(this);
+        fechabtnfinal = findViewById(R.id.fechabtnfinal);
+        fechabtnfinal.setOnClickListener(this);
 
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        mInterstitialAd = new InterstitialAd(this);
+         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId(getString(R.string.adinter));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
-                Intent intentds = new Intent(New.this, PasesAgenda.class);
+                Intent intentds = new Intent(NewLicencia.this, Licencia.class);
                 startActivity(intentds);
                 finish();
+
             }
 
         });
 
-
         if (validaPermisos()) {
-            botonCarga.setEnabled(true);
+            botonCargarlicencia.setEnabled(true);
         } else {
-            botonCarga.setEnabled(false);
+            botonCargarlicencia.setEnabled(false);
         }
 
 
@@ -139,9 +135,6 @@ public class New extends AppCompatActivity implements View.OnClickListener {
         return false;
     }
 
-
-
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -149,7 +142,7 @@ public class New extends AppCompatActivity implements View.OnClickListener {
         if (requestCode == 100) {
             if (grantResults.length == 2 && grantResults[0] == PackageManager.PERMISSION_GRANTED
                     && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                botonCarga.setEnabled(true);
+                botonCargarlicencia.setEnabled(true);
             } else {
                 solicitarPermisosManual();
             }
@@ -159,7 +152,7 @@ public class New extends AppCompatActivity implements View.OnClickListener {
 
     private void solicitarPermisosManual() {
         final CharSequence[] opciones = {"si", "no"};
-        final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(New.this);
+        final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(NewLicencia.this);
         alertOpciones.setTitle("¿Desea configurar los permisos de forma manual?");
         alertOpciones.setItems(opciones, new DialogInterface.OnClickListener() {
             @Override
@@ -183,7 +176,7 @@ public class New extends AppCompatActivity implements View.OnClickListener {
 
 
     private void cargarDialogoRecomendacion() {
-        AlertDialog.Builder dialogo = new AlertDialog.Builder(New.this);
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(NewLicencia.this);
         dialogo.setTitle("Permisos Desactivados");
         dialogo.setMessage("Debe aceptar los permisos para el correcto funcionamiento de la App");
 
@@ -206,29 +199,21 @@ public class New extends AppCompatActivity implements View.OnClickListener {
             isCreada = fileImagen.mkdirs();
         }
         if (isCreada == true) {
-
-            if (entrada.isChecked()) {
-                imagenid = "ENTRADA";
-            }
-            if (salida.isChecked()) {
-                imagenid = "SALIDA";
-            }
-            if (intermedio.isChecked()) {
-                imagenid = "INTERMEDIO";
-            }
-            nombreImagen = 0 + fecha + imagenid + ".jpg";
+            nombreImagen = 0 + fechainiciolicencia + ".jpg";
         }
 
-        path =  Environment.getExternalStorageDirectory() +
+        path = Environment.getExternalStorageDirectory() +
                 File.separator + RUTA_IMAGEN + File.separator + nombreImagen;
 
         File imagen = new File(path);
         if (imagen.exists()) {
             final AlertDialog.Builder constructor = new AlertDialog.Builder(this);
-            View vista = getLayoutInflater().inflate(R.layout.alert_dialog_layout_agenda, null);
+            View vista = getLayoutInflater().inflate(R.layout.alert_dialog_layout, null);
             constructor.setView(vista);
             final AlertDialog dialogo = constructor.create();
             Button botonok = vista.findViewById(R.id.botonok);
+            TextView texto = vista.findViewById(R.id.txt);
+            texto.setText("Ya existe un registro con la fecha que tienes seleccionada por favor intenta con una fecha diferente");
             botonok.setOnClickListener(new View.OnClickListener() {
                                            @Override
                                            public void onClick(View v) {
@@ -261,7 +246,7 @@ public class New extends AppCompatActivity implements View.OnClickListener {
             switch (requestCode) {
                 case COD_SELECCIONA:
                     Uri miPath = data.getData();
-                    imagen.setImageURI(miPath);
+                    imagenlicencia.setImageURI(miPath);
                     break;
 
                 case COD_FOTO:
@@ -275,10 +260,10 @@ public class New extends AppCompatActivity implements View.OnClickListener {
 
                     Bitmap bitmap = BitmapFactory.decodeFile(path);
                     Drawable d = new BitmapDrawable(getResources(), bitmap);
-                    imagen.setBackgroundDrawable(d);
-                    add_el.setEnabled(true);
-                    botonCarga.setText("volver a tomar");
-                    if (imagen != null) {
+                    imagenlicencia.setBackgroundDrawable(d);
+                    add_ellicencia.setEnabled(true);
+                    botonCargarlicencia.setText("Volver a tomar");
+                    if (imagenlicencia != null) {
                         foto = true;
                     }
                     break;
@@ -293,72 +278,107 @@ public class New extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.fechabtn:
-                DatePickerDialog datePickerDialog = new DatePickerDialog(this, new OnDateSetListener() {
+            case R.id.fechabtniniciolicencia:
+                DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        mes = "" + (month + 1);
+                        anoinicio = "" + year;
+                        mesinicio = "" + (month + 1);
                         //Toast.makeText(New.this, "" + mes.length(), Toast.LENGTH_LONG).show();
-                        if (mes.length() == 1) {
-                            mes = 0 + mes;
+                        if (mesinicio.length() == 1) {
+                            mesinicio = 0 + mesinicio;
                         }
-                        dia = "" + dayOfMonth;
-                        if (dia.length() == 1)
-                            dia = 0 + dia;
+                        diainicio = "" + dayOfMonth;
+                        if (diainicio.length() == 1)
+                            diainicio = 0 + diainicio;
 
-                        fecha = dia + mes + year;
+                        fechainiciolicencia = diainicio + mesinicio + year;
 
-                        textfecha.setText(dia + "/" + mes + "/" + year);
+                        textfechainicio.setText(diainicio + "/" + mesinicio + "/" + year);
+                        textfechafinal.setText("  /  /    ");
                         if (foto) {
-                            add_el.setEnabled(false);
-                            botonCarga.setText("Vuelve a tomar la foto");
-                            imagen.setBackground(getDrawable(R.drawable.camaraimg));
+                            add_ellicencia.setEnabled(false);
+                            botonCargarlicencia.setText("Vuelve a tomar la foto");
+                            imagenlicencia.setBackground(getDrawable(R.drawable.camaraimg));
                         }
                         //Toast.makeText(getBaseContext(), "fecha!!" + dayOfMonth + " / " + (month + 1) + " / " + year, Toast.LENGTH_LONG).show();
                     }
-                }, ano, mesint, diaint);
+                }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
                 break;
 
-            case R.id.add_element:
+            case R.id.fechabtnfinal:
+                if (fechainiciolicencia != null) {
+                    //Toast.makeText(this, textfechainicio.getText().toString(), Toast.LENGTH_SHORT).show();
+                    DatePickerDialog datePickerDialog1 = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                        @Override
+                        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//                        Toast.makeText(NewLicencia.this, "" + anoinicio + "" + year, Toast.LENGTH_SHORT).show();
 
-                if (fecha != null) {
-                    if (foto) {
-                        if (entrada.isChecked()) {
-                            radiobutn = "ENTRADA";
+                            if (Integer.parseInt(anoinicio) <= year) {
+                                if (Integer.parseInt(mesinicio) <= month + 1) {
+                                    if (Integer.parseInt(diainicio) <= dayOfMonth || Integer.parseInt(mesinicio) == month) {
+                                        mesfinal = "" + (month + 1);
+                                        //Toast.makeText(New.this, "" + mes.length(), Toast.LENGTH_LONG).show();
+                                        if (mesfinal.length() == 1) {
+                                            mesfinal = 0 + mesfinal;
+                                        }
+                                        diafinal = "" + dayOfMonth;
+                                        if (diafinal.length() == 1)
+                                            diafinal = 0 + diafinal;
+
+                                        fechafinal = diafinal + mesfinal + year;
+                                        textfechafinal.setText(diafinal + "/" + mesfinal + "/" + year);
+                                    } else
+                                        Toast.makeText(getBaseContext(), "la fecha final no puede ser antes que la inicial (dia)", Toast.LENGTH_LONG).show();
+                                } else
+                                    Toast.makeText(getBaseContext(), "la fecha final no puede ser antes que la inicial (mes)", Toast.LENGTH_LONG).show();
+                            } else
+                                Toast.makeText(getBaseContext(), "la fecha final no puede ser antes que la inicial (año)", Toast.LENGTH_LONG).show();
                         }
-                        if (salida.isChecked()) {
-                            radiobutn = "SALIDA";
-                        }
-                        if (intermedio.isChecked()) {
-                            radiobutn = "INTERMEDIO";
-                        }
-                        Contact c = new Contact(getBaseContext());
-                        c.open();
-                        c.createPase(fecha, radiobutn, horas.getText().toString(), motivo.getText().toString(), imagenid);
+                    }, Integer.parseInt(anoinicio), Integer.parseInt(mesinicio) - 1, Integer.parseInt(diainicio));
+                    datePickerDialog1.show();
+                } else
+                    Toast.makeText(getBaseContext(), "Ingresa primero la fecha inicial", Toast.LENGTH_LONG).show();
+                break;
 
-                        Toast.makeText(getBaseContext(), "Elemento Agregado!!", Toast.LENGTH_LONG).show();
+            case R.id.add_elementlicencia:
 
-                        if (mInterstitialAd.isLoaded()) {
-                            mInterstitialAd.show();
-                        }else {
-                            Intent intentds = new Intent(New.this, PasesAgenda.class);
-                            startActivity(intentds);
-                            finish();
-                        }
-                    } else {
-                        Toast.makeText(getBaseContext(), " Agrega la imagen", Toast.LENGTH_LONG).show();
-                    }
+                if (fechainiciolicencia != null) {
+                        if (fechafinal != null) {
+                            if (foto) {
+                                if (sueldo.isChecked()) {
+                                    rbtnlicencia = "CON SUELDO";
+                                } else
+                                    rbtnlicencia = "SIN SUELDO";
 
-                } else {
-                    Toast.makeText(getBaseContext(), " Agrega la fecha", Toast.LENGTH_LONG).show();
-                }
 
+                                ContactLicencia c = new ContactLicencia(getBaseContext());
+                                c.open();
+                                c.createLicencia(fechainiciolicencia, fechafinal, rbtnlicencia, motivolicencia.getText().toString());
+                                Toast.makeText(getBaseContext(), "Elemento Agregado!!", Toast.LENGTH_LONG).show();
+                                if (mInterstitialAd.isLoaded()) {
+                                    mInterstitialAd.show();
+                                }else {
+                                    Intent intentds = new Intent(NewLicencia.this, Licencia.class);
+                                    startActivity(intentds);
+                                    finish();
+                                }
+
+                            } else {
+                                Toast.makeText(getBaseContext(), " Ingresa la imagen", Toast.LENGTH_LONG).show();
+                            }
+
+                        } else
+                            Toast.makeText(getBaseContext(), " Ingresa la fecha final", Toast.LENGTH_LONG).show();
+                    } else
+                        Toast.makeText(getBaseContext(), " Ingresa la fecha de inicio", Toast.LENGTH_LONG).show();
 
                 break;
-            case R.id.btnCargarImg:
-               // Toast.makeText(getBaseContext(), " foto", Toast.LENGTH_LONG).show();
+            case R.id.btnCargarImglicencia:
+
                 tomarFotografia();
                 /*
                 final CharSequence[] opciones = {"Tomar Foto", "Cancelar"};
@@ -397,7 +417,7 @@ public class New extends AppCompatActivity implements View.OnClickListener {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            startActivity(new Intent(getBaseContext(), PasesAgenda.class)
+            startActivity(new Intent(getBaseContext(), Licencia.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
             return true;
@@ -409,7 +429,7 @@ public class New extends AppCompatActivity implements View.OnClickListener {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            Intent intentds = new Intent(New.this, PasesAgenda.class);
+            Intent intentds = new Intent(this, Licencia.class);
             startActivity(intentds);
             finish();
         }

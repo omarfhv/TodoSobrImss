@@ -10,7 +10,7 @@
         yourapp:showAsAction="ifRoom" />
     <item
         android:id="@+id/botonagenda"
-        android:icon="@drawable/btnchck"
+        android:icon="@drawable/agendaicon"
         android:title="Agenda"
         yourapp:showAsAction="ifRoom" />
 

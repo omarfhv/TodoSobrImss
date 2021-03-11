@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings;
-
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -24,7 +23,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,35 +32,30 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 
 import java.io.File;
 import java.util.Calendar;
 
 import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-import static android.app.DatePickerDialog.OnDateSetListener;
 
-public class New extends AppCompatActivity implements View.OnClickListener {
+public class NewOtros extends AppCompatActivity implements View.OnClickListener {
 
     final int COD_SELECCIONA = 10;
     final int COD_FOTO = 0;
     final Calendar c = Calendar.getInstance();
-    public static String CARPETA_RAIZ = "MisImagenesIMSS/";
-    public static String RUTA_IMAGEN= CARPETA_RAIZ + "PasesIMSS";
-    Button add_el, botonCarga, fechabtn;
-    EditText lastname, horas, motivo;
-    RadioButton entrada, salida, intermedio;
-    TextView textfecha;
-    ImageView imagen;
+    public static String RUTA_IMAGEN = New.CARPETA_RAIZ + "OtrosIMSS";
+    Button add_elotros, botonCargarotros, fechabtnotros;
+    EditText documentosotros, motivootros;
+    TextView textfechaotros;
+    ImageView imagenotros;
     boolean foto = false;
-    String path, fecha, radiobutn, imagenid, mes, dia;
-    private int diaint, mesint, ano;
+    String path, fechaotros, imagenidotros, mesotros, diaotros;
+    private int diaintotros, mesintotros, anootros;
     private AdView mAdView;
-    InterstitialAd mInterstitialAd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,48 +64,30 @@ public class New extends AppCompatActivity implements View.OnClickListener {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new);
-        add_el = findViewById(R.id.add_element);
-        add_el.setOnClickListener(this);
-        horas = findViewById(R.id.horas);
-        motivo = findViewById(R.id.motivo);
-        textfecha = findViewById(R.id.textfecha);
-        entrada = findViewById(R.id.entrada);
-        entrada.setChecked(true);
-        salida = findViewById(R.id.salida);
-        intermedio = findViewById(R.id.intermedio);
-        imagen = findViewById(R.id.imagemId);
-        botonCarga = findViewById(R.id.btnCargarImg);
-        botonCarga.setOnClickListener(this);
-        fechabtn = findViewById(R.id.fechabtn);
-        fechabtn.setOnClickListener(this);
-        diaint = c.get(Calendar.DAY_OF_MONTH);
-        mesint = c.get(Calendar.MONTH);
-        ano = c.get(Calendar.YEAR);
+        setContentView(R.layout.activity_new_otros);
+        add_elotros = findViewById(R.id.add_elementotros);
+        add_elotros.setOnClickListener(this);
+        documentosotros = findViewById(R.id.documentosotros);
+        motivootros = findViewById(R.id.motivootros);
+        textfechaotros = findViewById(R.id.textfechaotros);
+        imagenotros = findViewById(R.id.imagemIdotros);
+        botonCargarotros = findViewById(R.id.btnCargarImgotros);
+        botonCargarotros.setOnClickListener(this);
+        fechabtnotros = findViewById(R.id.fechabtnotros);
+        fechabtnotros.setOnClickListener(this);
+        diaintotros = c.get(Calendar.DAY_OF_MONTH);
+        mesintotros = c.get(Calendar.MONTH);
+        anootros = c.get(Calendar.YEAR);
 
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getString(R.string.adinter));
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                Intent intentds = new Intent(New.this, PasesAgenda.class);
-                startActivity(intentds);
-                finish();
-            }
-
-        });
-
 
         if (validaPermisos()) {
-            botonCarga.setEnabled(true);
+            botonCargarotros.setEnabled(true);
         } else {
-            botonCarga.setEnabled(false);
+            botonCargarotros.setEnabled(false);
         }
 
 
@@ -139,9 +114,6 @@ public class New extends AppCompatActivity implements View.OnClickListener {
         return false;
     }
 
-
-
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -149,7 +121,7 @@ public class New extends AppCompatActivity implements View.OnClickListener {
         if (requestCode == 100) {
             if (grantResults.length == 2 && grantResults[0] == PackageManager.PERMISSION_GRANTED
                     && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                botonCarga.setEnabled(true);
+                botonCargarotros.setEnabled(true);
             } else {
                 solicitarPermisosManual();
             }
@@ -159,7 +131,7 @@ public class New extends AppCompatActivity implements View.OnClickListener {
 
     private void solicitarPermisosManual() {
         final CharSequence[] opciones = {"si", "no"};
-        final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(New.this);
+        final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(NewOtros.this);
         alertOpciones.setTitle("¿Desea configurar los permisos de forma manual?");
         alertOpciones.setItems(opciones, new DialogInterface.OnClickListener() {
             @Override
@@ -183,7 +155,7 @@ public class New extends AppCompatActivity implements View.OnClickListener {
 
 
     private void cargarDialogoRecomendacion() {
-        AlertDialog.Builder dialogo = new AlertDialog.Builder(New.this);
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(NewOtros.this);
         dialogo.setTitle("Permisos Desactivados");
         dialogo.setMessage("Debe aceptar los permisos para el correcto funcionamiento de la App");
 
@@ -207,28 +179,21 @@ public class New extends AppCompatActivity implements View.OnClickListener {
         }
         if (isCreada == true) {
 
-            if (entrada.isChecked()) {
-                imagenid = "ENTRADA";
-            }
-            if (salida.isChecked()) {
-                imagenid = "SALIDA";
-            }
-            if (intermedio.isChecked()) {
-                imagenid = "INTERMEDIO";
-            }
-            nombreImagen = 0 + fecha + imagenid + ".jpg";
+            nombreImagen = 0 + fechaotros + ".jpg";
         }
 
-        path =  Environment.getExternalStorageDirectory() +
+        path = Environment.getExternalStorageDirectory() +
                 File.separator + RUTA_IMAGEN + File.separator + nombreImagen;
 
         File imagen = new File(path);
         if (imagen.exists()) {
             final AlertDialog.Builder constructor = new AlertDialog.Builder(this);
-            View vista = getLayoutInflater().inflate(R.layout.alert_dialog_layout_agenda, null);
+            View vista = getLayoutInflater().inflate(R.layout.alert_dialog_layout, null);
             constructor.setView(vista);
             final AlertDialog dialogo = constructor.create();
             Button botonok = vista.findViewById(R.id.botonok);
+            TextView texto = vista.findViewById(R.id.txt);
+            texto.setText("Ya existe un registro de sustitucion con la fecha que tienes seleccionada por favor intenta con una fecha diferente");
             botonok.setOnClickListener(new View.OnClickListener() {
                                            @Override
                                            public void onClick(View v) {
@@ -261,7 +226,7 @@ public class New extends AppCompatActivity implements View.OnClickListener {
             switch (requestCode) {
                 case COD_SELECCIONA:
                     Uri miPath = data.getData();
-                    imagen.setImageURI(miPath);
+                    imagenotros.setImageURI(miPath);
                     break;
 
                 case COD_FOTO:
@@ -275,10 +240,10 @@ public class New extends AppCompatActivity implements View.OnClickListener {
 
                     Bitmap bitmap = BitmapFactory.decodeFile(path);
                     Drawable d = new BitmapDrawable(getResources(), bitmap);
-                    imagen.setBackgroundDrawable(d);
-                    add_el.setEnabled(true);
-                    botonCarga.setText("volver a tomar");
-                    if (imagen != null) {
+                    imagenotros.setBackgroundDrawable(d);
+                    add_elotros.setEnabled(true);
+                    botonCargarotros.setText("volver a tomar");
+                    if (imagenotros != null) {
                         foto = true;
                     }
                     break;
@@ -293,60 +258,48 @@ public class New extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.fechabtn:
-                DatePickerDialog datePickerDialog = new DatePickerDialog(this, new OnDateSetListener() {
+            case R.id.fechabtnotros:
+                DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        mes = "" + (month + 1);
+                        mesotros = "" + (month + 1);
                         //Toast.makeText(New.this, "" + mes.length(), Toast.LENGTH_LONG).show();
-                        if (mes.length() == 1) {
-                            mes = 0 + mes;
+                        if (mesotros.length() == 1) {
+                            mesotros = 0 + mesotros;
                         }
-                        dia = "" + dayOfMonth;
-                        if (dia.length() == 1)
-                            dia = 0 + dia;
+                        diaotros = "" + dayOfMonth;
+                        if (diaotros.length() == 1)
+                            diaotros = 0 + diaotros;
 
-                        fecha = dia + mes + year;
+                        fechaotros = diaotros + mesotros + year;
 
-                        textfecha.setText(dia + "/" + mes + "/" + year);
+                        textfechaotros.setText(diaotros + "/" + mesotros + "/" + year);
                         if (foto) {
-                            add_el.setEnabled(false);
-                            botonCarga.setText("Vuelve a tomar la foto");
-                            imagen.setBackground(getDrawable(R.drawable.camaraimg));
+                            add_elotros.setEnabled(false);
+                            botonCargarotros.setText("Vuelve a tomar la foto");
+                            imagenotros.setBackground(getDrawable(R.drawable.camaraimg));
                         }
                         //Toast.makeText(getBaseContext(), "fecha!!" + dayOfMonth + " / " + (month + 1) + " / " + year, Toast.LENGTH_LONG).show();
                     }
-                }, ano, mesint, diaint);
+                }, anootros, mesintotros, diaintotros);
                 datePickerDialog.show();
                 break;
 
-            case R.id.add_element:
-
-                if (fecha != null) {
+            case R.id.add_elementotros:
+                if (fechaotros != null) {
                     if (foto) {
-                        if (entrada.isChecked()) {
-                            radiobutn = "ENTRADA";
-                        }
-                        if (salida.isChecked()) {
-                            radiobutn = "SALIDA";
-                        }
-                        if (intermedio.isChecked()) {
-                            radiobutn = "INTERMEDIO";
-                        }
-                        Contact c = new Contact(getBaseContext());
+
+                        ContactOtros c = new ContactOtros(getBaseContext());
                         c.open();
-                        c.createPase(fecha, radiobutn, horas.getText().toString(), motivo.getText().toString(), imagenid);
+                        c.createOtros(fechaotros, documentosotros.getText().toString(), motivootros.getText().toString());
 
                         Toast.makeText(getBaseContext(), "Elemento Agregado!!", Toast.LENGTH_LONG).show();
+                        Intent intentds = new Intent(NewOtros.this, Otros.class);
+                        startActivity(intentds);
+                        finish();
 
-                        if (mInterstitialAd.isLoaded()) {
-                            mInterstitialAd.show();
-                        }else {
-                            Intent intentds = new Intent(New.this, PasesAgenda.class);
-                            startActivity(intentds);
-                            finish();
-                        }
+
                     } else {
                         Toast.makeText(getBaseContext(), " Agrega la imagen", Toast.LENGTH_LONG).show();
                     }
@@ -357,8 +310,7 @@ public class New extends AppCompatActivity implements View.OnClickListener {
 
 
                 break;
-            case R.id.btnCargarImg:
-               // Toast.makeText(getBaseContext(), " foto", Toast.LENGTH_LONG).show();
+            case R.id.btnCargarImgotros:
                 tomarFotografia();
                 /*
                 final CharSequence[] opciones = {"Tomar Foto", "Cancelar"};
@@ -397,7 +349,7 @@ public class New extends AppCompatActivity implements View.OnClickListener {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            startActivity(new Intent(getBaseContext(), PasesAgenda.class)
+            startActivity(new Intent(getBaseContext(), Otros.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
             return true;
@@ -409,7 +361,7 @@ public class New extends AppCompatActivity implements View.OnClickListener {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            Intent intentds = new Intent(New.this, PasesAgenda.class);
+            Intent intentds = new Intent(NewOtros.this, Otros.class);
             startActivity(intentds);
             finish();
         }

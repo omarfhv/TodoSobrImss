@@ -563,6 +563,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     dialogoinfo();
                 break;
 
+            case R.id.botonagenda:
+                Intent intentdajaaa1 = new Intent(this, MenuPrincipalAgenda.class);
+                startActivity(intentdajaaa1);
+                finish();
+                break;
+
         }
 
         return super.onOptionsItemSelected(item);
