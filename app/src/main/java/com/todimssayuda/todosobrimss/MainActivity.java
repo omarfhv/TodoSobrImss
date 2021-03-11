@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         bloqueo = findViewById(R.id.bloqueo);
         link = findViewById(R.id.botonenlacefb);
-       if (yy < 2021 )
+       if (yy < 2022 )
            bloqueo.setVisibility(View.INVISIBLE);
 
         mAdView = findViewById(R.id.adView1);
@@ -313,7 +313,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             case R.id.botonnoticias:
-                Intent intentd0ajaa = new Intent(this, Noticias.class);
+                Intent intentd0ajaa = new Intent(this, MenuPrincipalAgenda.class);
                 startActivity(intentd0ajaa);
                 finish();
 

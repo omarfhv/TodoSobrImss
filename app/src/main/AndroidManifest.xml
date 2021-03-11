@@ -64,7 +64,11 @@
         <activity android:name=".Promociones" />
         <activity android:name=".SubMenuActivos" />
         <activity android:name=".WbView" />
+        <activity android:name=".MenuPrincipalAgenda" />
+        <activity android:name=".PasesAgenda" />
+        <activity android:name=".New" />
         <activity android:name=".Splash">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

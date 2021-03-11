@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#485C4B"
+    android:orientation="vertical"
+    android:padding="25dp">
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  "
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/botonok"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/boton_principal"
+        android:text="ok"
+        android:textColor="@android:color/white" />
+
+    <CheckBox
+        android:id="@+id/chbxdialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:buttonTint="#ffffff"
+        android:text="No volver a mostrar"
+        android:textColor="#ffffff" />
+</LinearLayout>
