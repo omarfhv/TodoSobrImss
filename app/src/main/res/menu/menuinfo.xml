@@ -8,11 +8,7 @@
         android:icon="@drawable/info"
         android:title="Informacion"
         yourapp:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/botonagenda"
-        android:icon="@drawable/agendaicons"
-        android:title="Agenda"
-        yourapp:showAsAction="ifRoom" />
+
 
 
 </menu>

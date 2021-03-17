@@ -4,26 +4,25 @@
     package="com.todimssayuda.todosobrimss">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m"
-        android:requestLegacyExternalStorage ="true"
-        >
+        tools:targetApi="m">
+        <activity android:name=".PrestamoMedianoPlazo"></activity>
+        <activity android:name=".PrestamoCarro" />
         <activity android:name=".PrestamoHipotecario" />
         <activity android:name=".Nutricion" />
         <activity android:name=".Tecnicos" />
@@ -49,12 +48,14 @@
         <activity android:name=".Calculadora" />
         <activity android:name=".Prestaciones" />
         <activity android:name=".Declaracion" />
-        <activity android:name=".PDFAdapter"
+        <activity
+            android:name=".PDFAdapter"
             tools:ignore="Instantiatable" />
         <activity android:name=".PdfActivity" />
         <activity android:name=".Consulta" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".SliderAdapterCalendario"
+        <activity
+            android:name=".SliderAdapterCalendario"
             tools:ignore="Instantiatable" />
         <activity android:name=".CaledarioCompleto" />
         <activity android:name=".Calendario" />
@@ -83,30 +84,26 @@
         <activity android:name=".SubMenuActivos" />
         <activity android:name=".WbView" />
         <activity android:name=".MenuPrincipalAgenda" />
-
         <activity android:name=".New" />
         <activity android:name=".NewLicencia" />
         <activity android:name=".NewOtros" />
         <activity android:name=".NewSusti" />
-
         <activity android:name=".PasesAgenda" />
         <activity android:name=".Otros" />
         <activity android:name=".Licencia" />
         <activity android:name=".SustisAgenda" />
-
         <activity android:name=".Edit" />
         <activity android:name=".EditLicencia" />
         <activity android:name=".EditOtros" />
         <activity android:name=".EditSusti" />
-
         <activity android:name=".Splash">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -115,8 +112,8 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
-
         </provider>
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-2736592244570345~6727086187" />

@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="Aseguramiento para los familiares políticos, comprendidos hasta el 4° grado\n de parentesco por consanguinidad del cónyuge del trabajador."
         android:textSize="15dp"
-        android:textColor="#154f3a"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
 
         />

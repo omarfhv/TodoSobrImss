@@ -13,7 +13,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="5dp"
         android:text="Las incidencias que afectan el Fondo de Ahorro:"
-        android:textColor="#154f3a"
+        android:textColor="#FFFFFF"
         android:textSize="30dp"
         android:textStyle="bold" />
 
@@ -42,7 +42,7 @@
 * Becas sin Sueldo 175\n
 "
                 android:textSize="25dp"
-                android:textColor="#154f3a"
+                android:textColor="#FFFFFF"
                 android:gravity="fill"
 
                 ></TextView>

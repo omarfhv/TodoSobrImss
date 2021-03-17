@@ -33,7 +33,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario;
+    LinearLayout botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario;
     SharedPreferences sharedPref;
     PDFView pdfView;
 
@@ -89,6 +89,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putInt("califica", califica);
         editor.apply();
+
+        botonmedianoplazo = findViewById(R.id.botonmedianoplazo);
+        botonmedianoplazo.setOnClickListener(this);
+
+        botonprestamocarro = findViewById(R.id.botoncarro);
+        botonprestamocarro.setOnClickListener(this);
 
         botontarjeton = findViewById(R.id.botontarjeton);
         botontarjeton.setOnClickListener(this);
@@ -302,6 +308,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.botoncalendario:
                 Intent intent1312t2 = new Intent(this, Calendario.class);
                 startActivity(intent1312t2);
+
+                finish();
+
+
+                break;
+
+            case R.id.botonmedianoplazo:
+                Intent intent1312t21 = new Intent(this, PrestamoMedianoPlazo.class);
+                startActivity(intent1312t21);
+
+                finish();
+
+
+                break;
+
+            case R.id.botoncarro:
+                Intent intent1312t22 = new Intent(this, PrestamoCarro.class);
+                startActivity(intent1312t22);
 
                 finish();
 
@@ -563,11 +587,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     dialogoinfo();
                 break;
 
-            case R.id.botonagenda:
+          /*   case R.id.botonagenda:
                 Intent intentdajaaa1 = new Intent(this, MenuPrincipalAgenda.class);
                 startActivity(intentdajaaa1);
                 finish();
-                break;
+                break; */
 
         }
 

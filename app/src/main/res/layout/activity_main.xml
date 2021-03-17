@@ -389,6 +389,31 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/botoncarro"
+                    android:layout_width="150dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/boton_principal"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/carro" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Calculadora de Prestamo de CARRO"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
 
 
             </LinearLayout>
@@ -720,6 +745,32 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Calculadora de Aguinaldo"
+                        android:textAlignment="center"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/botonmedianoplazo"
+                    android:layout_width="150dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/boton_principal"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/mediano" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Calculadora de Credito Hipotecario a Mediano Plazo"
                         android:textAlignment="center"
                         android:textColor="#ffffff"
                         android:textStyle="bold"

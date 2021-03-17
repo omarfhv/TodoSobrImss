@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="Aseguramiento para los familiares de los trabajadores hasta el 4° grado\n de parentesco por consanguinidad."
         android:textSize="15dp"
-        android:textColor="#154f3a"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
 
         />

@@ -13,7 +13,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="5dp"
         android:text="Los requisitos son:"
-        android:textColor="#154f3a"
+        android:textColor="#FFFFFF"
         android:textSize="30dp"
         android:textStyle="bold" />
 
@@ -45,7 +45,7 @@
 * En cuanto salga la convocatoria se avisara\n
 "
                 android:textSize="25dp"
-                android:textColor="#154f3a"
+                android:textColor="#FFFFFF"
                 android:gravity="fill"
 
                 ></TextView>
