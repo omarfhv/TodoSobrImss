@@ -21,7 +21,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".PrestamoMedianoPlazo"></activity>
+        <activity android:name=".CalcuTiempoExtra"></activity>
+        <activity android:name=".PrestamoMedianoPlazo" />
         <activity android:name=".PrestamoCarro" />
         <activity android:name=".PrestamoHipotecario" />
         <activity android:name=".Nutricion" />
