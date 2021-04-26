@@ -56,6 +56,9 @@ public class CalcuTiempoExtra extends AppCompatActivity implements  View.OnClick
 
 
         btnSumar = findViewById(R.id.btnSumar);
+
+        btnSumar.setOnClickListener(this);
+
         tvResultado = findViewById(R.id.textViewResultado);
 
     }
