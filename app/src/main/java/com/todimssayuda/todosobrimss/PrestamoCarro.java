@@ -70,8 +70,8 @@ public class PrestamoCarro extends AppCompatActivity implements View.OnClickList
                 try {
 
 
-                    double aux1 = Double.valueOf(et1.getText().toString());
-                    double aux2 = Double.valueOf(et2.getText().toString());
+                    double aux1 = Double.parseDouble(et1.getText().toString());
+                    double aux2 = Double.parseDouble(et2.getText().toString());
                     double resultado2 = (aux1 + aux2)*.2;
                     double resultado = (aux1 + aux2 + resultado2 ) ;
                     double resultado3 = (resultado)*48;
