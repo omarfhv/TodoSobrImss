@@ -33,7 +33,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    LinearLayout botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario;
+    LinearLayout botontiempoextra,botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario;
     SharedPreferences sharedPref;
     PDFView pdfView;
 
@@ -89,6 +89,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putInt("califica", califica);
         editor.apply();
+
+        botontiempoextra = findViewById(R.id.botontiempoextra);
+        botontiempoextra.setOnClickListener(this);
 
         botonmedianoplazo = findViewById(R.id.botonmedianoplazo);
         botonmedianoplazo.setOnClickListener(this);
@@ -308,6 +311,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.botoncalendario:
                 Intent intent1312t2 = new Intent(this, Calendario.class);
                 startActivity(intent1312t2);
+
+                finish();
+
+
+                break;
+
+            case R.id.botontiempoextra:
+                Intent intent1312t2w = new Intent(this, CalcuTiempoExtra.class);
+                startActivity(intent1312t2w);
 
                 finish();
 
