@@ -33,7 +33,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    LinearLayout botontiempoextra,botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario;
+    LinearLayout botontiempoextra,botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos;
     SharedPreferences sharedPref;
     PDFView pdfView;
 
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         bloqueo = findViewById(R.id.bloqueo);
         link = findViewById(R.id.botonenlacefb);
-       if (yy < 2022 )
+       if (yy < 2023 )
            bloqueo.setVisibility(View.INVISIBLE);
 
         mAdView = findViewById(R.id.adView1);
@@ -182,6 +182,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         botonhipotecario = findViewById(R.id.botonhipotecario);
         botonhipotecario.setOnClickListener(this);
+
+        botonconceptos = findViewById(R.id.botonconceptos);
+        botonconceptos.setOnClickListener(this);
 
         link.setOnClickListener(this);
 
@@ -311,6 +314,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.botoncalendario:
                 Intent intent1312t2 = new Intent(this, Calendario.class);
                 startActivity(intent1312t2);
+
+                finish();
+
+
+                break;
+
+            case R.id.botonconceptos:
+                Intent intent1312t211 = new Intent(this, Conceptos.class);
+                startActivity(intent1312t211);
 
                 finish();
 

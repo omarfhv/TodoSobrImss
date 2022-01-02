@@ -11,7 +11,7 @@
         android:id="@+id/texto1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" NOTA: ES IMPORTANTE QUE SE LLEVE A CABO EL CONVENIO EN TODAS LAS UNIDADES, PARA EVITAR QUE NOS VUELVAN A RETIRAR LAS TXT.\n SON 6 SUSTITUCIONES AL MES. "
+        android:text=" NOTA: El convenio se renueva cada año, se termina el 31 de DICIEMBRE DE 2022. "
         android:textColor="#F01818"
         android:gravity="center"
         android:textStyle="bold" />

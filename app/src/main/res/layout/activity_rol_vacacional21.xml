@@ -17,7 +17,6 @@
 
     </com.github.barteksc.pdfviewer.PDFView>
 
-
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView1"
         android:layout_width="match_parent"

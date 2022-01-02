@@ -34,7 +34,7 @@ public class RolVacacional21 extends AppCompatActivity {
 
         pdfView = findViewById(R.id.pdfView);
 
-        pdfView.fromAsset("festiveinti.pdf").load();
+        pdfView.fromAsset("rol22.pdf").load();
 
     }
     @Override

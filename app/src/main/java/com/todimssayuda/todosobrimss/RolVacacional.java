@@ -17,6 +17,7 @@ public class RolVacacional extends AppCompatActivity {
 
     PDFView pdfView;
     private AdView mAdView;
+
     LinearLayout botonroles;
 
     @Override
@@ -33,13 +34,14 @@ public class RolVacacional extends AppCompatActivity {
       mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
+       /* botonroles = findViewById(R.id.rolvac22);
+        botonroles.setOnClickListener(this);*/
 
 
 
         pdfView = findViewById(R.id.pdfView);
 
-        pdfView.fromAsset("festiveinti.pdf").load();
+        pdfView.fromAsset("rol22.pdf").load();
 
     }
     @Override
@@ -68,4 +70,10 @@ public class RolVacacional extends AppCompatActivity {
     }
 
 
+ /*   @Override
+    public void onClick(View v) {
+        Intent intent11 = new Intent(this, RolVacacional21.class);
+        startActivity(intent11);
+        finish();
+    } */
 }

@@ -34,7 +34,7 @@ public class Tecnicos extends AppCompatActivity {
 
         pdfView = findViewById(R.id.pdfView);
 
-        pdfView.fromAsset("tecnico.pdf").load();
+        pdfView.fromAsset("cusoscdmx.pdf").load();
 
     }
     @Override
