@@ -34,7 +34,7 @@ public class MasTecnicos extends AppCompatActivity {
 
         pdfView = findViewById(R.id.pdfView);
 
-        pdfView.fromAsset("mastecnico.pdf").load();
+        pdfView.fromAsset("mastecnicos.pdf").load();
 
     }
     @Override

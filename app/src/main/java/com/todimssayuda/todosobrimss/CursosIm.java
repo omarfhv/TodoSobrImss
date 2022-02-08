@@ -50,7 +50,8 @@ public class CursosIm extends AppCompatActivity implements View.OnClickListener 
         Intent intent121=new Intent(this,Tecnicos.class);
         startActivity(intent121);
     }
-    /*   public  void Medicos (View view){
+
+    public  void Medicos (View view){
 
         Intent intent1271=new Intent(this,MasTecnicos.class);
         startActivity(intent1271);
@@ -59,7 +60,11 @@ public class CursosIm extends AppCompatActivity implements View.OnClickListener 
 
         Intent intent1471=new Intent(this,Nutricion.class);
         startActivity(intent1471);
-    } */
+    }
+    public void Tecnicos (View view){
+        Intent intent188=new Intent(this,CursoTecnicos.class);
+        startActivity(intent188);
+    }
 
 
 

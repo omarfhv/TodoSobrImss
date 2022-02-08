@@ -53,6 +53,59 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/imageButton3"
+                    android:layout_width="150dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/boton_principal"
+                    android:gravity="center"
+                    android:onClick="Medicos"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/tecni" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cursos TÉCNICOS 2022"
+                        android:gravity="center"
+
+                        android:textColor="#ffffff" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/imageButton6"
+                    android:layout_width="150dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/boton_principal"
+                    android:gravity="center"
+                    android:onClick="Tecnicos"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btncursos1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cursos TÉCNICOS 2022"
+                        android:gravity="center"
+
+                        android:textColor="#ffffff" />
+
+                </LinearLayout>
+
 
             </LinearLayout>
 
@@ -82,12 +135,41 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cursos CDMX SIGLO XXI"
+                        android:text="Cursos CDMX 2022"
                         android:gravity="center"
 
                         android:textColor="#ffffff" />
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/imageButton5"
+                    android:layout_width="150dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:onClick="Biblios"
+                    android:background="@drawable/boton_principal"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/dieta" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nutrición 2022"
+                        android:gravity="center"
+
+                        android:textColor="#ffffff" />
+
+                </LinearLayout>
+
+
 
 
             </LinearLayout>
