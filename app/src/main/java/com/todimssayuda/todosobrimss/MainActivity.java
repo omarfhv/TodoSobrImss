@@ -388,7 +388,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 LayoutInflater inflater = getLayoutInflater();
                 View layout = inflater.inflate(R.layout.toast,
                         (ViewGroup) findViewById(R.id.lytLayout));
-
                 TextView txtMsg = layout.findViewById(R.id.txtMensaje);
                 txtMsg.setText("Esto puede tardar unos segundos, favor de esperar " +
                         "GRACIAS");
