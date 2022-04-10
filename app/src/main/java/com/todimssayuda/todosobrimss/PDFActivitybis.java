@@ -1,72 +1,51 @@
 package com.todimssayuda.todosobrimss;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
 import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.shockwave.pdfium.PdfDocument;
 
 import java.util.List;
 
-public class PdfActivity extends AppCompatActivity implements OnPageChangeListener, OnLoadCompleteListener {
+public class PDFActivitybis extends AppCompatActivity implements OnPageChangeListener, OnLoadCompleteListener {
     public static final String SAMPLE_FILE = "android_tutorial.pdf";
     PDFView pdfView;
     Integer pageNumber = 0;
     String pdfFileName;
-    String TAG = "PdfActivity";
-    int position = -1;
-    private AdView mAdView;
-
-
-
-    private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
-
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-
+    String TAG="PdfActivity";
+    int position=-1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        //botonatras
+        super.onCreate(savedInstanceState);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdf);
         init();
-
-        mAdView = findViewById(R.id.adView1);
-        AdRequest adRequest = new AdRequest.Builder().build();
-       mAdView.loadAd(adRequest);
-
-        position = getIntent().getIntExtra("position", -1);
-
     }
 
-    private void init() {
-        pdfView =  findViewById(R.id.pdfView);
-        position = getIntent().getIntExtra("position", -1);
+    private void init(){
+        pdfView= (PDFView)findViewById(R.id.pdfView);
+        position = getIntent().getIntExtra("position",-1);
         displayFromSdcard();
     }
 
     private void displayFromSdcard() {
-        pdfFileName = Consulta.fileList.get(position).getName();
+        pdfFileName = PDFViewer.fileList.get(position).getName();
 
-        pdfView.fromFile(Consulta.fileList.get(position))
+        pdfView.fromFile(PDFViewer.fileList.get(position))
                 .defaultPage(pageNumber)
                 .enableSwipe(true)
 
@@ -103,9 +82,6 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
             }
         }
     }
-
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -126,7 +102,4 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
         }
         return super.onKeyDown(keyCode, event);
     }
-
-
 }
-

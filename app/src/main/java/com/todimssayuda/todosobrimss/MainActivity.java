@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            bloqueo.setVisibility(View.INVISIBLE);
 
         mAdView = findViewById(R.id.adView1);
+        AdSize tam = new AdSize(300 , 100);
+        //mAdView.setAdSize(tam);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
@@ -394,7 +397,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 toast3.setView(layout);
                 toast3.show();
 
-                Intent intent11111 = new Intent(this, Consulta.class);
+                Intent intent11111 = new Intent(this, PDFViewer.class);
                 startActivity(intent11111);
                 finish();
                 break;

@@ -90,7 +90,6 @@ public class Calculadora extends AppCompatActivity {
         }
 
 
-        Intent intentmenu = new Intent();
         switch (item.getItemId()) {
             case R.id.modificacionescontrato:
                 Intent intent121 = new Intent(this, Bono.class);

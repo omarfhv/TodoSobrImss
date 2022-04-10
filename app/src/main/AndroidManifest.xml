@@ -48,6 +48,8 @@
         <activity android:name=".Bono" />
         <activity android:name=".Calculadora" />
         <activity android:name=".Prestaciones" />
+        <activity android:name=".PDFViewer" />
+        <activity android:name=".PDFActivitybis" />
         <activity android:name=".Declaracion" />
         <activity
             android:name=".PDFAdapter"
