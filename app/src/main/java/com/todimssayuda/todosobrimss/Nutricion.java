@@ -34,7 +34,7 @@ public class Nutricion extends AppCompatActivity {
 
         pdfView = findViewById(R.id.pdfView);
 
-        pdfView.fromAsset("nutricion.pdf").load();
+        pdfView.fromAsset("nutris.pdf").load();
 
     }
     @Override
