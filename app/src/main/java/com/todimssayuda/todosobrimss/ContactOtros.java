@@ -103,7 +103,7 @@ public class ContactOtros {
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
            ContactOtros contact = cursorToContact(cursor);
-            comments.add(contact);
+           comments.add(contact);
             cursor.moveToNext();
         }
         // make sure to close the cursor

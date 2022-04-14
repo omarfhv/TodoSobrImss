@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+    <!-- Search, should appear as action button -->
+
+
+
+    <item
+        android:id="@+id/documenclausu"
+        android:icon="@drawable/modifica"
+        android:title="Agenda IMSS"
+        yourapp:showAsAction="ifRoom" />
+
+
+
+    <item
+        android:id="@+id/infohipo"
+        android:icon="@drawable/info"
+        android:title="Agenda IMSS"
+        yourapp:showAsAction="ifRoom" />
+
+
+</menu>

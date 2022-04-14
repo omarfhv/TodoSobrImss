@@ -21,7 +21,8 @@
         android:layout_below="@+id/texto1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/adView1">
 
         <LinearLayout
             android:layout_width="match_parent"

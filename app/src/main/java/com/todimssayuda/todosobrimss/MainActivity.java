@@ -34,7 +34,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    LinearLayout botontiempoextra,botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos;
+    LinearLayout botontiempoextra,botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete;
     SharedPreferences sharedPref;
     PDFView pdfView;
 
@@ -189,6 +189,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botonconceptos = findViewById(R.id.botonconceptos);
         botonconceptos.setOnClickListener(this);
 
+        botonclausulanoventaysiete = findViewById(R.id.botonclausulanoventaysiete);
+        botonclausulanoventaysiete.setOnClickListener(this);
+
         link.setOnClickListener(this);
 
 
@@ -317,6 +320,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.botoncalendario:
                 Intent intent1312t2 = new Intent(this, Calendario.class);
                 startActivity(intent1312t2);
+
+                finish();
+
+
+                break;
+
+            case R.id.botonclausulanoventaysiete:
+                Intent intent1312t297 = new Intent(this, ClausulaNoventySiete.class);
+                startActivity(intent1312t297);
 
                 finish();
 

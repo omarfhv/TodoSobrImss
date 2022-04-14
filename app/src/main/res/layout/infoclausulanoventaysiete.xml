@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/boton_principal"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:text="Los requisitos son:"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="\n
+*Este tramite se realiza en su Delegacion Sindical.\n
+* Si su prestamo es de 1 mes sus descuentos seran en 10 quincenas.\n
+* Si su prestamo es de 2 meses sus descuentos seran en 20 quincenas.\n
+* Si su prestamo es de 3 meses sus descuentos seran en 30 quincenas.\n
+* Cuando el anticipo sea por 3 meses puede hacerse una retencion de mayor cantidad o adelantar pagos.\n
+* Solo se podrá hacer uso de este anticipo una vez al año.\n
+* Su tarjetón debe aparecer en 0 en el concepto 160\n
+
+"
+                android:textSize="20dp"
+                android:textColor="#FFFFFF"
+                android:gravity="fill"
+
+                ></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/botonok"
+                    android:layout_width="120dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="100dp"
+                    android:background="@drawable/boton_principal"
+                    android:text="ok"
+                    android:textColor="@android:color/white" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
