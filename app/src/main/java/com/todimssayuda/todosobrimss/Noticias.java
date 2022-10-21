@@ -96,7 +96,7 @@ public class Noticias extends AppCompatActivity {
                     super.onPageFinished(view, url);
                     progresbar.setVisibility(View.GONE);
                     imv.setVisibility(View.GONE);
-                    setTitle("PROMOCIONES");
+                    setTitle("NOTIFICACIONES");
                 }
 
 
@@ -231,7 +231,7 @@ public class Noticias extends AppCompatActivity {
                             super.onPageFinished(view, url);
                             progresbar.setVisibility(View.GONE);
                             imv.setVisibility(View.GONE);
-                            setTitle("PROMOCIONES");
+                            setTitle("NOTIFICACIONES");
                         }
 
 

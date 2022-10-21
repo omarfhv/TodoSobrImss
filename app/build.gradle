@@ -8,8 +8,8 @@ android {
         applicationId "com.todimssayuda.todosobrimss"
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 29
-        versionName "3.8"
+        versionCode 30
+        versionName "3.9"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
