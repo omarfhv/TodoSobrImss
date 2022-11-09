@@ -3,11 +3,11 @@ package com.todimssayuda.todosobrimss;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -17,7 +17,9 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 
 public class CursosIm extends AppCompatActivity implements View.OnClickListener {
 
-    private AdView mAdView;
+    AdView mAdView;
+    Intent intent;
+    TextView textview;
 
     @Override
 
@@ -30,7 +32,7 @@ public class CursosIm extends AppCompatActivity implements View.OnClickListener 
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        setContentView(R.layout.activity_cursos_im);
+        setContentView(R.layout.activity_menu_cursos_im);
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
@@ -41,32 +43,42 @@ public class CursosIm extends AppCompatActivity implements View.OnClickListener 
         mAdView.loadAd(adRequest);
 
     }
-    public void Tecnico (View view){
-        Intent intent1=new Intent(this,Beca.class);
-        startActivity(intent1);
+
+    public void Tecnico(View view) {
+        //se obtiene el titulo directamente del cduadro de texto del layout
+        textview = findViewById(R.id.cursos1);
+        cambioActivitypdf("becas", "cursos", (String) textview.getText());
     }
 
- public void Postecnico (View view){
-        Intent intent121=new Intent(this,Tecnicos.class);
-        startActivity(intent121);
+    public void Postecnico(View view) {
+        textview = findViewById(R.id.cursos2);
+        cambioActivitypdf("cusoscdmx", "cursos", (String) textview.getText());
     }
 
-    public  void Medicos (View view){
-
-        Intent intent1271=new Intent(this,MasTecnicos.class);
-        startActivity(intent1271);
-    }
-    public  void Biblios (View view){
-
-        Intent intent1471=new Intent(this,Nutricion.class);
-        startActivity(intent1471);
-    }
-    public void Tecnicos (View view){
-        Intent intent188=new Intent(this,CursoTecnicos.class);
-        startActivity(intent188);
+    public void Medicos(View view) {
+        textview = findViewById(R.id.cursos3);
+        cambioActivitypdf("mastecnicos", "cursos", (String) textview.getText());
     }
 
+    public void Biblios(View view) {
+        textview = findViewById(R.id.cursos4);
+        cambioActivitypdf("nutris", "cursos", (String) textview.getText());
+    }
 
+    public void Tecnicos(View view) {
+        textview = findViewById(R.id.cursos5);
+        cambioActivitypdf("tecnic", "cursos", (String) textview.getText());
+
+    }
+
+    public void cambioActivitypdf(String pdf, String clase, String titulo) {
+        intent = new Intent(this, ShowPdf.class);
+        intent.putExtra("pdf", pdf);
+        intent.putExtra("clase", clase);
+        intent.putExtra("titulo", titulo);
+        startActivity(intent);
+        finish();
+    }
 
 
     @Override

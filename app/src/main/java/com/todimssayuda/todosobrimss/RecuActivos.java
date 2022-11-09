@@ -63,14 +63,14 @@ public class RecuActivos extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recu_jubilados);
+        setContentView(R.layout.activity_show_urls);
         instruccionesdialogo(false);
         imv = findViewById(R.id.imagevi);
 
 
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
-       mAdView.loadAd(adRequest);
+        mAdView.loadAd(adRequest);
 
         progresbar = findViewById(R.id.pgbr);
         webview = findViewById(R.id.WebView);
@@ -116,7 +116,6 @@ public class RecuActivos extends AppCompatActivity {
 
             webview.loadUrl("http://rh.imss.gob.mx/TarjetonDigital/");
             webview.getSettings().setBuiltInZoomControls(true);
-
 
 
         } else {
@@ -198,7 +197,11 @@ public class RecuActivos extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menuwebview, menu);
+        getMenuInflater().inflate(R.menu.menu_general, menu);
+        menu.findItem(R.id.item1).setTitle("");
+        menu.findItem(R.id.item1).setIcon(getResources().getDrawable(R.drawable.reload));
+        menu.findItem(R.id.item2).setTitle("");
+        menu.findItem(R.id.item2).setIcon(getResources().getDrawable(R.drawable.info));
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -211,10 +214,10 @@ public class RecuActivos extends AppCompatActivity {
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 finish();
                 break;
-            case R.id.info:
+            case R.id.item2:
                 instruccionesdialogo(true);
                 break;
-            case R.id.reload:
+            case R.id.item1:
                 ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(this.CONNECTIVITY_SERVICE);
                 NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
@@ -271,7 +274,6 @@ public class RecuActivos extends AppCompatActivity {
     }
 
 
-
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     static public int instruccionesbotones(ImageView imv, int num, boolean contador, Context context) {
         if (contador) {
@@ -291,7 +293,7 @@ public class RecuActivos extends AppCompatActivity {
         if (!sharedPref.getBoolean("instruccionesa", false) || def) {
             final int[] cont = {0};
             final AlertDialog.Builder constructor = new AlertDialog.Builder(this);
-            View vista = getLayoutInflater().inflate(R.layout.instrucciones, null);
+            View vista = getLayoutInflater().inflate(R.layout.instrucciones_tarjeton, null);
             constructor.setView(vista);
             final AlertDialog dialogo = constructor.create();
             dialogo.getWindow().setBackgroundDrawable(dialogColor);

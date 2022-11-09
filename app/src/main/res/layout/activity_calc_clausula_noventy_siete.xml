@@ -1,0 +1,97 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/botonblanco"
+    android:orientation="vertical"
+    tools:context=".CalcClausulaNoventySiete">
+
+    <TextView
+        android:id="@+id/tituloclausula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="CLAUSULA 97 DEL CCT\nAnticipo a cuenta de su salario hasta por 3 meses de su sueldo"
+        android:textColor="#154f3a"
+        android:textSize="20dp">
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tituloclausula"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="20dp"
+        android:digits="0123456789."
+        android:hint="Concepto 002"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="20dp"
+        android:digits="0123456789."
+        android:hint="Concepto 011"
+        android:inputType="number" />
+
+    <Button
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btnSumar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText2"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/botonblanco"
+        android:text="CALCULAR"
+        android:textColor="#154f3a" />
+
+    <TextView
+        android:id="@+id/textViewResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSumar"
+        android:layout_marginTop="40dp"
+        android:text="Su prestamo por 1 mes es = "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#154f3a" />
+
+    <TextView
+        android:id="@+id/textViewResultado1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewResultado"
+        android:layout_marginTop="20dp"
+        android:text="Su prestamo por 2 meses es = "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#154f3a" />
+
+    <TextView
+        android:id="@+id/textViewResultado2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewResultado1"
+        android:layout_marginTop="20dp"
+        android:text="Su prestamo por 3 meses es = "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#154f3a" />
+
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/adbanner" />
+
+</RelativeLayout>

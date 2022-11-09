@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-public class Calendario extends AppCompatActivity implements View.OnClickListener{
+public class Calendario extends AppCompatActivity implements View.OnClickListener {
     LinearLayout botoncalencomple;
     AdView mAdView;
     private static final float MIN_SCALE = 0.7f;
@@ -24,6 +24,7 @@ public class Calendario extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendario);
+        this.setTitle("Calendario de pago 2022");
 
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -38,7 +39,7 @@ public class Calendario extends AppCompatActivity implements View.OnClickListene
         botoncalencomple = findViewById(R.id.calendariocompl);
         botoncalencomple.setOnClickListener(this);
         ViewPager viewpager = findViewById(R.id.viewpager);
-        SliderAdapterCalendario adapter = new SliderAdapterCalendario(this, this);
+        SliderAdapterCalendario adapter = new SliderAdapterCalendario(this);
         viewpager.setAdapter(adapter);
         viewpager.setCurrentItem(0);
 
@@ -108,8 +109,11 @@ public class Calendario extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        Intent intent11 = new Intent(this, CaledarioCompleto.class);
-        startActivity(intent11);
+        Intent intent = new Intent(this, ShowPdf.class);
+        intent.putExtra("pdf", "calencompleto");
+        intent.putExtra("clase", "calendario");
+        intent.putExtra("titulo", "Calendario completo 2022");
+        startActivity(intent);
         finish();
     }
 }

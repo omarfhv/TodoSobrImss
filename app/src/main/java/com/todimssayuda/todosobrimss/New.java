@@ -71,7 +71,7 @@ public class New extends AppCompatActivity implements View.OnClickListener {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new);
+        setContentView(R.layout.activity_new_pase);
         add_el = findViewById(R.id.add_element);
         add_el.setOnClickListener(this);
         horas = findViewById(R.id.horas);

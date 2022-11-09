@@ -131,7 +131,7 @@ public class EditSusti extends AppCompatActivity implements View.OnClickListener
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            startActivity(new Intent(getBaseContext(), Sustis.class)
+            startActivity(new Intent(getBaseContext(), MainActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
         }
@@ -141,7 +141,7 @@ public class EditSusti extends AppCompatActivity implements View.OnClickListener
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            startActivity(new Intent(getBaseContext(), Sustis.class)
+            startActivity(new Intent(getBaseContext(), MainActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
             return true;
@@ -216,7 +216,7 @@ public class EditSusti extends AppCompatActivity implements View.OnClickListener
                     nombresustis.setText("");
                     Toast.makeText(getBaseContext(), "Elemento Actualizado!!", Toast.LENGTH_LONG).show();
                     //se agrega metodo para pasar a nueva actividad
-                    Intent intentds = new Intent(EditSusti.this, Sustis.class);
+                    Intent intentds = new Intent(EditSusti.this, MainActivity.class);
                     startActivity(intentds);
                     //se cierra actividdad actual
                     finish();
@@ -244,7 +244,7 @@ public class EditSusti extends AppCompatActivity implements View.OnClickListener
                         finish();
                         dialog.dismiss();
                         Toast.makeText(getBaseContext(), "Elemento eliminado !!", Toast.LENGTH_LONG).show();
-                        Intent intentds = new Intent(EditSusti.this, Sustis.class);
+                        Intent intentds = new Intent(EditSusti.this, MainActivity.class);
                         startActivity(intentds);
                         finish();
 

@@ -19,10 +19,8 @@ import java.util.Calendar;
 public class SliderAdapterCalendario extends PagerAdapter {
     Context context;
     LayoutInflater inflater;
-    Activity activity;
     public int[] listaimagenes = {R.mipmap.enero20,R.mipmap.febrero20, R.mipmap.marzo20, R.mipmap.abril20, R.mipmap.mayo20, R.mipmap.junio20, R.mipmap.julio20,
             R.mipmap.agosto20, R.mipmap.septiembre20, R.mipmap.octubre20, R.mipmap.noviembre20, R.mipmap.diciembre20};
-    SharedPreferences sharedPref;
 
 
     Calendar c = Calendar.getInstance();
@@ -45,7 +43,6 @@ public class SliderAdapterCalendario extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, final int position) {
         inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        sharedPref = context.getSharedPreferences("record", Context.MODE_PRIVATE);
         View view = inflater.inflate(R.layout.viewpagercalendario, container, false);
         ImageView imagenv = view.findViewById(R.id.imageviewcal);
         for (int i = 0; i < (12 - mes); i++) {
@@ -62,9 +59,9 @@ public class SliderAdapterCalendario extends PagerAdapter {
         container.removeView((LinearLayout) object);
     }
 
-    public SliderAdapterCalendario(Context context, Activity activity) {
+    public SliderAdapterCalendario(Context context) {
         this.context = context;
-        this.activity = activity;
+
     }
 
 }

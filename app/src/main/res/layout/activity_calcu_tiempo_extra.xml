@@ -1,14 +1,16 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
 
     android:layout_height="match_parent"
-    android:orientation="vertical"
-
     android:background="@drawable/botonblanco"
-    tools:context=".Calculadora">
+
+    android:orientation="vertical"
+    tools:context=".CalcPrestamos">
 
     <TextView
+        android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cálculo de Tiempo Extra, Concepto 37"
@@ -18,94 +20,90 @@
     </TextView>
 
     <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
         android:id="@+id/editText1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titulo"
+        android:layout_marginTop="20dp"
+        android:digits="0123456789."
         android:hint="Concepto 002"
-        android:inputType="number"
-        android:digits="0123456789."
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:inputType="number" />
 
     <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
         android:id="@+id/editText2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText1"
+        android:digits="0123456789."
         android:hint="Concepto 011"
-        android:inputType="number"
-        android:digits="0123456789."
-        android:layout_below="@+id/editText1"
-        android:layout_centerHorizontal="true" />
+        android:inputType="number" />
 
     <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
         android:id="@+id/editText3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText2"
+        android:digits="0123456789."
         android:hint="Concepto 020"
-        android:inputType="number"
-        android:digits="0123456789."
-        android:layout_below="@+id/editText1"
-        android:layout_centerHorizontal="true" />
+        android:inputType="number" />
 
     <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
         android:id="@+id/editText4"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText3"
+        android:digits="0123456789."
         android:hint="Concepto 022 o 023 o 063"
-        android:inputType="number"
-        android:digits="0123456789."
-        android:layout_below="@+id/editText1"
-        android:layout_centerHorizontal="true" />
+        android:inputType="number" />
 
     <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
         android:id="@+id/editText5"
-        android:hint="Concepto 050"
-        android:inputType="number"
-        android:digits="0123456789."
-        android:layout_below="@+id/editText1"
-        android:layout_centerHorizontal="true" />
-    <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText6"
-        android:hint="HORAS DE TIEMPO EXTRA"
-        android:inputType="number"
+        android:layout_below="@+id/editText4"
         android:digits="0123456789."
-        android:layout_below="@+id/editText1"
-        android:layout_centerHorizontal="true" />
+        android:hint="Concepto 050"
+        android:inputType="number" />
 
     <EditText
+        android:id="@+id/editText6"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText7"
-        android:hint="JORNADA DE 8, 6.5 O 12"
-        android:inputType="number"
+        android:layout_below="@+id/editText5"
         android:digits="0123456789."
-        android:layout_below="@+id/editText1"
-        android:layout_centerHorizontal="true" />
+        android:hint="HORAS DE TIEMPO EXTRA"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText6"
+        android:digits="0123456789."
+        android:hint="JORNADA DE 8, 6.5 O 12"
+        android:inputType="number" />
 
 
     <Button
+        android:id="@+id/btnSumar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CALCULAR"
-        android:textColor="#154f3a"
+        android:layout_below="@+id/editText7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:background="@drawable/botonblanco"
-        android:id="@+id/btnSumar" />
+        android:text="CALCULAR"
+        android:textColor="#154f3a" />
 
     <TextView
+        android:id="@+id/textViewResultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/btnSumar"
+        android:layout_marginTop="40dp"
         android:text="Su pago de tiempo extra es de =  "
-        android:textColor="#154f3a"
-        android:id="@+id/textViewResultado" />
-
-
-
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#154f3a" />
 
 
     <com.google.android.gms.ads.AdView
@@ -113,12 +111,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
+
         android:layout_gravity="bottom"
 
         ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/adbanner" />
 
-        ads:adUnitId="@string/adbanner"
-        android:layout_alignParentLeft="true" />
-
-</LinearLayout>
+</RelativeLayout>

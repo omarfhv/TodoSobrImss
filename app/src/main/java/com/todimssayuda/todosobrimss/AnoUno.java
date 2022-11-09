@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -22,9 +20,17 @@ import com.google.android.gms.ads.AdView;
 public class AnoUno extends AppCompatActivity implements View.OnClickListener {
 
     LinearLayout botonincluuno, botonincludos, botonanocuatro, botonanocinco, botonanomas;
-    ColorDrawable dialogColor;
-    ImageView imageView;
-    private AdView mAdView;
+    int[][] imagenes = new int[][]
+            {{R.drawable.ano111, R.drawable.ano112, R.drawable.ano113, R.drawable.ano114, R.drawable.ano115},
+                    {R.drawable.ano221, R.drawable.ano222, R.drawable.ano223, R.drawable.ano224, R.drawable.ano225},
+                    {R.drawable.ano331, R.drawable.ano332, R.drawable.ano333, R.drawable.ano334, R.drawable.ano335},
+                    {R.drawable.ano441, R.drawable.ano442, R.drawable.ano443, R.drawable.ano444, R.drawable.ano445},
+                    {R.drawable.ano551, R.drawable.ano552, R.drawable.ano553, R.drawable.ano554, R.drawable.ano555},
+                    {R.drawable.ano661, R.drawable.ano662, R.drawable.ano663, R.drawable.ano664, R.drawable.ano665}};
+
+
+    AdView mAdView;
+    Bundle parametros;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,9 @@ public class AnoUno extends AppCompatActivity implements View.OnClickListener {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        parametros = new Bundle();
+        parametros = this.getIntent().getExtras();
+        this.setTitle(parametros.getString("titulo"));
 
         botonincluuno = findViewById(R.id.botonincludos);
         botonincluuno.setOnClickListener(this);
@@ -69,136 +78,51 @@ public class AnoUno extends AppCompatActivity implements View.OnClickListener {
 
         switch (view.getId()) {
             case R.id.botonincludos:
-                final AlertDialog.Builder builder = new AlertDialog.Builder(AnoUno.this);
-                final LayoutInflater inflater1 = getLayoutInflater();
-                View vi = inflater1.inflate(R.layout.ano_uno_marcados_y_tres, null);
-                builder.setView(vi);
-                final AlertDialog dialog = builder.create();
-                dialog.setCancelable(true);
-                dialog.getWindow().setBackgroundDrawable(dialogColor);
-                Button botonok = vi.findViewById(R.id.botoncont);
-                botonok.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        dialog.dismiss();
-
-                    }
-                });
-
-
-                dialog.show();
-
-
+                mostrarMensaje(imagenes[parametros.getInt("id")][0]);
                 break;
-
-
             case R.id.botoninclucuatro:
-                final AlertDialog.Builder builder1 = new AlertDialog.Builder(AnoUno.this);
-                final LayoutInflater inflater11 = getLayoutInflater();
-                View vi1 = inflater11.inflate(R.layout.ano_uno_marcacuatro, null);
-                builder1.setView(vi1);
-                final AlertDialog dialog1 = builder1.create();
-                dialog1.setCancelable(true);
-                dialog1.getWindow().setBackgroundDrawable(dialogColor);
-                Button botonok1 = vi1.findViewById(R.id.botoncont);
-                botonok1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        dialog1.dismiss();
-
-                    }
-                });
-
-
-                dialog1.show();
-
-
+                mostrarMensaje(imagenes[parametros.getInt("id")][1]);
                 break;
             case R.id.botoninclunueve:
-                final AlertDialog.Builder builder2 = new AlertDialog.Builder(AnoUno.this);
-                final LayoutInflater inflater12 = getLayoutInflater();
-                View vi2 = inflater12.inflate(R.layout.ano_uno_marcanueve, null);
-                builder2.setView(vi2);
-                final AlertDialog dialog2 = builder2.create();
-                dialog2.setCancelable(true);
-                dialog2.getWindow().setBackgroundDrawable(dialogColor);
-                Button botonok2 = vi2.findViewById(R.id.botoncont);
-                botonok2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        dialog2.dismiss();
-
-                    }
-                });
-
-
-                dialog2.show();
-
-
+                mostrarMensaje(imagenes[parametros.getInt("id")][2]);
                 break;
             case R.id.botonincluuno:
-                final AlertDialog.Builder builder3 = new AlertDialog.Builder(AnoUno.this);
-                final LayoutInflater inflater13 = getLayoutInflater();
-                View vi3 = inflater13.inflate(R.layout.ano_uno_marcauno, null);
-                builder3.setView(vi3);
-                final AlertDialog dialog3 = builder3.create();
-                dialog3.setCancelable(true);
-                dialog3.getWindow().setBackgroundDrawable(dialogColor);
-                Button botonok3 = vi3.findViewById(R.id.botoncont);
-                botonok3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        dialog3.dismiss();
-
-                    }
-                });
-
-
-                dialog3.show();
-
-
+                mostrarMensaje(imagenes[parametros.getInt("id")][3]);
                 break;
             case R.id.botoninclucero:
-                final AlertDialog.Builder builder4 = new AlertDialog.Builder(AnoUno.this);
-                final LayoutInflater inflater14 = getLayoutInflater();
-                View vi4 = inflater14.inflate(R.layout.ano_uno_marcacero, null);
-                builder4.setView(vi4);
-                final AlertDialog dialog4 = builder4.create();
-                dialog4.setCancelable(true);
-                dialog4.getWindow().setBackgroundDrawable(dialogColor);
-                Button botonok4 = vi4.findViewById(R.id.botoncont);
-                botonok4.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        dialog4.dismiss();
-
-                    }
-                });
-
-
-                dialog4.show();
-
-
+                mostrarMensaje(imagenes[parametros.getInt("id")][4]);
                 break;
-
-
-
 
 
         }
     }
 
+    public void mostrarMensaje(int id) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(AnoUno.this);
+        final LayoutInflater inflater1 = getLayoutInflater();
+        View vi = inflater1.inflate(R.layout.mensajeanovac, null);
+        ImageView imageviewvac = vi.findViewById(R.id.imageViewvac);
+        imageviewvac.setBackground(getResources().getDrawable(id));
+        builder.setView(vi);
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(true);
+        MainActivity.quitarbordesdialogo(dialog);
+        Button botonok = vi.findViewById(R.id.botoncont);
+        botonok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog.dismiss();
+
+            }
+        });
+        dialog.show();
+    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            startActivity(new Intent(getBaseContext(), MarcasDeInclusion.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            startActivity(new Intent(getBaseContext(), MenuCalcVacaciones.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
             return true;
         }
@@ -207,14 +131,10 @@ public class AnoUno extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-
         if (item.getItemId() == android.R.id.home) {
-            startActivity(new Intent(getBaseContext(), MarcasDeInclusion.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            startActivity(new Intent(getBaseContext(), MenuCalcVacaciones.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
         }
-
 
         return super.onOptionsItemSelected(item);
     }

@@ -36,8 +36,7 @@ public class SubMenuActivos extends AppCompatActivity {
 
     public void activosboton(View view) {
 
-        Intent intent11 = new Intent(this, WbView.class);
-        startActivity(intent11);
+        startActivity(new Intent(this, WbViewTarjeton.class));
     }
 
     public void linkdirecto(View view) {

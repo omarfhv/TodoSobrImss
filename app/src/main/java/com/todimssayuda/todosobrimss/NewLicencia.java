@@ -208,7 +208,7 @@ public class NewLicencia extends AppCompatActivity implements View.OnClickListen
         File imagen = new File(path);
         if (imagen.exists()) {
             final AlertDialog.Builder constructor = new AlertDialog.Builder(this);
-            View vista = getLayoutInflater().inflate(R.layout.alert_dialog_layout, null);
+            View vista = getLayoutInflater().inflate(R.layout.alert_dialog_layout_agenda, null);
             constructor.setView(vista);
             final AlertDialog dialogo = constructor.create();
             Button botonok = vista.findViewById(R.id.botonok);

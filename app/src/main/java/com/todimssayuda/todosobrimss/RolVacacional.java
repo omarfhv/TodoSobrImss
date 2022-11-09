@@ -29,21 +29,19 @@ public class RolVacacional extends AppCompatActivity implements View.OnClickList
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-
         setContentView(R.layout.activity_rol_vacacional);
-      mAdView = findViewById(R.id.adView1);
+        mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         botonroles = findViewById(R.id.botonroles);
         botonroles.setOnClickListener(this);
 
 
-
         pdfView = findViewById(R.id.pdfView);
-
         pdfView.fromAsset("rol22.pdf").load();
 
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
@@ -71,9 +69,14 @@ public class RolVacacional extends AppCompatActivity implements View.OnClickList
 
 
     public void onClick(View v) {
-        Intent intent11 = new Intent(this, RolVacacional21.class);
-        startActivity(intent11);
+
+        Intent intent = new Intent(this, ShowPdf.class);
+        intent.putExtra("pdf", "rol23");
+        intent.putExtra("clase", "rol");
+        intent.putExtra("titulo", "Rol vacacional 2023");
+        startActivity(intent);
         finish();
+
     }
 
 }

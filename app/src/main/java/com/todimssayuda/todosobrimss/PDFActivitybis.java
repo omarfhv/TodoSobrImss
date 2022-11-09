@@ -22,8 +22,8 @@ public class PDFActivitybis extends AppCompatActivity implements OnPageChangeLis
     PDFView pdfView;
     Integer pageNumber = 0;
     String pdfFileName;
-    String TAG="PdfActivity";
-    int position=-1;
+    String TAG = "PdfActivity";
+    int position = -1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,9 +36,9 @@ public class PDFActivitybis extends AppCompatActivity implements OnPageChangeLis
         init();
     }
 
-    private void init(){
-        pdfView= (PDFView)findViewById(R.id.pdfView);
-        position = getIntent().getIntExtra("position",-1);
+    private void init() {
+        pdfView = (PDFView) findViewById(R.id.pdfView);
+        position = getIntent().getIntExtra("position", -1);
         displayFromSdcard();
     }
 
@@ -82,6 +82,7 @@ public class PDFActivitybis extends AppCompatActivity implements OnPageChangeLis
             }
         }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {

@@ -2,6 +2,7 @@ package com.todimssayuda.todosobrimss;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,56 +21,51 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    LinearLayout botontiempoextra,botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas,botontabulador, botoncursos, botonpermutas, botonpases, botonpliego,botonsustis,botondias, botonjubilacion, botontiposdecontrato, botonincapacidades,botonseguro,botonrecuperar,botonbono, botonpresta,botonsegunda,botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete;
+    LinearLayout botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas, botontabulador, botoncursos, botonpermutas, botonpases, botonpliego, botonsustis, botondias, botonjubilacion, botontiposdecontrato, botonincapacidades, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete;
     SharedPreferences sharedPref;
-    PDFView pdfView;
+    Intent intent;
 
-
-    private AdView mAdView;
+    AdView mAdView;
     int califica;
     InterstitialAd mInterstitialAd;
-    ColorDrawable dialogColor;
     LinearLayout bloqueo;
-    Button link ;
+    Button link;
+    ScrollView scrollView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-
         final Calendar c = Calendar.getInstance();
         int yy = c.get(Calendar.YEAR);
-        int  mm = c.get(Calendar.MONTH);
+        int mm = c.get(Calendar.MONTH);
 
         bloqueo = findViewById(R.id.bloqueo);
         link = findViewById(R.id.botonenlacefb);
-       if (yy < 2023 )
-           bloqueo.setVisibility(View.INVISIBLE);
+        if (yy < 2024)
+            bloqueo.setVisibility(View.INVISIBLE);
 
         mAdView = findViewById(R.id.adView1);
-        AdSize tam = new AdSize(300 , 100);
-        //mAdView.setAdSize(tam);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
 
-       mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId("ca-app-pub-2736592244570345/9645372492");
         AdRequest adRequest1 = new AdRequest.Builder().build();
         mInterstitialAd.loadAd(adRequest1);
@@ -78,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         califica = sharedPref.getInt("califica", 0);
         boolean binfo = sharedPref.getBoolean("infoinicio", true);
         if (binfo)
-        dialogoinfo();
+            dialogoinfo();
 
         if (califica == 8) {
             dialogocalifica();
@@ -86,7 +83,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else
             califica++;
 
+        // actualizar posicion de scroll
+        scrollView = findViewById(R.id.scrollview);
 
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                scrollView.setScrollY(sharedPref.getInt("pos", 0));
+            }
+        }, 100);
 
 
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -196,24 +201,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
-    private void dialogoinfo() {
 
+    private void dialogoinfo() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         final LayoutInflater inflater = getLayoutInflater();
-        View vi = inflater.inflate(R.layout.dialogocalifica, null);
+        View vi = inflater.inflate(R.layout.dialogo_requisitos, null);
         builder.setView(vi);
         final AlertDialog dialog = builder.create();
-        dialog.setCancelable(true);
-        ColorDrawable dialogColor = new ColorDrawable(Color.GRAY);
-        dialogColor.setAlpha(0);
-        dialog.getWindow().setBackgroundDrawable(dialogColor);
-        TextView txtconf = vi.findViewById(R.id.txtcalifica);
+        quitarbordesdialogo(dialog);
+        TextView titulo = vi.findViewById(R.id.titulo);
+        titulo.setText("Aviso");
+        TextView txtconf = vi.findViewById(R.id.texto);
+        txtconf.setTextSize(15);
         txtconf.setText("La información proporcionada por esta aplicación es solo para facilitarle el acceso para el descargo del tarjetón que se obtiene directamente de los sitios http://rh.imss.gob.mx/TarjetonDigital/ y http://rh.imss.gob.mx/tarjetonjubilados/(S(ilsapuvnqy5bppvgfk3nghep))/default.aspx . Así como la facilidad de consultar  varios documentos que se encuentran en la página del https://sntss.org.mx/ y por último obtener de una manera más fácil la información de la caja de ahorros que se proporciona del link https://www.cpasntss.mx/ y con todo esto ayudar a los trabajadores del instituto\n" +
                 "Sin embargo, no hacemos ninguna representación o garantía de ningún tipo, expresa o implícita, con respecto a la precisión, adecuación, validez, confiabilidad, disponibilidad o integridad de cualquier información en los Sitios [o nuestra aplicación móvil].");
-        Button botonsi = vi.findViewById(R.id.botonsi);
-        botonsi.setVisibility(View.INVISIBLE);
-        Button botonno = vi.findViewById(R.id.botonno);
-        botonno.setText("Ok");
+
+        Button botonno = vi.findViewById(R.id.botonok);
         botonno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -222,7 +225,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 editor.apply();
                 dialog.dismiss();
                 mInterstitialAd.show();
-                
+
             }
         });
 
@@ -239,15 +242,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         builder.setView(vi);
         final AlertDialog dialog = builder.create();
         dialog.setCancelable(true);
-        ColorDrawable dialogColor = new ColorDrawable(Color.GRAY);
-        dialogColor.setAlpha(0);
-        dialog.getWindow().setBackgroundDrawable(dialogColor);
+        quitarbordesdialogo(dialog);
         Button botonsi = vi.findViewById(R.id.botonsi);
         botonsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentae4 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.todimssayuda.todosobrimss"));
-                startActivity(intentae4);
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.todimssayuda.todosobrimss")));
             }
         });
         Button botonno = vi.findViewById(R.id.botonno);
@@ -258,8 +258,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 dialog.dismiss();
                 mInterstitialAd.show();
 
-
-
             }
         });
 
@@ -267,20 +265,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.botonenlacefb:
-                Intent intentfb = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/tarjetondigitalimss/"));
-                startActivity(intentfb);
-
-
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/tarjetondigitalimss/"));
+                startActivity(intent);
                 break;
 
             case R.id.botontarjeton:
@@ -289,8 +282,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 View vi = inflater1.inflate(R.layout.dialogo_tarjeton, null);
                 builder.setView(vi);
                 final AlertDialog dialog = builder.create();
-                dialog.setCancelable(true);
-                dialog.getWindow().setBackgroundDrawable(dialogColor);
+                quitarbordesdialogo(dialog);
                 Button botonok = vi.findViewById(R.id.botoncont);
                 final RadioButton rbtna = vi.findViewById(R.id.rbtna);
                 final RadioButton rbtnj = vi.findViewById(R.id.rbtnj);
@@ -313,86 +305,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
 
                 dialog.show();
-
                 break;
-
 
             case R.id.botoncalendario:
-                Intent intent1312t2 = new Intent(this, Calendario.class);
-                startActivity(intent1312t2);
-
-                finish();
-
-
+                cambioActivity(Calendario.class);
                 break;
-
-            case R.id.botonclausulanoventaysiete:
-                Intent intent1312t297 = new Intent(this, ClausulaNoventySiete.class);
-                startActivity(intent1312t297);
-
-                finish();
-
-
-                break;
-
-            case R.id.botonconceptos:
-                Intent intent1312t211 = new Intent(this, Conceptos.class);
-                startActivity(intent1312t211);
-
-                finish();
-
-
-                break;
-
-            case R.id.botontiempoextra:
-                Intent intent1312t2w = new Intent(this, CalcuTiempoExtra.class);
-                startActivity(intent1312t2w);
-
-                finish();
-
-
-                break;
-
-            case R.id.botonmedianoplazo:
-                Intent intent1312t21 = new Intent(this, PrestamoMedianoPlazo.class);
-                startActivity(intent1312t21);
-
-                finish();
-
-
-                break;
-
-            case R.id.botoncarro:
-                Intent intent1312t22 = new Intent(this, PrestamoCarro.class);
-                startActivity(intent1312t22);
-
-                finish();
-
-
-                break;
-
+            //web
             case R.id.botonpromociones:
-                Intent intentdajaa = new Intent(this, Promociones.class);
-                startActivity(intentdajaa);
-                finish();
-
-
+                cambioActivityUrl("https://www.sntss.org.mx/promociones", "Promociones");
                 break;
-
-
-
+            //web
             case R.id.botonenterate:
-                Intent intentd0ajaa = new Intent(this, Noticias.class);
-                startActivity(intentd0ajaa);
-                finish();
-
+                cambioActivityUrl("https://eltioimss.blogspot.com/?m=1", "Notificaciones");
                 break;
-
+            //pantalla con boton en actionbar hacia pdf
             case R.id.botonrol:
-                Intent intentdajaa1 = new Intent(this, RolVacacional.class);
-                startActivity(intentdajaa1);
-                finish();
-
+                cambioActivity(RolVacacional.class);
                 break;
 
             case R.id.botonconsulta:
@@ -407,232 +335,141 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 toast3.setDuration(Toast.LENGTH_LONG);
                 toast3.setView(layout);
                 toast3.show();
-
-                Intent intent11111 = new Intent(this, PDFViewer.class);
-                startActivity(intent11111);
+                intent = new Intent(this, PDFViewer.class);
+                startActivity(intent);
                 finish();
                 break;
 
-
+            //pantalla con un boton en actionbar hacia pdf
             case R.id.botoncont:
-
-                Intent intentdajaa12 = new Intent(this, ContratoColectivoTrabajadores.class);
-                startActivity(intentdajaa12);
-                finish();
+                cambioActivity(ContratoColectivoTrabajadores.class);
 
                 break;
 
             case R.id.botonfalta:
-
-                Intent intentdajaa126 = new Intent(this, Faltas.class);
-                startActivity(intentdajaa126);
-
-                finish();
-
-
+                cambioActivityPdf("faltas1", "", "Faltas");
                 break;
 
             case R.id.botontabula:
-                Intent intentdajaa1267 = new Intent(this, Tabulador.class);
-                startActivity(intentdajaa1267);
-
-                finish();
-
-
+                cambioActivityPdf("tabula", "", "Tabulador 2023");
                 break;
 
             case R.id.botoncursos:
-               /* Toast toast4 = new Toast(getApplicationContext());
-                LayoutInflater inflater4 = getLayoutInflater();
-                View layout4 = inflater4.inflate(R.layout.toast,
-                        (ViewGroup) findViewById(R.id.lytLayout));
-
-                TextView txtMsg4 = layout4.findViewById(R.id.txtMensaje);
-                txtMsg4.setText("Proximamente estaremos subiendo las becas para el proximo año " +
-                        "GRACIAS");
-
-                toast4.setDuration(Toast.LENGTH_LONG);
-                toast4.setView(layout4);
-                toast4.show();*/
-                Intent intentdajaa12671 = new Intent(this, CursosIm.class);
-                startActivity(intentdajaa12671);
-
-                finish();
+                cambioActivity(CursosIm.class);
                 break;
 
+            //web
             case R.id.botonpermutas:
-
-                Intent intentdajaa12678 = new Intent(this, Permutas.class);
-                startActivity(intentdajaa12678);
-
-                finish();
+                cambioActivityUrl("https://www.sntss.org.mx/permutas", "Permutas");
                 break;
 
+            //pantalla con dos botones
             case R.id.botonpases:
-                Intent intentdajaa126712 = new Intent(this, Pases.class);
-                startActivity(intentdajaa126712);
-
-                finish();
-
+                cambioActivity(Pases.class);
                 break;
 
             case R.id.botonpliego:
-                Intent intentdajaa126714 = new Intent(this, PliegoTesta.class);
-                startActivity(intentdajaa126714);
-
-                finish();
-
-
+                cambioActivity(PliegoTesta.class);
                 break;
 
             case R.id.botontxt:
-
-                Intent intentdajaa1267141 = new Intent(this, Sustis.class);
-                startActivity(intentdajaa1267141);
-
-                finish();
-
+                cambioActivityPdf("convenio", "", "Convenio TXT 2022");
                 break;
 
             case R.id.botondias:
-
-                Intent intent = new Intent(this, Festivos.class);
-                startActivity(intent);
-
-                finish();
-
+                cambioActivityPdf("festivos22", "", "Dias festivos 2022");
                 break;
 
             case R.id.botonjubilacion:
-
-                Intent intent1 = new Intent(this, Jubilacion.class);
-                startActivity(intent1);
-
-                finish();
-
+                cambioActivityPdf("jubila", "", "Req. para tramitar jubilacion");
                 break;
-
+            //muchos cuadros de texto fijos
             case R.id.botoncontratos:
-
-                Intent intent13 = new Intent(this, TiposDeContrato.class);
-                startActivity(intent13);
-
-                finish();
-
+                cambioActivity(TiposDeContrato.class);
                 break;
-
+            //pantalla con un boton
             case R.id.botonincapa:
-                Intent intent131 = new Intent(this, Incapacidades.class);
-                startActivity(intent131);
-
-                finish();
-
+                cambioActivity(Incapacidades.class);
                 break;
 
             case R.id.botonseguro:
-                Intent intent1312 = new Intent(this, SeguroFacul.class);
-                startActivity(intent1312);
-
-                finish();
-
-
+                cambioActivity(SeguroFacul.class);
                 break;
 
             case R.id.botonrecupera:
-                Intent intent1312t = new Intent(this, RecuperarContrasena.class);
-                startActivity(intent1312t);
-
-                finish();
-
+                cambioActivity(RecuperarContrasena.class);
                 break;
-
+            //pantalla con boton en actionbar hacia web
             case R.id.botonbono:
-                Intent intent1312to = new Intent(this, Declaracion.class);
-                startActivity(intent1312to);
-
-                finish();
-
+                cambioActivity(Declaracion.class);
                 break;
 
-
+            //pantalla con boton en action bar hacia calculadora
             case R.id.botonprestamos:
-                Intent intent1312to1 = new Intent(this, Prestaciones.class);
-                startActivity(intent1312to1);
-
-                finish();
-
+                cambioActivity(PrestamosPorCategoria.class);
                 break;
-
+            //calculadora
             case R.id.botonsegundadejulio:
-                Intent intent1312to1f = new Intent(this, SegundaDeJulio.class);
-                startActivity(intent1312to1f);
-
-                finish();
-
+                cambioActivity(CalcSegundaDeJulio.class);
                 break;
 
             case R.id.botoncalcuvaca:
-                Intent intent1312to1fa = new Intent(this, MarcasDeInclusion.class);
-                startActivity(intent1312to1fa);
-
-                finish();
-
+                cambioActivity(MenuCalcVacaciones.class);
                 break;
-
+            //web
             case R.id.botoncajadeahorro:
-                Intent intentdajaaa = new Intent(this, CajaAhorro.class);
-                startActivity(intentdajaaa);
-                finish();
-
+                cambioActivityUrl("https://www.cpasntss.mx/", "Caja de ahorro");
 
                 break;
-
+            //calculadora
             case R.id.botonaguinaldo:
-                Intent intentdajaaa1 = new Intent(this, Aguinaldo.class);
-                startActivity(intentdajaaa1);
-                finish();
-
-
+                cambioActivity(CalcAguinaldo.class);
                 break;
 
             case R.id.botonhipotecario:
-                Intent intentd0ajaaw = new Intent(this, PrestamoHipotecario.class);
-                startActivity(intentd0ajaaw);
-                finish();
-
+                cambioActivity(CalcPrestamoHipotecario.class);
                 break;
 
+            case R.id.botonmedianoplazo:
+                cambioActivity(CalcPrestamoMedianoPlazo.class);
+                break;
 
+            case R.id.botoncarro:
+                cambioActivity(CalcPrestamoCarro.class);
+                break;
+            case R.id.botontiempoextra:
+                cambioActivity(CalcTiempoExtra.class);
+                break;
 
+            case R.id.botonconceptos:
+                cambioActivityPdf("conceptos", "", "Conceptos Tarjeton");
+                break;
+            case R.id.botonclausulanoventaysiete:
+                cambioActivity(CalcClausulaNoventySiete.class);
+                break;
         }
 
-
-
+        //guardar posicion de scroll
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("pos", scrollView.getScrollY());
+        editor.apply();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menuinfo, menu);
-
+        getMenuInflater().inflate(R.menu.menu_general, menu);
+        menu.findItem(R.id.item1).setTitle("Info");
+        menu.findItem(R.id.item1).setIcon(null);
+        menu.findItem(R.id.item2).setTitle("");
+        menu.findItem(R.id.item2).setIcon(getResources().getDrawable(R.drawable.info));
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-
-            case R.id.botoninfo:
-                    dialogoinfo();
-                break;
-
-          /*   case R.id.botonagenda:
-                Intent intentdajaaa1 = new Intent(this, MenuPrincipalAgenda.class);
-                startActivity(intentdajaaa1);
-                finish();
-                break; */
-
+        if (item.getItemId() == R.id.item2) {
+            dialogoinfo();
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -641,14 +478,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);
             LayoutInflater inflater = getLayoutInflater();
-
             View vi = inflater.inflate(R.layout.dialogoconfirm, null);
             builder.setView(vi);
-
-
             final AlertDialog dialog = builder.create();
-            dialog.getWindow().setBackgroundDrawable(dialogColor);
-
+            quitarbordesdialogo(dialog);
             //decidir despues si sera cancelable o no
             dialog.setCancelable(false);
             Button botonsi = vi.findViewById(R.id.botonsi);
@@ -678,4 +511,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return super.onKeyDown(keyCode, event);
     }
+
+    public void cambioActivityPdf(String pdf, String clase, String titulo) {
+
+        intent = new Intent(this, ShowPdf.class);
+        intent.putExtra("pdf", pdf);
+        intent.putExtra("titulo", titulo);
+        intent.putExtra("clase", clase);
+        startActivity(intent);
+        finish();
+    }
+
+    public void cambioActivityUrl(String url, String titulo) {
+
+        intent = new Intent(this, Urls.class);
+        intent.putExtra("url", url);
+        intent.putExtra("titulo", titulo);
+
+        startActivity(intent);
+        finish();
+    }
+
+    public void cambioActivityPdf(String pdf, String clase, String titulo, String boton) {
+
+        intent = new Intent(this, ShowPdf.class);
+        intent.putExtra("pdf", pdf);
+        intent.putExtra("titulo", titulo);
+        intent.putExtra("clase", clase);
+        startActivity(intent);
+        finish();
+    }
+
+    public void cambioActivity(Class c) {
+        intent = new Intent(this, c);
+        startActivity(intent);
+        finish();
+    }
+
+
+    public static void quitarbordesdialogo(AlertDialog dialog) {
+        ColorDrawable dialogColor = new ColorDrawable(Color.GRAY);
+        dialogColor.setAlpha(0);
+        dialog.getWindow().setBackgroundDrawable(dialogColor);
+    }
+
 }

@@ -4,11 +4,62 @@
     En esta aplicacion no se piden datos, solo te lleva a la pagina
     oficial del IMSS para descargar el tarjeton tanto activos como jubilados
     Tambien obtendras algunos documentos de consulta podras ver promociones.</string>
-    <string name="adbanner">ca-app-pub-2736592244570345/9503909879</string>
+    <string name="adbanner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="adbannerrelase">ca-app-pub-2736592244570345/9503909879</string>
     <string name="adinter">ca-app-pub-2736592244570345/9645372492</string>
     <string name="whats">WhatsApp</string>
     <string name="compartir">Compartir</string>
     <string name="atras">Atras</string>
     <string name="action_settings">Settings</string>
     <string name="linkapp">https://play.google.com/store/apps/details?id=com.aojhev.imssconsultas</string>
+    <string name="instruccionescarro">"* Ser trabajador (a) de base
+* Tener 3 años de antigüedad laboral minimo
+* Presentar dos últimos recibos de pago
+* Presentar gafete
+* Requisitar solicitud
+* No podran ejercer el CREDITO, los trabajadores que presenten los siguientes conceptos: 106,130,133,134,136,154,155,160,166,170 y 190
+* En cuanto salga la convocatoria se avisara"</string>
+    <string name="instruccionesclausula97">*Este tramite se realiza en su Delegacion Sindical\n
+* Si su prestamo es de 1 mes sus descuentos seran en 10 quincenas\n
+* Si su prestamo es de 2 meses sus descuentos seran en 20 quincenas\n
+* Si su prestamo es de 3 meses sus descuentos seran en 30 quincenas\n
+* Cuando el anticipo sea por 3 meses puede hacerse una retencion de mayor cantidad o adelantar pagos\n
+* Solo se podrá hacer uso de este anticipo una vez al año\n
+* Su tarjetón debe aparecer en 0 en el concepto 160"
+        </string>
+    <string name="instruccionestiempoextra">\n
+* Si usted no cuenta con algun concepto favor de ingresar 0 \n
+* Se considera como tiempo extraordinario empleado al servicio del Instituto: \n
+     I. El que exceda los límites de la jornada diaria contratada\n
+     II. Todo el tiempo laborado en días de descanso semanal y en días no laborales\n</string>
+    <string name="instruccioneshipotecariomedianoplazo">\n
+* Ser trabajador (a) de base\n
+* Tener 5 años de antigüedad laboral\n
+* Presentar dos últimos recibos de pago\n
+* Presentar gafete\n
+* Requisitar solicitud\n
+* Tener las ESCRITURAS con el nombre del trabajador que lo solicita\n
+* Este trámite lo realiza la Secretaría de Fomento a la Habitación\n
+* En cuanto salga la convocatoria se avisara\n
+"</string>
+    <string name="requisitoscreditohipotecario">"* Ser trabajador (a) de base
+* Tener 5 años de antigüedad laboral
+* Presentar dos últimos recibos de pago
+* Presentar gafete
+* Requisitar solicitud
+* Este trámite lo realiza la Secretaría de Fomento a la Habitación
+* En cuanto salga la convocatoria se avisara"</string>
+    <string name="instruccionesaguinaldo">\n
+* Lic. Sin Sueldo mayor a 3 días 129\n
+* Lic. Sin Sueldo de 1 a 3 días 171\n
+* Faltas 172\n
+* Becas sin Sueldo 175\n
+* Pases\n
+* Retardos\n
+* Notas de Demeritos\n
+"</string>
+    <string name="instruccionessegundadejulio">"* Lic. Sin Sueldo mayor a 3 días 129
+* Lic. Sin Sueldo de 1 a 3 días 171
+* Faltas 172
+* Becas sin Sueldo 175"</string>
 </resources>

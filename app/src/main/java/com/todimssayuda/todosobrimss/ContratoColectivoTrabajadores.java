@@ -14,7 +14,7 @@ import com.google.android.gms.ads.AdView;
 
 public class ContratoColectivoTrabajadores extends AppCompatActivity {
     PDFView pdfView;
-   private AdView mAdView;
+    AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +25,13 @@ public class ContratoColectivoTrabajadores extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-
-        setContentView(R.layout.imagen);
-       mAdView = findViewById(R.id.adView1);
+        setContentView(R.layout.activity_showpdf);
+       mAdView = findViewById(R.id.bannerviewer);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
 
-        pdfView = findViewById(R.id.pdfView);
-
+        pdfView = findViewById(R.id.pdfviewer);
         pdfView.fromAsset("contrato.pdf").load();
 
     }
@@ -50,8 +48,11 @@ public class ContratoColectivoTrabajadores extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.modificaciones, menu);
+        getMenuInflater().inflate(R.menu.menu_general, menu);
+        menu.findItem(R.id.item1).setTitle("Modificaciones");
+        menu.findItem(R.id.item1).setIcon(null);
+        menu.findItem(R.id.item2).setTitle("");
+        menu.findItem(R.id.item2).setIcon(getResources().getDrawable(R.drawable.modifica));
         return true;
     }
 
@@ -66,18 +67,15 @@ public class ContratoColectivoTrabajadores extends AppCompatActivity {
         }
 
 
-        Intent intentmenu = new Intent();
-        switch (item.getItemId()) {
-            case R.id.modificacionescontrato:
-                Intent intent121 = new Intent(this, ModificacionesContra.class);
-                startActivity(intent121);
-                finish();
-                break;
+        if (item.getItemId() == R.id.item2){
 
-
+            Intent intent = new Intent(this, ShowPdf.class);
+            intent.putExtra("pdf", "modificacion");
+            intent.putExtra("clase", "modificacioncct");
+            intent.putExtra("titulo", "Modificaciones CCT");
+            startActivity(intent);
+            finish();
         }
-
-
 
         return super.onOptionsItemSelected(item);
 

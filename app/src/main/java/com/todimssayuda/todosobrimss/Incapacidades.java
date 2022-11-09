@@ -72,8 +72,12 @@ public class Incapacidades extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-        Intent intent111 = new Intent(this, Recaida.class);
-        startActivity(intent111);
-        finish();
+            Intent intent = new Intent(this, ShowPdf.class);
+            intent.putExtra("pdf", "recaidas");
+            intent.putExtra("titulo", "Recaidas");
+            intent.putExtra("clase", "incapacidades");
+            startActivity(intent);
+            finish();
+
     }
 }
