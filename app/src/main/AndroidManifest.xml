@@ -20,7 +20,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".CalcClausulaNoventySiete"></activity>
+        <activity android:name=".CalcClausulaNoventySiete"/>
         <activity android:name=".CalcTiempoExtra" />
         <activity android:name=".CalcPrestamoMedianoPlazo" />
         <activity android:name=".CalcPrestamoCarro" />
@@ -43,8 +43,6 @@
         <activity
             android:name=".PDFAdapter"
             tools:ignore="Instantiatable" />
-        <activity android:name=".PdfActivity" />
-        <activity android:name=".Consulta" />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".SliderAdapterCalendario"
@@ -65,19 +63,6 @@
         <activity android:name=".Urls" />
         <activity android:name=".SubMenuActivos" />
         <activity android:name=".WbViewTarjeton" />
-        <activity android:name=".MenuPrincipalAgenda" />
-        <activity android:name=".New" />
-        <activity android:name=".NewLicencia" />
-        <activity android:name=".NewOtros" />
-        <activity android:name=".NewSusti" />
-        <activity android:name=".PasesAgenda" />
-        <activity android:name=".Otros" />
-        <activity android:name=".Licencia" />
-        <activity android:name=".SustisAgenda" />
-        <activity android:name=".Edit" />
-        <activity android:name=".EditLicencia" />
-        <activity android:name=".EditOtros" />
-        <activity android:name=".EditSusti" />
         <activity android:name=".ShowPdf" />
         <activity android:name=".Splash">
             <intent-filter>

@@ -12,10 +12,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -27,6 +29,7 @@ public class PDFViewer extends AppCompatActivity {
     public static int REQUEST_PERMISSIONS = 1;
     boolean boolean_permission;
     File dir;
+    AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +42,22 @@ public class PDFViewer extends AppCompatActivity {
         setContentView(R.layout.activity_pdfviewer);
         init();
 
+        mAdView = findViewById(R.id.adView1);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        init();
     }
 
     private void init() {
 
         lv_pdf = (ListView) findViewById(R.id.lv_pdf);
-        dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath());
+        dir = new File(Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS);
         fn_permission();
 
 
@@ -67,13 +80,14 @@ public class PDFViewer extends AppCompatActivity {
 
                 if (listFile[i].isDirectory()) {
                     getfile(listFile[i]);
-
+                    System.out.println("esta en el for0000000000000000000000000000000000000000000000" + dir);
                 } else {
 
                     boolean booleanpdf = false;
-                    if (listFile[i].getName().endsWith(".aspx")) {
+                    if (listFile[i].getName().endsWith("Tarjeton.aspx") || listFile[i].getName().endsWith("Tarjeton.pdf")) {
 
                         for (int j = 0; j < fileList.size(); j++) {
+                            System.out.println(j +"j");
                             if (fileList.get(j).getName().equals(listFile[i].getName())) {
                                 booleanpdf = true;
                             } else {
@@ -89,6 +103,7 @@ public class PDFViewer extends AppCompatActivity {
                         }
                     }
                 }
+                System.out.println(i +"i");
             }
         }
         return fileList;
@@ -110,7 +125,7 @@ public class PDFViewer extends AppCompatActivity {
             boolean_permission = true;
 
             getfile(dir);
-
+            System.out.println("esta en el fn permission 0000000000000000000000000000000000000000000000");
             obj_adapter = new PDFAdapter(getApplicationContext(), fileList);
             lv_pdf.setAdapter(obj_adapter);
 
@@ -126,7 +141,7 @@ public class PDFViewer extends AppCompatActivity {
 
                 boolean_permission = true;
                 getfile(dir);
-
+                System.out.println("esta en el on request 0000000000000000000000000000000000000000000000");
                 obj_adapter = new PDFAdapter(getApplicationContext(), fileList);
                 lv_pdf.setAdapter(obj_adapter);
 

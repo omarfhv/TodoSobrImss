@@ -22,11 +22,8 @@ import static android.Manifest.permission.CALL_PHONE;
 
 public class RecuperarContrasena extends AppCompatActivity implements View.OnClickListener {
 
-
-    private static final int SOLICITUD_PERMISO_CALL_PHONE = 1;
-    private Intent intentllamada;
     LinearLayout botonrecujubilados, botonrecuactivos, botonsoportetecnico;
-    ColorDrawable dialogColor;
+    Intent intent;
     private AdView mAdView;
 
     @Override
@@ -39,10 +36,9 @@ public class RecuperarContrasena extends AppCompatActivity implements View.OnCli
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         setContentView(R.layout.activity_recuperar_contrasena);
-       mAdView = findViewById(R.id.adView1);
-       AdRequest adRequest = new AdRequest.Builder().build();
-       mAdView.loadAd(adRequest);
-
+        mAdView = findViewById(R.id.adView1);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
 // SI NOS CONCEDE EL PERMISO Y LANZA LA LLAMADA
@@ -67,28 +63,19 @@ public class RecuperarContrasena extends AppCompatActivity implements View.OnCli
 
         switch (view.getId()) {
             case R.id.botonrecujubilados:
-
-                Intent intent1122 = new Intent(this, RecuJubilados.class);
-                startActivity(intent1122);
-                finish();
+                intent = new Intent(this, RecuJubilados.class);
                 break;
 
             case R.id.botonrecuactivos:
-
-                Intent intent112 = new Intent(this, RecuActivos.class);
-                startActivity(intent112);
-                finish();
+                intent = new Intent(this, RecuActivos.class);
                 break;
 
             case R.id.botonsoporte:
-
-                Intent intent1132 = new Intent(this, RecuperaSoporte.class);
-                startActivity(intent1132);
-                finish();
+                intent = new Intent(this, RecuperaSoporte.class);
                 break;
         }
-
-
+        startActivity(intent);
+        finish();
     }
 
 
@@ -111,16 +98,15 @@ public class RecuperarContrasena extends AppCompatActivity implements View.OnCli
                 @RequiresApi(api = Build.VERSION_CODES.M)
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    requestPermissions(new String[]{ CALL_PHONE}, 100);
+                    requestPermissions(new String[]{CALL_PHONE}, 100);
                 }
             });
             dialogo.show();
         } else {
-            requestPermissions(new String[]{ CALL_PHONE}, 100);
+            requestPermissions(new String[]{CALL_PHONE}, 100);
         }
 
     }
-
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -135,14 +121,11 @@ public class RecuperarContrasena extends AppCompatActivity implements View.OnCli
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-
         if (item.getItemId() == android.R.id.home) {
             startActivity(new Intent(getBaseContext(), MainActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
         }
-
 
         return super.onOptionsItemSelected(item);
     }

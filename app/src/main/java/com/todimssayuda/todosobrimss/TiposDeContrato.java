@@ -29,7 +29,7 @@ public class TiposDeContrato extends AppCompatActivity {
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
+        this.setTitle("Tipos de contrato");
 
 
 

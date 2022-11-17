@@ -20,8 +20,8 @@ public class SeguroFacul extends AppCompatActivity implements View.OnClickListen
 
 
     LinearLayout botondirectprimera, botondirecrenovacio, botonpoliticos, botongraficadirecto, botongraficapoliticos;
-    ColorDrawable dialogColor;
-    private AdView mAdView;
+    AlertDialog dialog;
+    AdView mAdView;
 
 
     @Override
@@ -63,143 +63,56 @@ public class SeguroFacul extends AppCompatActivity implements View.OnClickListen
 
         switch (view.getId()) {
             case R.id.botonfamidirectosprimera:
-                final AlertDialog.Builder builder = new AlertDialog.Builder(SeguroFacul.this);
-                final LayoutInflater inflater1 = getLayoutInflater();
-                View vi = inflater1.inflate(R.layout.directos_primera, null);
-                builder.setView(vi);
-                final AlertDialog dialog = builder.create();
-                dialog.setCancelable(true);
-                dialog.getWindow().setBackgroundDrawable(dialogColor);
-                Button botonok = vi.findViewById(R.id.botoncont);
-                botonok.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        dialog.dismiss();
-
-                    }
-                });
-
-
-                dialog.show();
-
-
+                mostrardialogo(R.layout.directos_primera);
                 break;
-
 
             case R.id.botonfamidirectosrenova:
-
-                final AlertDialog.Builder builders = new AlertDialog.Builder(SeguroFacul.this);
-                final LayoutInflater inflater = getLayoutInflater();
-                View vis = inflater.inflate(R.layout.directos_renovacion, null);
-                builders.setView(vis);
-                final AlertDialog dialogo = builders.create();
-                dialogo.setCancelable(true);
-                dialogo.getWindow().setBackgroundDrawable(dialogColor);
-                Button botonoko = vis.findViewById(R.id.botoncont);
-                botonoko.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        dialogo.dismiss();
-
-                    }
-                });
-
-
-                dialogo.show();
-
-
+                mostrardialogo(R.layout.directos_renovacion);
                 break;
 
-
             case R.id.botonfamipoliticos:
-
-                final AlertDialog.Builder builderss = new AlertDialog.Builder(SeguroFacul.this);
-                final LayoutInflater inflaters = getLayoutInflater();
-                View viss = inflaters.inflate(R.layout.politicos_renova, null);
-                builderss.setView(viss);
-                final AlertDialog dialogos = builderss.create();
-                dialogos.setCancelable(true);
-                dialogos.getWindow().setBackgroundDrawable(dialogColor);
-                Button botonokos = viss.findViewById(R.id.botoncont);
-                botonokos.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        dialogos.dismiss();
-
-                    }
-                });
-
-
-                dialogos.show();
-
-
+                mostrardialogo(R.layout.politicos_renova);
                 break;
 
             case R.id.botongraficadirectos:
-
-                final AlertDialog.Builder builderss1 = new AlertDialog.Builder(SeguroFacul.this);
-                final LayoutInflater inflaters1 = getLayoutInflater();
-                View viss1 = inflaters1.inflate(R.layout.grafica_directos, null);
-                builderss1.setView(viss1);
-                final AlertDialog dialogos1 = builderss1.create();
-                dialogos1.setCancelable(true);
-                dialogos1.getWindow().setBackgroundDrawable(dialogColor);
-                Button botonokos1 = viss1.findViewById(R.id.botoncont);
-                botonokos1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        dialogos1.dismiss();
-
-                    }
-                });
-
-
-                dialogos1.show();
-
-
+                mostrardialogo(R.layout.grafica_directos);
                 break;
-
 
             case R.id.botongraficapoliticos:
-
-                final AlertDialog.Builder builderss12 = new AlertDialog.Builder(SeguroFacul.this);
-                final LayoutInflater inflaters12 = getLayoutInflater();
-                View viss12 = inflaters12.inflate(R.layout.grafica_politicos, null);
-                builderss12.setView(viss12);
-                final AlertDialog dialogos12 = builderss12.create();
-                dialogos12.setCancelable(true);
-                dialogos12.getWindow().setBackgroundDrawable(dialogColor);
-                Button botonokos12 = viss12.findViewById(R.id.botoncont);
-                botonokos12.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        dialogos12.dismiss();
-
-                    }
-                });
-
-
-                dialogos12.show();
-
-
+                mostrardialogo(R.layout.grafica_politicos);
                 break;
-
-
-
         }
+    }
+
+    public void mostrardialogo(int recurso) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(SeguroFacul.this);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(recurso, null);
+        builder.setView(view);
+        dialog = builder.create();
+        dialog.setCancelable(true);
+        MainActivity.quitarbordesdialogo(dialog);
+        Button botonok = view.findViewById(R.id.botoncont);
+        botonok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog.dismiss();
+
+            }
+        });
+
+
+        dialog.show();
+
     }
 
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            startActivity(new Intent(getBaseContext(), MainActivity.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            startActivity(new Intent(getBaseContext(), MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
             return true;
         }
@@ -208,15 +121,10 @@ public class SeguroFacul extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-
         if (item.getItemId() == android.R.id.home) {
-            startActivity(new Intent(getBaseContext(), MainActivity.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            startActivity(new Intent(getBaseContext(), MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
         }
-
-
         return super.onOptionsItemSelected(item);
     }
 }

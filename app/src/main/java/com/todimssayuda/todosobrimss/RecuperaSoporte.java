@@ -26,9 +26,8 @@ public class RecuperaSoporte extends AppCompatActivity implements View.OnClickLi
 
 
     private static final int SOLICITUD_PERMISO_CALL_PHONE = 1;
-    private Intent intentllamada;
+    Intent intentllamada;
     LinearLayout botoncorreo, botonllamada;
-    ColorDrawable dialogColor;
     private AdView mAdView;
 
     @Override
@@ -81,6 +80,7 @@ public class RecuperaSoporte extends AppCompatActivity implements View.OnClickLi
                 // Definimos un Asunto para el Email
                 emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Recuperar Contraseña Tarjeton Digital");
                 // Obtenemos la referencia al texto y lo pasamos al Email Intent
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Hola: \nsolicito ayuda para recuperar mi contraseña, mis datos son los siguientes: ");
                 try {
                     //Enviamos el Correo iniciando una nueva Activity con el emailIntent.
                     startActivity(Intent.createChooser(emailIntent, "Enviar E-mail..."));
@@ -92,9 +92,9 @@ public class RecuperaSoporte extends AppCompatActivity implements View.OnClickLi
 
             case R.id.botonllamada:
 
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:5553331100"));
-                startActivity(intent);
+                intentllamada = new Intent(Intent.ACTION_DIAL);
+                intentllamada.setData(Uri.parse("tel:5553331100"));
+                startActivity(intentllamada);
 
                 break;
         }
@@ -114,6 +114,7 @@ public class RecuperaSoporte extends AppCompatActivity implements View.OnClickLi
         }
 
         if ((shouldShowRequestPermissionRationale(CALL_PHONE))) {
+
             AlertDialog.Builder dialogo = new AlertDialog.Builder(RecuperaSoporte.this);
             dialogo.setTitle("Permisos Desactivados");
             dialogo.setMessage("Debe aceptar los permisos para el correcto funcionamiento de la App");

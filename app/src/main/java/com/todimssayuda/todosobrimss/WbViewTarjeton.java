@@ -60,18 +60,16 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
     WebView webview;
     String quincena, mes, year;
     ImageView imv;
-    ColorDrawable dialogColor;
     boolean quincenab, mesb, yearb;
     Button btndescargar;
-    private AdView mAdView;
+     AdView mAdView;
     InterstitialAd mInterstitialAd;
     static int[] id = new int[]{R.drawable.ins1, R.drawable.ins2, R.drawable.ins3, R.drawable.ins4, R.drawable.ins5, R.drawable.ins6, R.drawable.ins7};
+
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        dialogColor = new ColorDrawable(Color.GRAY);
-        dialogColor.setAlpha(0);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -85,8 +83,6 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
         mAdView.loadAd(adRequest);
 
 
-
-
         progresbar = findViewById(R.id.pgbr);
         webview = findViewById(R.id.WebView);
         btndescargar = findViewById(R.id.btndescargar);
@@ -95,7 +91,7 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
         mInterstitialAd.setAdUnitId(getString(R.string.adinter));
         AdRequest adRequest1 = new AdRequest.Builder().build();
         mInterstitialAd.loadAd(adRequest1);
-        mInterstitialAd.setAdListener(new AdListener(){
+        mInterstitialAd.setAdListener(new AdListener() {
 
             @Override
             public void onAdClosed() {
@@ -146,7 +142,6 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
             webview.getSettings().setBuiltInZoomControls(true);
 
 
-
         } else {
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -157,7 +152,7 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
             builder.setView(vi);
             final AlertDialog dialog = builder.create();
             dialog.setCancelable(false);
-            dialog.getWindow().setBackgroundDrawable(dialogColor);
+            MainActivity.quitarbordesdialogo(dialog);
             Button botonsi = vi.findViewById(R.id.botonsi);
             botonsi.setText("Reintentar");
             botonsi.setTextSize(10);
@@ -352,40 +347,10 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
 
 
         if (chequed) {
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                Toast.makeText(this, "abrir con la app de consulta tarjeton " + String.valueOf(newFile), Toast.LENGTH_LONG).show();
-                intent.setDataAndType(Uri.parse(String.valueOf(newFile)), "application/pdf");
-            } else {
-                intent.setDataAndType(Uri.fromFile(newFile), "application/pdf");
-            }
 
+            Intent intent = new Intent(this, PDFViewer.class);
+            startActivity(intent);
 
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            WbViewTarjeton.this.startActivity(Intent.createChooser(intent, "Abrir con"));
-            Intent intent11111 = new Intent(this, MainActivity.class);
-            startActivity(intent11111);
-
-            Toast toast3 = new Toast(getApplicationContext());
-
-            LayoutInflater inflater = getLayoutInflater();
-            View layout = inflater.inflate(R.layout.toast,
-                    (ViewGroup) findViewById(R.id.lytLayout));
-
-            TextView txtMsg = (TextView) layout.findViewById(R.id.txtMensaje);
-            txtMsg.setText("Esto puede tardar unos segundos, favor de esperar " +
-                    "GRACIAS");
-
-            toast3.setDuration(Toast.LENGTH_SHORT);
-            toast3.setView(layout);
-            toast3.show();
-
-
-            try {
-            } catch (ActivityNotFoundException e) {
-                Toast.makeText(WbViewTarjeton.this, "No existe una aplicación para abrir el PDF", Toast.LENGTH_SHORT).show();
-            }
         }
 
     }
@@ -402,7 +367,7 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
         builder.setView(vi);
         final AlertDialog dialog = builder.create();
         dialog.setCancelable(true);
-        dialog.getWindow().setBackgroundDrawable(dialogColor);
+        MainActivity.quitarbordesdialogo(dialog);
         Button botonok = vi.findViewById(R.id.botonokspiner);
         final Spinner spinnerq = vi.findViewById(R.id.spinnerq);
         final CheckBox chbx = vi.findViewById(R.id.chbx);
@@ -471,7 +436,7 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
                         if (yearb) {
                             creararchivo(chbx.isChecked(), quincena + mes + year);
 
-                                dialog.cancel();
+                            dialog.cancel();
 
 
                         } else
@@ -515,7 +480,7 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
             View vista = getLayoutInflater().inflate(R.layout.instrucciones_tarjeton, null);
             constructor.setView(vista);
             final AlertDialog dialogo = constructor.create();
-            dialogo.getWindow().setBackgroundDrawable(dialogColor);
+            MainActivity.quitarbordesdialogo(dialogo);
             final Button botonext = vista.findViewById(R.id.botonnext);
             final Button botonback = vista.findViewById(R.id.botonback);
             botonback.setVisibility(View.INVISIBLE);
