@@ -1,14 +1,19 @@
 package com.todimssayuda.todosobrimss;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +36,7 @@ public class PDFActivitybis extends AppCompatActivity implements OnPageChangeLis
     String pdfFileName;
     String TAG = "PdfActivity";
     int position = -1;
-    Button boton ;
+    Button boton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,7 +67,6 @@ public class PDFActivitybis extends AppCompatActivity implements OnPageChangeLis
                 .scrollHandle(new DefaultScrollHandle(this))
                 .load();
     }
-
 
 
     @Override
@@ -98,6 +102,8 @@ public class PDFActivitybis extends AppCompatActivity implements OnPageChangeLis
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
         }
+
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -111,6 +117,7 @@ public class PDFActivitybis extends AppCompatActivity implements OnPageChangeLis
         }
         return super.onKeyDown(keyCode, event);
     }
+
 
     @Override
     public void onClick(View view) {

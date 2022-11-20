@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -24,7 +25,8 @@ import java.util.ArrayList;
 
 public class PDFViewer extends AppCompatActivity {
     ListView lv_pdf;
-    public static ArrayList<File> fileList = new ArrayList<File>();
+    public static ArrayList<File> fileList ;
+    ;
     PDFAdapter obj_adapter;
     public static int REQUEST_PERMISSIONS = 1;
     boolean boolean_permission;
@@ -42,6 +44,8 @@ public class PDFViewer extends AppCompatActivity {
         setContentView(R.layout.activity_pdfviewer);
         init();
 
+        this.setTitle("Consulta tarjeton");
+
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -52,22 +56,22 @@ public class PDFViewer extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         init();
+
     }
 
-    private void init() {
 
-        lv_pdf = (ListView) findViewById(R.id.lv_pdf);
+    private void init() {
+        lv_pdf =  findViewById(R.id.lv_pdf);
         dir = new File(Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS);
         fn_permission();
 
-
         lv_pdf.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(), PDFActivitybis.class);
                 intent.putExtra("position", i);
                 startActivity(intent);
-
                 Log.e("Position", i + "");
             }
         });
@@ -75,37 +79,43 @@ public class PDFViewer extends AppCompatActivity {
 
     public ArrayList<File> getfile(File dir) {
         File listFile[] = dir.listFiles();
+
+
+        fileList = new ArrayList<File>();
+
         if (listFile != null && listFile.length > 0) {
             for (int i = 0; i < listFile.length; i++) {
-
+                System.out.println(listFile[i].getName());
                 if (listFile[i].isDirectory()) {
-                    getfile(listFile[i]);
-                    System.out.println("esta en el for0000000000000000000000000000000000000000000000" + dir);
+                    //getfile(listFile[i]);
+                   // Toast.makeText(this, "es una subcarpeta" + listFile[i].getName(), Toast.LENGTH_SHORT).show();
+
                 } else {
 
                     boolean booleanpdf = false;
                     if (listFile[i].getName().endsWith("Tarjeton.aspx") || listFile[i].getName().endsWith("Tarjeton.pdf")) {
 
                         for (int j = 0; j < fileList.size(); j++) {
-                            System.out.println(j +"j");
+
                             if (fileList.get(j).getName().equals(listFile[i].getName())) {
                                 booleanpdf = true;
-                            } else {
 
                             }
                         }
 
-                        if (booleanpdf) {
-                            booleanpdf = false;
-                        } else {
+                        if (!booleanpdf) {
+                            System.out.println("" + i);
                             fileList.add(listFile[i]);
 
                         }
                     }
                 }
-                System.out.println(i +"i");
+
             }
         }
+        System.out.println(fileList.size());
+        System.out.println(listFile.length);
+        //Toast.makeText(this, " " + listFile.length, Toast.LENGTH_SHORT).show();
         return fileList;
     }
 
@@ -113,20 +123,15 @@ public class PDFViewer extends AppCompatActivity {
     private void fn_permission() {
         if ((ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
 
-            if ((ActivityCompat.shouldShowRequestPermissionRationale(PDFViewer.this, android.Manifest.permission.READ_EXTERNAL_STORAGE))) {
-
-
-            } else {
+            if ((!ActivityCompat.shouldShowRequestPermissionRationale(PDFViewer.this, android.Manifest.permission.READ_EXTERNAL_STORAGE))) {
                 ActivityCompat.requestPermissions(PDFViewer.this, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE},
                         REQUEST_PERMISSIONS);
 
             }
         } else {
             boolean_permission = true;
-
-            getfile(dir);
-            System.out.println("esta en el fn permission 0000000000000000000000000000000000000000000000");
-            obj_adapter = new PDFAdapter(getApplicationContext(), fileList);
+            obj_adapter = new PDFAdapter(getApplicationContext(), getfile(dir));
+            System.out.println(getfile(dir).size());
             lv_pdf.setAdapter(obj_adapter);
 
         }
@@ -139,18 +144,18 @@ public class PDFViewer extends AppCompatActivity {
 
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                boolean_permission = true;
-                getfile(dir);
-                System.out.println("esta en el on request 0000000000000000000000000000000000000000000000");
-                obj_adapter = new PDFAdapter(getApplicationContext(), fileList);
-                lv_pdf.setAdapter(obj_adapter);
+                //boolean_permission = true;
+                // getfile(dir);
+                // obj_adapter = new PDFAdapter(getApplicationContext(), fileList);
+                //lv_pdf.setAdapter(obj_adapter);
 
             } else {
-                Toast.makeText(getApplicationContext(), "Please allow the permission", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Debes aceptar los permisos de la App", Toast.LENGTH_LONG).show();
 
             }
         }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {

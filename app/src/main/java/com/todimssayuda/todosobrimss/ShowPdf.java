@@ -13,7 +13,7 @@ import com.google.android.gms.ads.AdView;
 
 public class ShowPdf extends AppCompatActivity {
 
-    String clase = "";
+
     PDFView pdfView;
     AdView mAdView;
     Bundle parametros;

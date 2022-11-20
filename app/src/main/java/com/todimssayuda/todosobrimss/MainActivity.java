@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void dialogoinfo() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         final LayoutInflater inflater = getLayoutInflater();
         View vi = inflater.inflate(R.layout.dialogo_requisitos, null);
         builder.setView(vi);
@@ -324,7 +324,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.botonconsulta:
-                Toast toast3 = new Toast(getApplicationContext());
+                Toast toast = new Toast(getApplicationContext());
                 LayoutInflater inflater = getLayoutInflater();
                 View layout = inflater.inflate(R.layout.toast,
                         (ViewGroup) findViewById(R.id.lytLayout));
@@ -332,9 +332,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 txtMsg.setText("Esto puede tardar unos segundos, favor de esperar " +
                         "GRACIAS");
 
-                toast3.setDuration(Toast.LENGTH_LONG);
-                toast3.setView(layout);
-                toast3.show();
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setView(layout);
+                toast.show();
                 intent = new Intent(this, PDFViewer.class);
                 startActivity(intent);
                 finish();
