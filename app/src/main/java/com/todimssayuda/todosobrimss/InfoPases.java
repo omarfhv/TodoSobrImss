@@ -20,7 +20,7 @@ public class InfoPases extends AppCompatActivity implements View.OnClickListener
 
     LinearLayout boton29, boton30, boton30bis;
     ColorDrawable dialogColor;
-    private AdView mAdView;
+    AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class InfoPases extends AppCompatActivity implements View.OnClickListener
 
 
         setContentView(R.layout.activity_info_pases);
-
+        this.setTitle("Pases");
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);

@@ -30,6 +30,7 @@ public class RolVacacional extends AppCompatActivity implements View.OnClickList
         }
 
         setContentView(R.layout.activity_rol_vacacional);
+        this.setTitle("Rol vacacional 2022");
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);

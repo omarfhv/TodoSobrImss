@@ -20,6 +20,7 @@ public class SubMenuActivos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_menu_activos);
+        this.setTitle("Descargar Tarjeton Digital");
 
 
         //botonatras

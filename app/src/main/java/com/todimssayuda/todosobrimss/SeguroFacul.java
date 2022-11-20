@@ -35,6 +35,7 @@ public class SeguroFacul extends AppCompatActivity implements View.OnClickListen
         }
 
         setContentView(R.layout.activity_seguro_facul);
+        this.setTitle("Seguro facultativo");
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);

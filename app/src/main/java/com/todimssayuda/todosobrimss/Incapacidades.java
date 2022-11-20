@@ -29,6 +29,7 @@ public class Incapacidades extends AppCompatActivity implements View.OnClickList
         }
 
         setContentView(R.layout.activity_incapacidades);
+        this.setTitle("Incapacidades");
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
