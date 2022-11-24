@@ -29,7 +29,7 @@ public class CalcAguinaldo extends AppCompatActivity implements View.OnClickList
     ColorDrawable dialogColor;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)   {
         super.onCreate(savedInstanceState);
 
         //botonatras
