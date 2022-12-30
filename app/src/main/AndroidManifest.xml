@@ -59,7 +59,6 @@
         <activity android:name=".InfoPases" />
         <activity android:name=".Pases" />
         <activity android:name=".ContratoColectivoTrabajadores" />
-        <activity android:name=".RolVacacional" />
         <activity android:name=".Urls" />
         <activity android:name=".SubMenuActivos" />
         <activity android:name=".WbViewTarjeton" />

@@ -55,10 +55,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int yy = c.get(Calendar.YEAR);
         int mm = c.get(Calendar.MONTH);
 
+
         bloqueo = findViewById(R.id.bloqueo);
         link = findViewById(R.id.botonenlacefb);
-        if (yy < 2024)
-            bloqueo.setVisibility(View.INVISIBLE);
+        if (yy < 2024) {
+            if (mm < 6) {
+                bloqueo.setVisibility(View.INVISIBLE);
+            }
+        }
 
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -203,7 +207,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void dialogoinfo() {
-         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         final LayoutInflater inflater = getLayoutInflater();
         View vi = inflater.inflate(R.layout.dialogo_requisitos, null);
         builder.setView(vi);
@@ -320,7 +324,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             //pantalla con boton en actionbar hacia pdf
             case R.id.botonrol:
-                cambioActivity(RolVacacional.class);
+                cambioActivityPdf("rol", "", "Rol vacacional 2023");
+                //cambioActivity(RolVacacional.class);
                 break;
 
             case R.id.botonconsulta:

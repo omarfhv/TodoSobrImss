@@ -19,8 +19,8 @@ import java.util.Calendar;
 public class SliderAdapterCalendario extends PagerAdapter {
     Context context;
     LayoutInflater inflater;
-    public int[] listaimagenes = {R.mipmap.enero20,R.mipmap.febrero20, R.mipmap.marzo20, R.mipmap.abril20, R.mipmap.mayo20, R.mipmap.junio20, R.mipmap.julio20,
-            R.mipmap.agosto20, R.mipmap.septiembre20, R.mipmap.octubre20, R.mipmap.noviembre20, R.mipmap.diciembre20};
+    public int[] listaimagenes = {R.mipmap.enero, R.mipmap.febrero, R.mipmap.marzo, R.mipmap.abril, R.mipmap.mayo, R.mipmap.junio, R.mipmap.julio,
+            R.mipmap.agosto, R.mipmap.septiembre, R.mipmap.octubre, R.mipmap.noviembre, R.mipmap.diciembre};
 
 
     Calendar c = Calendar.getInstance();

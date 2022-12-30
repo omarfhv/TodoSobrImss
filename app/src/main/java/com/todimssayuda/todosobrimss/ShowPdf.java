@@ -74,9 +74,7 @@ public class ShowPdf extends AppCompatActivity {
             case "calendario":
                 intent = new Intent(this, Calendario.class);
                 break;
-            case "rol":
-                intent = new Intent(this, RolVacacional.class);
-                break;
+
             case "modificacioncct":
                 intent = new Intent(this, ContratoColectivoTrabajadores.class);
                 break;
