@@ -43,7 +43,7 @@
         <activity
             android:name=".PDFAdapter"
             tools:ignore="Instantiatable" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".SliderAdapterCalendario"
             tools:ignore="Instantiatable" />
@@ -63,14 +63,12 @@
         <activity android:name=".SubMenuActivos" />
         <activity android:name=".WbViewTarjeton" />
         <activity android:name=".ShowPdf" />
-        <activity android:name=".Splash" android:exported="true">
-
+        <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <provider
@@ -82,17 +80,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
-<service
-        android:name=".MyFirebaseMessagingService"
-        android:exported="false">
-        <intent-filter>
-            <action android:name="com.google.firebase.MESSAGING_EVENT" />
-        </intent-filter>
-    </service>
 
-    <meta-data
-        android:name="com.google.firebase.messaging.default_notification_icon"
-        android:resource="@drawable/tarje" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-2736592244570345~6727086187" />
