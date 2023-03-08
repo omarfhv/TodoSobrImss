@@ -1,15 +1,22 @@
 package com.todimssayuda.todosobrimss;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
@@ -24,6 +31,7 @@ import android.widget.RadioButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.DialogInterface;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -34,6 +42,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final int PERMISO_NOTIFICACIONES = 0;
     LinearLayout botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas, botontabulador, botoncursos, botonpermutas, botonpases, botonpliego, botonsustis, botondias, botonjubilacion, botontiposdecontrato, botonincapacidades, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete;
     SharedPreferences sharedPref;
     Intent intent;
@@ -49,7 +58,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
         final Calendar c = Calendar.getInstance();
         int yy = c.get(Calendar.YEAR);
@@ -63,6 +71,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 bloqueo.setVisibility(View.INVISIBLE);
             }
         }
+
+
+        PedirPermisonotificaciones();
 
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -273,7 +284,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
-
         switch (view.getId()) {
             case R.id.botonenlacefb:
                 intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/tarjetondigitalimss/"));
@@ -559,5 +569,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dialogColor.setAlpha(0);
         dialog.getWindow().setBackgroundDrawable(dialogColor);
     }
+
+
+    private void PedirPermisonotificaciones() {
+        //Comprobación 'Racional'
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                Manifest.permission.POST_NOTIFICATIONS)) {
+
+            AlertDialog AD;
+            AlertDialog.Builder ADBuilder = new AlertDialog.Builder(MainActivity.this);
+            ADBuilder.setMessage("Las notificaciones te mantienen al día, activalas para recibir informacion de pagos, rol vacacional y avisos en general.");
+            ADBuilder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //Solicitamos permisos
+                    ActivityCompat.requestPermissions(
+                            MainActivity.this,
+                            new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                            PERMISO_NOTIFICACIONES);
+                }
+            });
+
+            AD = ADBuilder.create();
+            AD.show();
+
+
+        } else {
+            ActivityCompat.requestPermissions(
+                    MainActivity.this,
+                    new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                    PERMISO_NOTIFICACIONES);
+        }
+
+
+    }
+
 
 }
