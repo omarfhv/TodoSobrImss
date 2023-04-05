@@ -73,7 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Cursos TÉCNICOS 2022"
+                        android:text="Cursos TÉCNICOS 2023"
                         android:textColor="#ffffff" />
 
                 </LinearLayout>
@@ -100,7 +100,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Cursos TÉCNICOS 2022"
+                        android:text="Cursos TÉCNICOS 2023"
                         android:textColor="#ffffff" />
                 </LinearLayout>
 
@@ -190,7 +190,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Nutrición 2022"
+                        android:text="Nutrición 2023"
                         android:textColor="#ffffff" />
                 </LinearLayout>
 
