@@ -18,6 +18,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -41,6 +42,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -48,12 +50,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 import java.io.File;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static android.content.ContentValues.TAG;
 
 public class WbViewTarjeton extends AppCompatActivity implements View.OnClickListener {
     ProgressBar progresbar;
@@ -76,6 +84,13 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.web_view);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
         instruccionesdialogo(false);
         imv = findViewById(R.id.imagevi);
         mAdView = findViewById(R.id.adView1);
@@ -87,18 +102,23 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
         webview = findViewById(R.id.WebView);
         btndescargar = findViewById(R.id.btndescargar);
         btndescargar.setOnClickListener(this);
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getString(R.string.adinter));
-        AdRequest adRequest1 = new AdRequest.Builder().build();
-        mInterstitialAd.loadAd(adRequest1);
-        mInterstitialAd.setAdListener(new AdListener() {
+        InterstitialAd.load(this, "ca-app-pub-2736592244570345/9645372492", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                    }
 
-            @Override
-            public void onAdClosed() {
-
-
-            }
-        });
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.d(TAG, loadAdError.toString());
+                        mInterstitialAd = null;
+                    }
+                });
         validaPermisos();
 
 

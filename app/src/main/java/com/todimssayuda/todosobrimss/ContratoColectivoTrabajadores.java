@@ -7,14 +7,22 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-public class ContratoColectivoTrabajadores extends AppCompatActivity {
-    PDFView pdfView;
+public class ContratoColectivoTrabajadores extends AppCompatActivity implements View.OnClickListener {
+
     AdView mAdView;
+    LinearLayout btncompleto, btncct, btntabu, btnprofesio, btncata,btnreglame, btnconve, btnindice;
+
+    Intent intent;
+    TextView textview;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +33,40 @@ public class ContratoColectivoTrabajadores extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        setContentView(R.layout.activity_showpdf);
-       mAdView = findViewById(R.id.bannerviewer);
+        setContentView(R.layout.contrato_dividido);
+
+        mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        btncompleto = findViewById(R.id.btncomple);
+        btncompleto.setOnClickListener(this);
 
-        pdfView = findViewById(R.id.pdfviewer);
-        pdfView.fromAsset("contrato.pdf").load();
+        btncct = findViewById(R.id.btncontr);
+        btncct.setOnClickListener(this);
+
+        btntabu = findViewById(R.id.btntabu);
+        btntabu.setOnClickListener(this);
+
+        btnprofesio = findViewById(R.id.btnprofesio);
+        btnprofesio.setOnClickListener(this);
+
+        btncata = findViewById(R.id.btncatalogos);
+        btncata.setOnClickListener(this);
+
+        btnreglame = findViewById(R.id.btnreglamen);
+        btnreglame.setOnClickListener(this);
+
+        btnconve = findViewById(R.id.btnconveni);
+        btnconve.setOnClickListener(this);
+
+        btnindice = findViewById(R.id.btnindice);
+        btnindice.setOnClickListener(this);
+
+
+
+
+
 
     }
     @Override
@@ -84,4 +118,61 @@ public class ContratoColectivoTrabajadores extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btncomple:
+                //se obtiene el titulo directamente del cduadro de texto del layout
+                cambioActivitypdf("contrato", "", "CCT 2021-2023");
+                break;
+
+            case R.id.btncontr:
+                //se obtiene el titulo directamente del cduadro de texto del layout
+                cambioActivitypdf("contrato1", "", "CCT 2021-2023");
+                break;
+
+            case R.id.btntabu:
+                //se obtiene el titulo directamente del cduadro de texto del layout
+                cambioActivitypdf("contrato2", "", "CCT 2021-2023");
+                break;
+
+            case R.id.btnprofesio:
+                //se obtiene el titulo directamente del cduadro de texto del layout
+                cambioActivitypdf("contrato3", "", "CCT 2021-2023");
+                break;
+
+            case R.id.btncatalogos:
+                //se obtiene el titulo directamente del cduadro de texto del layout
+                cambioActivitypdf("contrato4", "", "CCT 2021-2023");
+                break;
+
+            case R.id.btnreglamen:
+                //se obtiene el titulo directamente del cduadro de texto del layout
+                cambioActivitypdf("contrato5", "", "CCT 2021-2023");
+                break;
+
+            case R.id.btnconveni:
+                //se obtiene el titulo directamente del cduadro de texto del layout
+                cambioActivitypdf("contrato6", "", "CCT 2021-2023");
+                break;
+
+            case R.id.btnindice:
+                //se obtiene el titulo directamente del cduadro de texto del layout
+                cambioActivitypdf("contrato7", "", "CCT 2021-2023");
+                break;
+
+        }
+    }
+
+    private void cambioActivitypdf(String pdf, String clase, String titulo) {
+
+        intent = new Intent(this, ShowPdf.class);
+            intent.putExtra("pdf", pdf);
+            intent.putExtra("clase", clase);
+            intent.putExtra("titulo", titulo);
+            startActivity(intent);
+            finish();
+
+
+    }
 }

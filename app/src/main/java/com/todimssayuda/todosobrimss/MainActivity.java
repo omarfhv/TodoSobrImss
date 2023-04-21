@@ -1,5 +1,7 @@
 package com.todimssayuda.todosobrimss;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -36,13 +39,19 @@ import android.content.DialogInterface;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final int PERMISO_NOTIFICACIONES = 0;
+    private static final int PERMISO_NOTIFICACIONES = 1;
+    LinearLayout btn1;
     LinearLayout botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas, botontabulador, botoncursos, botonpermutas, botonpases, botonpliego, botonsustis, botondias, botonjubilacion, botontiposdecontrato, botonincapacidades, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete;
     SharedPreferences sharedPref;
     Intent intent;
@@ -59,6 +68,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
         final Calendar c = Calendar.getInstance();
         int yy = c.get(Calendar.YEAR);
         int mm = c.get(Calendar.MONTH);
@@ -80,11 +96,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAdView.loadAd(adRequest);
 
 
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-2736592244570345/9645372492");
-        AdRequest adRequest1 = new AdRequest.Builder().build();
-        mInterstitialAd.loadAd(adRequest1);
-        mInterstitialAd.setAdListener(new AdListener());
+        InterstitialAd.load(this, "ca-app-pub-2736592244570345/9645372492", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.d(TAG, loadAdError.toString());
+                        mInterstitialAd = null;
+                    }
+                });
 
         sharedPref = getSharedPreferences("inicio", Context.MODE_PRIVATE);
         califica = sharedPref.getInt("califica", 0);
@@ -232,14 +260,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "Sin embargo, no hacemos ninguna representación o garantía de ningún tipo, expresa o implícita, con respecto a la precisión, adecuación, validez, confiabilidad, disponibilidad o integridad de cualquier información en los Sitios [o nuestra aplicación móvil].");
 
         Button botonno = vi.findViewById(R.id.botonok);
-        botonno.setOnClickListener(new View.OnClickListener() {
+
+
+        botonno.setOnClickListener(new  View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putBoolean("infoinicio", false);
                 editor.apply();
                 dialog.dismiss();
-                mInterstitialAd.show();
 
             }
         });
@@ -270,8 +299,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
 
+
                 dialog.dismiss();
-                mInterstitialAd.show();
+                mInterstitialAd.show(MainActivity.this);
+
 
             }
         });
@@ -392,7 +423,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.botondias:
-                cambioActivityPdf("festivos22", "", "Dias festivos 2022");
+                cambioActivityPdf("festivos22", "", "Dias festivos 2023");
                 break;
 
             case R.id.botonjubilacion:
