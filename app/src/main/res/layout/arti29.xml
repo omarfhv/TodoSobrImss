@@ -7,13 +7,24 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/texto1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" Cuando los trabajadores tengan que atender trámites
+            <TextView
+                android:id="@+id/texto1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=" Cuando los trabajadores tengan que atender trámites
 relacionados con el desempeño de sus labores que requieran su
 ausencia de la dependencia de su adscripción, pero dentro del mismo
 edificio o unidad de servicios, lo harán mediante la expresa
@@ -34,18 +45,19 @@ disponga se considera tiempo efectivo de labores. Para los efectos de
 los estímulos a que se refiere el Artículo 93 de este Reglamento, se
 incrementarán los contadores correspondientes como registro puntual
 cuando se haya concedido pase de entrada oficial."
-        android:textColor="#154f3a"
-        android:gravity="center"
-        android:textStyle="bold" />
+                android:textColor="#154f3a"
+                android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/botoncont"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:onClick="onclick"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/boton_principal"
-        android:text="      Continuar       "
-        android:textColor="#ffffff" />
+            <Button
+                android:id="@+id/botoncont"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/boton_principal"
+                android:onClick="onclick"
+                android:text="      Continuar       "
+                android:textColor="#ffffff" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

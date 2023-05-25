@@ -3,11 +3,9 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:background="#154f3a"
     android:layout_height="match_parent"
+    android:background="#154f3a"
     android:orientation="vertical">
-
-
 
     <ScrollView
         android:id="@+id/scrollview"
@@ -173,8 +171,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Permutas"
                         android:gravity="center"
+                        android:text="Permutas"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -200,8 +198,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pliego Testamentario"
                         android:gravity="center"
+                        android:text="Pliego Testamentario"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -226,8 +224,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Dias Festivos"
                         android:gravity="center"
+                        android:text="Dias Festivos"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -252,8 +250,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tipos de contratos"
                         android:gravity="center"
+                        android:text="Tipos de contratos"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -278,8 +276,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Seguro Facultativo"
                         android:gravity="center"
+                        android:text="Seguro Facultativo"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -305,8 +303,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Declaracion ANUAL"
                         android:gravity="center"
+                        android:text="Declaracion ANUAL"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -331,8 +329,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Calcular 2° de JULIO"
                         android:gravity="center"
+                        android:text="Calcular 2° de JULIO"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -357,8 +355,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Caja de Ahorros"
                         android:gravity="center"
+                        android:text="Caja de Ahorros"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -383,8 +381,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Calculadora de Prestamo Hipotecario"
                         android:gravity="center"
+                        android:text="Calculadora de Prestamo Hipotecario"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -409,8 +407,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Calculadora de Prestamo de CARRO"
                         android:gravity="center"
+                        android:text="Calculadora de Prestamo de CARRO"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -435,8 +433,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Conceptos TARJETON"
                         android:gravity="center"
+                        android:text="Conceptos TARJETON"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -745,11 +743,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
                         android:text="Calculadora de Vacaciones"
                         android:textAlignment="center"
                         android:textColor="#ffffff"
-                        android:textStyle="bold"
-                        android:gravity="center_horizontal" />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -771,11 +769,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
                         android:text="Calculadora de Aguinaldo"
                         android:textAlignment="center"
                         android:textColor="#ffffff"
-                        android:textStyle="bold"
-                        android:gravity="center_horizontal" />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -797,11 +795,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
                         android:text="Calculadora de Credito Hipotecario a Mediano Plazo"
                         android:textAlignment="center"
                         android:textColor="#ffffff"
-                        android:textStyle="bold"
-                        android:gravity="center_horizontal" />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -823,11 +821,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
                         android:text="Calculadora de Tiempo Extra"
                         android:textAlignment="center"
                         android:textColor="#ffffff"
-                        android:textStyle="bold"
-                        android:gravity="center_horizontal" />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
 
@@ -850,11 +848,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
                         android:text="Prestamo clausula 97"
                         android:textAlignment="center"
                         android:textColor="#ffffff"
-                        android:textStyle="bold"
-                        android:gravity="center_horizontal" />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -867,24 +865,26 @@
 
     <LinearLayout
         android:id="@+id/bloqueo"
-        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <TextView android:textSize="30dp"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:text="Esta app ha dejado de funcionar visita nuestra pagina en facebook para mas informacion de la nueva version "
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:text="Esta app ha dejado de funcionar visita nuestra pagina en facebook para mas informacion de la nueva version "
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="30dp" />
+
         <Button
             android:id="@+id/botonenlacefb"
-            android:text="Ir"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Ir" />
     </LinearLayout>
 
     <ImageView
@@ -907,11 +907,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-
-        ads:adSize="SMART_BANNER"
-
-        ads:adUnitId="@string/adbanner"
-        android:layout_alignParentLeft="true" />
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/adbanner" />
 </RelativeLayout>

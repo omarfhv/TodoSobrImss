@@ -6,52 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".PliegoTesta">
 
-
-
     <TextView
         android:id="@+id/texto1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text=" Una de las obligaciones estatutarias de la Secretaría de Previsión Social es procurar que todos los miembros del Sindicato cuenten con un PLIEGO TESTAMENTARIO."
         android:textColor="#000000"
-        android:gravity="center"
         android:textStyle="bold" />
 
-
-
-
     <ScrollView
-        android:layout_below="@+id/texto1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/pliego"
-        android:layout_marginBottom="60dp">
-
-
-
-
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/adView1"
+        android:layout_below="@+id/texto1"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/pliego">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center|top"
-            android:gravity="end"
-            android:layout_marginEnd="10dp"
             android:layout_marginVertical="90dp"
+            android:gravity="end"
             android:orientation="horizontal">
-
-
-
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:layout_marginRight="10dp"
                 android:orientation="vertical">
 
-
                 <LinearLayout
-
                     android:id="@+id/botontramite"
                     android:layout_width="160dp"
                     android:layout_height="30dp"
@@ -61,12 +48,11 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="¿DONDE TRAMITARLO? "
                         android:gravity="center"
+                        android:text="¿DONDE TRAMITARLO? "
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -84,12 +70,11 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="REQUISITOS "
                         android:gravity="center"
+                        android:text="REQUISITOS "
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -106,12 +91,11 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="A "
                         android:gravity="center"
+                        android:text="A "
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -147,26 +131,15 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="C"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
-
                 </LinearLayout>
-
-
             </LinearLayout>
-
-
-
-
-
         </LinearLayout>
-
-
     </ScrollView>
 
     <com.google.android.gms.ads.AdView
@@ -174,11 +147,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-
-        ads:adSize="SMART_BANNER"
-
-        ads:adUnitId="@string/adbanner"
-        android:layout_alignParentLeft="true" />
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/adbanner" />
 </RelativeLayout>

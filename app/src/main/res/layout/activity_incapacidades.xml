@@ -10,46 +10,40 @@
         android:id="@+id/txtinca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="LOS DOCUMENTOS VARIAN POR UNIDAD MEDICA"
         android:textColor="#154f3a"
-        android:textSize="20dp"
-        android:gravity="center"
-        ></TextView>
+        android:textSize="20dp" />
+
     <Button
         android:id="@+id/btnrecaida"
-        android:layout_below="@+id/txtinca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="RECAIDA"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:onClick="onClick"
+        android:layout_below="@+id/txtinca"
         android:background="@drawable/boton_principal"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:text="RECAIDA"
         android:textColor="#FFFFFF"
-
-        ></Button>
-
+        android:textSize="20dp" />
 
     <com.github.barteksc.pdfviewer.PDFView
-        android:layout_below="@+id/btnrecaida"
         android:id="@+id/pdfView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        >
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/adView1"
+        android:layout_below="@+id/btnrecaida"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="0dp" />
 
-
-    </com.github.barteksc.pdfviewer.PDFView>
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-
-        ads:adSize="SMART_BANNER"
-
-        ads:adUnitId="@string/adbanner"
-        android:layout_alignParentLeft="true" />
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/adbanner" />
 </RelativeLayout>

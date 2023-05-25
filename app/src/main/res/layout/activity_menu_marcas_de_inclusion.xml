@@ -3,36 +3,16 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
-
-    <TextView
-        android:id="@+id/texto12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" Periodos Semestrales"
-        android:textColor="#000000"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_below="@+id/texto12"
-        android:id="@+id/texto1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" AÑOS DE ANTIGÜEDAD "
-        android:textColor="#154f3a"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:textStyle="bold" />
 
     <ScrollView
-        android:layout_below="@id/texto1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="60dp">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/adView1"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,15 +21,32 @@
             android:gravity="center"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/texto12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=" Periodos Semestrales"
+                android:textColor="#000000"
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
-
-
+            <TextView
+                android:id="@+id/texto1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/texto12"
+                android:gravity="center"
+                android:text=" AÑOS DE ANTIGÜEDAD "
+                android:textColor="#154f3a"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_below="@+id/texto1"
                 android:id="@+id/botonanouno"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_below="@+id/texto1"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_marginHorizontal="15dp"
@@ -58,23 +55,21 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1 AÑO "
                     android:gravity="center"
+                    android:text="1 AÑO "
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
-
             </LinearLayout>
 
 
             <LinearLayout
-                android:layout_below="@+id/botonanouno"
                 android:id="@+id/botonanodos"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_below="@+id/botonanouno"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_marginHorizontal="15dp"
@@ -83,23 +78,20 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 2 AÑOS "
                     android:gravity="center"
+                    android:text=" 2 AÑOS "
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
-
             </LinearLayout>
 
-
             <LinearLayout
-                android:layout_below="@+id/botonanodos"
                 android:id="@+id/botonanotres"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_below="@+id/botonanodos"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_marginHorizontal="15dp"
@@ -108,22 +100,21 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 3 AÑOS "
                     android:gravity="center"
+                    android:text=" 3 AÑOS "
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_below="@+id/botonanotres"
                 android:id="@+id/botonanocuatro"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_below="@+id/botonanotres"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_marginHorizontal="15dp"
@@ -132,22 +123,21 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 4 AÑOS "
                     android:gravity="center"
+                    android:text=" 4 AÑOS "
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_below="@+id/botonanocuatro"
                 android:id="@+id/botonanocinco"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_below="@+id/botonanocuatro"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_marginHorizontal="15dp"
@@ -160,8 +150,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 5 AÑOS "
                     android:gravity="center"
+                    android:text=" 5 AÑOS "
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -169,10 +159,10 @@
 
 
             <LinearLayout
-                android:layout_below="@+id/botonanocinco"
                 android:id="@+id/botonanomas"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_below="@+id/botonanocinco"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_marginHorizontal="15dp"
@@ -185,18 +175,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" MAS DE 5 AÑOS "
                     android:gravity="center"
+                    android:text=" MAS DE 5 AÑOS "
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_below="@+id/botonanomas"
                 android:id="@+id/botoncalcuva"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_below="@+id/botonanomas"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_marginHorizontal="15dp"
@@ -206,29 +196,24 @@
                 android:orientation="vertical">
 
 
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" CALCULADORA DE PAGO DE VACACIONES"
                     android:gravity="center"
+                    android:text=" CALCULADORA DE PAGO DE VACACIONES"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
-
             </LinearLayout>
-
         </LinearLayout>
-
     </ScrollView>
 
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView1"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        ads:adSize="SMART_BANNER"
+        ads:adSize="BANNER"
         ads:adUnitId="@string/adbanner" />
 
 </RelativeLayout>

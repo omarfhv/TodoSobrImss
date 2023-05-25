@@ -7,73 +7,92 @@
     android:orientation="vertical"
     tools:context=".CalcPrestamos">
 
-    <TextView
-        android:id="@+id/titulo"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/adView1"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
-        android:text="Calculo de Conceptos 055 y 049"
-        android:textColor="#154f3a"
-        android:textSize="25dp">
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp">
 
-    </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titulo"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="50dp"
-        android:digits="0123456789."
-        android:hint="Concepto 002"
-        android:inputType="number" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText1"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="20dp"
-        android:digits="0123456789."
-        android:hint="Concepto 011"
-        android:inputType="number" />
+                <TextView
+                    android:id="@+id/titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:text="Calculo de Conceptos 055 y 049"
+                    android:textColor="#154f3a"
+                    android:textSize="25dp">
 
-    <Button
-        android:id="@+id/btnSumar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/botonblanco"
-        android:text="CALCULAR"
-        android:textColor="#154f3a" />
+                </TextView>
 
-    <TextView
-        android:id="@+id/txvResultado1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnSumar"
-        android:layout_marginTop="70dp"
-        android:text="Su 2da quincena de Julio concepto 055 aproximadamente es = "
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#154f3a" />
+                <EditText
+                    android:id="@+id/editText1"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titulo"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="50dp"
+                    android:digits="0123456789."
+                    android:hint="Concepto 002"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/editText1"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="20dp"
+                    android:digits="0123456789."
+                    android:hint="Concepto 011"
+                    android:inputType="number" />
+
+                <Button
+                    android:id="@+id/btnSumar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/editText2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/botonblanco"
+                    android:text="CALCULAR"
+                    android:textColor="#154f3a" />
+
+                <TextView
+                    android:id="@+id/txvResultado1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnSumar"
+                    android:layout_marginTop="70dp"
+                    android:text="Su 2da quincena de Julio concepto 055 aproximadamente es = "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#154f3a" />
 
 
-    <TextView
-        android:id="@+id/txvResultado2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txvResultado1"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
-        android:text="Su Aguinaldo concepto 049 aproximadamente es = "
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#154f3a" />
-
+                <TextView
+                    android:id="@+id/txvResultado2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txvResultado1"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="50dp"
+                    android:text="Su Aguinaldo concepto 049 aproximadamente es = "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#154f3a" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView1"
@@ -82,7 +101,7 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
         android:layout_marginBottom="0dp"
-        ads:adSize="SMART_BANNER"
+        ads:adSize="BANNER"
         ads:adUnitId="@string/adbanner" />
 
 </RelativeLayout>

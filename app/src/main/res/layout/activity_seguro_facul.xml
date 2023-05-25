@@ -7,36 +7,13 @@
     android:background="@drawable/botonblanco"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/texto2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text=" Increpción:\n ENERO Y FEBRERO\n  JULIOY AGOSTO."
-        android:textColor="#2F47CE"
-        android:gravity="center"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/texto1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/texto2"
-        android:layout_marginLeft="150dp"
-        android:gravity="center"
-        android:text=" Aseguramiento:\n A partir del 1° de Junio\n  A partir del 1° de Diciembre."
-        android:textColor="#2F47CE"
-        android:textStyle="bold" />
-
-
-
 
     <ScrollView
         android:id="@+id/scroll1"
-        android:layout_below="@+id/texto1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="60dp">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/adView1"
+        android:layout_alignParentTop="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,12 +22,21 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/texto2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text=" Increpción:\n ENERO Y FEBRERO\n  JULIOY AGOSTO."
+                    android:textColor="#2F47CE"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:id="@+id/botonfamidirectosprimera"
@@ -65,9 +51,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="FAMILIARES DIRECTOS\n Primera vez"
                         android:layout_margin="5dp"
                         android:gravity="center"
+                        android:text="FAMILIARES DIRECTOS\n Primera vez"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -87,8 +73,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:layout_marginHorizontal="5dp"
+                        android:gravity="center"
                         android:text="FAMILIARES POLITICOS\n Requisitos primera vez y renovacion"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
@@ -108,8 +94,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Grafica Familiares Politicos"
                         android:gravity="center"
+                        android:text="Grafica Familiares Politicos"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -122,6 +108,16 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/texto1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text=" Aseguramiento:\n A partir del 1° de Junio\n  A partir del 1° de Diciembre."
+                    android:textColor="#2F47CE"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:id="@+id/botonfamidirectosrenova"
@@ -137,8 +133,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="FAMILIARES DIRECTOS\n Renovación"
                         android:gravity="center"
+                        android:text="FAMILIARES DIRECTOS\n Renovación"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -157,8 +153,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Grafica Familiares Directos"
                         android:gravity="center"
+                        android:text="Grafica Familiares Directos"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -178,10 +174,10 @@
                         android:id="@+id/texto21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text=" NOTA:\n La duración del Seguro Facultativo es de 1 año, en caso de no realizar la renovación antes de la fecha de
 vencimiento, deberá dejar transcurrir un año sin derecho a realizar tramite de renovación."
                         android:textColor="#E72323"
-                        android:gravity="center"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -193,20 +189,20 @@ vencimiento, deberá dejar transcurrir un año sin derecho a realizar tramite de
         </LinearLayout>
 
 
-
     </ScrollView>
+
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
+
         android:layout_gravity="bottom"
 
         ads:adSize="SMART_BANNER"
-
-        ads:adUnitId="@string/adbanner"
-        android:layout_alignParentLeft="true" />
+        ads:adUnitId="@string/adbanner" />
 
 
 </RelativeLayout>

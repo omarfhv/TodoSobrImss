@@ -9,8 +9,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="50dp">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/banner"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -139,6 +142,7 @@
                         android:textColor="#ffffff" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/imageButton7"
                     android:layout_width="150dp"
@@ -156,8 +160,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text=" SIGLO XXI"
-                        android:textSize="30dp"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffffff"
+                        android:textSize="30dp" />
 
                     <TextView
                         android:id="@+id/cursos6"
@@ -195,7 +199,6 @@
                 </LinearLayout>
 
 
-
             </LinearLayout>
 
         </LinearLayout>
@@ -207,7 +210,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        ads:adSize="SMART_BANNER"
+        ads:adSize="BANNER"
         ads:adUnitId="@string/adbanner" />
 
 

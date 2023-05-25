@@ -7,85 +7,104 @@
     android:orientation="vertical"
     tools:context=".CalcVac">
 
-    <TextView
-        android:id="@+id/titulo"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/adView1"
         android:layout_alignParentTop="true"
-        android:text="Calculo del Concepto 048 Ayuda Actividades Culturales y Recreativas \nConcepto 029 Prima Vacacional."
-        android:textColor="#154f3a"
-        android:textSize="20dp">
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp">
 
-    </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titulo"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="30dp"
-        android:digits="0123456789."
-        android:hint="Salario Mensual Integrado"
-        android:inputType="number" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText1"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="15dp"
-        android:digits="0123456789"
-        android:hint="Dias de Pago"
-        android:inputType="number" />
+                <TextView
+                    android:id="@+id/titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:text="Calculo del Concepto 048 Ayuda Actividades Culturales y Recreativas \nConcepto 029 Prima Vacacional."
+                    android:textColor="#154f3a"
+                    android:textSize="20dp">
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="15dp"
-        android:digits="0123456789"
-        android:hint="Dias a Disfrutar"
-        android:inputType="number" />
+                </TextView>
+
+                <EditText
+                    android:id="@+id/editText1"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titulo"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="30dp"
+                    android:digits="0123456789."
+                    android:hint="Salario Mensual Integrado"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/editText1"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="15dp"
+                    android:digits="0123456789"
+                    android:hint="Dias de Pago"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/editText3"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/editText2"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="15dp"
+                    android:digits="0123456789"
+                    android:hint="Dias a Disfrutar"
+                    android:inputType="number" />
 
 
-    <Button
-        android:id="@+id/btnSumar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/botonblanco"
-        android:text="CALCULAR"
-        android:textColor="#154f3a" />
+                <Button
+                    android:id="@+id/btnSumar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/editText3"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/botonblanco"
+                    android:text="CALCULAR"
+                    android:textColor="#154f3a" />
 
-    <TextView
-        android:id="@+id/textViewResultado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnSumar"
-        android:layout_marginTop="40dp"
-        android:text="048 Su pago de vacaciones fraccionadas o pagadas es = \n "
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#154f3a" />
+                <TextView
+                    android:id="@+id/textViewResultado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnSumar"
+                    android:layout_marginTop="40dp"
+                    android:text="048 Su pago de vacaciones fraccionadas o pagadas es = \n "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#154f3a" />
 
-    <TextView
-        android:id="@+id/textViewResultado2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewResultado"
-        android:layout_marginTop="20dp"
-        android:text="029 Su Pago de Prima Vacacional es = \n "
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#154f3a" />
-
+                <TextView
+                    android:id="@+id/textViewResultado2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewResultado"
+                    android:layout_marginTop="20dp"
+                    android:text="029 Su Pago de Prima Vacacional es = \n "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#154f3a" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView1"
@@ -95,7 +114,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-        ads:adSize="SMART_BANNER"
+        ads:adSize="BANNER"
         ads:adUnitId="@string/adbanner" />
 
 </RelativeLayout>

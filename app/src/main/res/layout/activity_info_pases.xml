@@ -7,133 +7,134 @@
     tools:context=".InfoPases">
 
 
-    <TextView
-        android:id="@+id/texto25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" INFORMACION PASES DE ENTRADA, INTERMEDIOS Y SALIDA"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:textColor="#154f3a"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_below="@+id/texto25"
-        android:id="@+id/texto1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" NOTA: NO VIENE ESPECIFICADO CON CUANTO TIEMPO SE PIDEN LOS PASES, PERO SI ES RECOMENDABLE HACERLO CON UNAS HORAS DE ANTICIPACION."
-        android:gravity="center"
-        android:textColor="#C02222"
-        android:textStyle="bold" />
-
     <ScrollView
-        android:layout_below="@+id/texto1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="10dp">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/adView1"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center|top"
-            android:layout_margin="5dp"
-            android:orientation="horizontal">
+            android:layout_margin="10dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/texto25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=" INFORMACION PASES DE ENTRADA, INTERMEDIOS Y SALIDA"
+                android:textColor="#154f3a"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/texto1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/texto25"
+                android:gravity="center"
+                android:text=" NOTA: NO VIENE ESPECIFICADO CON CUANTO TIEMPO SE PIDEN LOS PASES, PERO SI ES RECOMENDABLE HACERLO CON UNAS HORAS DE ANTICIPACION."
+                android:textColor="#C02222"
+                android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:id="@+id/boton29"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/boton_principal"
+                android:gravity="center"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/boton29"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/boton_principal"
-                    android:gravity="center"
-                    android:orientation="vertical">
 
-
-                    <TextView
-                        android:layout_below="@+id/texto1"
-                        android:id="@+id/texto2"
-                        android:layout_marginVertical="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=" Artículo 29."
-                        android:textSize="25dp"
-                        android:textColor="#FFFFFF"
-                        android:gravity="center"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/boton30"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:gravity="center"
-                    android:background="@drawable/boton_principal"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_below="@+id/texto2"
-                        android:id="@+id/texto3"
-                        android:layout_marginVertical="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=" Artículo 30."
-                        android:textSize="25dp"
-                        android:textColor="#FFFFFF"
-                        android:gravity="center"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/boton30bis"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:gravity="center"
-                    android:background="@drawable/boton_principal"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_below="@+id/texto3"
-                        android:id="@+id/texto4"
-                        android:layout_marginVertical="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="230dp"
-                        android:text="Artículo 30 Bis."
-                        android:textColor="#FFFFFF"
-                        android:textSize="25dp"
-                        android:gravity="center"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_below="@+id/texto3"
+                <TextView
+                    android:id="@+id/texto2"
                     android:layout_width="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_height="250dp"
-                    android:background="@drawable/pases"
-                    ></ImageView>
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/texto1"
+                    android:layout_marginVertical="15dp"
+                    android:gravity="center"
+                    android:text=" Artículo 29."
+                    android:textColor="#FFFFFF"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/boton30"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/boton_principal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/texto3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/texto2"
+                    android:layout_marginVertical="15dp"
+                    android:gravity="center"
+                    android:text=" Artículo 30."
+                    android:textColor="#FFFFFF"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/boton30bis"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/boton_principal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/texto4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="230dp"
+                    android:layout_below="@+id/texto3"
+                    android:layout_marginVertical="15dp"
+                    android:gravity="center"
+                    android:text="Artículo 30 Bis."
+                    android:textColor="#FFFFFF"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:layout_below="@+id/texto3"
+                android:layout_margin="5dp"
+                android:background="@drawable/pases" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginVertical="15dp"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
         </LinearLayout>
-
-
     </ScrollView>
+
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView1"
         android:layout_width="match_parent"
@@ -141,10 +142,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-
-        ads:adSize="SMART_BANNER"
-
-        ads:adUnitId="@string/adbanner"
-        android:layout_alignParentLeft="true" />
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/adbanner" />
 
 </RelativeLayout>

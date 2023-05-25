@@ -13,7 +13,7 @@
         android:gravity="center"
         android:text=" RECUPERAR CONTRASEÑA DEL TARJETON DIGITAL"
         android:textColor="#154f3a"
-        android:textSize="20dp"
+        android:textSize="30dp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -91,9 +91,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-
         android:layout_gravity="bottom"
-
-        ads:adSize="SMART_BANNER"
+        ads:adSize="BANNER"
         ads:adUnitId="@string/adbanner" />
 </RelativeLayout>

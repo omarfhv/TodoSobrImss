@@ -18,7 +18,7 @@ import com.google.android.gms.ads.AdView;
 public class ContratoColectivoTrabajadores extends AppCompatActivity implements View.OnClickListener {
 
     AdView mAdView;
-    LinearLayout btncompleto, btncct, btntabu, btnprofesio, btncata,btnreglame, btnconve, btnindice;
+    LinearLayout btncompleto, btncct, btntabu, btnprofesio, btncata, btnreglame, btnconve, btnindice;
 
     Intent intent;
     TextView textview;
@@ -64,11 +64,8 @@ public class ContratoColectivoTrabajadores extends AppCompatActivity implements 
         btnindice.setOnClickListener(this);
 
 
-
-
-
-
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
@@ -101,7 +98,7 @@ public class ContratoColectivoTrabajadores extends AppCompatActivity implements 
         }
 
 
-        if (item.getItemId() == R.id.item2){
+        if (item.getItemId() == R.id.item2) {
 
             Intent intent = new Intent(this, ShowPdf.class);
             intent.putExtra("pdf", "modificacion");
@@ -114,7 +111,6 @@ public class ContratoColectivoTrabajadores extends AppCompatActivity implements 
         return super.onOptionsItemSelected(item);
 
 
-
     }
 
 
@@ -123,55 +119,54 @@ public class ContratoColectivoTrabajadores extends AppCompatActivity implements 
         switch (view.getId()) {
             case R.id.btncomple:
                 //se obtiene el titulo directamente del cduadro de texto del layout
-                cambioActivitypdf("contrato", "", "CCT 2021-2023");
+                cambioActivitypdf("contrato", "modificacioncct", "CCT 2021-2023");
                 break;
 
             case R.id.btncontr:
                 //se obtiene el titulo directamente del cduadro de texto del layout
-                cambioActivitypdf("contrato1", "", "CCT 2021-2023");
+                cambioActivitypdf("contrato1", "modificacioncct", "CCT 2021-2023");
                 break;
 
             case R.id.btntabu:
                 //se obtiene el titulo directamente del cduadro de texto del layout
-                cambioActivitypdf("contrato2", "", "CCT 2021-2023");
+                cambioActivitypdf("contrato2", "modificacioncct", "Tabulador de sueldos");
                 break;
 
             case R.id.btnprofesio:
                 //se obtiene el titulo directamente del cduadro de texto del layout
-                cambioActivitypdf("contrato3", "", "CCT 2021-2023");
+                cambioActivitypdf("contrato3", "modificacioncct", "Profesiogramas");
                 break;
 
             case R.id.btncatalogos:
                 //se obtiene el titulo directamente del cduadro de texto del layout
-                cambioActivitypdf("contrato4", "", "CCT 2021-2023");
+                cambioActivitypdf("contrato4", "modificacioncct", "Catálogos");
                 break;
 
             case R.id.btnreglamen:
                 //se obtiene el titulo directamente del cduadro de texto del layout
-                cambioActivitypdf("contrato5", "", "CCT 2021-2023");
+                cambioActivitypdf("contrato5", "modificacioncct", "Reglamentos");
                 break;
 
             case R.id.btnconveni:
                 //se obtiene el titulo directamente del cduadro de texto del layout
-                cambioActivitypdf("contrato6", "", "CCT 2021-2023");
+                cambioActivitypdf("contrato6", "modificacioncct", "Convenio adicional para las jubilaciones");
                 break;
 
             case R.id.btnindice:
                 //se obtiene el titulo directamente del cduadro de texto del layout
-                cambioActivitypdf("contrato7", "", "CCT 2021-2023");
+                cambioActivitypdf("contrato7", "modificacioncct", "Índice");
                 break;
 
         }
     }
 
     private void cambioActivitypdf(String pdf, String clase, String titulo) {
-
         intent = new Intent(this, ShowPdf.class);
-            intent.putExtra("pdf", pdf);
-            intent.putExtra("clase", clase);
-            intent.putExtra("titulo", titulo);
-            startActivity(intent);
-            finish();
+        intent.putExtra("pdf", pdf);
+        intent.putExtra("clase", clase);
+        intent.putExtra("titulo", titulo);
+        startActivity(intent);
+        finish();
 
 
     }

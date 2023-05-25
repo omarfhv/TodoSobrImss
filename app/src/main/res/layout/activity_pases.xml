@@ -10,17 +10,17 @@
         android:id="@+id/texto1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text=" Horas de Entrada y Salida de los Trabajadores"
         android:textColor="#154f3a"
-        android:gravity="center"
-        android:textSize="20dp"
+        android:textSize="30dp"
         android:textStyle="bold" />
 
     <LinearLayout
-        android:layout_below="@+id/texto1"
         android:id="@+id/botoninfopase"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_below="@+id/texto1"
         android:layout_gravity="center"
         android:layout_margin="5dp"
         android:layout_marginHorizontal="15dp"
@@ -29,23 +29,21 @@
         android:gravity="center"
         android:orientation="vertical">
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PASES "
             android:gravity="center"
+            android:text="PASES "
             android:textColor="#ffffff"
             android:textStyle="bold" />
-
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_below="@+id/botoninfopase"
         android:id="@+id/botoninfoomision"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_below="@+id/botoninfopase"
         android:layout_gravity="center"
         android:layout_margin="5dp"
         android:layout_marginHorizontal="15dp"
@@ -54,15 +52,13 @@
         android:gravity="center"
         android:orientation="vertical">
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OMISION "
             android:gravity="center"
+            android:text="OMISION "
             android:textColor="#ffffff"
             android:textStyle="bold" />
-
     </LinearLayout>
 
     <com.google.android.gms.ads.AdView
@@ -70,12 +66,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-
-        ads:adSize="SMART_BANNER"
-
-        ads:adUnitId="@string/adbanner"
-        android:layout_alignParentLeft="true" />
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/adbanner" />
 
 </RelativeLayout>

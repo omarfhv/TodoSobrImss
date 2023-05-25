@@ -9,6 +9,7 @@
     tools:context=".WbViewTarjeton">
 
     <WebView
+        android:layout_above="@+id/adView1"
         android:id="@+id/WebView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -46,10 +47,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-
         android:layout_gravity="bottom"
-
-        ads:adSize="SMART_BANNER"
+        ads:adSize="BANNER"
         ads:adUnitId="@string/adbanner" />
 
 </RelativeLayout>
