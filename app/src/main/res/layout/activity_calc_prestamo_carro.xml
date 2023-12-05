@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/botonblanco"
+    android:background="@color/colorfondo"
     android:orientation="vertical"
     tools:context=".CalcPrestamos">
 
@@ -23,13 +23,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+
                 <TextView
                     android:id="@+id/titulo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CALCULO DEL CREDITO DE CARRO."
+                    android:layout_centerHorizontal="true"
+                    android:padding="10sp"
+                    android:text="Cálculo de crédito automotriz"
                     android:textColor="#154f3a"
-                    android:textSize="23dp" />
+                    android:textSize="23dp"
+                    android:textStyle="bold" />
 
 
                 <EditText
@@ -37,27 +41,30 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/titulo"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
+                    android:background="@drawable/fondoedittext"
                     android:digits="0123456789."
                     android:hint="Concepto 002"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:padding="5sp" />
 
                 <EditText
                     android:id="@+id/editText2"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/editText1"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
+                    android:background="@drawable/fondoedittext"
                     android:digits="0123456789."
                     android:hint="Concepto 011"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:padding="5sp" />
 
 
                 <Button
                     android:id="@+id/btnSumar"
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/editText2"
@@ -73,8 +80,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/btnSumar"
-                    android:layout_marginTop="50dp"
-                    android:text=" SU CREDITO DE CARRO ES = "
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="50sp"
+                    android:layout_marginTop="50sp"
+                    android:layout_marginEnd="50sp"
+                    android:layout_marginBottom="50sp"
+                    android:background="@drawable/fondoedittext"
+                    android:padding="10sp"
+                    android:text=" Su credito automotriz es = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#154f3a" />
 

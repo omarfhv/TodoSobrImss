@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/botonblanco"
+    android:background="@color/colorfondo"
     android:orientation="vertical"
     tools:context=".CalcClausulaNoventySiete">
 
@@ -29,9 +29,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
-                    android:text="CLAUSULA 97 DEL CCT\nAnticipo a cuenta de su salario hasta por 3 meses de su sueldo"
+                    android:padding="10sp"
+                    android:text="CLAUSULA 97 DEL CCT Anticipo a cuenta de su salario hasta por 3 meses de su sueldo"
                     android:textColor="#154f3a"
-                    android:textSize="20dp">
+                    android:textSize="20dp"
+                    android:textStyle="bold">
 
                 </TextView>
 
@@ -40,22 +42,26 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tituloclausula"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
+                    android:background="@drawable/fondoedittext"
                     android:digits="0123456789."
                     android:hint="Concepto 002"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:padding="5sp" />
 
                 <EditText
                     android:id="@+id/editText2"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/editText1"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
+                    android:background="@drawable/fondoedittext"
                     android:digits="0123456789."
                     android:hint="Concepto 011"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:padding="5sp" />
 
                 <Button
                     android:id="@+id/btnSumar"
@@ -70,11 +76,17 @@
                     android:textColor="#154f3a" />
 
                 <TextView
+
                     android:id="@+id/textViewResultado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/btnSumar"
-                    android:layout_marginTop="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="50sp"
+                    android:layout_marginTop="20sp"
+                    android:layout_marginEnd="50sp"
+                    android:background="@drawable/fondoedittext"
+                    android:padding="10sp"
                     android:text="Su prestamo por 1 mes es = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#154f3a" />
@@ -84,7 +96,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textViewResultado"
-                    android:layout_marginTop="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="50sp"
+                    android:layout_marginTop="20sp"
+                    android:layout_marginEnd="50sp"
+                    android:background="@drawable/fondoedittext"
+                    android:padding="10sp"
                     android:text="Su prestamo por 2 meses es = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#154f3a" />
@@ -94,7 +111,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textViewResultado1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="50sp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="50sp"
+                    android:background="@drawable/fondoedittext"
+                    android:padding="10sp"
                     android:text="Su prestamo por 3 meses es = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#154f3a" />

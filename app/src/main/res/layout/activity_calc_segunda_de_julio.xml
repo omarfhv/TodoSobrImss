@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/botonblanco"
+    android:background="@color/colorfondo"
     android:orientation="vertical"
     tools:context=".CalcPrestamos">
 
@@ -28,31 +28,51 @@
                     android:id="@+id/titulo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Calculo del Conceptos 055.\nSe toma en cuenta del 1º de julio al 30 de junio del año siguiente año."
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:padding="10sp"
+                    android:text="Cálculo del Concepto 055"
                     android:textColor="#154f3a"
-                    android:textSize="23dp">
+                    android:textSize="23dp"
+                    android:textStyle="bold" />
 
-                </TextView>
+                <TextView
+                    android:id="@+id/titul2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titulo"
+                    android:gravity="center"
+                    android:padding="15sp"
+                    android:text="Se toma en cuenta del 1º de julio al 30 de junio del año siguiente año."
+                    android:textColor="#154f3a"
+                    android:textSize="15dp" />
+
 
                 <EditText
                     android:id="@+id/editText1"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/titulo"
+                    android:layout_below="@+id/titul2"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="40dp"
+                    android:background="@drawable/fondoedittext"
                     android:digits="0123456789."
                     android:hint="Concepto 002"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:padding="5sp" />
 
                 <EditText
                     android:id="@+id/editText2"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/editText1"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
+                    android:background="@drawable/fondoedittext"
                     android:digits="0123456789."
                     android:hint="Concepto 011"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:padding="5sp" />
 
                 <Button
                     android:id="@+id/btnSumar"
@@ -75,6 +95,7 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/botonblanco"
+                    android:padding="10sp"
                     android:text="CALCULAR PROPORCIONAL"
                     android:textColor="#154f3a" />
 
@@ -84,7 +105,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/btnpropocional"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="50sp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="50sp"
+                    android:background="@drawable/fondoedittext"
+                    android:padding="10sp"
                     android:text="Su 2da quincena de Julio concepto 055 aproximadamente es = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#154f3a" />

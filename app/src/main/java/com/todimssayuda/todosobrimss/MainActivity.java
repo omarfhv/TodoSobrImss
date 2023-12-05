@@ -82,8 +82,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         bloqueo = findViewById(R.id.bloqueo);
         link = findViewById(R.id.botonenlacefb);
-        if (yy < 2024) {
-            if (mm < 12) {
+        if (yy <= 2024) {
+            if (mm < 7 || mm == 11) {
                 bloqueo.setVisibility(View.INVISIBLE);
             }
         }
@@ -267,7 +267,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button botonno = vi.findViewById(R.id.botonok);
 
 
-        botonno.setOnClickListener(new  View.OnClickListener() {
+        botonno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = sharedPref.edit();

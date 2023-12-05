@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/botonblanco"
+    android:background="@color/colorfondo"
     android:orientation="vertical"
     tools:context=".CalcPrestamos">
 
@@ -28,9 +28,12 @@
                     android:id="@+id/titulo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CALCULO DEL CREDITO HIPOTECARIO A MEDIANO PLAZO."
+                    android:layout_centerHorizontal="true"
+                    android:padding="10sp"
+                    android:text="Cálculo de crédito hipotecario a mediano plazo"
                     android:textColor="#154f3a"
-                    android:textSize="23dp">
+                    android:textSize="23dp"
+                    android:textStyle="bold">
 
                 </TextView>
 
@@ -39,20 +42,26 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/titulo"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="40dp"
+                    android:background="@drawable/fondoedittext"
                     android:digits="0123456789."
                     android:hint="Concepto 002"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:padding="5sp" />
 
                 <EditText
                     android:id="@+id/editText2"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/editText1"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
+                    android:background="@drawable/fondoedittext"
                     android:digits="0123456789."
                     android:hint="Concepto 011"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:padding="5sp" />
 
                 <Button
                     android:id="@+id/btnSumar"
@@ -72,8 +81,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/btnSumar"
-                    android:layout_marginTop="50dp"
-                    android:text="SU CREDITO HIPOTECARIO DE MEDIANO PLAZO = "
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="50sp"
+                    android:layout_marginTop="50sp"
+                    android:layout_marginEnd="50sp"
+                    android:layout_marginBottom="50sp"
+                    android:background="@drawable/fondoedittext"
+                    android:padding="10sp"
+                    android:text="Su crédito hipotecario a mediano plazo es = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#154f3a" />
             </RelativeLayout>

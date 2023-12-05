@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/botonblanco"
+    android:background="@color/colorfondo"
     android:orientation="vertical"
     tools:context=".CalcPrestamos">
 
@@ -28,9 +28,12 @@
                     android:id="@+id/titulo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Calculo del Concepto 049 AGUINALDO y \nConcepto 047 Anticipo de Aguinaldo."
+                    android:layout_centerHorizontal="true"
+                    android:padding="10sp"
+                    android:text="Calculo del Concepto 049 AGUINALDO y Concepto 047 Anticipo de Aguinaldo."
                     android:textColor="#154f3a"
-                    android:textSize="23dp" />
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
 
 
                 <EditText
@@ -38,20 +41,26 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/titulo"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
+                    android:background="@drawable/fondoedittext"
                     android:digits="0123456789."
                     android:hint="Concepto 002"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:padding="5sp" />
 
                 <EditText
                     android:id="@+id/editText2"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/editText1"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
+                    android:background="@drawable/fondoedittext"
                     android:digits="0123456789."
                     android:hint="Concepto 011"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:padding="5sp" />
 
                 <Button
                     android:id="@+id/btnSumar"
@@ -73,6 +82,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/botonblanco"
+                    android:padding="5sp"
                     android:text="CALCULAR PROPORCIONAL"
                     android:textColor="#154f3a" />
 
@@ -82,7 +92,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/btnpropocional"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
+                    android:background="@drawable/fondoedittext"
+                    android:padding="10sp"
                     android:text="Su AGUINALDO aproximado es de = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#154f3a" />
@@ -92,7 +105,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/textViewResultado"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
+                    android:background="@drawable/fondoedittext"
+                    android:padding="10sp"
                     android:text="Su Anticipo de AGUINALDO es de = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#154f3a" />
