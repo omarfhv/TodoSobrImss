@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final int PERMISO_NOTIFICACIONES = 1;
     LinearLayout btn1;
-    LinearLayout botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas, botontabulador, botoncursos, botonpermutas, botonpases, botonpliego, botonsustis, botondias, botonjubilacion, botontiposdecontrato, botonincapacidades, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete;
+    LinearLayout botonconvenioescuela, botonconvocatoria, botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas, botontabulador, botoncursos, botonpermutas, botonpases, botonpliego, botonsustis, botondias, botonjubilacion, botontiposdecontrato, botonincapacidades, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete;
     SharedPreferences sharedPref;
     Intent intent;
 
@@ -83,11 +83,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bloqueo = findViewById(R.id.bloqueo);
         link = findViewById(R.id.botonenlacefb);
         if (yy < 2024) {
-            if (mm < 6) {
+            if (mm < 12) {
                 bloqueo.setVisibility(View.INVISIBLE);
             }
         }
-
 
         PedirPermisonotificaciones();
 
@@ -158,6 +157,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         botonpromociones = findViewById(R.id.botonpromociones);
         botonpromociones.setOnClickListener(this);
+
+        botonconvenioescuela = findViewById(R.id.botonconvenioescuela);
+        botonconvenioescuela.setOnClickListener(this);
+
+        botonconvocatoria = findViewById(R.id.botonconvocatorias);
+        botonconvocatoria.setOnClickListener(this);
 
         botonenterate = findViewById(R.id.botonenterate);
         botonenterate.setOnClickListener(this);
@@ -363,11 +368,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.botonenterate:
                 cambioActivityUrl("https://eltioimss.blogspot.com/?m=1", "Notificaciones");
                 break;
+            //web
+            case R.id.botonconvocatorias:
+                Intent intentae = new Intent(Intent.ACTION_VIEW, Uri.parse("https://sntss.org.mx/convocatorias"));
+                startActivity(intentae);
+                break;
+
             //pantalla con boton en actionbar hacia pdf
             case R.id.botonrol:
-                cambioActivityPdf("rol", "", "Rol vacacional 2023");
+                cambioActivity(RolVacacional.class);
+                break;
+
+            //pantalla con boton en actionbar hacia pdf
+            case R.id.botonconvenioescuela:
+                cambioActivityPdf("conveniosntss", "", "Convenios");
                 //cambioActivity(RolVacacional.class);
                 break;
+
 
             case R.id.botonconsulta:
                 Toast toast = new Toast(getApplicationContext());

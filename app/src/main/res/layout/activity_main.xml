@@ -96,7 +96,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rol vacacional"
+                        android:text="Rol vacacional 2024"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -121,7 +121,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="CCT 2020"
+                        android:text="CCT 2023-2025"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -146,7 +146,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tabulador 2023"
+                        android:text="Tabulador 2024"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -435,6 +435,32 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Conceptos TARJETON"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/botonconvocatorias"
+                    android:layout_width="150dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/boton_principal"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/convocatorias" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Convocatorias"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -854,6 +880,34 @@
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
                 </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/botonconvenioescuela"
+                    android:layout_width="150dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/boton_principal"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/convenioescuela" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Convenios con Escuelas"
+                        android:textAlignment="center"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
 
             </LinearLayout>
 

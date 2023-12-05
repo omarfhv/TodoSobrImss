@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="CCT COMPLETO 2021-2023"
+                android:text="CCT COMPLETO 2023-2025"
                 android:textColor="#FFFFFF"
                 android:textSize="20dp"
                 android:textStyle="bold" />
