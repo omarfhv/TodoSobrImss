@@ -50,10 +50,6 @@ public class CursosIm extends AppCompatActivity implements View.OnClickListener 
         cambioActivitypdf("becas", "cursos", (String) textview.getText());
     }
 
-    public void Postecnico(View view) {
-        textview = findViewById(R.id.cursos2);
-        cambioActivitypdf("cusoscdmx", "cursos", (String) textview.getText());
-    }
 
     public void Medicos(View view) {
         textview = findViewById(R.id.cursos3);

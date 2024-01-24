@@ -117,33 +117,6 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/imageButton4"
-                    android:layout_width="150dp"
-                    android:layout_height="120dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"
-                    android:background="@drawable/boton_principal"
-                    android:gravity="center"
-                    android:onClick="Postecnico"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/beca" />
-
-                    <TextView
-                        android:id="@+id/cursos2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Cursos CDMX 2023 Zona Sur"
-                        android:textColor="#ffffff" />
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/imageButton7"
                     android:layout_width="150dp"
                     android:layout_height="120dp"
@@ -168,7 +141,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text=" Cursos CDMX 2023 Centro Medico"
+                        android:text=" Cursos CDMX 2024 Centro Medico"
                         android:textColor="#ffffff" />
                 </LinearLayout>
 

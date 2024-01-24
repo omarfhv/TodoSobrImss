@@ -30,7 +30,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:padding="10sp"
-                    android:text="Cálculo de crédito hipotecario"
+                    android:text="  Cálculo de crédito hipotecario\nPara mayor información pasar a la Secretaria de Fomento a la Habitación de tu Sección Sindical."
                     android:textColor="#154f3a"
                     android:textSize="23dp"
                     android:textStyle="bold">
