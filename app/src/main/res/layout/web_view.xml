@@ -27,17 +27,7 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:id="@+id/btndescargar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/adView1"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/botonprincipal"
-        android:text="  Descargar  "
-        android:textColor="#ffffff" />
+
 
 
     <com.google.android.gms.ads.AdView

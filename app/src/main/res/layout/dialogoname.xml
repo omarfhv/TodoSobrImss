@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#ffffff"
+    android:background="@drawable/boton_principal"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="20dp">
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guardar Tarjeton"
-        android:textColor="@color/colorPrimary"
+        android:textColor="#ffffff"
         android:textSize="30dp" />
 
 
@@ -21,7 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="#ffffff" />
 
 
     <Spinner
@@ -29,7 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="#ffffff" />
 
     <Spinner
         android:id="@+id/spinnera"
@@ -37,30 +39,26 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:textAlignment="center" />
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent">
 
-       <Button
-        android:id="@+id/botonokspiner"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Guardar" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnsalir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:onClick="salirdialog"
-        android:text="Salir" />
-</LinearLayout>
+        <Button
+            android:id="@+id/botonokspiner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Guardar" />
+
+
+    </LinearLayout>
 
     <CheckBox
         android:id="@+id/chbx"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Abrir despues de guardar" />
+        android:text="Abrir despues de guardar"
+        android:textColor="#ffffff" />
 </LinearLayout>

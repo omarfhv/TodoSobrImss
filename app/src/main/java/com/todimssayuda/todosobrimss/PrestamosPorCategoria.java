@@ -51,16 +51,6 @@ public class PrestamosPorCategoria extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_general, menu);
-        menu.findItem(R.id.item1).setTitle("Calculadora");
-        menu.findItem(R.id.item1).setIcon(null);
-        menu.findItem(R.id.item2).setTitle("");
-        menu.findItem(R.id.item2).setIcon(getResources().getDrawable(R.drawable.calcu));
-        return true;
-    }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -71,13 +61,6 @@ public class PrestamosPorCategoria extends AppCompatActivity {
             finish();
         }
 
-
-        switch (item.getItemId()) {
-            case R.id.item2:
-                Intent intent1312to = new Intent(this, CalcPrestamos.class);
-                startActivity(intent1312to);
-                break;
-        }
         return super.onOptionsItemSelected(item);
 
     }

@@ -47,9 +47,11 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -63,15 +65,17 @@ import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.content.ContentValues.TAG;
 
-public class WbViewTarjeton extends AppCompatActivity implements View.OnClickListener {
+public class WbViewTarjeton extends AppCompatActivity {
     ProgressBar progresbar;
     WebView webview;
     String quincena, mes, year;
     ImageView imv;
     boolean quincenab, mesb, yearb;
-    Button btndescargar;
-     AdView mAdView;
+    AdView mAdView;
     InterstitialAd mInterstitialAd;
+    String urlactivos = "http://rh.imss.gob.mx/TarjetonDigital/", urljubilados = "http://rh.imss.gob.mx/tarjetonjubilados/", urldescarga = "http://rh.imss.gob.mx/tarjetondigital/Reportes/Web/wfrReporteTarjeton.aspx";
+    boolean jubilados = true;
+
     static int[] id = new int[]{R.drawable.ins1, R.drawable.ins2, R.drawable.ins3, R.drawable.ins4, R.drawable.ins5, R.drawable.ins6, R.drawable.ins7};
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -100,25 +104,18 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
 
         progresbar = findViewById(R.id.pgbr);
         webview = findViewById(R.id.WebView);
-        btndescargar = findViewById(R.id.btndescargar);
-        btndescargar.setOnClickListener(this);
-        InterstitialAd.load(this, "ca-app-pub-2736592244570345/9645372492", adRequest,
-                new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        // The mInterstitialAd reference will be null until
-                        // an ad is loaded.
-                        mInterstitialAd = interstitialAd;
-                        Log.i(TAG, "onAdLoaded");
-                    }
 
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error
-                        Log.d(TAG, loadAdError.toString());
-                        mInterstitialAd = null;
-                    }
-                });
+        InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712", adRequest, new InterstitialAdLoadCallback() {
+            @Override
+            public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                // The mInterstitialAd reference will be null until
+                // an ad is loaded.
+                mInterstitialAd = interstitialAd;
+                Log.i(TAG, "onAdLoaded");
+            }
+
+
+        });
         validaPermisos();
 
 
@@ -156,11 +153,45 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
 
 
             });
-
-
-            webview.loadUrl("http://rh.imss.gob.mx/TarjetonDigital/");
+            Intent intent = getIntent();
+            jubilados = intent.getBooleanExtra("jubilados", false);
+            if (jubilados) {
+                webview.loadUrl(urljubilados);
+            } else {
+                webview.loadUrl(urlactivos);
+            }
             webview.getSettings().setBuiltInZoomControls(true);
 
+            webview.setDownloadListener(new DownloadListener() {
+                public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+
+                    Toast.makeText(WbViewTarjeton.this, "descargando", Toast.LENGTH_LONG).show();
+                    final DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+                    request.allowScanningByMediaScanner();
+                    request.setMimeType(mimetype);
+                    //------------------------COOKIE------------------------
+                    String cookies = CookieManager.getInstance().getCookie(url);
+                    request.addRequestHeader("cookie", cookies);
+                    //------------------------COOKIE------------------------
+                    request.addRequestHeader("User-Agent", userAgent);
+                    request.setDescription("Downloading file...");
+                    request.setTitle(URLUtil.guessFileName(url, contentDisposition, mimetype));
+                    request.allowScanningByMediaScanner();
+                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, URLUtil.guessFileName(url, contentDisposition, mimetype));
+                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                    final DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                    dialogo(WbViewTarjeton.this);
+                    new Thread("Browser download") {
+                        public void run() {
+                            dm.enqueue(request);
+
+
+                        }
+                    }.start();
+
+                }
+            });
 
         } else {
 
@@ -176,32 +207,27 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
             Button botonsi = vi.findViewById(R.id.botonsi);
             botonsi.setText("Reintentar");
             botonsi.setTextSize(10);
-            botonsi.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = new Intent();
-                            intent.setClass(WbViewTarjeton.this, WbViewTarjeton.this.getClass());
-                            //llamamos a la actividad
-                            WbViewTarjeton.this.startActivity(intent);
-                            //finalizamos la actividad actual
-                            WbViewTarjeton.this.finish();
-                        }
-                    }
-            );
+            botonsi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+                    intent.setClass(WbViewTarjeton.this, WbViewTarjeton.this.getClass());
+                    //llamamos a la actividad
+                    WbViewTarjeton.this.startActivity(intent);
+                    //finalizamos la actividad actual
+                    WbViewTarjeton.this.finish();
+                }
+            });
             Button botonno = vi.findViewById(R.id.botonno);
             botonno.setTextSize(10);
             botonno.setText("Volver");
-            botonno.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            startActivity(new Intent(getBaseContext(), SubMenuActivos.class)
-                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
-                            finish();
-                        }
-                    }
-            );
+            botonno.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getBaseContext(), MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                    finish();
+                }
+            });
             dialog.show();
             //Metodos.dialogo( this, getLayoutInflater(), "¿seguro deseas salir de la aplicacion?", 0 );
         }
@@ -209,18 +235,10 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
     }
 
     private void validaPermisos() {
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+        if ((checkSelfPermission(READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) && (checkSelfPermission(WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
             return;
         }
-
-        if ((checkSelfPermission(READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) &&
-                (checkSelfPermission(WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
-            return;
-        }
-
-        if ((shouldShowRequestPermissionRationale(READ_EXTERNAL_STORAGE)) ||
-                (shouldShowRequestPermissionRationale(WRITE_EXTERNAL_STORAGE))) {
+        if ((shouldShowRequestPermissionRationale(READ_EXTERNAL_STORAGE)) || (shouldShowRequestPermissionRationale(WRITE_EXTERNAL_STORAGE))) {
             AlertDialog.Builder dialogo = new AlertDialog.Builder(WbViewTarjeton.this);
             dialogo.setTitle("Permisos Desactivados");
             dialogo.setMessage("Debe aceptar los permisos para el correcto funcionamiento de la App");
@@ -254,8 +272,7 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                startActivity(new Intent(getBaseContext(), SubMenuActivos.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                startActivity(new Intent(getBaseContext(), MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
                 finish();
                 break;
             case R.id.item2:
@@ -292,11 +309,13 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
                             progresbar.setVisibility(View.GONE);
                             imv.setVisibility(View.GONE);
                             setTitle("Descargar tarjeton");
+
                         }
 
 
                     });
-                    webview.loadUrl("http://rh.imss.gob.mx/tarjetondigital/");
+                    webview.loadUrl(urlactivos);
+
                     webview.getSettings().setBuiltInZoomControls(true);
                 }
                 break;
@@ -309,70 +328,86 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            startActivity(new Intent(getBaseContext(), SubMenuActivos.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            startActivity(new Intent(getBaseContext(), MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
             return true;
         }
         return super.onKeyDown(keyCode, event);
     }
 
-    @Override
-    public void onClick(View v) {
-        dialogo(this);
-        webview.loadUrl("http://rh.imss.gob.mx/tarjetondigital/Reportes/Web/wfrReporteTarjeton.aspx");
-        webview.getSettings().setBuiltInZoomControls(true);
-        webview.setDownloadListener(new DownloadListener() {
-                                        public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
-                                            //for downloading directly through download manager
-                                            Toast.makeText(WbViewTarjeton.this, "descargando", Toast.LENGTH_LONG).show();
-                                            final DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
-                                            request.allowScanningByMediaScanner();
-                                            request.setMimeType(mimetype);
-                                            //------------------------COOKIE------------------------
-                                            String cookies = CookieManager.getInstance().getCookie(url);
-                                            request.addRequestHeader("cookie", cookies);
-                                            //------------------------COOKIE------------------------
-                                            request.addRequestHeader("User-Agent", userAgent);
-                                            request.setDescription("Downloading file...");
-                                            request.setTitle(URLUtil.guessFileName(url, contentDisposition, mimetype));
-                                            request.allowScanningByMediaScanner();
-                                            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                                            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, URLUtil.guessFileName(url, contentDisposition, mimetype));
-                                            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                                            final DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-                                            new Thread("Browser download") {
-                                                public void run() {
-                                                    dm.enqueue(request);
+    private void mostrarad(boolean chequed, AlertDialog dialogoorigen, AlertDialog dialogo, String mensaje) {
+        if (mInterstitialAd != null) {
+            mInterstitialAd.show(WbViewTarjeton.this);
+            mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                @Override
+                public void onAdDismissedFullScreenContent() {
+                    super.onAdDismissedFullScreenContent();
+                    Toast.makeText(WbViewTarjeton.this, mensaje, Toast.LENGTH_SHORT).show();
+                    if (chequed) {
+                        //cambio de activity
+                        Intent intent = new Intent(WbViewTarjeton.this, PDFViewer.class);
+                        startActivity(intent);
+                    } else {
+                        dialogo.cancel();
+                        dialogoorigen.cancel();
+                    }
 
-                                                }
-                                            }.start();
-
-                                        }
-                                    }
-
-        );
-
+                }
+            });
+        } else {
+            Toast.makeText(WbViewTarjeton.this, mensaje, Toast.LENGTH_SHORT).show();
+            if (chequed) {
+                //cambio de activity
+                Intent intent = new Intent(this, PDFViewer.class);
+                startActivity(intent);
+            } else {
+                dialogo.cancel();
+                dialogoorigen.cancel();
+            }
+        }
     }
 
-    private void creararchivo(boolean chequed, String nombre) {
+    private void creararchivo(boolean chequed, String nombre, AlertDialog dialogoorigen) {
         File currentFile = new File(Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS + "/wfrReporteTarjeton.aspx");
-        if (currentFile.exists()) {
-            // currentFile.delete();
-            // Toast.makeText(this, "el archivo ya existe", Toast.LENGTH_LONG).show();
-        }
         File newFile = new File(Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS + "/" + nombre + "wfrReporteTarjeton.aspx");
+        if (currentFile.exists()) {
+            if (newFile.exists()) {
+                final AlertDialog.Builder constructor = new AlertDialog.Builder(this);
+                LayoutInflater inflater = getLayoutInflater();
+                View vista = inflater.inflate(R.layout.dialogoconfirm, null);
+                constructor.setView(vista);
+                final AlertDialog dialogo = constructor.create();
+                dialogo.setCancelable(false);
+                MainActivity.quitarbordesdialogo(dialogo);
+                TextView titulo = vista.findViewById(R.id.txtconfirm);
+                Button btnno = vista.findViewById(R.id.botonno);
+                Button btnsi = vista.findViewById(R.id.botonsi);
+                btnno.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialogo.cancel();
+                    }
+                });
+                btnsi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        rename(currentFile, newFile);
+                        mostrarad(chequed, dialogoorigen, dialogo, "Se ha sobreescrito el tarjeton");
 
-        rename(currentFile, newFile);
 
+                    }
+                });
+                titulo.setText("Ya existe un archivo con ese nombre, ¿Deseas reemplazarlo?");
+                dialogo.show();
 
-        if (chequed) {
+            } else {
+                rename(currentFile, newFile);
+                mostrarad(chequed, dialogoorigen, dialogoorigen, "Se ha guardado el tarjeton");
 
-            Intent intent = new Intent(this, PDFViewer.class);
-            startActivity(intent);
-
+            }
+        } else {
+            Toast.makeText(this, "Ha ocurrido un error en la descarga intentalo de nuevo", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     private boolean rename(File from, File to) {
@@ -389,29 +424,36 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
         dialog.setCancelable(true);
         MainActivity.quitarbordesdialogo(dialog);
         Button botonok = vi.findViewById(R.id.botonokspiner);
-        final Spinner spinnerq = vi.findViewById(R.id.spinnerq);
         final CheckBox chbx = vi.findViewById(R.id.chbx);
+        if (!jubilados) {
+            final Spinner spinnerq = vi.findViewById(R.id.spinnerq);
 
-        ArrayAdapter<CharSequence> adaptadorq = ArrayAdapter.createFromResource(cont, R.array.quincena, android.R.layout.simple_spinner_item);
-        spinnerq.setAdapter(adaptadorq);
-        spinnerq.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-                    quincenab = false;
-                } else {
-                    quincenab = true;
+            ArrayAdapter<CharSequence> adaptadorq = ArrayAdapter.createFromResource(cont, R.array.quincena, R.layout.custom_text_spinner);
+            spinnerq.setAdapter(adaptadorq);
+
+
+            spinnerq.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    if (position == 0) {
+                        quincenab = false;
+                    } else {
+                        quincenab = true;
+                    }
+                    quincena = "" + parent.getItemAtPosition(position).toString();
                 }
-                quincena = "" + parent.getItemAtPosition(position).toString();
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
 
-            }
-        });
+                }
+            });
+        } else {
+            final Spinner spinnerq = vi.findViewById(R.id.spinnerq);
+            spinnerq.setVisibility(View.GONE);
+        }
         Spinner spinnerm = vi.findViewById(R.id.spinnerm);
-        ArrayAdapter<CharSequence> adaptadorm = ArrayAdapter.createFromResource(cont, R.array.mes, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adaptadorm = ArrayAdapter.createFromResource(cont, R.array.mes, R.layout.custom_text_spinner);
         spinnerm.setAdapter(adaptadorm);
         spinnerm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -430,7 +472,7 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
             }
         });
         Spinner spinnera = vi.findViewById(R.id.spinnera);
-        ArrayAdapter<CharSequence> adaptadora = ArrayAdapter.createFromResource(cont, R.array.year, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adaptadora = ArrayAdapter.createFromResource(cont, R.array.year, R.layout.custom_text_spinner);
         spinnera.setAdapter(adaptadora);
         spinnera.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -451,20 +493,23 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
         botonok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (quincenab) {
+                if (jubilados) {
                     if (mesb) {
                         if (yearb) {
-                            creararchivo(chbx.isChecked(), quincena + mes + year);
+                            creararchivo(chbx.isChecked(), "jub" + mes + year, dialog);
+                            //dialog.cancel();
 
-                            dialog.cancel();
+                        } else Toast.makeText(cont, "Selecciona el año", Toast.LENGTH_LONG).show();
+                    } else Toast.makeText(cont, "Selecciona el mes", Toast.LENGTH_LONG).show();
+                } else if (quincenab) {
+                    if (mesb) {
+                        if (yearb) {
+                            creararchivo(chbx.isChecked(), quincena + mes + year, dialog);
+                            //dialog.cancel();
 
-
-                        } else
-                            Toast.makeText(cont, "Selecciona el año", Toast.LENGTH_LONG).show();
-                    } else
-                        Toast.makeText(cont, "Selecciona el mes", Toast.LENGTH_LONG).show();
-                } else
-                    Toast.makeText(cont, "Selecciona la quincena", Toast.LENGTH_LONG).show();
+                        } else Toast.makeText(cont, "Selecciona el año", Toast.LENGTH_LONG).show();
+                    } else Toast.makeText(cont, "Selecciona el mes", Toast.LENGTH_LONG).show();
+                } else Toast.makeText(cont, "Selecciona la quincena", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -472,11 +517,6 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
         dialog.show();
     }
 
-    public void salirdialog(View view) {
-
-        Intent intent08 = new Intent(this, WbViewTarjeton.class);
-        startActivity(intent08);
-    }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     static public int instruccionesbotones(ImageView imv, int num, boolean contador, Context context) {
@@ -510,19 +550,18 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
             //TextView texto = vista.findViewById(R.id.txt);
             // texto.setText(getString(R.string.mensajeinicio));
             botonback.setOnClickListener(new View.OnClickListener() {
-                                             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                                             @Override
-                                             public void onClick(View v) {
-                                                 if (cont[0] == 6) {
-                                                     botonext.setBackground(getResources().getDrawable(R.drawable.btnflechar));
-                                                 }
-                                                 if (cont[0] == 1) {
-                                                     botonback.setVisibility(View.INVISIBLE);
-                                                 }
-                                                 cont[0] = instruccionesbotones(imageV, cont[0], false, WbViewTarjeton.this);
-                                             }
-                                         }
-            );
+                @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                @Override
+                public void onClick(View v) {
+                    if (cont[0] == 6) {
+                        botonext.setBackground(getResources().getDrawable(R.drawable.btnflechar));
+                    }
+                    if (cont[0] == 1) {
+                        botonback.setVisibility(View.INVISIBLE);
+                    }
+                    cont[0] = instruccionesbotones(imageV, cont[0], false, WbViewTarjeton.this);
+                }
+            });
             botonext.setOnClickListener(new View.OnClickListener() {
                 @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                 @Override
@@ -535,8 +574,7 @@ public class WbViewTarjeton extends AppCompatActivity implements View.OnClickLis
                     }
                     if (cont[0] == 6) {
                         SharedPreferences sharedPref;
-                        sharedPref = getSharedPreferences(
-                                "instruccionesa", Context.MODE_PRIVATE);
+                        sharedPref = getSharedPreferences("instruccionesa", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putBoolean("instruccionesa", chbx.isChecked());
                         editor.commit();

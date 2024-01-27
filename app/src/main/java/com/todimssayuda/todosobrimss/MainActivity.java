@@ -3,10 +3,8 @@ package com.todimssayuda.todosobrimss;
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -14,11 +12,9 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -36,9 +32,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.content.DialogInterface;
 
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -55,19 +51,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     LinearLayout botonconvenioescuela, botonconvocatoria, botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas, botontabulador, botoncursos, botonpermutas, botonpases, botonpliego, botonsustis, botondias, botonjubilacion, botontiposdecontrato, botonincapacidades, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete;
     SharedPreferences sharedPref;
     Intent intent;
-
+    InterstitialAd mInterstitialAd;
     AdView mAdView;
     int califica;
-    InterstitialAd mInterstitialAd;
+
     LinearLayout bloqueo;
     Button link;
     ScrollView scrollView;
+
+
+    int contadorads;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sharedPref = getSharedPreferences("inicio", Context.MODE_PRIVATE);
+
+        contadorads = sharedPref.getInt("contadorads", 0);
+        Toast.makeText(this, "" + contadorads, Toast.LENGTH_SHORT).show();
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -94,8 +97,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-
-        InterstitialAd.load(this, "ca-app-pub-2736592244570345/9645372492", adRequest,
+        //ca-app-pub-2736592244570345/9645372492
+        InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712", adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
@@ -103,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         // an ad is loaded.
                         mInterstitialAd = interstitialAd;
                         Log.i(TAG, "onAdLoaded");
+
                     }
 
                     @Override
@@ -113,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
 
-        sharedPref = getSharedPreferences("inicio", Context.MODE_PRIVATE);
+
         califica = sharedPref.getInt("califica", 0);
         boolean binfo = sharedPref.getBoolean("infoinicio", true);
         if (binfo)
@@ -135,8 +139,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }, 100);
 
-
         SharedPreferences.Editor editor = sharedPref.edit();
+        editor = sharedPref.edit();
         editor.putInt("califica", califica);
         editor.apply();
 
@@ -303,8 +307,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botonno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 dialog.dismiss();
                 mInterstitialAd.show(MainActivity.this);
 
@@ -320,6 +322,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
+        contadorads++;
+        SharedPreferences.Editor editor = sharedPref.edit();
+        if (mInterstitialAd != null && contadorads > 5) {
+            mInterstitialAd.show(MainActivity.this);
+            mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                @Override
+                public void onAdDismissedFullScreenContent() {
+                    super.onAdDismissedFullScreenContent();
+                    contadorads = 0;
+                    editor.putInt("contadorads", contadorads);
+                    editor.apply();
+
+                    botonessinads(view);
+                }
+            });
+        } else {
+            editor.putInt("contadorads", contadorads);
+            editor.apply();
+            botonessinads(view);
+
+        }
+
+    }
+
+    private void botonessinads(View view) {
+
         switch (view.getId()) {
             case R.id.botonenlacefb:
                 intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/tarjetondigitalimss/"));
@@ -341,13 +369,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onClick(View v) {
 
                         if (rbtna.isChecked()) {
-                            Intent intent1 = new Intent(MainActivity.this, SubMenuActivos.class);
+                            Intent intent1 = new Intent(MainActivity.this, WbViewTarjeton.class);
+                            intent1.putExtra("jubilados", false);
                             startActivity(intent1);
                             finish();
                         }
                         if (rbtnj.isChecked()) {
-                            Intent intentae4 = new Intent(Intent.ACTION_VIEW, Uri.parse("http://rh.imss.gob.mx/tarjetonjubilados/(S(lpvgwevvhy0ja2padtk4t12e))/default.aspx"));
-                            startActivity(intentae4);
+
+                            Intent intent1 = new Intent(MainActivity.this, WbViewTarjeton.class);
+                            intent1.putExtra("jubilados", true);
+                            startActivity(intent1);
+                            finish();
+
                         }
 
 
@@ -370,8 +403,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             //web
             case R.id.botonconvocatorias:
-                Intent intentae = new Intent(Intent.ACTION_VIEW, Uri.parse("https://sntss.org.mx/convocatorias"));
-                startActivity(intentae);
+                cambioActivityUrl("https://sntss.org.mx/convocatorias", "Convocatorias");
                 break;
 
             //pantalla con boton en actionbar hacia pdf
@@ -414,7 +446,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.botontabula:
-                cambioActivityPdf("tabula", "", "Tabulador 2023");
+                cambioActivityPdf("tabula", "", "Tabulador 2024");
                 break;
 
             case R.id.botoncursos:
@@ -440,7 +472,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.botondias:
-                cambioActivityPdf("festivos22", "", "Dias festivos 2023");
+                cambioActivityPdf("festivos22", "", "Dias festivos 2024");
                 break;
 
             case R.id.botonjubilacion:

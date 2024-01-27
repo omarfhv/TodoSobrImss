@@ -3,6 +3,7 @@ package com.todimssayuda.todosobrimss;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 
 public class PDFViewer extends AppCompatActivity {
     ListView lv_pdf;
-    public static ArrayList<File> fileList ;
+    public static ArrayList<File> fileList;
     ;
     PDFAdapter obj_adapter;
     public static int REQUEST_PERMISSIONS = 1;
@@ -55,15 +56,24 @@ public class PDFViewer extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        init();
-
     }
 
 
     private void init() {
-        lv_pdf =  findViewById(R.id.lv_pdf);
+        lv_pdf = findViewById(R.id.lv_pdf);
         dir = new File(Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS);
-        fn_permission();
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+
+            boolean_permission = true;
+            getfile(dir);
+            obj_adapter = new PDFAdapter(getApplicationContext(), fileList);
+            lv_pdf.setAdapter(obj_adapter);
+            // versiones con android 13.0 o superior
+        } else {
+            // para versiones anteriores a android 13.0
+            fn_permission();
+        }
+
 
         lv_pdf.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -88,7 +98,7 @@ public class PDFViewer extends AppCompatActivity {
                 System.out.println(listFile[i].getName());
                 if (listFile[i].isDirectory()) {
                     //getfile(listFile[i]);
-                   // Toast.makeText(this, "es una subcarpeta" + listFile[i].getName(), Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(this, "es una subcarpeta" + listFile[i].getName(), Toast.LENGTH_SHORT).show();
 
                 } else {
 
@@ -150,7 +160,7 @@ public class PDFViewer extends AppCompatActivity {
                 //lv_pdf.setAdapter(obj_adapter);
 
             } else {
-                Toast.makeText(getApplicationContext(), "Debes aceptar los permisos de la App", Toast.LENGTH_LONG).show();
+
 
             }
         }

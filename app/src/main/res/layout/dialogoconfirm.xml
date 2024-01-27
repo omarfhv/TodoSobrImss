@@ -6,7 +6,7 @@
     android:layout_gravity="center"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
-    android:background="@drawable/botonblanco"
+    android:background="#154f3a"
     android:orientation="vertical">
 
     <TextView
@@ -20,28 +20,34 @@
         android:gravity="center"
         android:text="¿Deseas salir de la aplicacion?"
         android:textAlignment="center"
-        android:textColor="#154f3a" />
+        android:textColor="#FFFFFF" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:padding="10sp">
 
         <Button
             android:id="@+id/botonno"
             android:layout_width="80dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/boton_principal"
             android:text="NO"
+            android:textColor="@android:color/white" />
+        <Button
+
+            android:layout_width="0dp"
+            android:layout_height="50dp"
             android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/botonsi"
             android:layout_width="80dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:background="@drawable/boton_principal"
             android:text="SI"
             android:textColor="@android:color/white" />
@@ -51,6 +57,6 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"/>
+        android:layout_height="30dp" />
 
 </LinearLayout>
