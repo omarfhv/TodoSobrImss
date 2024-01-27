@@ -3,7 +3,7 @@
     android:id="@+id/lytLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#555555"
+    android:background="@color/colorPrimary"
     android:orientation="horizontal"
     android:padding="5dip">
 
@@ -11,7 +11,7 @@
         android:id="@+id/imgIcono"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/logos" />
+        android:src="@mipmap/logo" />
 
     <TextView
         android:id="@+id/txtMensaje"

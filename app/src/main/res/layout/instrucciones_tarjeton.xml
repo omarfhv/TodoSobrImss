@@ -12,12 +12,11 @@
         android:layout_gravity="center"
         android:layout_marginBottom="5dp"
         android:text="Instrucciones"
-        android:textColor="#154f3a"
-        android:textSize="25dp"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
         android:textStyle="bold" />
 
     <ScrollView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -72,6 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="20sp"
                 android:buttonTint="#ffffff"
                 android:text="No volver a mostrar"
                 android:textColor="#ffffff" />

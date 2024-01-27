@@ -18,16 +18,16 @@
     </com.github.barteksc.pdfviewer.PDFView>
 
     <Button
-        android:background="@drawable/boton_principal"
         android:id="@+id/boton"
         android:layout_width="match_parent"
-        android:layout_marginRight="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/pdfView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-50dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="Compartir Tarjeton" />
+        android:layout_marginRight="150dp"
+        android:background="@drawable/boton_principal"
+        android:text="Compartir Tarjeton"
+        android:textColor="#ffffff" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView1"

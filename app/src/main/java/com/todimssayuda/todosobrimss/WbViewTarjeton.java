@@ -77,7 +77,7 @@ public class WbViewTarjeton extends AppCompatActivity {
     boolean jubilados = true;
 
     int valor = 0;
-    static int[] imgsInstrucciones = new int[]{R.drawable.ins1, R.drawable.ins2, R.drawable.ins3, R.drawable.ins4, R.drawable.ins5, R.drawable.ins6, R.drawable.ins7};
+    int[] imgsInstrucciones = new int[]{R.drawable.ins1, R.drawable.ins2, R.drawable.ins3, R.drawable.ins4, R.drawable.ins5, R.drawable.ins6, R.drawable.ins7};
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -89,14 +89,19 @@ public class WbViewTarjeton extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.web_view);
+        //  nos aseguramos que no exista un archivo temporal de tarjeton
+        File tarjeton = new File(Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS + "/wfrReporteTarjeton.aspx");
+        if (tarjeton.exists()) {
 
+            tarjeton.delete();
+        }
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
 
-        instruccionesdialogo(false);
+
         imv = findViewById(R.id.imagevi);
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -106,7 +111,7 @@ public class WbViewTarjeton extends AppCompatActivity {
         progresbar = findViewById(R.id.pgbr);
         webview = findViewById(R.id.WebView);
 
-        InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712", adRequest, new InterstitialAdLoadCallback() {
+        InterstitialAd.load(this, getResources().getString(R.string.adinter), adRequest, new InterstitialAdLoadCallback() {
             @Override
             public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
                 // The mInterstitialAd reference will be null until
@@ -157,10 +162,13 @@ public class WbViewTarjeton extends AppCompatActivity {
             Intent intent = getIntent();
             jubilados = intent.getBooleanExtra("jubilados", false);
             if (jubilados) {
+                imgsInstrucciones[5] = R.drawable.ins6j;
+                imgsInstrucciones[6] = R.drawable.ins7j;
                 webview.loadUrl(urljubilados);
             } else {
                 webview.loadUrl(urlactivos);
             }
+            instruccionesdialogo(false);
             webview.getSettings().setBuiltInZoomControls(true);
 
             webview.setDownloadListener(new DownloadListener() {
@@ -178,9 +186,8 @@ public class WbViewTarjeton extends AppCompatActivity {
                     request.setDescription("Downloading file...");
                     request.setTitle(URLUtil.guessFileName(url, contentDisposition, mimetype));
                     request.allowScanningByMediaScanner();
-                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_ONLY_COMPLETION);
                     request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, URLUtil.guessFileName(url, contentDisposition, mimetype));
-                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                     final DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
                     dialogo(WbViewTarjeton.this);
                     new Thread("Browser download") {
@@ -349,9 +356,11 @@ public class WbViewTarjeton extends AppCompatActivity {
                         //cambio de activity
                         Intent intent = new Intent(WbViewTarjeton.this, PDFViewer.class);
                         startActivity(intent);
+                        finish();
                     } else {
-                        dialogo.cancel();
-                        dialogoorigen.cancel();
+                        Intent intent = new Intent(WbViewTarjeton.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
 
                 }
@@ -360,18 +369,20 @@ public class WbViewTarjeton extends AppCompatActivity {
             Toast.makeText(WbViewTarjeton.this, mensaje, Toast.LENGTH_SHORT).show();
             if (chequed) {
                 //cambio de activity
-                Intent intent = new Intent(this, PDFViewer.class);
+                Intent intent = new Intent(WbViewTarjeton.this, PDFViewer.class);
                 startActivity(intent);
+                finish();
             } else {
-                dialogo.cancel();
-                dialogoorigen.cancel();
+                Intent intent = new Intent(WbViewTarjeton.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         }
     }
 
     private void creararchivo(boolean chequed, String nombre, AlertDialog dialogoorigen) {
         File currentFile = new File(Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS + "/wfrReporteTarjeton.aspx");
-        File newFile = new File(Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS + "/" + nombre + "wfrReporteTarjeton.aspx");
+        File newFile = new File(Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS + "/" + nombre + "wfrReporteTarjeton.pdf");
         if (currentFile.exists()) {
             if (newFile.exists()) {
                 final AlertDialog.Builder constructor = new AlertDialog.Builder(this);
@@ -423,7 +434,7 @@ public class WbViewTarjeton extends AppCompatActivity {
         View vi = inflater.inflate(R.layout.dialogoname, null);
         builder.setView(vi);
         final AlertDialog dialog = builder.create();
-        dialog.setCancelable(true);
+        dialog.setCancelable(false);
         MainActivity.quitarbordesdialogo(dialog);
         Button botonok = vi.findViewById(R.id.botonokspiner);
         final CheckBox chbx = vi.findViewById(R.id.chbx);

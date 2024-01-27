@@ -81,6 +81,7 @@ public class PDFViewer extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), PDFActivitybis.class);
                 intent.putExtra("position", i);
                 startActivity(intent);
+                finish();
                 Log.e("Position", i + "");
             }
         });
