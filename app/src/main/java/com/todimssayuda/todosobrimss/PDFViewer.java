@@ -63,7 +63,6 @@ public class PDFViewer extends AppCompatActivity {
         lv_pdf = findViewById(R.id.lv_pdf);
         dir = new File(Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS);
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-
             boolean_permission = true;
             getfile(dir);
             obj_adapter = new PDFAdapter(getApplicationContext(), fileList);

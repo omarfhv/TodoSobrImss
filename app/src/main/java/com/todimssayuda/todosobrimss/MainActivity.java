@@ -68,9 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         sharedPref = getSharedPreferences("inicio", Context.MODE_PRIVATE);
-
         contadorads = sharedPref.getInt("contadorads", 0);
-        Toast.makeText(this, "" + contadorads, Toast.LENGTH_SHORT).show();
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -324,7 +322,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         contadorads++;
         SharedPreferences.Editor editor = sharedPref.edit();
-        if (mInterstitialAd != null && contadorads > 5) {
+        if (mInterstitialAd != null && contadorads > 7) {
             mInterstitialAd.show(MainActivity.this);
             mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                 @Override

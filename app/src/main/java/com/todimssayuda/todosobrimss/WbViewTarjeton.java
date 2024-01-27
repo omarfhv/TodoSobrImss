@@ -76,7 +76,8 @@ public class WbViewTarjeton extends AppCompatActivity {
     String urlactivos = "http://rh.imss.gob.mx/TarjetonDigital/", urljubilados = "http://rh.imss.gob.mx/tarjetonjubilados/", urldescarga = "http://rh.imss.gob.mx/tarjetondigital/Reportes/Web/wfrReporteTarjeton.aspx";
     boolean jubilados = true;
 
-    static int[] id = new int[]{R.drawable.ins1, R.drawable.ins2, R.drawable.ins3, R.drawable.ins4, R.drawable.ins5, R.drawable.ins6, R.drawable.ins7};
+    int valor = 0;
+    static int[] imgsInstrucciones = new int[]{R.drawable.ins1, R.drawable.ins2, R.drawable.ins3, R.drawable.ins4, R.drawable.ins5, R.drawable.ins6, R.drawable.ins7};
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -342,6 +343,7 @@ public class WbViewTarjeton extends AppCompatActivity {
                 @Override
                 public void onAdDismissedFullScreenContent() {
                     super.onAdDismissedFullScreenContent();
+                    mInterstitialAd = null;
                     Toast.makeText(WbViewTarjeton.this, mensaje, Toast.LENGTH_SHORT).show();
                     if (chequed) {
                         //cambio de activity
@@ -391,10 +393,9 @@ public class WbViewTarjeton extends AppCompatActivity {
                 btnsi.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        newFile.delete();
                         rename(currentFile, newFile);
                         mostrarad(chequed, dialogoorigen, dialogo, "Se ha sobreescrito el tarjeton");
-
-
                     }
                 });
                 titulo.setText("Ya existe un archivo con ese nombre, ¿Deseas reemplazarlo?");
@@ -406,6 +407,7 @@ public class WbViewTarjeton extends AppCompatActivity {
 
             }
         } else {
+            dialogoorigen.cancel();
             Toast.makeText(this, "Ha ocurrido un error en la descarga intentalo de nuevo", Toast.LENGTH_SHORT).show();
         }
     }
@@ -518,24 +520,12 @@ public class WbViewTarjeton extends AppCompatActivity {
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    static public int instruccionesbotones(ImageView imv, int num, boolean contador, Context context) {
-        if (contador) {
-            num++;
-        } else {
-            num--;
-        }
-        imv.setBackground(context.getResources().getDrawable(id[num]));
-
-
-        return num;
-    }
-
+    @SuppressLint("UseCompatLoadingForDrawables")
     private void instruccionesdialogo(boolean def) {
         SharedPreferences sharedPref;
-        sharedPref = getSharedPreferences("instruccionesa", Context.MODE_PRIVATE);
-        if (!sharedPref.getBoolean("instruccionesa", false) || def) {
-            final int[] cont = {0};
+        sharedPref = getSharedPreferences("instrucciones", Context.MODE_PRIVATE);
+        if (!sharedPref.getBoolean("instrucciones", false) || def) {
+            valor = 0;
             final AlertDialog.Builder constructor = new AlertDialog.Builder(this);
             View vista = getLayoutInflater().inflate(R.layout.instrucciones_tarjeton, null);
             constructor.setView(vista);
@@ -545,42 +535,49 @@ public class WbViewTarjeton extends AppCompatActivity {
             final Button botonback = vista.findViewById(R.id.botonback);
             botonback.setVisibility(View.INVISIBLE);
             final CheckBox chbx = vista.findViewById(R.id.chbxdialog);
-            chbx.setChecked(sharedPref.getBoolean("instruccionesa", false));
+            chbx.setChecked(sharedPref.getBoolean("instrucciones", false));
+            chbx.setVisibility(View.INVISIBLE);
             final ImageView imageV = vista.findViewById(R.id.imgvw);
+            imageV.setBackground(WbViewTarjeton.this.getResources().getDrawable(imgsInstrucciones[valor]));
             //TextView texto = vista.findViewById(R.id.txt);
             // texto.setText(getString(R.string.mensajeinicio));
             botonback.setOnClickListener(new View.OnClickListener() {
-                @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                 @Override
                 public void onClick(View v) {
-                    if (cont[0] == 6) {
+
+                    if (valor == 6) {
                         botonext.setBackground(getResources().getDrawable(R.drawable.btnflechar));
                     }
-                    if (cont[0] == 1) {
+                    if (valor == 1) {
                         botonback.setVisibility(View.INVISIBLE);
                     }
-                    cont[0] = instruccionesbotones(imageV, cont[0], false, WbViewTarjeton.this);
+                    valor--;
+                    imageV.setBackground(WbViewTarjeton.this.getResources().getDrawable(imgsInstrucciones[valor]));
+
                 }
             });
             botonext.setOnClickListener(new View.OnClickListener() {
-                @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                 @Override
                 public void onClick(View v) {
-                    if (cont[0] == 0) {
+
+                    if (valor == 0) {
                         botonback.setVisibility(View.VISIBLE);
                     }
-                    if (cont[0] == 5) {
+                    if (valor == 5) {
+                        chbx.setVisibility(View.VISIBLE);
                         botonext.setBackground(getResources().getDrawable(R.drawable.btnchck));
                     }
-                    if (cont[0] == 6) {
+                    if (valor == 6) {
                         SharedPreferences sharedPref;
-                        sharedPref = getSharedPreferences("instruccionesa", Context.MODE_PRIVATE);
+                        sharedPref = getSharedPreferences("instrucciones", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPref.edit();
-                        editor.putBoolean("instruccionesa", chbx.isChecked());
+                        editor.putBoolean("instrucciones", chbx.isChecked());
                         editor.commit();
                         dialogo.cancel();
                     } else {
-                        cont[0] = instruccionesbotones(imageV, cont[0], true, WbViewTarjeton.this);
+                        valor++;
+                        imageV.setBackground(WbViewTarjeton.this.getResources().getDrawable(imgsInstrucciones[valor]));
+
                     }
 
                 }
