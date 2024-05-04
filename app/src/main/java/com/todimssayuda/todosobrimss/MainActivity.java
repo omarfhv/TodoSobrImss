@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final int PERMISO_NOTIFICACIONES = 1;
     LinearLayout btn1;
-    LinearLayout botonconvenioescuela, botonconvocatoria, botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas, botontabulador, botoncursos, botonpermutas, botonpases, botonpliego, botonsustis, botondias, botonjubilacion, botontiposdecontrato, botonincapacidades, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete;
+    LinearLayout botonconvenioescuela, botonconvocatoria, botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas, botontabulador, botoncursos, botonpermutas, botonpases, botonpliego, botonsustis, botondias, botonjubilacion, botontiposdecontrato, botonincapacidades, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete, botonestatuto;
     SharedPreferences sharedPref;
     Intent intent;
     InterstitialAd mInterstitialAd;
@@ -246,6 +246,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         botonclausulanoventaysiete = findViewById(R.id.botonclausulanoventaysiete);
         botonclausulanoventaysiete.setOnClickListener(this);
+
+        botonestatuto = findViewById(R.id.botonestatuto);
+        botonestatuto.setOnClickListener(this);
 
         link.setOnClickListener(this);
 
@@ -494,7 +497,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             //pantalla con boton en actionbar hacia web
             case R.id.botonbono:
-                cambioActivity(Declaracion.class);
+                cambioActivity(DeclaracionAnual.class);
                 break;
 
             //pantalla con boton en action bar hacia calculadora
@@ -537,6 +540,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.botonconceptos:
                 cambioActivityPdf("conceptos", "", "Conceptos Tarjeton");
                 break;
+
+            case R.id.botonestatuto:
+                cambioActivityPdf("estatutos", "", "Estatutos");
+                break;
+
             case R.id.botonclausulanoventaysiete:
                 cambioActivity(CalcClausulaNoventySiete.class);
                 break;

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#154f3a"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/declara"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Declaracion ANUAL 2023"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:textColor="#ffff"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/declara"
+        android:textSize="17dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="#ffff"
+        android:text="Recuerden que al total de ingresos se debe restar el ISR retenido, para obtener la REMUNERACION ANUAL NETA."
+        >
+
+    </TextView>
+
+    <ScrollView
+        android:id="@+id/scrollis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tip"
+        android:layout_above="@+id/banner"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/btndescarga"
+                    android:layout_width="306dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/boton_principal"
+                    android:gravity="center"
+                    android:onClick="Descarga"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/descarga" />
+
+                    <TextView
+                        android:id="@+id/cursos1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:text="Descargar Tarjeton Anual 2023"
+                        android:textColor="#ffffff" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btntutorial"
+                    android:layout_width="307dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/boton_principal"
+                    android:gravity="center"
+                    android:onClick="Tutorial"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btncursos1" />
+
+                    <TextView
+                        android:id="@+id/cursos3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Tutorial"
+                        android:textSize="20dp"
+                        android:textColor="#ffffff" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btndeclaranet"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/boton_principal"
+                    android:gravity="center"
+                    android:onClick="Declaran"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/declara" />
+
+                    <TextView
+                        android:id="@+id/cursos5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Hacer Declaración Anual"
+                        android:textSize="20dp"
+                        android:textColor="#ffffff" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/adbanner" />
+
+
+    <ImageView
+        android:id="@+id/imagevi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#cad4d4d4"
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/pgbr"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
+</RelativeLayout>
+
+

@@ -25,6 +25,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".DeclaracionAnual"
+            android:exported="false" />
+        <activity
             android:name=".RolVacacional"
             android:exported="false" />
         <activity android:name=".CalcClausulaNoventySiete" />
