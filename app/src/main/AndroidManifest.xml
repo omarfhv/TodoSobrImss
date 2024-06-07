@@ -25,6 +25,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".AnticipodeAguinaldo"
+            android:exported="false" />
+        <activity
             android:name=".DeclaracionAnual"
             android:exported="false" />
         <activity

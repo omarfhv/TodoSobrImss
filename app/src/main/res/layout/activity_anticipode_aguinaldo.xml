@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorfondo"
+    android:orientation="vertical"
+    tools:context=".AnticipodeAguinaldo">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/adView1"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:padding="10sp"
+                    android:text="Concepto 043 ANTICIPO de Aguinaldo y el Calculo del Concepto 049 AGUINALDO"
+                    android:textAlignment="center"
+                    android:textColor="#154f3a"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+
+                <EditText
+                    android:id="@+id/editText1"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titulo"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/fondoedittext"
+                    android:digits="0123456789."
+                    android:hint="Concepto 002"
+                    android:inputType="number"
+                    android:padding="5sp" />
+
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/editText1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/fondoedittext"
+                    android:digits="0123456789."
+                    android:hint="Concepto 011"
+                    android:inputType="number"
+                    android:padding="5sp" />
+
+                <Button
+                    android:id="@+id/btnSumar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/editText2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/botonblanco"
+                    android:text="CALCULAR"
+                    android:textColor="#154f3a" />
+
+
+                <TextView
+                    android:id="@+id/textViewResultado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnSumar"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/fondoedittext"
+                    android:padding="10sp"
+                    android:text="Su Anticipo de AGUINALDO es de =  "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#154f3a" />
+
+                <TextView
+                    android:id="@+id/textViewResultado2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textViewResultado"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/fondoedittext"
+                    android:padding="10sp"
+                    android:text="Su AGUINALDO aproximado despues del Anticipo sería = "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#154f3a" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_gravity="bottom"
+
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/adbanner" />
+
+</RelativeLayout>

@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final int PERMISO_NOTIFICACIONES = 1;
     LinearLayout btn1;
-    LinearLayout botonconvenioescuela, botonconvocatoria, botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas, botontabulador, botoncursos, botonpermutas, botonpases, botonpliego, botonsustis, botondias, botonjubilacion, botontiposdecontrato, botonincapacidades, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete, botonestatuto;
+    LinearLayout botonconvenioescuela, botonconvocatoria, botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas, botontabulador, botoncursos, botonpermutas, botonpases, botonpliego, botonsustis, botondias, botonjubilacion, botontiposdecontrato, botonincapacidades, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete, botonestatuto, botonanticipo;
     SharedPreferences sharedPref;
     Intent intent;
     InterstitialAd mInterstitialAd;
@@ -141,6 +141,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editor = sharedPref.edit();
         editor.putInt("califica", califica);
         editor.apply();
+
+        botonanticipo = findViewById(R.id.botonanticipo);
+        botonanticipo.setOnClickListener(this);
 
         botontiempoextra = findViewById(R.id.botontiempoextra);
         botontiempoextra.setOnClickListener(this);
@@ -394,6 +397,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.botoncalendario:
                 cambioActivity(Calendario.class);
                 break;
+
             //web
             case R.id.botonpromociones:
                 cambioActivityUrl("https://www.sntss.org.mx/promociones", "Promociones");
@@ -507,6 +511,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //calculadora
             case R.id.botonsegundadejulio:
                 cambioActivity(CalcSegundaDeJulio.class);
+                break;
+
+            case R.id.botonanticipo:
+                cambioActivity(AnticipodeAguinaldo.class);
                 break;
 
             case R.id.botoncalcuvaca:
