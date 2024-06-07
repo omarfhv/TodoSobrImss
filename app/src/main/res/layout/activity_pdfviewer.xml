@@ -6,7 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#efefef">
+    <TextView
 
+        android:id="@+id/texttarjetonvacio"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Aun no tienes tarjetones descargados, en el menu principal encontraras el boton para poder descargarlos "
+        android:layout_height="match_parent"/>
 
     <ListView
         android:id="@+id/lv_pdf"

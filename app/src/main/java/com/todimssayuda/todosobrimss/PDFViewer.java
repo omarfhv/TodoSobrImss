@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +35,7 @@ public class PDFViewer extends AppCompatActivity {
     File dir;
     AdView mAdView;
 
+    TextView aviso;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +48,7 @@ public class PDFViewer extends AppCompatActivity {
         init();
 
         this.setTitle("Consulta tarjeton");
-
+        aviso = findViewById(R.id.texttarjetonvacio);
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -93,8 +95,11 @@ public class PDFViewer extends AppCompatActivity {
 
         fileList = new ArrayList<File>();
 
+
         if (listFile != null && listFile.length > 0) {
+            aviso.setVisibility(View.GONE);
             for (int i = 0; i < listFile.length; i++) {
+
                 System.out.println(listFile[i].getName());
                 if (listFile[i].isDirectory()) {
                     //getfile(listFile[i]);
@@ -123,8 +128,8 @@ public class PDFViewer extends AppCompatActivity {
 
             }
         }
-        System.out.println(fileList.size());
-        System.out.println(listFile.length);
+       // System.out.println(fileList.size());
+        //System.out.println(listFile.length);
         //Toast.makeText(this, " " + listFile.length, Toast.LENGTH_SHORT).show();
         return fileList;
     }
