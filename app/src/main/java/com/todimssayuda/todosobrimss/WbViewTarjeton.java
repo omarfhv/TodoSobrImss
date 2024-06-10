@@ -72,7 +72,7 @@ public class WbViewTarjeton extends AppCompatActivity {
     ImageView imv;
     boolean quincenab, mesb, yearb;
    // AdView mAdView;
-    //InterstitialAd mInterstitialAd;
+   // InterstitialAd mInterstitialAd;
     String urlactivos = "http://rh.imss.gob.mx/TarjetonDigital/", urljubilados = "http://rh.imss.gob.mx/tarjetonjubilados/", urldescarga = "http://rh.imss.gob.mx/tarjetondigital/Reportes/Web/wfrReporteTarjeton.aspx";
     boolean jubilados = true;
 
@@ -104,24 +104,26 @@ public class WbViewTarjeton extends AppCompatActivity {
 
         imv = findViewById(R.id.imagevi);
        // mAdView = findViewById(R.id.adView1);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        //mAdView.loadAd(adRequest);
+       // AdRequest adRequest = new AdRequest.Builder().build();
+       // mAdView.loadAd(adRequest);
 
 
         progresbar = findViewById(R.id.pgbr);
         webview = findViewById(R.id.WebView);
-
+/*
         InterstitialAd.load(this, getResources().getString(R.string.adinter), adRequest, new InterstitialAdLoadCallback() {
             @Override
             public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
                 // The mInterstitialAd reference will be null until
                 // an ad is loaded.
-                //mInterstitialAd = interstitialAd;
+                mInterstitialAd = interstitialAd;
                 Log.i(TAG, "onAdLoaded");
             }
 
 
         });
+
+        */
         validaPermisos();
 
 
@@ -342,6 +344,23 @@ public class WbViewTarjeton extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+
+    public void siguiente(boolean chequed, AlertDialog dialogoorigen, AlertDialog dialogo, String mensaje){
+
+        Toast.makeText(WbViewTarjeton.this, mensaje, Toast.LENGTH_SHORT).show();
+        if (chequed) {
+            //cambio de activity
+            Intent intent = new Intent(WbViewTarjeton.this, PDFViewer.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Intent intent = new Intent(WbViewTarjeton.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+    }
 /*
     private void mostrarad(boolean chequed, AlertDialog dialogoorigen, AlertDialog dialogo, String mensaje) {
         if (mInterstitialAd != null) {
@@ -406,6 +425,7 @@ public class WbViewTarjeton extends AppCompatActivity {
                     public void onClick(View view) {
                         newFile.delete();
                         rename(currentFile, newFile);
+                        siguiente(chequed, dialogoorigen, dialogo, "Se ha sobreescrito el tarjeton");
                        // mostrarad(chequed, dialogoorigen, dialogo, "Se ha sobreescrito el tarjeton");
                     }
                 });
@@ -414,6 +434,7 @@ public class WbViewTarjeton extends AppCompatActivity {
 
             } else {
                 rename(currentFile, newFile);
+                siguiente(chequed, dialogoorigen, dialogoorigen, "Se ha sobreescrito el tarjeton");
                // mostrarad(chequed, dialogoorigen, dialogoorigen, "Se ha guardado el tarjeton");
 
             }
