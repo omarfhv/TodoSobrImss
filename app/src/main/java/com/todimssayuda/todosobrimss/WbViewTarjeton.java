@@ -71,8 +71,8 @@ public class WbViewTarjeton extends AppCompatActivity {
     String quincena, mes, year;
     ImageView imv;
     boolean quincenab, mesb, yearb;
-    AdView mAdView;
-    InterstitialAd mInterstitialAd;
+   // AdView mAdView;
+    //InterstitialAd mInterstitialAd;
     String urlactivos = "http://rh.imss.gob.mx/TarjetonDigital/", urljubilados = "http://rh.imss.gob.mx/tarjetonjubilados/", urldescarga = "http://rh.imss.gob.mx/tarjetondigital/Reportes/Web/wfrReporteTarjeton.aspx";
     boolean jubilados = true;
 
@@ -103,9 +103,9 @@ public class WbViewTarjeton extends AppCompatActivity {
 
 
         imv = findViewById(R.id.imagevi);
-        mAdView = findViewById(R.id.adView1);
+       // mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+        //mAdView.loadAd(adRequest);
 
 
         progresbar = findViewById(R.id.pgbr);
@@ -116,7 +116,7 @@ public class WbViewTarjeton extends AppCompatActivity {
             public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
                 // The mInterstitialAd reference will be null until
                 // an ad is loaded.
-                mInterstitialAd = interstitialAd;
+                //mInterstitialAd = interstitialAd;
                 Log.i(TAG, "onAdLoaded");
             }
 
@@ -342,7 +342,7 @@ public class WbViewTarjeton extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
+/*
     private void mostrarad(boolean chequed, AlertDialog dialogoorigen, AlertDialog dialogo, String mensaje) {
         if (mInterstitialAd != null) {
             mInterstitialAd.show(WbViewTarjeton.this);
@@ -379,7 +379,7 @@ public class WbViewTarjeton extends AppCompatActivity {
             }
         }
     }
-
+*/
     private void creararchivo(boolean chequed, String nombre, AlertDialog dialogoorigen) {
         File currentFile = new File(Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS + "/wfrReporteTarjeton.aspx");
         File newFile = new File(Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS + "/" + nombre + "wfrReporteTarjeton.pdf");
@@ -406,7 +406,7 @@ public class WbViewTarjeton extends AppCompatActivity {
                     public void onClick(View view) {
                         newFile.delete();
                         rename(currentFile, newFile);
-                        mostrarad(chequed, dialogoorigen, dialogo, "Se ha sobreescrito el tarjeton");
+                       // mostrarad(chequed, dialogoorigen, dialogo, "Se ha sobreescrito el tarjeton");
                     }
                 });
                 titulo.setText("Ya existe un archivo con ese nombre, ¿Deseas reemplazarlo?");
@@ -414,7 +414,7 @@ public class WbViewTarjeton extends AppCompatActivity {
 
             } else {
                 rename(currentFile, newFile);
-                mostrarad(chequed, dialogoorigen, dialogoorigen, "Se ha guardado el tarjeton");
+               // mostrarad(chequed, dialogoorigen, dialogoorigen, "Se ha guardado el tarjeton");
 
             }
         } else {

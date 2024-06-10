@@ -41,7 +41,7 @@ public class Urls extends AppCompatActivity {
     WebView webview;
     ImageView imv;
     ColorDrawable dialogColor;
-    //AdView mAdView;
+    AdView mAdView;
     String url, titulo;
 
     @Override
@@ -62,9 +62,9 @@ public class Urls extends AppCompatActivity {
         titulo = parametros.getString("titulo");
 
 
-      //  mAdView = findViewById(R.id.adView1);
-        //AdRequest adRequest = new AdRequest.Builder().build();
-        //mAdView.loadAd(adRequest);
+        mAdView = findViewById(R.id.adView1);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         progresbar = findViewById(R.id.pgbr);
         webview = findViewById(R.id.WebView);
