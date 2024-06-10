@@ -45,10 +45,11 @@ public class PDFViewer extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_pdfviewer);
+        aviso = findViewById(R.id.texttarjetonvacio);
         init();
 
         this.setTitle("Consulta tarjeton");
-        aviso = findViewById(R.id.texttarjetonvacio);
+
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -97,7 +98,6 @@ public class PDFViewer extends AppCompatActivity {
 
 
         if (listFile != null && listFile.length > 0) {
-            aviso.setVisibility(View.GONE);
             for (int i = 0; i < listFile.length; i++) {
 
                 System.out.println(listFile[i].getName());
@@ -121,6 +121,10 @@ public class PDFViewer extends AppCompatActivity {
                         if (!booleanpdf) {
                             System.out.println("" + i);
                             fileList.add(listFile[i]);
+                            if(aviso.getVisibility() == View.VISIBLE){
+                                aviso.setVisibility(View.GONE);
+
+                            }
 
                         }
                     }
