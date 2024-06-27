@@ -404,6 +404,7 @@ public class WbViewTarjeton extends AppCompatActivity {
         File newFile = new File(Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS + "/" + nombre + "wfrReporteTarjeton.pdf");
         if (currentFile.exists()) {
             if (newFile.exists()) {
+
                 final AlertDialog.Builder constructor = new AlertDialog.Builder(this);
                 LayoutInflater inflater = getLayoutInflater();
                 View vista = inflater.inflate(R.layout.dialogoconfirm, null);

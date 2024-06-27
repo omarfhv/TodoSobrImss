@@ -84,9 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bloqueo = findViewById(R.id.bloqueo);
         link = findViewById(R.id.botonenlacefb);
         if (yy <= 2024) {
-            if (mm < 7 || mm == 11) {
-                bloqueo.setVisibility(View.INVISIBLE);
-            }
+            bloqueo.setVisibility(View.INVISIBLE);
         }
 
         PedirPermisonotificaciones();
@@ -328,7 +326,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         contadorads++;
         SharedPreferences.Editor editor = sharedPref.edit();
-        if (mInterstitialAd != null && contadorads > 7) {
+        if (mInterstitialAd != null && contadorads > 4) {
             mInterstitialAd.show(MainActivity.this);
             mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                 @Override
@@ -373,10 +371,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onClick(View v) {
 
                         if (rbtna.isChecked()) {
-                            Intent intent1 = new Intent(MainActivity.this, WbViewTarjeton.class);
-                            intent1.putExtra("jubilados", false);
-                            startActivity(intent1);
-                            finish();
+                            final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                            final LayoutInflater inflater1 = getLayoutInflater();
+                            View vi = inflater1.inflate(R.layout.dialogo_activos, null);
+                            builder.setView(vi);
+                            final AlertDialog dialog = builder.create();
+                            quitarbordesdialogo(dialog);
+                            Button btnact = vi.findViewById(R.id.btnactivos);
+                            Button btnactweb = vi.findViewById(R.id.btnactivosweb);
+
+                            btnactweb.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://rh.imss.gob.mx/TarjetonDigital/"));
+                                    startActivity(intent);
+                                }
+                            });
+                            btnact.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    Intent intent1 = new Intent(MainActivity.this, WbViewTarjeton.class);
+                                    intent1.putExtra("jubilados", false);
+                                    startActivity(intent1);
+                                    finish();
+                                }
+                            });
+
+                            dialog.show();
                         }
                         if (rbtnj.isChecked()) {
 
