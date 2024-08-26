@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.todimssayuda.todosobrimss">
 
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
@@ -46,8 +50,6 @@
         <activity android:name=".MenuCalcVacaciones" />
         <activity android:name=".CalcPropSegundaJulio" />
         <activity android:name=".CalcSegundaDeJulio" />
-        <activity android:name=".CalcBono" />
-        <activity android:name=".CalcPrestamos" />
         <activity android:name=".PrestamosPorCategoria" />
         <activity android:name=".PDFViewer" />
         <activity android:name=".PDFActivitybis" />
@@ -72,7 +74,6 @@
         <activity android:name=".Pases" />
         <activity android:name=".ContratoColectivoTrabajadores" />
         <activity android:name=".Urls" />
-        <activity android:name=".SubMenuActivos" />
         <activity android:name=".WbViewTarjeton" />
         <activity android:name=".ShowPdf" />
         <activity

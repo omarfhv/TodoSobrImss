@@ -326,7 +326,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         contadorads++;
         SharedPreferences.Editor editor = sharedPref.edit();
-        if (mInterstitialAd != null && contadorads > 4) {
+        if (mInterstitialAd != null && contadorads > 3) {
             mInterstitialAd.show(MainActivity.this);
             mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                 @Override
