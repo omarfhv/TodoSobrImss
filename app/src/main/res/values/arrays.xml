@@ -29,6 +29,144 @@
         <item>2022</item>
         <item>2021</item>
         <item>2020</item>
+    </string-array>
+
+
+    <string-array name="titulosconceptos">
+        <item>001 SUELDO CONFIANZA</item>
+        <item>002 SUELDO BASE</item>
+        <item>003 SUELDO TEMPORAL</item>
+        <item>005 SUELDO BECARIOS</item>
+        <item>007 SUELDO BECARIOS</item>
+        <item>008 SUELDO SUSTITUTOS</item>
+        <item>009 SUELDO MEDICOS RESIDENTES</item>
+        <item>010 NIVELACION PLAZA SUPERIOR</item>
+        <item>011 AYUDA DE RENTA CLAUSULA 63 BIS INCISO b C.C.T.</item>
+        <item>012 JORNADA DISCONTINUA</item>
+        <item>013 SOBRESUELDO MEDICOS CLAUSULA 86a C.C.T.</item>
+        <item>014 INFECTOCONTAGIOSIDAD NO MEDICA</item>
+        <item>015 ZONA AISLADA</item>
+        <item>016 ALTO COSTO DE VIDA</item>
+        <item>020 AYUDA DE RENTA CLAUSULA 63 BIS INCISO a C.C.T.</item>
+        <item>021 GASTOS DE MANUTENCION</item>
+        <item>022 AYUDA DE RENTA CLAUSULA 63 BIS INCISO c C.C.T.</item>
+        <item>023 INFECTOCONTAGIOSIDAD MEDICA</item>
+        <item>024 COMPENSACION</item>
+        <item>025 PAGO SUPLETORIO DE GUARDERIA</item>
+        <item>026 PASAJES FIJOS</item>
+        <item>027 COMPENSACION DE PASAJES</item>
+        <item>029 PRIMA DE VACACIONES</item>
+        <item>030 PRIMA DOMINICAL</item>
+        <item>031 CLAUSULA 99 C.C.T.</item>
+        <item>032 ESTIMULOS POR ASISTENCIA</item>
+        <item>033 ESTIMULOS POR PUNTUALIDAD</item>
+        <item>035 GUARDIAS</item>
+        <item>037 TIEMPO EXTRAORDINARIO</item>
+        <item>039 BONIFICACION DE GUARDERIAS</item>
+        <item>040 BONIFICACION DE SEGURO MEDICO</item>
+        <item>041 COMPLEMENTO DE AYUDA A BECARIO</item>
+        <item>042 ANTICIPO DE SUELDO CLAUSULA 97 C.C.T.</item>
+        <item>043 VALE A CUENTA DE AGUINALDO</item>
+        <item>044 AYUDA PARA REFRIGERIO</item>
+        <item>046 AYUDA ALOJAMIENTO A BECARIOS</item>
+        <item>047 ANTICIPO DE AGUINALDO DE ENERO</item>
+        <item>048 AYUDA PARA ACTIVIDADES CULTURALES Y RECREATIVAS</item>
+        <item>049 AGUINALDO</item>
+        <item>050 AYUDA PARA DESPENSA</item>
+        <item>052 NOTAS DE MERITO</item>
+        <item>053 LIQUIDACIONES FONDO DE RETIRO</item>
+        <item>054 EMANACIONES RADIACTIVAS NO MEDICAS</item>
+        <item>055 FONDO DE AHORRO</item>
+        <item>056 INTERESES DEL FONDO DE RETIRO</item>
+        <item>057 ATENCION INTEGRAL CONTINUA</item>
+        <item>058 SOBRESUELDO DOCENCIA ENFERMERIA</item>
+        <item>059 COMPLEMENTO DE BECA</item>
+        <item>061 SOBRESUELDO SERVICIO TRASLADO DE PACIENTES DE URGENCIA Y TERAPIA INTENSIVA D.F. Y VALLE DE MEXICO</item>
+        <item>062 AYUDA PARA LIBROS A MEDICOS</item>
+        <item>063 EMANACIONES RADIACTIVAS</item>
+        <item>064 MATERIAL DIDACTICO A MEDICOS RESIDENTES</item>
+        <item>066 AYUDA PARA TRANSPORTE</item>
+        <item>067 ESTIMULOS INSTRUCTORES TECNICOS</item>
+        <item>070 DEVOLUCIONES I.S.T.P. AÑO ANTERIOR</item>
+        <item>071 SUBSIDIO PARA EL EMPLEO</item>
+        <item>072 AYUDA PARA LIBROS NO MEDICOS</item>
+        <item>076 REINTEGRO CONVENIO T A T</item>
+        <item>078 ACTIVIDADES ACADEMICAS</item>
+        <item>080 PAGO DE SALARIO NO COBRADO</item>
+        <item>083 SOBRESUELDO POR INVESTIGACION Y DOCENCIA</item>
+        <item>084 ESTIMULO A LA CALIDAD Y EFICIENCIA</item>
+        <item>104 CREDITO HIPOTECARIO FOVI</item>
+        <item>106 ENGANCHE DE CASA HABITACION E.S.M.I.</item>
+        <item>107 FONDO DE JUBILACION</item>
+        <item>108 FONDO DE JUBILACION</item>
+        <item>109 PRIMA SEGURO DAÑOS VIVIENDA INFONAVIT</item>
+        <item>110 CREDITOS DE AUTOMOVIL CON TERCEROS</item>
+        <item>111 APORTACION COMPLEMENTARIA AFORE</item>
+        <item>112 FONDO DE AYUDA SINDICAL POR DEFUNCION</item>
+        <item>114 SEG. IND. VOL. GASTOS MEDICOS MAYORES</item>
+        <item>116 SERVICIO DE TELECOMUNICACIONES</item>
+        <item>118 PRIMA SEGURO DE AUTOMOVIL</item>
+        <item>119 PRIMA SEGURO DE AUTOMOVIL</item>
+        <item>120 SEGURO MEDICO</item>
+        <item>121 SEGURO DE ENFERMERIA</item>
+        <item>122 CRED. TRAB. CONF.</item>
+        <item>125 RETENCION A CUENTA DE TERCEROS</item>
+        <item>129 LICENCIA SIN SUELDO MAYOR A 3 DIAS</item>
+        <item>130 CREDITO HIPOTECARIO E.S.M.I.</item>
+        <item>131 FINANCIAMIENTO SEGURO VIDA CREDITO HIPOTECARIO E.S.M.I.</item>
+        <item>132 FINANCIAMIENTO SEGURO DE DAÑOS CREDITO HIPOTECARIO E.S.M.I.</item>
+        <item>133 AYUDA DE GASTOS DE ESCRITURACION PARA CREDITO HIPOTECARIO</item>
+        <item>134 FINANCIAMIENTO DE AUTOMOVIL E.S.M.I.</item>
+        <item>136 PRESTAMOS PERSONALES A MEDIANO PLAZO E.S.M.I.</item>
+        <item>137 SEGURO DE VIDA PPMP</item>
+        <item>140 CENTROS VACACIONALES COMISION PARITARIA</item>
+        <item>141 VELATORIOS COMISION PARITARIA</item>
+        <item>142 ADEUDOS DEL PERSONAL POR ACCIDENTES AUTOMOVILISTICOS</item>
+        <item>143 ADEUDOS DEL PERSONAL POR FALTANTES DE CAJA O INVENTARIOS</item>
+        <item>144 ADEUDOS DEL PERSONAL POR LLAMADAS TELEFONICAS</item>
+        <item>145 LINEA BLANCA</item>
+        <item>148 SEGURO DE VIDA COMISION PARITARIA</item>
+        <item>150 RECUPERACION CONVENIO</item>
+        <item>151 IMPUESTO SOBRE LA RENTA</item>
+        <item>152 FONDO DE JUBILACION</item>
+        <item>153 DESCUENTO COMPLEMENTARIO I.S.P.T. AÑO ANTERIOR</item>
+        <item>154 DESCUENTO CREDITO INFONAVIT</item>
+        <item>155 DISPOSICION JUDICIAL (PENSION ALIMENTICIA)</item>
+        <item>156 VIATICOS NO COMPROBADOS</item>
+        <item>160 RECUPERACION CLAUSULA 97 C.C.T.</item>
+        <item>161 SUSPENSION TEMPORAL</item>
+        <item>162 RESPONSABILIDAD SOBRE INSTRUMENTOS DE TRABAJO</item>
+        <item>164 SUSPENSION SINDICAL</item>
+        <item>166 CASAS COMERCIALES (COMISION PARITARIA)</item>
+        <item>167 VIVERES</item>
+        <item>168 ROPA</item>
+        <item>169 RECUPERACION VALE A CUENTA DE SUELDO</item>
+        <item>170 FONACOT</item>
+        <item>171 LICENCIA SIN SUELDO MENOR A CUATRO (4) DIAS</item>
+        <item>172 FALTA INJUSTIFICADA</item>
+        <item>173 PASES DE SALIDA</item>
+        <item>174 RETARDOS</item>
+        <item>175 BECAS SIN SUELDOS</item>
+        <item>176 DESCUENTO CONVENIO T A T</item>
+        <item>177 SALIDA ANTES</item>
+        <item>178 REDUCCION DE JORNADA</item>
+        <item>179 NOTAS DE DEMERITO</item>
+        <item>180 CUOTA SINDICAL</item>
+        <item>187 CUOTA EXTRAORDINARIA SINDICAL</item>
+        <item>189 APORTACION AL INFONAVIT</item>
+        <item>190 CAJA DE AHORRO (PRESTAMO)</item>
+        <item>192 CAJA DE AHORRO (AHORRO)</item>
+        <item>194 MUTUALIDAD DE BECARIOS</item>
+        <item>195 SEGURO INDIVIDUAL VOLUNTARIO VIDA</item>
+        <item>196 FONDO DE RETIRO</item>
+        <item>197 RECUPERACION ANTICIPO DE AGUINALDO ENERO</item>
+        <item>199 RECUPERACION VALE A CUENTA DE AGUINALDO</item>
+
+    </string-array>
+    <string-array name="conceptos">
+        <item>Sueldo destinado para personal de confianza, basado en la responsabilidad y el nivel jerárquico.</item>
+        <item>Sueldo base del personal de base del IMSS considerando 339 categorias vigente a partir del 16 de octubre de cad a;o</item>
+        <item>Sueldo asignado a empleados con contratos temporales o por tiempo determinado.</item>
 
     </string-array>
 </resources>

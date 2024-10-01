@@ -568,7 +568,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.botonconceptos:
-                cambioActivityPdf("conceptos", "", "Conceptos Tarjeton");
+                //cambioActivityPdf("conceptos", "", "Conceptos Tarjeton");
+                cambioActivity(ConceptosTarjeton.class);
                 break;
 
             case R.id.botonestatuto:
