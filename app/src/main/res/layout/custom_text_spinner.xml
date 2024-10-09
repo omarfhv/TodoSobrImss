@@ -3,8 +3,8 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#154f3a"
+    android:background="@color/colorfondo"
     android:gravity="center"
     android:padding="5dip"
-    android:textColor="#FFFFFF"
+    android:textColor="@color/colorletras"
     android:textSize="20sp" />

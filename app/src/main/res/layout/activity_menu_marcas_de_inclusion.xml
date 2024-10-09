@@ -3,7 +3,15 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorfondo">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:alpha=".5"
+        android:src="@drawable/logotdt" />
 
 
     <ScrollView
@@ -27,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text=" Periodos Semestrales"
-                android:textColor="#000000"
+                android:textColor="@color/colorletras"
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
@@ -38,7 +46,7 @@
                 android:layout_below="@+id/texto12"
                 android:gravity="center"
                 android:text=" AÑOS DE ANTIGÜEDAD "
-                android:textColor="#154f3a"
+                android:textColor="@color/colorletras"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 

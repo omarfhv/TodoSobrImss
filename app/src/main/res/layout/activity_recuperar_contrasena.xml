@@ -4,7 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorfondo"
     tools:context=".Pases">
+    <ImageView
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:src="@drawable/logotdt"
+        android:alpha=".5"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/texto1"
@@ -12,7 +19,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text=" RECUPERAR CONTRASEÑA DEL TARJETON DIGITAL"
-        android:textColor="#154f3a"
+        android:textColor="@color/colorletras"
         android:textSize="30dp"
         android:textStyle="bold" />
 

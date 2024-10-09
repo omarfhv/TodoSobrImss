@@ -3,7 +3,7 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/botonblanco"
+    android:background="@color/colorfondo"
     android:orientation="vertical">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="LOS DOCUMENTOS VARIAN POR UNIDAD MEDICA"
-        android:textColor="#154f3a"
+        android:textColor="@color/colorletras"
         android:textSize="20dp" />
 
     <Button
@@ -20,6 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtinca"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
         android:background="@drawable/boton_principal"
         android:gravity="center"
         android:onClick="onClick"

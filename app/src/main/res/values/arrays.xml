@@ -37,7 +37,7 @@
         <item>002 SUELDO BASE</item>
         <item>003 SUELDO TEMPORAL</item>
         <item>005 SUELDO BECARIOS</item>
-        <item>007 SUELDO BECARIOS</item>
+        <item>007 SUELDO BECADOS</item>
         <item>008 SUELDO SUSTITUTOS</item>
         <item>009 SUELDO MEDICOS RESIDENTES</item>
         <item>010 NIVELACION PLAZA SUPERIOR</item>
@@ -62,6 +62,7 @@
         <item>033 ESTIMULOS POR PUNTUALIDAD</item>
         <item>035 GUARDIAS</item>
         <item>037 TIEMPO EXTRAORDINARIO</item>
+        <item>038 PAGO EN EFECTIVO DE VACACIONES</item>
         <item>039 BONIFICACION DE GUARDERIAS</item>
         <item>040 BONIFICACION DE SEGURO MEDICO</item>
         <item>041 COMPLEMENTO DE AYUDA A BECARIO</item>
@@ -83,7 +84,7 @@
         <item>059 COMPLEMENTO DE BECA</item>
         <item>061 SOBRESUELDO SERVICIO TRASLADO DE PACIENTES DE URGENCIA Y TERAPIA INTENSIVA D.F. Y VALLE DE MEXICO</item>
         <item>062 AYUDA PARA LIBROS A MEDICOS</item>
-        <item>063 EMANACIONES RADIACTIVAS</item>
+        <item>063 EMANACIONES RADIACTIVAS MEDICAS</item>
         <item>064 MATERIAL DIDACTICO A MEDICOS RESIDENTES</item>
         <item>066 AYUDA PARA TRANSPORTE</item>
         <item>067 ESTIMULOS INSTRUCTORES TECNICOS</item>
@@ -92,7 +93,6 @@
         <item>072 AYUDA PARA LIBROS NO MEDICOS</item>
         <item>076 REINTEGRO CONVENIO T A T</item>
         <item>078 ACTIVIDADES ACADEMICAS</item>
-        <item>080 PAGO DE SALARIO NO COBRADO</item>
         <item>083 SOBRESUELDO POR INVESTIGACION Y DOCENCIA</item>
         <item>084 ESTIMULO A LA CALIDAD Y EFICIENCIA</item>
         <item>104 CREDITO HIPOTECARIO FOVI</item>
@@ -161,12 +161,156 @@
         <item>196 FONDO DE RETIRO</item>
         <item>197 RECUPERACION ANTICIPO DE AGUINALDO ENERO</item>
         <item>199 RECUPERACION VALE A CUENTA DE AGUINALDO</item>
-
     </string-array>
+
     <string-array name="conceptos">
         <item>Sueldo destinado para personal de confianza, basado en la responsabilidad y el nivel jerárquico.</item>
         <item>Sueldo base del personal de base del IMSS considerando 339 categorias vigente a partir del 16 de octubre de cad a;o</item>
         <item>Sueldo asignado a empleados con contratos temporales o por tiempo determinado.</item>
-
+        <item>Sueldo destinado a personas que estan en practicas o becas dentro de la institucion.</item>
+        <item>Sueldo para empleados que también reciben una beca como parte de su compensación</item>
+        <item>Sueldo para empleados que ocupan un puesto temporalmente en lugar de otro empleado</item>
+        <item>Sueldo asignado a medicos en periodo de residencia</item>
+        <item>Ajuste de sueldo para empleados que han sido promovidos a una plaza superior</item>
+        <item>Clausula 63 Bis Inc. b. -ayuda para pago de renta Casa-Habitacion \n \n* Calculo: Sueldo tabulador (002) x 57.95% = importe Cpto 011 \n \n* El porcentaje del concepto 011 por lo regular se ha venido actualizando en cada revision salarial y/o contractual y es vigente a partir del 16 de octubre de cada año. </item>
+        <item>Cláusula 28.- Jornadas y Horarios CCT. \n\nLas horas de trabajo serán continuas a menos que por necesidad del servicio tuviere que laborarse horario discontinuo, en cuyo caso se requerirá de la aceptación previa del Sindicato, percibiendo el trabajador que la labore en forma discontinua, un 10 % más del sueldo de lo normal. Ultimo incremento 16 de diciembre de 1987. \n\n*Sueldo Tabular (002) + Cpto. (011) x 10% = importe del Cpto. 012. </item>
+        <item>Cláusula 86 Sobresueldo a Médicos, Estomatólogos y Cirujanos Maxilo Faciales. \n\nEsta compensación tendrá repercusión en las prestaciones de Aguinaldo, Ayuda de Renta para Casa-Habitación prevista en el inciso c) de la Cláusula 63 Bis, Vacaciones pagadas, ampliación de jornada y jubilaciones. Último aumento, 16 octubre de 1998. \n\nSueldo Tabular (002) + Cpto. (011) x 20% = Importe del Cpto. 013. </item>
+        <item>Artículo 4. del Reglamento de Infectocontagiosidad y Emanaciones Radiactivas. \n\nEl personal no médico que labore en áreas o servicios deinfectocontagiosidad, mientras este expuesto en forma constante y permanente a este tipo de riesgos, al llegar a estos, percibirá el 20% de la suma del sueldo quincenal y la prestación contenida en el inciso b) de la Cláusula 63 Bis. del CCT. \n\nSueldo Tabular (002) + Cpto. (011) x 20% = importe del Cpto. 014. </item>
+        <item>Decreto Presidencial publicado en el Diario Oficial de la Federación el 10 de junio de 1988, pago del 50 por ciento del sueldo más el concepto 011 bruto a los trabajadores que laboren en las localidades de Baja California Sur y las Islas Marías en Sinaloa. Fuente: Informe de personal del IMSS 2018. \n\nSueldo Tabular (002) + Cpto (011) x 50%.</item>
+        <item>Cláusula 98.- Compensación para el Personal que Labore en Lugar de Alto Costo de Vida CCT Las partes de común acuerdo determinaran los nuevos lugares donde debe otorgarse esta compensación, así como su ampliación en los ya existentes, con base en estudios económicos elaborados por una Comisión Mixta nombrada por las partes. \n\nSueldo Tabular + Cpto. 11 x porcentaje de Localidad acordada. </item>
+        <item>Cláusula 63 Bis Inc. a.- Ayuda para pago de Renta Casa- Habitación \n\nImporte mensual: $450.00 pesos, $ 225.00 quincenales. Último incremento 16 de octubre de 2007.</item>
+        <item>Pago a los pasantes en servicio social en Medicina.</item>
+        <item>Cláusula 63 Bis.Inc. c - Ayuda para pago de Renta Casa-Habitación.\n\n A partir del 16 de octubre de 1989, la Cláusula 63 Bis. Inciso c) del CCT, establece los días de sueldo a pagar por cada año de servicio cumplido. Anteriormente la antigüedad se pagaba por quinquenio. El factor para pago de antigüedad se calcula dividiendo los días de estímulo entre 360. \n\nSueldo Tabular (002)+ Cpto. (011) x 1.5% aumentando un 1.5% por cada año de servicio cumplido. </item>
+        <item>Cláusula 86 Bis. – Insalubridad y artículo 6 del Reglamento de Infectocontagiosidad y Emanaciones Radiactivas. \n\n Artículo 6: El personal médico que labore en las áreas o servicios de Infectocontagiosidad señalados en el presente reglamento, mientras esté expuesto en forma constante y permanente a este tipo de riesgo, al llegar a éstos, percibirá el 1.5% de la suma de sueldo tabular y la prestación contenida en el inciso b) de la Cláusula 63 Bis del CCT. porcentaje que aumentara en 1.5% por cada año de servicio cumplido que permanezca en las mismas condiciones. \n\nSueldo Tabular (002)+ Cpto. (011) x 1.5% aumentando un 1.5% por cada año de servicio cumplido. </item>
+        <item>La compensación se otorgará a los químicos y responsables de farmacia, por el manejo y control de narcóticos y estupefacientes. Norma que establece las disposiciones para la aplicación de los conceptos asociados a la categoría, puesto y/o servicio de los trabajadores del IMSS (09 agosto 2013).\n\nSueldo Tabular (002) + Cpto.(011) x (0.10% o 0.15% como corresponda)</item>
+        <item>En aquellas guarderías en que no hubiere cupo, el Instituto cubrirá al trabajador la cantidad de $ 400.00 pesos mensuales por cada hijo que por esta causa no pueda percibir esta prestación social. \n\nCláusula 76.- Guarderías Infantiles del CCT. Por lo anterior, el importe quincenal es de $ 200.00 pesos.</item>
+        <item>Los trabajadores que deban desempeñar sus tareas fuera de los centros de trabajo, disfrutaran de una compensación mensual de $ 300.00 pesos para pasajes, \n\nClausula 103.- Medios de transporte y Compensación por pasajes. Categorías que perciben este pago: Promotor de Estomatología, Trabajadora Social, Enfermera Especialista en Salud Publica, Nutricionista Dietista, Auxiliar de Enfermería en Salud Publica, Auxiliar de Trabajo Social, Asistente Medica, Promotor de Salu Comunitaria, Enfermera Especialista en Atención Primaria a la Salud, Enfermera Especialista en Atención Materno Infantil, Enfermera Especialista en Salud Mental, Enfermera Especialista en Medicina de Familia, Enfermera Jefe de Piso en Medicina Familiar y Trabajador Social Clínico y Mensajero que deban desempeñar sus tareas fuera de los centros de trabajo. \n\nLas prestaciones anteriores, no serán suspendidas en las vacaciones, en las licencias por enfermedad o en aquellas menores de quince días. Por lo anterior, el importe quincenal es de $150.00 pesos.</item>
+        <item>Pago a los trabajadores que prestan sus servicios en un municipio diferente al de su lugar de residencia, siempre y cuando sea colindante. El importe lo determina la Comisión Nacional o Subcomisiones mixtas de Pasajes. El tope para recibir este pago es el sueldo de Químico Jefe de Sección de Laboratorio. Importe Quincenal $42.44</item>
+        <item>Cláusula 47.- Vacaciones\n\n “… Los trabajadores tendrán derecho a percibir una prima de un 25 por ciento sobre los salarios que les correspondan durante su período vacacional”. \n\nSalario Mensual Integrado entre 30 x Número de días de vacaciones x 0.25 </item>
+        <item>Cláusula 46 fracción II.- Descanso diario, semanal y Obligatorio.  \n\n “…Los Trabajadores que laboren los domingos disfrutaran de una prima dominical de un 25 por ciento sobre el salario de un día ordinario de trabajo…”. \n\n Sueldo Tabular (002) + Cpto (011) + (en su caso, 012 + 013 + 014 + 015 + 016 + + 022+ 023 +054 + 057 + 058 + 061 + 063) + 020 + 050 entre 15, entre jornada reportada por horas y décimas por el 0.25%</item>
+        <item>Cláusula 99.- Cambio de Lugar. \n\nCuando para el desempeño de labores, el Sindicato acepte que un trabajador, previo su conocimiento, sea movilizado por necesidades del servicio por promoción escalafonaria en los términos de la relativa a este Contrato, del lugar donde reside a otro distinto, el Instituto le proporcionará lo mismo que a su esposa o concubina, hijos y a sus padres que dependan económicamente del trabajador, el importe del pasaje en primera clase, los gastos para transporte de su menaje de casa y el importe de sesenta días de sueldo. \n\nSueldo Tabular (002) + Cpto. (011) por 4 quincenas (60 días de sueldo). </item>
+        <item>Art. 91 Reglamento Interior de Trabajo. \n\nSe afecta el pago por: faltas injustificadas, licencias sin sueldo, becas sin sueldo, incapacidades por enfermedad general, licencias con sueldo a excepción por fallecimiento de padres, hijos o conyugues. \n\nSueldo Tabular (002) + Cpto. (011) (en su caso cpto. 019 + 054 + 057 + 058 + 061) entre 15 x 3 días de estímulo. </item>
+        <item>Cláusula 38. Artículo 93 Reglamento Interior de Trabajo del CCT. \n\nSueldo Tabular (002)+ Cpto. (011) (en su caso cpto. 019 + 054 + 057 + 058 + 061) entre 15 x 2 días de estímulo.</item>
+        <item>Cláusula 45.- Guardias. \n\nSueldo Tabular (002) + Cpto (011) (en su caso cpto. 019 +023 + 054 + 057 + 058 + 061 + 063) + 020+ 050 entre 15 y entre jornada reportada por 2, por horas y decimas reportadas. </item>
+        <item>Clausula 32 Tiempo Extraordinario y Clausula 33.- Pago en Efectivo de Tiempo Extraordinario y Guardias.\n\n Se considera como tiempo extraordinario empleado al servicio del Instituto: \n I. El que exceda los límites de la jornada diaria contratada; \nII. Todo el tiempo laborado en días de descanso semanal y en días no laborales.\n\nSueldo Tabular (002) + Cpto (011) (en su caso cpto 019 + 023 + 054 + 057 +058 +061 +063) + 020 + 050 entre 15 y entre jornada reportada por 2, por horas y décimas reportadas.</item>
+        <item>Este concepto se paga únicamente al personal comisionado del SNTSS por periodo anual el tiempo que dure la Comisión Sindical por cláusula 42. \n\nSueldo Tabular (002) + Cpto. (011) (en su caso cpto. 019 + 023 +054 + 057 + 058 + 061 + 063) + 020+050 entre 15 por días a pagar. </item>
+        <item>$ 5.21 quincenal. Seguro de Responsabilidad Civil para la rama de Guarderías.</item>
+        <item>$ 20.20 quincenal. Bonificación al personal médico como protección a la práctica médica.</item>
+        <item>$10 % de la Beca (neto)</item>
+        <item>El anticipo de sueldo es hasta por tres meses de sueldo una sola vez al año. Es facultativo para el trabajador de base, usar en una sola ocasión o en forma fraccionada, el derecho que le otorga esta cláusula. Estos anticipos no devengarán intereses. \n\nSueldo Tabular (002) + concepto (011) por 2 por el Numero de meses solicitados. Importe máximo 3 meses. Antigüedad 23 quincenas. </item>
+        <item>Cláusula 107.- Aguinaldo. \n\n El aguinaldo anual de los trabajadores será de tres meses de sueldo nominal y proporcional a los sueldos percibidos. \n\nEl pago se hará anticipando medio mes en la quincena de enero (Cpto. 047), un mes más en la primera quincena de agosto a solicitud del Trabajador (Cpto. 043) y el saldo en la primera quincena del mes de diciembre (Cpto. 049). El aguinaldo se paga libre de impuestos, absorbiéndolos el Instituto.</item>
+        <item>A los trabajadores de guarderías que no perciben alimentos en especie. Se afecta con las siguientes incidencias: incapacidades, comisiones, licencias con y sin sueldo, faltas, becas con y sin sueldo y vacaciones. El importe quincenal es de $30.00 pesos</item>
+        <item>Internado de Pregrado.\n Se le proporciona una ayuda económica por concepto de alojamiento cuyo monto es de $100.00 mensuales (neto), siempre que la unidad médica no cuente con alojamiento.</item>
+        <item>El aguinaldo anual de los trabajadores será de tres meses de sueldo nominal y proporcional a los sueldos percibidos, el pago se hará anticipando mediomes en la primera quincena de enero (Cpto. 047). Es un pago automático.</item>
+        <item> Cláusula 47.- Vacaciones “… En el pago de la quincena previa a la iniciación del período de vacaciones en forma continua o fraccionada, los trabajadores percibirán por concepto de "Ayuda para Actividades Culturales y Recreativas", los días de salario que se indican en la siguiente tabla, de acuerdo a su antigüedad efectiva…”:
+            \n\n"ANTIGÜEDAD      DIAS A PAGAR\n"
+    "1 año                       23\n"
+    "2 años                      25\n"
+    "3 años                      27\n"
+    "4 años                      29\n"
+    "5 y mas                     31"\n\n
+            Suma de los Conceptos del Salario Mensual Integrado entre 30 X Número de días de ayuda. </item>
+        <item>Cláusula 107.- Aguinaldo. \n\n El aguinaldo anual de los Trabajadores será de tres meses de sueldo nominal y proporcional a los sueldos percibidos. El pago se hará anticipando medio mes en la primera quincena del mes de diciembre. \n\nSueldo Tabular (002) + Cpto (011) (en su caso cpto. 019 + 054 + 057 +058 +061) x 2 x 3 = Importe del Cpto. 049</item>
+        <item>Cláusula 142 Bis. – Despensa \n\nEl importe Mensual es de: $400.00 y el quincenal es de: $200.00. Ultimo aumento 16 de octubre de 1997.</item>
+        <item>Cláusula 126.- Notas de Mérito y Artículo 97 Reglamento Interior de Trabajo del CCT. \n\nPor cada nota de mérito que el trabajador obtenga dentro de un año calendario, tendrá derecho a que se aumente un día adicional de aguinaldo. </item>
+        <item>Clausula 143.- Fondo de Retiro y Reglamento del Fondo de Retiro para trabajadores del Instituto Mexicano del Seguro Social. </item>
+        <item>Cláusula 86 Bis. Insalubridad y Artículo 5 Reglamento de Infectocontagiosidad y Emanaciones Radiactivas. \n\nEl personal no médico que labore en las áreas o servicios de emanaciones radiactivas, mientras este expuesto en forma constante y permanente a este tipo de riesgo, al llegar a estos, percibirá el 20% de la suma del sueldo tabular y la prestación contenida en el inciso b) de la Cláusula 63 Bis del CCT. y disfrutará de periodos vacacionales cuatrimestrales de acuerdo a lo señalado en la Cláusula 47- Vacaciones, del mismo ordenamiento. \n\nSueldo Tabular (002) + Cpto (011) x 20%= importe Cpto 054. </item>
+        <item>Cláusula 144.- Fondo de Ahorro. Artículo 18 del Régimen de Jubilaciones y Pensiones CCT. \n\n A partir del 16 de octubre de 2015 se incrementó a 46 días el pago del Fondo de Ahorro. La cantidad que por ese concepto se entregue es libre de impuestos y proporcional al tiempo laborado computado del 1º de julio al 30 de junio del año siguiente. Este importe se calcula sobre 360 días laborados. \n\n
+        Las incidencias que afectan el Fondo de Ahorro: \n\n
+        "-Lic. Sin Sueldo mayor a 3 días 129\n"
+        "-Lic. Sin Sueldo de 1 a 3 días 171\n"
+        "-Faltas 172\n"
+        "-Becas sin Sueldo 175\n\n"
+        Sueldo Tabular (002) + Cpto (011) entre 15 x 46 días = importe del Cpto 055.</item>
+        <item>Cláusula 143.- Fondo de Retiro CCT. Reglamento del Fondo de Retiro para Trabajadores del Instituto Mexicano del Seguro Social.</item>
+        <item>Cláusula 86.- Sobresueldo a Médicos, Estomatólogos y Cirujano Maxilo Faciales. Último párrafo: \n\nA los trabajadores Médicos Familiares, Generales, No Familiares y Cirujanos Maxilo Faciales se les otorgará una compensación del 16.5% del sueldo tabular por los motivos y en los términos establecidos en los convenios suscritos por las partes de fechas 12 de diciembre de 1986 y 10 de abril de 1987. \n\nSueldo Tabular (002) + (011) x 16.5% = importe del Cpto. 057</item>
+        <item>Cláusula 151.- Sobresueldo al Personal de Enfermería. \n\nInstituto y Sindicato convienen en que todos los trabajadores de las categorías autónomas de Auxiliar de Enfermería, Auxiliar de Enfermería en Salud Publica, Auxiliar de Atención Medica de Esquema Modificado y Campo y Auxiliar de Enfermería de Unidad Médica, así como los trabajadores de las categorías de la rama de enfermería, percibirán una compensación del 31% sobre su sueldo tabular, por su participación en actividades docentes, de enseñanza y de investigación en los términos del convenio del 14 de agosto de 1987 suscrito por las partes. Último aumento 1º octubre 2000 \n\nSueldo Tabular (002) + Cpto (011) x 31% = Importe del Cpto 058. </item>
+        <item>Sobresueldo quincenal para el Médico Residente tomando como base el importe de la beca por el 34.5% de la beca (neto). Tabulador vigente para Médicos Residentes en periodo de Adiestramiento a partir del 16 de octubre de cada año.\n\nA los Médicos Residentes se les paga el sueldo quincenal con el concepto 009, el importe de la Beca se les paga con el concepto 005 y con el concepto 059 el Complemento de la Beca. </item>
+        <item>Norma que establece las disposiciones para la aplicación de los conceptos
+asociados a la categoría, puesto y/o servicio de los trabajadores del IMSS (09 agosto 2013).\n\n Sueldo Tabular (002) + Cpto. (011) x 10% = importe del Cpto. 061.\n\n El Convenio 20 de abril de 1990 integra a las siguientes categorías:\n\n
+Técnico Operador de Transporte Pacientes de Urgencia\n
+Técnico Operador de Transporte Pacientes Terapia Intensiva\n
+Médico para el Traslado de Pacientes de Urgencia\n
+Médico para el Traslado de Pacientes Terapia Intensiva\n
+Enfermera para el Traslado de Pacientes de Urgencia\n
+Enfermera para el Traslado de Pacientes de Terapia Intensiva</item>
+        <item>Apoyo para la adquisición de libros, revistas especializadas y material didáctico de Médicos. Oficio de la Dirección General del 1º de octubre de 1990. Este concepto se genera a las categorías de Médico y Estomatólogo. \n\nSueldo Tabular (002) + Cpto. (011) x 20% = Importe del Cpto. 062. </item>
+        <item>Cláusula 86 Bis. - Insalubridad y Artículo 7 del Reglamento de Infectocontagiosidad y Emanaciones Radiactivas.\n\n El personal médico que labore en las áreas o servicios de emanaciones radiactivas, mientras este expuesto de forma constante y permanente a este tipo de riesgo, al llegar a estos, percibirá el 2% de la suma del sueldo tabular y la prestación contenida en el inciso b) de la Cláusula 63 Bis del CCT. Porcentaje que aumentará en 2% por cada año de servicio cumplido en el área de o servicio y disfrutará de periodos vacacionales cuatrimestrales de acuerdo a lo señalado en la Cláusula 47.- Vacaciones, del mismo ordenamiento. Aumentando un 2% más por cada año de servicio cumplido.\n\nSueldo Tabular (002) + Cpto. (011) x 0.02 = Importe del Cpto. 063. </item>
+        <item>Artículo 30. Reglamento de Médicos Residentes en periodo de adiestramiento en una especialidad.\n\n Pago quincenal fijo a los Médicos Residentes para la adquisición de libros durante la vigencia de la Beca.</item>
+        <item>Pago del Concepto de pasajes a Becarios (05)</item>
+        <item>Sueldo Tabular (002) + Cpto. (015) x 3 días al personal que cumpla con 20 horas de Instrucción cada quincena. Oficio Circular 29 del 9 de septiembre de 1991</item>
+        <item>Este concepto se genera de acuerdo a la mecánica del cálculo del ISPT anual, si procede devolución de este concepto, se efectuará en la segunda quincena de marzo del siguiente año correspondiente al ejercicio fiscal del año anterior.</item>
+        <item>En Sustitución del Crédito al Salario se crea el Subsidio al Empleo. Diario Oficial de la Federación 1º de octubre de 2007.</item>
+        <item>Sueldo Tabular (002) +Cpto (011) por el porcentaje establecido. 15% Biólogos, Químicos, Psicólogos, 10% Fonoaudiólogos, Terapistas. A partir del 1º de Octubre del 2000 se otorga el 5% a los trabajadores con categoría de Trabajo Social, Técnico Radiólogo, Laboratorista, Histotecnólogo, Cito tecnólogo, Inhalo terapeuta, Orientador Técnico Médico.</item>
+        <item>Reintegro aplicado de acuerdo al convenio Trabajador por Trabajador (TXT)</item>
+        <item>Los trabajadores de base con categorías de Terapistas Físicos, Terapistas Ocupacionales y Fonoaudiólogos, adscritos exclusivamente a las Unidades de Medicina Física y Rehabilitación de las Delegaciones de Nuevo León, D.F., Norte (35) y DF Sur (38) tendrán derecho al otorgamiento del 10% que establece las disposiciones para la aplicación de los conceptos asociados a la categoría, puesto y/o servicio de los trabajadores del IMSS (09 agosto 2013). \n\nSueldo Tabular (002) x 0.10 = importe del Cpto. 78. </item>
+        <item>Los trabajadores con la categoría de psicólogo clínico, percibirán una compensación del 3% sobre su sueldo tabular, por su participación en actividades docentes, de Enseñanza y de Investigación dirigidas al personal del Instituto y a los derechohabientes para la aplicación de los conceptos asociados a la categoría, puesto y/o servicio de los trabajadores del IMSS (09 agosto 2013). \n\nSueldo Tabular (002) x Cpto (011) x 0.03 = Importe del Cpto. 083.</item>
+        <item>Cláusula 18ª. Transitoria del CCT. Bono de Productividad, Eficiencia y Calidad. Todos los Trabajadores de base del Instituto tendrán derecho a gozar de un bono de productividad, eficiencia y calidad, el cual estimule los resultados extraordinarios de cada Trabajador, en consideración a las funciones que desarrolle, conforme a lo establecido en el presente Contrato.</item>
+        <item>Deducción correspondiente al credito hipotecario otorgado por FOVI</item>
+        <item>Deducción correspondiente al enganche de casa habitación bajo Esquema de Salario Mensual Integrado.</item>
+        <item>El convenio adicional para las jubilaciones y pensiones de los trabajadores de base de nuevo ingreso del 14 de octubre de 2005, estableció que los trabajadores en activo al 15 de octubre de 2005 aumentaran su aportación del 3 al 10% al Fondo de Jubilación. Dicho incremento fue de 1% anual hasta llegar al 7 % más. El 3% se descuento con el Cpto 152 y el 7% se descuenta con el Cpto 107.\n\nSueldo Tabular (002)+ Cpto (011 al 019 + 057 +058 x 1.25 (aguinaldo) + 020 + 022+ 023 + 050 + 062 + 063 x 0.07 = importe de descuento del Cpto 107.</item>
+        <item>Provisión RJP 2005. El convenio adicional para las jubilaciones y pensiones de los trabajadores de base de nuevo ingreso del 14 de octubre de 2005, estableció que los trabajadores que ingresaran a partir del 16 de octubre de 2005 y hasta el 31 de julio de 2008, tendrían que aportar del 4 al 10% a un RJP modificado y cuyos requisitos principales son: el derecho a la Jubilación se obtendrá a partir de los 60 años de edad con 34 (mujeres) y 35 (varones) años de servicios, con una cuantía equivalente del 100%. \n\nLos trabajadores que ingresaron de octubre de 2005 a junio de 2008 un poco más de 44 mil, mantienen el derecho al Régimen de Jubilaciones y Pensiones en las condiciones del Convenio firmado entre las partes. \n\nSueldo Tabular (002) + Cpto 011 al 019 + 057 + 058 x 1.25 (aguinaldo) +020 + 022+ 023 + 050 +062 +063 x 0.10 = importe de descuento del Cpto. 108.</item>
+        <item>Deducción correspondiente al pago de prima de seguro para daños de vivienda de infonavit</item>
+        <item>Deducción correspondiente al pago de credito para la adquisición de automovil mediante terceros</item>
+        <item>Convenio del 27 de junio de 2008. Nueva Generación.\n\n Convenio que para dar cumplimiento a la Cláusula Seis Segunda del similar de fecha 14 de octubre de 2005, estableció que a partir del 1º de agosto de 2008, los trabajadores de nuevo ingreso pertenecen a la Nueva Generación. Teniendo una aportación del 7% al 15% a un esquema de pensiones sustentado en la Ley del Seguro Social. \n\nSueldo Tabular (002)+ Cpto 011 al 019 + 057 +058 x 1.25 (aguinaldo) + 020 + 022 + 023 + 050 + 062 +0 63 x 0.15 = importe de descuento del Cpto 111.</item>
+        <item>En la revisión contractual de octubre de 2008 se creó el concepto 112 con un importe inicial de $ 30.00 pesos quincenales, el cual se incrementa en el mismo porcentaje que se dá en cada revisión salarial. \n\nEste concepto sustituye a los conceptos 182 (Fondo de ayuda Sindical) y 183 Mutualidad. Actualmente el importe es de $42.12 pesos. En el Artículo 8 del Reglamento de Fondo de Ayuda Sindical se establece que, en caso de defunción de algún trabajador miembro del Sindicato, Jubilado o pensionado a partir del 11 de abril de 2008, el Fondo de Ayuda Sindical será por la cantidad de $160,000.00 pesos.</item>
+        <item>Deducción correspondiente al pago de seguro individual voluntario para gastos médicos mayores.</item>
+        <item>Deducción correspondiente al pago del servicio de telecomunicaciones proporcionado.</item>
+        <item>Deducción correspondiente al pago de la prima de seguro de automovil.</item>
+        <item>Deducción correspondiente al pago de la prima de seguro de automovil.</item>
+        <item>Deducción correspondiente al seguro de servicios médicos.</item>
+        <item>Deducción correspondiente al seguro para gastos de enfermería. </item>
+        <item>Deducción correspondiente al pago del crédito para trabajadores de confianza.</item>
+        <item>Deducción correspondiente a la retencion de pago a cuentas de terceros.</item>
+        <item>Deducción correspondiente a una licencia sin goce de sueldo mayor a 3 dias.</item>
+        <item>Deducción correspondiente al pago del crédito para adquirir casa habitación bajo Esquema de Salario Mensual Integrado.</item>
+        <item>Deducción correspondiente al pago del financiamiento del seguro de vida para el trabajador que cuenta con un crédito hipotecario bajo Esquema de Salario Mensual Integrado.</item>
+        <item>Deducción correspondiente al pago del financiamiento del seguro de daños para el trabajador que cuenta con un crédito hipotecario bajo Esquema de Salario Mensual Integrado.</item>
+        <item>Deducción correspondiente al pago de los gastos de escrituración para crédito hipotecario</item>
+        <item>Deducción correspondiente al pago del financiamiento otorgado para la adquisición de un automóvil bajo Esquema de Salario Mensual Integrado.</item>
+        <item>Deducción correspondiente al pago de préstamo personal a mediano plazo otorgado bajo Esquema de Salario Mensual Integrado.</item>
+        <item>Deducción correspondiente al pago de seguro de vida para el trabajador que cuenta con un préstamo personal a mediano plazo.</item>
+        <item>Deducción correspondiente al pago de vales de centros vacacionales de comisión PARITARIA. </item>
+        <item>Deducción correspondiente al pago de vales de velatorios de comisión  PARITARIA. </item>
+        <item>Deducción correspondiente al pago de adeudo del trabajador por accidentes automovilísticos.</item>
+        <item>Deducción correspondiente al pago de adeudo del trabajador por faltantes en caja o inventarios.</item>
+        <item>Deducción correspondiente al pago de adeudo del trabajador por llamadas telefónicas.</item>
+        <item>Deducción correspondiente al pago de algun artículo relacionado con línea blanca.</item>
+        <item>Deducción correspondiente al pago del seguro de vida otorgado por comisión  PARITARIA. </item>
+        <item>Deducción correspondiente a  cobros indebidos sin afectación de aguinaldo e iimpuesto sobre el producto de trabajo </item>
+        <item>Identifica el importe quincenal que, por concepto de impuestos sobre la Renta, que retiene el Instituto al Trabajador para su entrega a la Secretaria de Hacienda y Crédito Público, conforme a lo establecido en la Ley del Impuesto sobre la Renta. </item>
+        <item>Cláusula 110 CCT. Régimen de Jubilaciones y Pensiones Artículo 18. \n\nEl financiamiento del Régimen de Jubilaciones y Pensiones se constituye de la forma siguiente: Fracción I. los Trabajadores aportaran el 3% sobre los conceptos señalados en los incisos del a) al n) del Artículo 5 del presente Régimen y además el mismo porcentaje del Fondo de Ahorro. Cuya aportación será anual en la fecha de su pago (segunda Quincena de Julio). \n\nSueldo Tabular (002) + Cpto 011 al 019 + 057 +058 x 1.25 (aguinaldo) + 020 + 022 +023 + 050 + 062 + 063 x 0.03 = importe de descuento del Cpto 152</item>
+        <item>Descuento complementario por el Impuesto sobre el Producto de Trabajo correspondiente al año anterior.</item>
+        <item>Descuento correspondiente a un crédito por parte del  Instituto del Fondo Nacional de la Vivienda para los Trabajadores. </item>
+        <item>Descuento por pensión alimenticia.</item>
+        <item>Descuento por viaticos que no fueron comprobados por el trabajador.</item>
+        <item>Descuento correpondiente al cobro de anticipo de sueldo(cláusula 97 del contrato colectivo de trabajo)</item>
+        <item>Descuento correpondiente a la suspensión temporal de actividades del trabajador.</item>
+        <item>Responsabilidad sobre instrumentos de trabajo.</item>
+        <item>Descuento correpondiente a alguna actividad del sindicato.</item>
+        <item>Descuento correpondiente al pago de algun producto y/o servicio adquirido en una casa comercial de la comisión paritaria.</item>
+        <item>Descuento correpondiente al pago de viveres adquiridos por el trabajador.</item>
+        <item>Descuento correpondiente al pago de ropa adquirida por el trabajador.</item>
+        <item>Descuento por recuperacion de vale directamente del sueldo.</item>
+        <item>Descuento por adeudo generado mediante el Instituto del Fondo Nacional para el Consumo de los Trabajadores</item>
+        <item>Descuento correspondiente a haber solicitado una licencia sin sueldo menos a 4 dias.</item>
+        <item>Descuento correspondiente por faltas injustificadas.</item>
+        <item>Descuento correspondiente a los pases de salida autorizados para el trabajador.</item>
+        <item>Descuento correspondiente a los retardos del trabajador</item>
+        <item>Becas sin goce de sueldo para el trabajador.</item>
+        <item>Descuento aplciado conforme al convenio Trabajador por Trabajador (TXT).</item>
+        <item>Descuento aplciado por salidas anticipadas del lugar de trabajo.</item>
+        <item>Descuento aplicado por la reducción de jornada del trabajador.</item>
+        <item>Descuento aplicado de acuerdo a notas asignadas por demérito en el desempeño.</item>
+        <item>Clausula 96 CCT y Articulo 144 de los Estatutos del SNTSS (octubre 2016) \nArtículo 144 es el importe quincenal que retiene el Instituto al Trabajador agremiado para su entrega al Sindicato y corresponde al 2% del Sueldo Tabular.\n\nArtículo 146 de los Estatutos del SNTSS \nLas Secciones Sindicales tienen la obligación de aportar al Comité Ejecutivo Nacional una contribución equivalente al 20 por ciento de sus ingresos si se trata de una Sección Sindical que tenga más de diez mil miembros, al 15 por ciento de sus ingresos si se trata de una Sección Sindical con membrecía superior a siente mil quinientos, pero menos de siete mil quinientos miembros o de una Delegación Foránea Autónoma. \n\nSueldo Tabular (002) + Cpto (011) x 0.02 estatutos SNTSS </item>
+        <item>Descuento por cuota extraordinaria destinada al sindicato.</item>
+        <item>Aportacion del trabajador al Instituto del Fondo Nacional de la Vivienda para los Trabajadores.</item>
+        <item>Descuento destinado a la caja de ahorro con fines de prestamo</item>
+        <item>Descuento destinado a la caja de ahorro con fines de ahorro</item>
+        <item>Descuento aplicado  al salario del trabajador destinado a un fondo para otorgar becas y apoyos educativos.</item>
+        <item>Descuento correspondiente al pago de seguro de vida voluntario del trabajador.</item>
+        <item>Descuento destinado al fondo de retiro del trabajador.</item>
+        <item>Descuento correspondiente al adeudo generado por haber solicitado un anticipo de aguinaldo.</item>
+        <item>Descuento correspondiente a la recuperacion del adeudo generado a cuenta del aguinaldo.</item>
     </string-array>
 </resources>

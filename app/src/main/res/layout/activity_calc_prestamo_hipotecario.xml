@@ -7,6 +7,13 @@
     android:orientation="vertical"
     tools:context=".CalcPrestamos">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:alpha=".5"
+        android:src="@drawable/logotdt" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,8 +37,9 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:padding="10sp"
-                    android:text="  Cálculo de crédito hipotecario\nPara mayor información pasar a la Secretaria de Fomento a la Habitación de tu Sección Sindical."
-                    android:textColor="#154f3a"
+                    android:text="  Cálculo de crédito hipotecario\n \nPara mayor información pasar a la Secretaria de Fomento a la Habitación de tu Sección Sindical."
+                    android:textAlignment="center"
+                    android:textColor="@color/colorletras"
                     android:textSize="23dp"
                     android:textStyle="bold">
 
@@ -48,7 +56,8 @@
                     android:digits="0123456789."
                     android:hint="Concepto 002"
                     android:inputType="number"
-                    android:padding="5sp" />
+                    android:padding="5sp"
+                    android:textColor="@color/colorletras" />
 
                 <EditText
                     android:id="@+id/editText2"
@@ -61,7 +70,8 @@
                     android:digits="0123456789."
                     android:hint="Concepto 011"
                     android:inputType="number"
-                    android:padding="5sp" />
+                    android:padding="5sp"
+                    android:textColor="@color/colorletras" />
 
                 <Button
                     android:id="@+id/btnSumar"
@@ -70,9 +80,9 @@
                     android:layout_below="@+id/editText2"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="40dp"
-                    android:background="@drawable/botonblanco"
+                    android:background="@drawable/boton_principal"
                     android:text="CALCULAR"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras" />
 
 
                 <TextView
@@ -89,7 +99,7 @@
                     android:padding="10sp"
                     android:text="Su crédito hipotecario es = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras" />
 
             </RelativeLayout>
         </LinearLayout>

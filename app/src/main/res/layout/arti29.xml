@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/botonblanco"
+    android:background="@color/colorfondo"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -45,7 +45,7 @@ disponga se considera tiempo efectivo de labores. Para los efectos de
 los estímulos a que se refiere el Artículo 93 de este Reglamento, se
 incrementarán los contadores correspondientes como registro puntual
 cuando se haya concedido pase de entrada oficial."
-                android:textColor="#154f3a"
+                android:textColor="@color/colorletras"
                 android:textStyle="bold" />
 
             <Button
@@ -57,7 +57,7 @@ cuando se haya concedido pase de entrada oficial."
                 android:background="@drawable/boton_principal"
                 android:onClick="onclick"
                 android:text="      Continuar       "
-                android:textColor="#ffffff" />
+                android:textColor="@color/colorletras" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

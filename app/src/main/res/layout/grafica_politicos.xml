@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/boton_principal"
+    android:background="@color/colorfondo"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -49,10 +49,10 @@
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="10dp"
-        android:background="@drawable/botonblanco"
+        android:background="@drawable/boton_principal"
         android:onClick="onclick"
         android:text="      Continuar       "
-        android:textColor="#154f3a" />
+        android:textColor="@color/colorletras" />
 
 
 </RelativeLayout>

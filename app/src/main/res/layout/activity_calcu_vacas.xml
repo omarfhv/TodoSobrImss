@@ -7,6 +7,13 @@
     android:orientation="vertical"
     tools:context=".CalcVac">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:alpha=".5"
+        android:src="@drawable/logotdt" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +39,7 @@
                     android:gravity="center"
                     android:padding="10sp"
                     android:text="Cálculo del Concepto 048 Ayuda Actividades Culturales y Recreativas \nConcepto 029 Prima Vacacional."
-                    android:textColor="#154f3a"
+                    android:textColor="@color/colorletras"
                     android:textSize="20dp"
                     android:textStyle="bold">
 
@@ -49,7 +56,8 @@
                     android:digits="0123456789."
                     android:hint="Salario Mensual Integrado"
                     android:inputType="number"
-                    android:padding="5sp" />
+                    android:padding="5sp"
+                    android:textColor="@color/colorletras" />
 
                 <EditText
                     android:id="@+id/editText2"
@@ -62,7 +70,8 @@
                     android:digits="0123456789"
                     android:hint="Dias de Pago"
                     android:inputType="number"
-                    android:padding="5sp" />
+                    android:padding="5sp"
+                    android:textColor="@color/colorletras" />
 
                 <EditText
                     android:id="@+id/editText3"
@@ -75,7 +84,8 @@
                     android:digits="0123456789"
                     android:hint="Dias a Disfrutar"
                     android:inputType="number"
-                    android:padding="5sp" />
+                    android:padding="5sp"
+                    android:textColor="@color/colorletras" />
 
 
                 <Button
@@ -85,9 +95,9 @@
                     android:layout_below="@+id/editText3"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/botonblanco"
+                    android:background="@drawable/boton_principal"
                     android:text="CALCULAR"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras" />
 
                 <TextView
                     android:id="@+id/textViewResultado"
@@ -102,7 +112,7 @@
                     android:padding="10sp"
                     android:text="048 Su pago de vacaciones fraccionadas o pagadas es = \n "
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras" />
 
                 <TextView
                     android:id="@+id/textViewResultado2"
@@ -117,7 +127,7 @@
                     android:padding="10sp"
                     android:text="029 Su Pago de Prima Vacacional es = \n "
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

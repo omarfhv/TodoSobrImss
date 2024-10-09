@@ -2,309 +2,317 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorfondo">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:alpha=".5"
+        android:src="@drawable/logotdt" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/adView1">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
         <LinearLayout
-            android:id="@+id/btncomple"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtsop"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="#0D675E"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+            <LinearLayout
+                android:id="@+id/btncomple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtsop"
                 android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="40dp"
-
-                android:background="@drawable/btndoc1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#0D675E"
                 android:gravity="center"
-                android:text="CCT COMPLETO 2023-2025"
-                android:textColor="#FFFFFF"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="20dp"
 
+                    android:background="@drawable/btndoc1" />
 
-        <LinearLayout
-        android:id="@+id/btncontr"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_below="@+id/txtsop"
-        android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="-5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="#f6cdad"
-        android:gravity="center"
-        android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="CCT COMPLETO 2023-2025"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="40dp"
-            android:text="1"
-            android:textSize="50dp"
-            android:textColor="#d78144"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Contrato Colectivo \n de Trabajo"
-            android:textColor="#d78144"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+            </LinearLayout>
 
 
-    <LinearLayout
-        android:id="@+id/btntabu"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_below="@+id/txtext"
-        android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="-5dp"
-        android:layout_marginEnd="10dp"
-        android:background="#d1e3af"
-        android:gravity="left"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="40dp"
-            android:text="2"
-
-            android:textSize="50dp"
-            android:textColor="#86a65a"/>
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="60dp"
-            android:gravity="center"
-            android:text="Tabulador de sueldos"
-            android:textColor="#86a65a"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/btnprofesio"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_below="@+id/txtsop"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#afcae7"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:id="@+id/btncontr"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@+id/txtsop"
                 android:layout_gravity="center"
-                android:layout_marginRight="40dp"
-                android:text="3"
-                android:textSize="50dp"
-                android:textColor="#008acc"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="-5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#f6cdad"
                 android:gravity="center"
-                android:text="Profesiogramas"
-                android:textColor="#008acc"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="40dp"
+                    android:text="1"
+                    android:textColor="#d78144"
+                    android:textSize="50dp" />
 
-        <LinearLayout
-            android:id="@+id/btncatalogos"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_below="@+id/txtsop"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Contrato Colectivo \n de Trabajo"
+                    android:textColor="#d78144"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
-            android:background="#fee7bd"
-            android:gravity="center"
-            android:orientation="horizontal">
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+
+            <LinearLayout
+                android:id="@+id/btntabu"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@+id/txtext"
                 android:layout_gravity="center"
-                android:layout_marginRight="40dp"
-                android:text="4"
-                android:textSize="50dp"
-                android:textColor="#f5b645"/>
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="-5dp"
+                android:layout_marginEnd="10dp"
+                android:background="#d1e3af"
+                android:gravity="left"
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:gravity="center"
-                android:text="Catálogos"
-                android:textColor="#f5b645"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="40dp"
+                    android:text="2"
 
-        </LinearLayout>
+                    android:textColor="#86a65a"
+                    android:textSize="50dp" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="60dp"
+                    android:gravity="center"
+                    android:text="Tabulador de sueldos"
+                    android:textColor="#86a65a"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
 
-        <LinearLayout
-            android:id="@+id/btnreglamen"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_below="@+id/txtsop"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#8ab6a5"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:id="@+id/btnprofesio"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@+id/txtsop"
                 android:layout_gravity="center"
-                android:layout_marginRight="40dp"
-                android:text="5"
-                android:textSize="50dp"
-                android:textColor="#0e583f"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#afcae7"
                 android:gravity="center"
-                android:text="Reglamentos"
-                android:textColor="#0e583f"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="40dp"
+                    android:text="3"
+                    android:textColor="#008acc"
+                    android:textSize="50dp" />
 
-        <LinearLayout
-            android:id="@+id/btnconveni"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtsop"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#c7b7d4"
-            android:gravity="center"
-            android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Profesiogramas"
+                    android:textColor="#008acc"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btncatalogos"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@+id/txtsop"
                 android:layout_gravity="center"
-                android:layout_marginRight="40dp"
-                android:text="6"
-                android:textSize="50dp"
-                android:textColor="#7c5d96"/>
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:background="#fee7bd"
                 android:gravity="center"
-                android:text="Convenio Adicional para las Jubilaciones y Pensiones de los trabajadores de base de nuevo ingreso"
-                android:textColor="#7c5d96"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="40dp"
+                    android:text="4"
+                    android:textColor="#f5b645"
+                    android:textSize="50dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:gravity="center"
+                    android:text="Catálogos"
+                    android:textColor="#f5b645"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
 
-        <LinearLayout
-            android:id="@+id/btnindice"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_below="@+id/txtsop"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#f0b7c0"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:id="@+id/btnreglamen"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@+id/txtsop"
                 android:layout_gravity="center"
-                android:layout_marginRight="40dp"
-                android:text="7"
-                android:textSize="50dp"
-                android:textColor="#da256a"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#8ab6a5"
                 android:gravity="center"
-                android:text="Índice"
-                android:textColor="#da256a"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="40dp"
+                    android:text="5"
+                    android:textColor="#0e583f"
+                    android:textSize="50dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Reglamentos"
+                    android:textColor="#0e583f"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnconveni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtsop"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#c7b7d4"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="40dp"
+                    android:text="6"
+                    android:textColor="#7c5d96"
+                    android:textSize="50dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Convenio Adicional para las Jubilaciones y Pensiones de los trabajadores de base de nuevo ingreso"
+                    android:textColor="#7c5d96"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/btnindice"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@+id/txtsop"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#f0b7c0"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="40dp"
+                    android:text="7"
+                    android:textColor="#da256a"
+                    android:textSize="50dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Índice"
+                    android:textColor="#da256a"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
     </ScrollView>
 
     <com.google.android.gms.ads.AdView
@@ -312,10 +320,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/adbanner"
-        android:layout_alignParentLeft="true" />
+        ads:adUnitId="@string/adbanner" />
 
 </RelativeLayout>

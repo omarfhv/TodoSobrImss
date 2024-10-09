@@ -4,9 +4,15 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/botonblanco"
+    android:background="@color/colorfondo"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:alpha=".5"
+        android:src="@drawable/logotdt" />
 
     <ScrollView
         android:id="@+id/scroll1"
@@ -35,7 +41,7 @@
                     android:layout_margin="5dp"
                     android:gravity="center"
                     android:text=" Increpción:\n ENERO Y FEBRERO\n  JULIOY AGOSTO."
-                    android:textColor="#2F47CE"
+                    android:textColor="@color/colorletras"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -45,6 +51,7 @@
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:background="@drawable/boton_principal"
+                    android:elevation="10sp"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -54,7 +61,7 @@
                         android:layout_margin="5dp"
                         android:gravity="center"
                         android:text="FAMILIARES DIRECTOS\n Primera vez"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -76,7 +83,7 @@
                         android:layout_marginHorizontal="5dp"
                         android:gravity="center"
                         android:text="FAMILIARES POLITICOS\n Requisitos primera vez y renovacion"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -96,7 +103,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Grafica Familiares Politicos"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -116,7 +123,7 @@
                     android:layout_margin="5dp"
                     android:gravity="center"
                     android:text=" Aseguramiento:\n A partir del 1° de Junio\n  A partir del 1° de Diciembre."
-                    android:textColor="#2F47CE"
+                    android:textColor="@color/colorletras"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -135,7 +142,7 @@
                         android:layout_margin="5dp"
                         android:gravity="center"
                         android:text="FAMILIARES DIRECTOS\n Renovación"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -155,12 +162,13 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Grafica Familiares Directos"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <LinearLayout
+
                     android:id="@+id/botonlicencia1"
                     android:layout_width="150dp"
                     android:layout_height="180dp"

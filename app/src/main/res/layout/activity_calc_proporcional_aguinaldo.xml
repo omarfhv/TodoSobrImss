@@ -4,8 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorfondo"
-    android:orientation="vertical"
-    tools:context=".CalcPrestamos">
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:alpha=".5"
+        android:src="@drawable/logotdt" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,7 +31,6 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:textStyle="bold"
                     android:id="@+id/titulo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -33,8 +38,9 @@
                     android:gravity="center"
                     android:padding="10sp"
                     android:text="Cálculo del Concepto 049 AGUINALDO Proporcional "
-                    android:textColor="#154f3a"
-                    android:textSize="23dp" />
+                    android:textColor="@color/colorletras"
+                    android:textSize="23dp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/titul2"
@@ -45,7 +51,7 @@
                     android:gravity="center"
                     android:padding="15sp"
                     android:text="Se toma en cuenta del 1º de Diciembre al 30 de Noviembre del año siguiente año."
-                    android:textColor="#154f3a"
+                    android:textColor="@color/colorletras"
                     android:textSize="15dp" />
 
 
@@ -60,7 +66,8 @@
                     android:digits="0123456789."
                     android:hint="Concepto 002"
                     android:inputType="number"
-                    android:padding="5sp" />
+                    android:padding="5sp"
+                    android:textColor="@color/colorletras" />
 
                 <EditText
                     android:id="@+id/editText2"
@@ -73,7 +80,8 @@
                     android:digits="0123456789."
                     android:hint="Concepto 011"
                     android:inputType="number"
-                    android:padding="5sp" />
+                    android:padding="5sp"
+                    android:textColor="@color/colorletras" />
 
                 <EditText
                     android:id="@+id/editText3"
@@ -86,7 +94,8 @@
                     android:digits="0123456789"
                     android:hint="Dias Laborados del 1° de Diciembre al 30 de Noviembre del seguiente año"
                     android:inputType="number"
-                    android:padding="5sp" />
+                    android:padding="5sp"
+                    android:textColor="@color/colorletras" />
 
 
                 <Button
@@ -96,9 +105,9 @@
                     android:layout_below="@+id/editText3"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/botonblanco"
+                    android:background="@drawable/boton_principal"
                     android:text="CALCULAR"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras" />
 
                 <TextView
                     android:id="@+id/textViewResultado"
@@ -113,7 +122,7 @@
                     android:padding="10sp"
                     android:text="Su AGUINALDO aproximado es de = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras" />
 
                 <TextView
                     android:id="@+id/textViewResultado2"
@@ -128,7 +137,7 @@
                     android:padding="10sp"
                     android:text="Su Anticipo de AGUINALDO es de = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras" />
 
             </RelativeLayout>
         </LinearLayout>

@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/botonblanco"
+    android:background="@color/colorfondo"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -24,7 +24,7 @@ inmediato superior, con la indicación expresa del tiempo que deberá
 permanecer ausente. El tiempo de que disponga se descontará del
 sueldo. El registro de entrada y salida se hará conforme a lo dispuesto
 en el artículo anterior."
-        android:textColor="#154f3a"
+        android:textColor="@color/colorletras"
         android:gravity="center"
         android:textStyle="bold" />
 
@@ -37,5 +37,5 @@ en el artículo anterior."
         android:layout_marginBottom="40dp"
         android:background="@drawable/boton_principal"
         android:text="      Continuar       "
-        android:textColor="#ffffff" />
+        android:textColor="@color/colorletras" />
 </LinearLayout>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/boton_principal"
+    android:background="@color/colorfondo"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="20dp">
@@ -49,7 +49,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Guardar" />
+            android:background="@drawable/boton_principal"
+            android:text="Guardar"
+            android:textColor="@color/colorletras" />
 
 
     </LinearLayout>

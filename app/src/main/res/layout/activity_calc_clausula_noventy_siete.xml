@@ -7,6 +7,13 @@
     android:orientation="vertical"
     tools:context=".CalcClausulaNoventySiete">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:alpha=".5"
+        android:src="@drawable/logotdt" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,7 +38,7 @@
                     android:layout_marginTop="0dp"
                     android:padding="10sp"
                     android:text="CLAUSULA 97 DEL CCT Anticipo a cuenta de su salario hasta por 3 meses de su sueldo"
-                    android:textColor="#154f3a"
+                    android:textColor="@color/colorletras"
                     android:textSize="20dp"
                     android:textStyle="bold">
 
@@ -48,7 +55,8 @@
                     android:digits="0123456789."
                     android:hint="Concepto 002"
                     android:inputType="number"
-                    android:padding="5sp" />
+                    android:padding="5sp"
+                    android:textColor="@color/colorletras" />
 
                 <EditText
                     android:id="@+id/editText2"
@@ -61,7 +69,8 @@
                     android:digits="0123456789."
                     android:hint="Concepto 011"
                     android:inputType="number"
-                    android:padding="5sp" />
+                    android:padding="5sp"
+                    android:textColor="@color/colorletras" />
 
                 <Button
                     android:id="@+id/btnSumar"
@@ -71,9 +80,9 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="25dp"
-                    android:background="@drawable/botonblanco"
+                    android:background="@drawable/boton_principal"
                     android:text="CALCULAR"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras" />
 
                 <TextView
 
@@ -89,7 +98,7 @@
                     android:padding="10sp"
                     android:text="Su prestamo por 1 mes es = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras" />
 
                 <TextView
                     android:id="@+id/textViewResultado1"
@@ -104,7 +113,7 @@
                     android:padding="10sp"
                     android:text="Su prestamo por 2 meses es = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras" />
 
                 <TextView
                     android:id="@+id/textViewResultado2"
@@ -119,7 +128,7 @@
                     android:padding="10sp"
                     android:text="Su prestamo por 3 meses es = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

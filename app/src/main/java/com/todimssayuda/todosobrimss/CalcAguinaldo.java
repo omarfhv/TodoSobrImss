@@ -26,7 +26,6 @@ public class CalcAguinaldo extends AppCompatActivity implements View.OnClickList
     EditText et1, et2;
     Button btnSumar, btnproporcional;
     TextView tvResultado, tvResultado2;
-    ColorDrawable dialogColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)   {

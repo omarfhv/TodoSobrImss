@@ -3,16 +3,25 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorfondo">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:alpha=".5"
+        android:src="@drawable/logotdt" />
 
     <TextView
         android:id="@+id/texto1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="20sp"
         android:gravity="center"
         android:text=" MARCA DE INCLUSIÓN "
-        android:textColor="#E00707"
-        android:textSize="20dp"
+        android:textColor="@color/colorletras"
+        android:textSize="25dp"
         android:textStyle="bold" />
 
     <ScrollView

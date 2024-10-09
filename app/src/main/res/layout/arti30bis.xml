@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/botonblanco"
+    android:background="@color/colorfondo"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -22,7 +22,7 @@ indicación expresa de la hora en que habrá de iniciar su jornada. El
 tiempo de que disponga se descontará del sueldo.
 El registro de entrada se hará con la constancia de tener concedido el
 pase de entrada."
-        android:textColor="#154f3a"
+        android:textColor="@color/colorletras"
         android:gravity="center"
         android:textStyle="bold" />
 
@@ -35,5 +35,5 @@ pase de entrada."
         android:layout_marginBottom="40dp"
         android:background="@drawable/boton_principal"
         android:text="      Continuar       "
-        android:textColor="#ffffff" />
+        android:textColor="@color/colorletras" />
 </LinearLayout>

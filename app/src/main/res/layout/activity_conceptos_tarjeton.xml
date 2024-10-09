@@ -1,29 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:orientation="vertical"
-    android:background="#154f3a">
+    android:background="@color/colorfondo"
+    android:orientation="vertical">
 
-    <SearchView
-        android:layout_marginStart="10sp"
-        android:layout_marginEnd="10sp"
-        android:background="@color/colorAccent"
-        android:id="@+id/searchView"
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/white"
-        android:iconifiedByDefault="false"
-        android:queryHint="Buscar conceptos..." />
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_centerVertical="true"
+        android:alpha=".5"
+        android:src="@drawable/logotdt" />
 
-        <LinearLayout
-            android:id="@+id/layoutprincipal"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <SearchView
+            android:id="@+id/searchView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" />
-    </ScrollView>
-</LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10sp"
+            android:layout_marginEnd="10sp"
+            android:background="@color/colorfondo"
+            android:backgroundTint="@android:color/white"
+            android:iconifiedByDefault="false"
+            android:queryHint="Buscar conceptos..." />
+
+        <ScrollView
+            android:id="@+id/scrollconceptos"
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/layoutprincipal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/bannerconceptos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/adbanner" />
+    </LinearLayout>
+</RelativeLayout>

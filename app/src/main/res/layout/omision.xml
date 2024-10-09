@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/botonblanco"
+    android:background="@color/colorfondo"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -16,7 +16,7 @@
 haya omitido registrar su entrada o salida, deberá ser justificado
 mediante certificación escrita del Jefe de la Dependencia de su
 adscripción o de quien éste último autorice.\n ESTE FORMATO TIENE QUE SER LLENADO Y FIRMADO O TAMBIEN MEDIANTE UN DOCUMENTO ELABORADO Y FIRMADO POR EL JEFE. "
-        android:textColor="#154f3a"
+        android:textColor="@color/colorletras"
         android:gravity="center"
         android:textStyle="bold" />
 

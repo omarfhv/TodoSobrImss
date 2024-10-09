@@ -4,9 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/colorfondo"
     android:layout_height="match_parent"
     tools:context=".RecuperaSoporte">
 
+    <ImageView
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:src="@drawable/logotdt"
+        android:alpha=".5"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/txtsop"
@@ -14,7 +21,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Ayuda Personalizada \n Soporte Técnico"
-        android:textColor="#154f3a"
+        android:textColor="@color/colorletras"
         android:textSize="30dp">
     </TextView>
 

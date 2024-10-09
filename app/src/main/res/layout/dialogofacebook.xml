@@ -11,19 +11,20 @@
         android:id="@+id/txtcalifica"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="30dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="10dp"
         android:gravity="center_horizontal"
-        android:text="¿Te es util esta app? Calificala y ayudanos a mejorar"
+        android:text="Apoyanos uniendote a nuestra pagina de Facebook \n\-TODIMS-"
         android:textAlignment="center"
         android:textColor="@color/colorletras"
-        android:textSize="20sp" />
+        android:textSize="30sp" />
 
     <ImageView
         android:layout_width="100sp"
         android:layout_height="100sp"
-        android:background="@drawable/splashsc" />
+        android:layout_margin="10sp"
+        android:background="@drawable/todimsfb" />
 
     <LinearLayout
 
@@ -37,38 +38,32 @@
             android:id="@+id/botonno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/boton_principal"
-            android:text="no ahora"
+            android:text="No ahora"
             android:textColor="#ffffff" />
 
         <Button
             android:id="@+id/botonsi"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/boton_principal"
-
-            android:text="si"
+            android:text="OK"
             android:textColor="#ffffff" />
-
 
     </LinearLayout>
 
     <CheckBox
-        android:id="@+id/chbxcalifica"
+        android:id="@+id/chbxdialogfb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20sp"
         android:buttonTint="@color/colorletras"
         android:gravity="center"
-        android:text="Ya califique esta app"
+        android:text="Ya soy seguidor de Todims en Facebook"
         android:textColor="@color/colorletras" />
 
 </LinearLayout>

@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/boton_principal"
+    android:background="@color/colorfondo"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -17,20 +17,30 @@
         android:layout_marginBottom="10dp"
         android:text="titulo"
         android:textAlignment="center"
-        android:textColor="#ffffff"
+        android:textColor="@color/colorletras"
         android:textSize="25sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginVertical="8dp"
+        android:layout_marginStart="10sp"
+        android:layout_marginEnd="10sp"
+        android:background="@color/colorletras" />
+
 
     <TextView
         android:id="@+id/descripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recuerda que parawfsefsdfsfdskhjbdbvhbksdvhjbksdvkhbsdvhbkjsdvhjbsdvhjbsdvhjbsdvhjbsdvhjb descargarlo del SAT tienes que contar con firma electronica o contraseña. "
-        android:textAlignment="center"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="30dp"
-        android:textColor="#ffffff"
-        android:textSize="20dp" />
+        android:justificationMode="inter_word"
+        android:text="Recuerda que parawfsefsdfsfdskhjbdbvhbksdvhjbksdvkhbsdvhbkjsdvhjbsdvhjbsdvhjbsdvhjbsdvhjb descargarlo del SAT tienes que contar con firma electronica o contraseña. "
+        android:textAlignment="center"
+        android:textColor="@color/colorletras"
+        android:textSize="15dp" />
 
 
     <Button
@@ -41,5 +51,5 @@
         android:layout_marginBottom="40dp"
         android:background="@drawable/boton_principal"
         android:text="      OK       "
-        android:textColor="#ffffff" />
+        android:textColor="@color/colorletras" />
 </LinearLayout>

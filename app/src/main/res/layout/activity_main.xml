@@ -4,8 +4,15 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#154f3a"
+    android:background="@color/colorfondo"
     android:orientation="vertical">
+
+    <ImageView
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:src="@drawable/logotdt"
+        android:alpha=".5"
+        android:layout_height="wrap_content" />
 
     <ScrollView
         android:id="@+id/scrollview"
@@ -27,6 +34,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:elevation="8sp"
                     android:id="@+id/botontarjeton"
                     android:layout_width="150dp"
                     android:layout_height="120dp"
@@ -96,7 +104,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rol vacacional 2024"
+                        android:text="Rol vacacional 2025"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
 
@@ -973,16 +981,16 @@
         android:id="@+id/bloqueo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
+        android:background="@color/colorfondo"
         android:visibility="gone"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Esta app ha dejado de funcionar visita nuestra pagina en facebook para mas informacion de la nueva version "
+            android:text="Esta app ha dejado de funcionar visita nuestro sitio para obtener una nueva version "
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="30dp" />

@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="#154f3a"
+    android:background="@color/colorfondo"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -16,7 +16,7 @@
         android:layout_marginBottom="30dp"
         android:text="¿Que tipo de tarjeton deseas descargar?"
         android:textAlignment="center"
-        android:textColor="#ffffff"
+        android:textColor="@color/colorletras"
         android:textSize="25sp" />
 
     <LinearLayout
@@ -34,7 +34,7 @@
                 android:buttonTint="#ffffff"
                 android:checked="true"
                 android:text="Activo"
-                android:textColor="#ffffff"
+                android:textColor="@color/colorletras"
                 android:textSize="20sp" />
 
             <RadioButton
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:buttonTint="#ffffff"
                 android:text="Jubilado"
-                android:textColor="#ffffff"
+                android:textColor="@color/colorletras"
                 android:textSize="20sp" />
 
         </RadioGroup>

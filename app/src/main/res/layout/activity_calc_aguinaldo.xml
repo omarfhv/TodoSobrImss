@@ -6,7 +6,12 @@
     android:background="@color/colorfondo"
     android:orientation="vertical"
     tools:context=".CalcPrestamos">
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:alpha=".5"
+        android:src="@drawable/logotdt" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,12 +36,13 @@
                     android:layout_centerHorizontal="true"
                     android:padding="10sp"
                     android:text="Calculo del Concepto 049 AGUINALDO y Concepto 047 Anticipo de Aguinaldo."
-                    android:textColor="#154f3a"
+                    android:textColor="@color/colorletras"
                     android:textSize="23sp"
                     android:textStyle="bold" />
 
 
                 <EditText
+                    android:textColor="@color/colorletras"
                     android:id="@+id/editText1"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
@@ -50,6 +56,7 @@
                     android:padding="5sp" />
 
                 <EditText
+                    android:textColor="@color/colorletras"
                     android:id="@+id/editText2"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
@@ -69,9 +76,9 @@
                     android:layout_below="@+id/editText2"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="40dp"
-                    android:background="@drawable/botonblanco"
+                    android:background="@drawable/boton_principal"
                     android:text="CALCULAR"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras"/>
 
                 <Button
                     android:id="@+id/btnpropocional"
@@ -81,10 +88,10 @@
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/botonblanco"
+                    android:background="@drawable/boton_principal"
                     android:padding="5sp"
                     android:text="CALCULAR PROPORCIONAL"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras" />
 
 
                 <TextView
@@ -98,7 +105,7 @@
                     android:padding="10sp"
                     android:text="Su AGUINALDO aproximado es de = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras" />
 
                 <TextView
                     android:id="@+id/textViewResultado2"
@@ -111,7 +118,7 @@
                     android:padding="10sp"
                     android:text="Su Anticipo de AGUINALDO es de = "
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#154f3a" />
+                    android:textColor="@color/colorletras" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

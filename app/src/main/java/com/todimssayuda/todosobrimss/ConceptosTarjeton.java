@@ -1,20 +1,29 @@
 package com.todimssayuda.todosobrimss;
 
 import static com.todimssayuda.todosobrimss.MainActivity.quitarbordesdialogo;
+
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.SearchView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 
 public class ConceptosTarjeton extends AppCompatActivity {
@@ -22,6 +31,10 @@ public class ConceptosTarjeton extends AppCompatActivity {
     String[] titulos, conceptos;
     LinearLayout contenedor;
     TextView[] textViewArray;  // Almacenamos los TextViews creados para poder filtrarlos
+    ScrollView scrollView;
+    SharedPreferences sharedPref;
+    AdView bannerad;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +44,24 @@ public class ConceptosTarjeton extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         setContentView(R.layout.activity_conceptos_tarjeton);
+        scrollView = findViewById(R.id.scrollconceptos);
+        sharedPref = getSharedPreferences("conceptos", Context.MODE_PRIVATE);
         this.setTitle("Conceptos del tarjeton");
+
+        //poner el scroll en la posicion guardada
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                scrollView.setScrollY(sharedPref.getInt("pos", 0));
+            }
+        }, 100);
+
+
+        //implemenatcion de banner
+        bannerad = findViewById(R.id.bannerconceptos);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        bannerad.loadAd(adRequest);
+
 
         contenedor = findViewById(R.id.layoutprincipal);
         SearchView searchView = findViewById(R.id.searchView);
@@ -40,24 +70,24 @@ public class ConceptosTarjeton extends AppCompatActivity {
         textViewArray = new TextView[titulos.length];
 
         // Crear los TextViews dinámicamente
-        for (int i = 0; i < titulos.length; i++) {
-            final int index = i;
+        for (int z = 0; z < titulos.length; z++) {
+             int index = z;
+
             TextView textView = new TextView(this);
-            textView.setText(titulos[i]);
-            textView.setTextSize(15);
+            textView.setText(titulos[z]);
+            textView.setTextSize(14);
             textView.setBackground(getResources().getDrawable(R.drawable.boton_principal));
+            textView.setElevation(8);
             textView.setTextColor(Color.WHITE);
             textView.setPadding(20, 20, 20, 20);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
-            layoutParams.setMargins(20, 10, 100, 10);
-
+            layoutParams.setMargins(75, 20, 75, 20);
             // Aplicar los parámetros al TextView
             textView.setLayoutParams(layoutParams);
-            textViewArray[i] = textView;
-
+            textViewArray[z] = textView;
             // Agregar el TextView al LinearLayout
             contenedor.addView(textView);
             textView.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +154,7 @@ public class ConceptosTarjeton extends AppCompatActivity {
         if (item.getItemId() == android.R.id.home) {
             startActivity(new Intent(getBaseContext(), MainActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            savescrollpos();
             finish();
         }
         return super.onOptionsItemSelected(item);
@@ -134,9 +165,19 @@ public class ConceptosTarjeton extends AppCompatActivity {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
             startActivity(new Intent(getBaseContext(), MainActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            savescrollpos();
             finish();
             return true;
         }
         return super.onKeyDown(keyCode, event);
     }
+
+
+    //Metodo que guarda la posicion del scroll
+    private void savescrollpos() {
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("pos", scrollView.getScrollY());
+        editor.apply();
+    }
+
 }

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    android:background="#FFFFFF"
+    android:background="@drawable/boton_principal"
     android:orientation="horizontal">
 
     <ImageView
@@ -20,14 +20,14 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_gravity="center"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/iv_image"
         android:ellipsize="end"
         android:maxLines="1"
         android:paddingRight="10dp"
         android:text="name"
-        android:textColor="#000000"
-        android:textSize="15dp" />
+        android:textColor="@color/colorletras"
+        android:textSize="20dp" />
 
 
 </LinearLayout>

@@ -3,7 +3,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/boton_principal"
+    android:background="@color/colorfondo"
     android:orientation="vertical"
     android:padding="5dp">
 
@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="Los requisitos son:"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/colorletras"
         android:textSize="30dp"
         android:textStyle="bold" />
 
@@ -34,7 +34,7 @@
 * Requisitar solicitud\n
 * No podran ejercer el CREDITO, los trabajadores que presenten los siguientes conceptos: 106,130,133,134,136,154,155,160,166,170 y 190\n
 * En cuanto salga la convocatoria se avisara\n"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/colorletras"
         android:textSize="20dp" />
 
 
@@ -49,7 +49,7 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/boton_principal"
         android:text="ok"
-        android:textColor="@android:color/white" />
+        android:textColor="@color/colorletras"/>
 
 
 </RelativeLayout>

@@ -48,14 +48,10 @@ public class RolVacacional extends AppCompatActivity implements View.OnClickList
         pdfView.fromAsset("rol2.pdf").load();
 
 
-    Botonroles = findViewById(R.id.botonroles);
+        Botonroles = findViewById(R.id.botonroles);
         Botonroles.setOnClickListener(this);
 
-
-
-
     }
-
 
 
     @Override
