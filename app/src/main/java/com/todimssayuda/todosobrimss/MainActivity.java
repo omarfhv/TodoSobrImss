@@ -379,7 +379,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         contadorads++;
-        if (mInterstitialAd != null && contadorads == 2) {
+        if (mInterstitialAd != null && contadorads >= 2 && view.getId() != R.id.botontarjeton) {
             mInterstitialAd.show(MainActivity.this);
             mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                 @Override
@@ -401,6 +401,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
 
     private void botonessinads(View view) {
 
@@ -438,39 +439,124 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             btnactweb.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    registroFirebaseAn("btnactivosweb");
-                                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://rh.imss.gob.mx/TarjetonDigital/"));
-                                    startActivity(intent);
-                                    subdialog.cancel();
-                                    dialog.cancel();
+                                    if (mInterstitialAd != null) {
+                                        mInterstitialAd.show(MainActivity.this);
+                                        mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                                            @Override
+                                            public void onAdShowedFullScreenContent() {
+                                                super.onAdShowedFullScreenContent();
+                                            }
+
+                                            @Override
+                                            public void onAdDismissedFullScreenContent() {
+                                                super.onAdDismissedFullScreenContent();
+                                                registroFirebaseAn("btnactivosweb");
+                                                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://rh.imss.gob.mx/TarjetonDigital/"));
+                                                mInterstitialAd = null;
+                                                startActivity(intent);
+                                                subdialog.cancel();
+                                                dialog.cancel();
+                                            }
+
+                                        });
+                                    } else {
+                                        registroFirebaseAn("btnactivosweb");
+                                        intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://rh.imss.gob.mx/TarjetonDigital/"));
+                                        startActivity(intent);
+                                        subdialog.cancel();
+                                        dialog.cancel();
+                                    }
+
                                 }
                             });
                             btnact.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    registroFirebaseAn("btnactivosapp");
-                                    Intent intent1 = new Intent(MainActivity.this, WbViewTarjeton.class);
-                                    intent1.putExtra("jubilados", false);
-                                    startActivity(intent1);
-                                    finish();
+
+                                    if (mInterstitialAd != null) {
+                                        mInterstitialAd.show(MainActivity.this);
+                                        mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                                            @Override
+                                            public void onAdShowedFullScreenContent() {
+                                                super.onAdShowedFullScreenContent();
+                                            }
+
+                                            @Override
+                                            public void onAdDismissedFullScreenContent() {
+                                                super.onAdDismissedFullScreenContent();
+                                                registroFirebaseAn("btnactivosapp");
+                                                Intent intent1 = new Intent(MainActivity.this, WbViewTarjeton.class);
+                                                intent1.putExtra("jubilados", false);
+                                                startActivity(intent1);
+                                                finish();
+                                            }
+
+                                        });
+                                    } else {
+                                        registroFirebaseAn("btnactivosapp");
+                                        Intent intent1 = new Intent(MainActivity.this, WbViewTarjeton.class);
+                                        intent1.putExtra("jubilados", false);
+                                        startActivity(intent1);
+                                        finish();
+                                    }
                                 }
                             });
-                            subdialog.setCancelable(false);
                             subdialog.show();
                         }
                         if (rbtnj.isChecked()) {
-                            registroFirebaseAn("btnjubilados");
-                            Intent intent1 = new Intent(MainActivity.this, WbViewTarjeton.class);
-                            intent1.putExtra("jubilados", true);
-                            startActivity(intent1);
-                            finish();
+                            if (mInterstitialAd != null) {
+                                mInterstitialAd.show(MainActivity.this);
+                                mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                                    @Override
+                                    public void onAdShowedFullScreenContent() {
+                                        super.onAdShowedFullScreenContent();
+                                    }
+
+                                    @Override
+                                    public void onAdDismissedFullScreenContent() {
+                                        super.onAdDismissedFullScreenContent();
+                                        registroFirebaseAn("btnjubilados");
+                                        Intent intent1 = new Intent(MainActivity.this, WbViewTarjeton.class);
+                                        intent1.putExtra("jubilados", true);
+                                        startActivity(intent1);
+                                        finish();
+                                    }
+
+                                });
+                            } else {
+                                if (mInterstitialAd != null) {
+                                    mInterstitialAd.show(MainActivity.this);
+                                    mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                                        @Override
+                                        public void onAdShowedFullScreenContent() {
+                                            super.onAdShowedFullScreenContent();
+                                        }
+
+                                        @Override
+                                        public void onAdDismissedFullScreenContent() {
+                                            super.onAdDismissedFullScreenContent();
+                                            registroFirebaseAn("btnjubilados");
+                                            Intent intent1 = new Intent(MainActivity.this, WbViewTarjeton.class);
+                                            intent1.putExtra("jubilados", true);
+                                            startActivity(intent1);
+                                            finish();
+                                        }
+
+                                    });
+                                } else {
+                                    registroFirebaseAn("btnjubilados");
+                                    Intent intent1 = new Intent(MainActivity.this, WbViewTarjeton.class);
+                                    intent1.putExtra("jubilados", true);
+                                    startActivity(intent1);
+                                    finish();
+                                }
+                            }
 
                         }
 
 
                     }
                 });
-                dialog.setCancelable(false);
                 dialog.show();
                 break;
 
