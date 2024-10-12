@@ -88,6 +88,9 @@ public class ShowPdf extends AppCompatActivity {
             case "RolVacacional":
                 intent = new Intent(this, RolVacacional.class);
                 break;
+            case "conceptostarjeton":
+                intent = new Intent(this, ConceptosTarjeton.class);
+                break;
             default:
                 intent = new Intent(this, MainActivity.class);
                 break;

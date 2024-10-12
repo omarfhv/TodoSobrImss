@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -113,6 +114,18 @@ public class ConceptosTarjeton extends AppCompatActivity {
         });
     }
 
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_general, menu);
+        menu.findItem(R.id.item1).setTitle("Todos");
+        menu.findItem(R.id.item1).setIcon(null);
+        menu.findItem(R.id.item2).setTitle("");
+        menu.findItem(R.id.item2).setIcon(getResources().getDrawable(R.drawable.modifica));
+        return true;
+    }
+
     // Método para mostrar el diálogo con el concepto correspondiente
     private void mostrarDialogoConcepto(int index) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(ConceptosTarjeton.this);
@@ -155,6 +168,15 @@ public class ConceptosTarjeton extends AppCompatActivity {
             startActivity(new Intent(getBaseContext(), MainActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             savescrollpos();
+            finish();
+        }
+        if (item.getItemId() == R.id.item2) {
+
+            Intent intent = new Intent(this, ShowPdf.class);
+            intent.putExtra("pdf", "conceptos");
+            intent.putExtra("clase", "conceptostarjeton");
+            intent.putExtra("titulo", "Conceptos del Tarjeton");
+            startActivity(intent);
             finish();
         }
         return super.onOptionsItemSelected(item);

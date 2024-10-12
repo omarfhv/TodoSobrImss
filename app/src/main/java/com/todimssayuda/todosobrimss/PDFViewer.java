@@ -98,7 +98,6 @@ public class PDFViewer extends AppCompatActivity {
 
 
         if (listFile != null && listFile.length > 0) {
-            aviso.setVisibility(View.GONE);
             for (int i = 0; i < listFile.length; i++) {
 
                 System.out.println(listFile[i].getName());
