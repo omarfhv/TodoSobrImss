@@ -51,6 +51,12 @@ public class CursosIm extends AppCompatActivity implements View.OnClickListener 
     }
 
 
+    public void Enferme (View view) {
+        //se obtiene el titulo directamente del cduadro de texto del layout
+        textview = findViewById(R.id.cursos1);
+        cambioActivitypdf("becasenferme", "cursos", (String) textview.getText());
+    }
+
     public void Medicos(View view) {
         textview = findViewById(R.id.cursos3);
         cambioActivitypdf("mastecnicos", "cursos", (String) textview.getText());

@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final int PERMISO_NOTIFICACIONES = 1;
     LinearLayout btn1;
-    LinearLayout botonconvenioescuela, botonconvocatoria, botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas, botontabulador, botoncursos, botonpermutas, botonpases, botonpliego, botonsustis, botondias, botonjubilacion, botontiposdecontrato, botonincapacidades, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete, botonestatuto, botonanticipo;
+    LinearLayout botoncalendariocaja, botonconvenioescuela, botonconvocatoria, botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas, botontabulador, botoncursos, botonpermutas, botonpases, botonpliego, botonsustis, botondias, botonjubilacion, botontiposdecontrato, botonincapacidades, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete, botonestatuto, botonanticipo;
     SharedPreferences sharedPref;
     Intent intent;
     InterstitialAd mInterstitialAd;
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         link = findViewById(R.id.botonenlacefb);
 
 
-        if (yy <= 2024) {
+        if (yy <= 2025) {
             bloqueo.setVisibility(View.INVISIBLE);
         }
 
@@ -268,6 +268,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botonestatuto = findViewById(R.id.botonestatuto);
         botonestatuto.setOnClickListener(this);
 
+        botoncalendariocaja = findViewById(R.id.botoncalendariocaja);
+        botoncalendariocaja.setOnClickListener(this);
+
+
         link.setOnClickListener(this);
 
 
@@ -407,7 +411,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (view.getId()) {
             case R.id.botonenlacefb:
-                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/tarjetondigitalimss/"));
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/profile.php?id=61566265966722&locale=es_LA"));
                 startActivity(intent);
                 break;
 
@@ -587,6 +591,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 cambioActivity(RolVacacional.class);
                 break;
 
+
+
             //pantalla con boton en actionbar hacia pdf
             case R.id.botonconvenioescuela:
                 registroFirebaseAn("btnconven");
@@ -621,6 +627,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.botonfalta:
                 cambioActivityPdf("faltas1", "", "Faltas");
+                break;
+
+            case R.id.botoncalendariocaja:
+                cambioActivityPdf("cajadeahorro", "", "cajadeahorro");
                 break;
 
             case R.id.botontabula:

@@ -7,8 +7,8 @@ android {
         applicationId "com.todimssayuda.todosobrimss"
         minSdkVersion 24
         targetSdkVersion 34
-        versionCode 51
-        versionName "6.1"
+        versionCode 61
+        versionName "7.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
