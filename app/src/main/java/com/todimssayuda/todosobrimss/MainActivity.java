@@ -630,7 +630,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.botoncalendariocaja:
-                cambioActivityPdf("cajadeahorro", "", "cajadeahorro");
+                cambioActivity(CalendarioCaja.class);
+                //cambioActivityPdf("cajadeahorro", "", "cajadeahorro");
                 break;
 
             case R.id.botontabula:

@@ -1,0 +1,7 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#4A1C29" /> <!-- Color de fondo para días especiales -->
+    <corners android:radius="8dp" />
+    <stroke
+        android:width="5dp"
+        android:color="@color/colorverdechillon" />
+</shape>

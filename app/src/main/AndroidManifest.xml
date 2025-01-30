@@ -69,6 +69,7 @@
         <activity android:name=".SeguroFacul" />
         <activity android:name=".Incapacidades" />
         <activity android:name=".ConceptosTarjeton" />
+        <activity android:name=".CalendarioCaja" />
         <activity android:name=".TiposDeContrato" />
         <activity android:name=".PliegoTesta" />
         <activity android:name=".InfoPases" />
