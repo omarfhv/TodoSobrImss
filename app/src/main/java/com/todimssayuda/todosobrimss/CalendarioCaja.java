@@ -42,6 +42,8 @@ public class CalendarioCaja extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendariocaja);
+        setTitle("Prestamos Excepcionales");
+
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);

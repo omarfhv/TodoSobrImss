@@ -28,6 +28,7 @@ public class Calendario extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendario);
 
+
         c = Calendar.getInstance();
 
 
