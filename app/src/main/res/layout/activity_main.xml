@@ -612,7 +612,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/botonfalta"
+                    android:id="@+id/botondelegadovirtual"
                     android:layout_width="150dp"
                     android:layout_height="120dp"
                     android:layout_gravity="center"
@@ -625,12 +625,12 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/falta" />
+                        android:background="@drawable/botimsbase" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Faltas"
+                        android:text="Delegado Digital"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -990,6 +990,32 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:text="Anticipo de Aguinaldo"
+                        android:textAlignment="center"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/botonfalta"
+                    android:layout_width="150dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/boton_principal"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/falta" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Faltas"
                         android:textAlignment="center"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />

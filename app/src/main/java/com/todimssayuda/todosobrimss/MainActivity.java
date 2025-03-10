@@ -55,7 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final int PERMISO_NOTIFICACIONES = 1;
     LinearLayout btn1;
-    LinearLayout botoncalendariocaja, botonconvenioescuela, botonconvocatoria, botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario, botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas, botontabulador, botoncursos, botonpermutas, botonpases, botonpliego, botonsustis, botondias, botonjubilacion, botontiposdecontrato, botonincapacidades, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro, botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete, botonestatuto, botonanticipo;
+    LinearLayout botoncalendariocaja, botonconvenioescuela, botonconvocatoria, botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario,
+            botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas, botontabulador, botoncursos, botonpermutas, botonpases, botonpliego, botonsustis,
+            botondias, botonjubilacion, botontiposdecontrato, botonincapacidades, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro,
+            botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete, botonestatuto, botonanticipo, botondelegadovirtual;
     SharedPreferences sharedPref;
     Intent intent;
     InterstitialAd mInterstitialAd;
@@ -74,8 +77,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sharedPref = getSharedPreferences("inicio", Context.MODE_PRIVATE);
 
+        sharedPref = getSharedPreferences("inicio", Context.MODE_PRIVATE);
         contadorads = sharedPref.getInt("contads", 0);
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -271,6 +274,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botoncalendariocaja = findViewById(R.id.botoncalendariocaja);
         botoncalendariocaja.setOnClickListener(this);
 
+        botondelegadovirtual = findViewById(R.id.botondelegadovirtual);
+        botondelegadovirtual.setOnClickListener(this);
+
 
         link.setOnClickListener(this);
 
@@ -395,19 +401,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onAdDismissedFullScreenContent() {
                     super.onAdDismissedFullScreenContent();
-                    botonessinads(view);
+                    botonesSinAds(view);
                 }
 
             });
         } else {
-            botonessinads(view);
+            botonesSinAds(view);
             sharedPref.edit().putInt("contads", contadorads).apply();
         }
 
     }
 
 
-    private void botonessinads(View view) {
+    private void botonesSinAds(View view) {
 
         switch (view.getId()) {
             case R.id.botonenlacefb:
@@ -591,8 +597,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 cambioActivity(RolVacacional.class);
                 break;
 
-
-
             //pantalla con boton en actionbar hacia pdf
             case R.id.botonconvenioescuela:
                 registroFirebaseAn("btnconven");
@@ -741,6 +745,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.botonclausulanoventaysiete:
                 cambioActivity(CalcClausulaNoventySiete.class);
                 break;
+            case R.id.botondelegadovirtual:
+                cambioActivity(DelegadoVirtual.class);
         }
 
         //guardar posicion de scroll
