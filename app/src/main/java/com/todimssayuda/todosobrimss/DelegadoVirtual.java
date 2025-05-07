@@ -401,9 +401,9 @@ public class DelegadoVirtual extends AppCompatActivity {
         // Normaliza y verifica si empieza con "clausula"
         if (texto.toLowerCase().startsWith("clausula")) {
             int total = texto.length();
-            if (total > 400) {
+            if (total > 500) {
                 // Elimina los primeros y últimos 200 caracteres
-                return texto.substring(200, total - 200);
+                return texto.substring(250, total - 250);
             }
         }
 
