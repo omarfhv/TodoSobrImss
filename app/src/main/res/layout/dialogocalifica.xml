@@ -42,7 +42,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/boton_principal"
             android:text="no ahora"
-            android:textColor="#ffffff" />
+            android:textColor="@color/colorletras"/>
 
         <Button
             android:id="@+id/botonsi"
@@ -56,7 +56,7 @@
             android:background="@drawable/boton_principal"
 
             android:text="si"
-            android:textColor="#ffffff" />
+            android:textColor="@color/colorletras" />
 
 
     </LinearLayout>

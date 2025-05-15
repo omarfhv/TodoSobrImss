@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="JUBILADOS "
-            android:textColor="#ffffff"
+            android:textColor="@color/colorletras"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="ACTIVOS "
-            android:textColor="#ffffff"
+            android:textColor="@color/colorletras"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="SOPORTE TECNICO "
-            android:textColor="#ffffff"
+            android:textColor="@color/colorletras"
             android:textStyle="bold" />
 
     </LinearLayout>

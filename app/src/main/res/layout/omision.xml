@@ -35,5 +35,5 @@ adscripción o de quien éste último autorice.\n ESTE FORMATO TIENE QUE SER LLE
         android:layout_marginBottom="40dp"
         android:background="@drawable/boton_principal"
         android:text="      Continuar       "
-        android:textColor="#ffffff" />
+        android:textColor="@color/colorletras" />
 </LinearLayout>

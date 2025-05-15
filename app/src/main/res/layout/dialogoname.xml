@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guardar Tarjeton"
-        android:textColor="#ffffff"
+        android:textColor="@color/colorletras"
         android:textSize="30dp" />
 
 
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:textAlignment="center"
-        android:textColor="#ffffff" />
+        android:textColor="@color/colorletras" />
 
 
     <Spinner
@@ -31,14 +31,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:textAlignment="center"
-        android:textColor="#ffffff" />
+        android:textColor="@color/colorletras" />
 
     <Spinner
         android:id="@+id/spinnera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@color/colorletras" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -62,5 +63,5 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Abrir despues de guardar"
-        android:textColor="#ffffff" />
+        android:textColor="@color/colorletras" />
 </LinearLayout>

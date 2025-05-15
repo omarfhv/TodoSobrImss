@@ -8,11 +8,11 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_centerVertical="true"
         android:layout_width="match_parent"
-        android:src="@drawable/logotdt"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:alpha=".5"
-        android:layout_height="wrap_content" />
+        android:src="@drawable/logotdt" />
 
     <ScrollView
         android:id="@+id/scrollview"
@@ -34,13 +34,13 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:elevation="8sp"
                     android:id="@+id/botontarjeton"
                     android:layout_width="150dp"
                     android:layout_height="120dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:background="@drawable/boton_principal"
+                    android:elevation="8sp"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -54,7 +54,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Descargar tarjeton"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -80,7 +80,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Promociones"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -105,7 +105,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rol vacacional 2025"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -130,7 +130,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="CCT 2023-2025"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -152,10 +152,11 @@
                         android:background="@drawable/tabula" />
 
                     <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tabulador 2024"
-                        android:textColor="#ffffff"
+                        android:text="Tabulador de sueldos"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -181,7 +182,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Permutas"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -208,7 +209,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Pliego Testamentario"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -234,7 +235,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Dias Festivos"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -260,7 +261,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Tipos de contratos"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -286,7 +287,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Estatutos"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -312,7 +313,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Seguro Facultativo"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -339,7 +340,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Declaracion ANUAL"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -365,7 +366,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Calcular 2° de JULIO"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -391,7 +392,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Caja de Ahorros"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -417,7 +418,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Calculadora de Prestamo Hipotecario"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -443,7 +444,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Calculadora de Prestamo de CARRO"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -469,7 +470,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Conceptos TARJETON"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -495,7 +496,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Convocatorias"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -521,11 +522,10 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Calendario de prestamos excepcionales"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
-
 
 
             </LinearLayout>
@@ -556,7 +556,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Calendario"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -581,7 +581,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="NOTIFICACIONES"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -603,10 +603,10 @@
                         android:background="@drawable/btnconsulta1" />
 
                     <TextView
+                        android:text="Consulta tarjeton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Consulta tarjeton"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -631,7 +631,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Delegado Digital"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -656,7 +656,7 @@
                         android:layout_height="wrap_content"
                         android:text="Cursos y Becas"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -681,7 +681,7 @@
                         android:layout_height="wrap_content"
                         android:text="Pases"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -706,7 +706,7 @@
                         android:layout_height="wrap_content"
                         android:text="Sustituciones"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -731,7 +731,7 @@
                         android:layout_height="wrap_content"
                         android:text="Tramite de Jubilacion"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -756,7 +756,7 @@
                         android:layout_height="wrap_content"
                         android:text="Incapacidades"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -781,7 +781,7 @@
                         android:layout_height="wrap_content"
                         android:text="Recuperar Contraseña"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -806,7 +806,7 @@
                         android:layout_height="wrap_content"
                         android:text="Prestamos por Categoria"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -833,7 +833,7 @@
                         android:gravity="center_horizontal"
                         android:text="Calculadora de Vacaciones"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -859,7 +859,7 @@
                         android:gravity="center_horizontal"
                         android:text="Calculadora de Aguinaldo"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -885,7 +885,7 @@
                         android:gravity="center_horizontal"
                         android:text="Calculadora de Credito Hipotecario a Mediano Plazo"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -911,7 +911,7 @@
                         android:gravity="center_horizontal"
                         android:text="Calculadora de Tiempo Extra"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -938,7 +938,7 @@
                         android:gravity="center_horizontal"
                         android:text="Prestamo clausula 97"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -965,7 +965,7 @@
                         android:gravity="center_horizontal"
                         android:text="Convenios con Escuelas"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -991,7 +991,7 @@
                         android:gravity="center_horizontal"
                         android:text="Anticipo de Aguinaldo"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -1017,7 +1017,7 @@
                         android:gravity="center_horizontal"
                         android:text="Faltas"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -1035,9 +1035,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorfondo"
-        android:visibility="gone"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"

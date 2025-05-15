@@ -27,7 +27,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:text="   Continuar   "
-        android:textColor="#ffffff" />
+        android:textColor="@color/colorletras"/>
 
 
 </LinearLayout>

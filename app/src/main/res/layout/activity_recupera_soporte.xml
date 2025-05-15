@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Llamar a Soporte Técnico"
-            android:textColor="#ffffff"
+            android:textColor="@color/colorletras"
             android:textSize="20dp"
             android:textStyle="bold" />
     </LinearLayout>

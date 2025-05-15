@@ -13,8 +13,7 @@ import okhttp3.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+
 
 public class EmbeddingSearch {
     private static final String OPENAI_API_KEY = ;
@@ -69,30 +68,7 @@ public class EmbeddingSearch {
     }
 
 
-    public static List<Double> obtenerEmbedding(String texto) throws IOException {
-        OkHttpClient client = new OkHttpClient();
-        ObjectMapper objectMapper = new ObjectMapper();
 
-        String jsonBody = objectMapper.writeValueAsString(Map.of("input", texto, "model", "text-embedding-ada-002"));
-
-        RequestBody body = RequestBody.create(jsonBody, MediaType.get("application/json"));
-        Request request = new Request.Builder()
-                .url(OPENAI_EMBEDDING_URL)
-                .post(body)
-                .addHeader("Authorization", "Bearer " + OPENAI_API_KEY)
-                .addHeader("Content-Type", "application/json")
-                .build();
-
-        Response response = client.newCall(request).execute();
-        if (response.isSuccessful() && response.body() != null) {
-            Map<String, Object> responseMap = objectMapper.readValue(response.body().string(), new TypeReference<Map<String, Object>>() {
-            });
-            Log.e("EmbeddingSearchClass", "el embedding de la pregunta es " + response.body().string());
-
-            return (List<Double>) ((Map<String, Object>) ((List<?>) responseMap.get("data")).get(0)).get("embedding");
-        }
-        return null;
-    }
 
     public static List<EmbeddingData> buscarMejoresCoincidencias(Context context, List<Double> embeddingPregunta, int numResultados) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();

@@ -64,5 +64,5 @@
         android:background="@drawable/boton_principal"
         android:onClick="onclick"
         android:text="      Continuar       "
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/colorletras" />
 </LinearLayout>

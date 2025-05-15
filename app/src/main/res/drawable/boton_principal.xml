@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true">
-        <shape android:shape="rectangle">
-            <gradient android:angle="270" android:endColor="#0D2C26" android:startColor="#034938" />
-            <corners android:radius="10dp" />
-            <stroke android:width="2dp" android:color="#FFFFFF" />
-        </shape>
-    </item>
-    <item android:state_enabled="true">
-        <shape android:shape="rectangle">
-            <gradient android:angle="270" android:endColor="#113A33" android:startColor="#045D48" />
-            <corners android:radius="10dp" />
-            <stroke android:width="2dp" android:color="#FFFFFF" />
-        </shape>
-    </item>
+
+    <!-- Estado presionado -->
+    <item android:state_pressed="true" android:drawable="@drawable/btnprincipalpress" />
+
+    <!-- Estado habilitado (normal) -->
+    <item android:state_enabled="true" android:drawable="@drawable/btnprincipalnormal" />
+
 </selector>

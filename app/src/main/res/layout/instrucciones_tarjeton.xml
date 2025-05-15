@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="5dp"
         android:text="Instrucciones"
-        android:textColor="#ffffff"
+        android:textColor="@color/colorletras"
         android:textSize="30dp"
         android:textStyle="bold" />
 
@@ -72,9 +72,9 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20sp"
-                android:buttonTint="#ffffff"
+                android:buttonTint="@color/colorletras"
                 android:text="No volver a mostrar"
-                android:textColor="#ffffff" />
+                android:textColor="@color/colorletras" />
         </LinearLayout>
     </ScrollView>
 

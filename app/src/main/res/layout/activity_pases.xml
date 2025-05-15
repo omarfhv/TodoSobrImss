@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="PASES "
-            android:textColor="#ffffff"
+            android:textColor="@color/colorletras"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="OMISION "
-            android:textColor="#ffffff"
+            android:textColor="@color/colorletras"
             android:textStyle="bold" />
     </LinearLayout>
 

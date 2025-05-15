@@ -103,7 +103,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:background="@drawable/boton_principal"
+            android:background="@drawable/boton_principaloriginal"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -112,7 +112,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Calendario Completo"
-                android:textColor="#ffffff"
+                android:textColor="@color/colorletras"
                 android:textStyle="bold" />
 
         </LinearLayout>

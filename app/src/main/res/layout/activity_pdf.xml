@@ -27,7 +27,7 @@
         android:layout_marginRight="150dp"
         android:background="@drawable/boton_principal"
         android:text="Compartir Tarjeton"
-        android:textColor="#ffffff" />
+        android:textColor="@color/colorletras" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView1"

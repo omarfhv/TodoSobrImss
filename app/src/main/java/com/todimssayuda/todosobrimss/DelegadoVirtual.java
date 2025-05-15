@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
@@ -32,6 +33,7 @@ import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,6 +46,7 @@ import java.nio.charset.StandardCharsets;
 import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -87,79 +90,14 @@ public class DelegadoVirtual extends AppCompatActivity {
         edittx = findViewById(R.id.edittextdelegado);
 
 
-/*
-        botonconsultar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-
-                new Thread(() -> {
-                    EmbeddingDatabase db = EmbeddingDatabase.getInstance(DelegadoVirtual.this);
-                    EmbeddingDao dao = db.embeddingDao();
-
-                    // Buscamos el embedding del texto "Hola, ¿cómo estás?"
-                    byte[] embeddingBytes = dao.getEmbedding("Contrato colectivo de trabajo del instituto mexicano del seguro social (IMSS) Cláusula 3: Asesores Las partes en todas las discusiones y actuaciones que versen sobre la interpretación y cumplimiento del Contrato, de los Reglamentos y de los Convenios respectivos, podrán asesorarse libremente de las personas que estimen necesario.");
-
-                    if (embeddingBytes != null) {
-                        float[] recoveredEmbedding = EmbeddingUtils.byteArrayToFloatArray(embeddingBytes);
-                        System.out.println("Embedding recuperado: " + Arrays.toString(recoveredEmbedding));
-                    } else {
-                        System.out.println("algo salio mal ");
-                    }
-                }).start();
-
-
-
-              //  EmbeddingGenerator.generarEmbeddings(DelegadoVirtual.this);
-               // ClausulaProcessor.procesarClausulas(DelegadoVirtual.this);
-
-                //extractFromAssets(DelegadoVirtual.this,"contratocolectivotemp.jsonl");
-            }
-        });
-*/
-
-        /*
-        String texto = "Contrato colectivo de trabajo del instituto mexicano del seguro social (IMSS) Cláusula 3: Asesores Las partes en todas las discusiones y actuaciones que versen sobre la interpretación y cumplimiento del Contrato, de los Reglamentos y de los Convenios respectivos, podrán asesorarse libremente de las personas que estimen necesario.";
-        botonconsultar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                OpenAIEmbeddingClient.getEmbedding(texto, new OpenAIEmbeddingClient.EmbeddingCallback() {
-                    @Override
-                    public void onSuccess(float[] embedding) {
-                        // Convertimos float[] a byte[] para almacenarlo en SQLite
-                        byte[] embeddingBytes = EmbeddingUtils.floatArrayToByteArray(embedding);
-
-                        // Obtenemos la instancia de la base de datos
-                        EmbeddingDatabase db = EmbeddingDatabase.getInstance(DelegadoVirtual.this);
-                        EmbeddingDao dao = db.embeddingDao();
-
-                        // Creamos la entidad con el texto y su embedding
-                        EmbeddingEntity entity = new EmbeddingEntity(texto, embeddingBytes);
-
-                        // Insertamos en la base de datos en un hilo separado
-                        new Thread(() -> {
-                            dao.insert(entity);
-                            System.out.println("Embedding guardado en SQLite");
-                        }).start();
-                    }
-
-                    @Override
-                    public void onError(String error) {
-                        System.out.println("Error al obtener embedding: " + error);
-                    }
-                });
-            }
-        });
-
-*/
         botonconsultar.setOnClickListener(v -> {
             if (!TextUtils.isEmpty(edittx.getText().toString().trim())) {
                 runOnUiThread(() -> {
                     txtv.setVisibility(View.VISIBLE);
                     txtv.setText("Cargando respuesta...");
                     loadGIF(R.drawable.botpensando);
+                    botonconsultar.setVisibility(View.INVISIBLE);
+
                 });
 
                 EmbeddingSearch.obtenerEmbeddingAsync(edittx.getText().toString(), new EmbeddingSearch.EmbeddingCallback() {
@@ -168,34 +106,38 @@ public class DelegadoVirtual extends AppCompatActivity {
                         Log.d("EmbeddingSearch", "Embedding obtenido con éxito: " + embeddingPregunta);
 
                         try {
-                            List<EmbeddingSearch.EmbeddingData> coincidencias  = EmbeddingSearch.buscarMejoresCoincidencias(DelegadoVirtual.this, embeddingPregunta, 6);
+                            List<EmbeddingSearch.EmbeddingData> coincidencias = EmbeddingSearch.buscarMejoresCoincidencias(DelegadoVirtual.this, embeddingPregunta, 6);
                             if (coincidencias != null) {
 
                                 EmbeddingSearch.EmbeddingData mejorCoincidencia = coincidencias.isEmpty() ? null : coincidencias.get(0);
-                                Log.d("EmbeddingSearch", "Mejor 1 coincidencia encontrada: " +  mejorCoincidencia.texto);
+                                Log.d("EmbeddingSearch", "Mejor 1 coincidencia encontrada: " + mejorCoincidencia.texto);
 
                                 EmbeddingSearch.EmbeddingData mejorCoincidencia2 = coincidencias.isEmpty() ? null : coincidencias.get(1);
-                                Log.d("EmbeddingSearch", "Mejor 2 coincidencia encontrada: " +  mejorCoincidencia2.texto);
+                                Log.d("EmbeddingSearch", "Mejor 2 coincidencia encontrada: " + mejorCoincidencia2.texto);
                                 EmbeddingSearch.EmbeddingData mejorCoincidencia3 = coincidencias.isEmpty() ? null : coincidencias.get(2);
-                                Log.d("EmbeddingSearch", "Mejor 3 coincidencia encontrada: " +  mejorCoincidencia3.texto);
+                                Log.d("EmbeddingSearch", "Mejor 3 coincidencia encontrada: " + mejorCoincidencia3.texto);
                                 EmbeddingSearch.EmbeddingData mejorCoincidencia4 = coincidencias.isEmpty() ? null : coincidencias.get(3);
-                                Log.d("EmbeddingSearch", "Mejor 4 coincidencia encontrada: " +  mejorCoincidencia4.texto);
+                                Log.d("EmbeddingSearch", "Mejor 4 coincidencia encontrada: " + mejorCoincidencia4.texto);
                                 EmbeddingSearch.EmbeddingData mejorCoincidencia5 = coincidencias.isEmpty() ? null : coincidencias.get(4);
-                                Log.d("EmbeddingSearch", "Mejor 5 coincidencia encontrada: " +  mejorCoincidencia5.texto);
+                                Log.d("EmbeddingSearch", "Mejor 5 coincidencia encontrada: " + mejorCoincidencia5.texto);
                                 EmbeddingSearch.EmbeddingData mejorCoincidencia6 = coincidencias.isEmpty() ? null : coincidencias.get(5);
-                                Log.d("EmbeddingSearch", "Mejor 6 coincidencia encontrada: " +  mejorCoincidencia6.texto);
+                                Log.d("EmbeddingSearch", "Mejor 6 coincidencia encontrada: " + mejorCoincidencia6.texto);
 
                                 String textoembedding1 = limpiarTextoEmbedding(mejorCoincidencia.texto);
-                                Log.d("EmbeddingSearch", "contexto 1 limpio: " +  textoembedding1);
+                                Log.d("EmbeddingSearch", "contexto 1 limpio: " + textoembedding1);
                                 String textoembedding2 = limpiarTextoEmbedding(mejorCoincidencia2.texto);
-                                Log.d("EmbeddingSearch", "contexto 2 limpio: " +  textoembedding2);
 
-                                obtenerRespuestaDesdeOpenAI(textoembedding1 + textoembedding2 , edittx.getText().toString(), new OpenAICallback() {
+                                String textoembedding3 = limpiarTextoEmbedding(mejorCoincidencia3.texto);
+                                Log.d("EmbeddingSearch", "contexto 2 limpio: " + textoembedding2);
+
+                                obtenerRespuestaDesdeOpenAI(textoembedding1 + textoembedding2 + textoembedding3, edittx.getText().toString(), new OpenAICallback() {
                                     @Override
                                     public void onSuccess(String respuesta) {
                                         // Mostrar en UI (recuerda usar runOnUiThread si estás en una actividad)
                                         runOnUiThread(() -> {
+                                            loadGIF(R.drawable.images);
                                             txtv.setText(respuesta);
+                                            botonconsultar.setVisibility(View.VISIBLE);
                                         });
                                     }
 
@@ -203,6 +145,8 @@ public class DelegadoVirtual extends AppCompatActivity {
                                     public void onError(String error) {
                                         runOnUiThread(() -> {
                                             Toast.makeText(getApplicationContext(), "Error: " + error, Toast.LENGTH_LONG).show();
+                                            loadGIF(R.drawable.images);
+                                            botonconsultar.setVisibility(View.VISIBLE);
                                         });
                                     }
                                 });
@@ -210,15 +154,31 @@ public class DelegadoVirtual extends AppCompatActivity {
 
                             } else {
                                 Log.e("EmbeddingSearch", "No se encontró una respuesta relevante.");
+                                runOnUiThread(() -> {
+                                    loadGIF(R.drawable.images);
+                                    botonconsultar.setVisibility(View.VISIBLE);
+                                });
                             }
                         } catch (IOException e) {
                             Log.e("EmbeddingSearch", "Error al buscar la mejor coincidencia", e);
+                            runOnUiThread(() -> {
+                                loadGIF(R.drawable.images);
+                                botonconsultar.setVisibility(View.VISIBLE);
+                            });
                         }
                     }
 
                     @Override
                     public void onError(Exception e) {
                         Log.e("EmbeddingSearch", "Error al obtener embedding", e);
+
+                        runOnUiThread(() -> {
+                            loadGIF(R.drawable.images);
+                            botonconsultar.setVisibility(View.VISIBLE);
+                            txtv.setVisibility(View.INVISIBLE);
+                            Toast.makeText(DelegadoVirtual.this, "Ocurrio un error, revisa tu conexion de internet e intenta nuevamente.", Toast.LENGTH_LONG).show();
+
+                        });
                     }
                 });
 
@@ -323,18 +283,22 @@ public class DelegadoVirtual extends AppCompatActivity {
 
     public interface OpenAICallback {
         void onSuccess(String respuesta);
+
         void onError(String error);
     }
 
     public void obtenerRespuestaDesdeOpenAI(String contexto, String preguntaUsuario, OpenAICallback callback) {
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(120, TimeUnit.SECONDS)  // ← Aumenta a 2 minutos
+                .build();
 
         String prompt = "Responde la siguiente pregunta utilizando el contexto proporcionado, el cual proviene directamente del Contrato Colectivo de Trabajo del IMSS. " +
                 "Si el contexto no resulta útil o no contiene la información necesaria, ignóralo y responde con base en tu conocimiento general. " +
                 "Si no existe una respuesta precisa, clara y oficial por parte del IMSS, sugiere al usuario reformular su pregunta.\n\n" +
                 "Contexto:\n" + contexto + "\n\n" +
                 "Pregunta del usuario:\n" + preguntaUsuario;
-
 
         MediaType mediaType = MediaType.parse("application/json");
 
@@ -343,7 +307,7 @@ public class DelegadoVirtual extends AppCompatActivity {
             JSONArray messages = new JSONArray();
             messages.put(new JSONObject()
                     .put("role", "system")
-                    .put("content", "Te llamas delegado virtual, eres un asistente que proporciona informacion ofical del contrato colectivo de trabajo del IMSS"));
+                    .put("content", "Eres delegado virtual, un asistente que proporciona informacion del contrato colectivo de trabajo del IMSS"));
             messages.put(new JSONObject()
                     .put("role", "user")
                     .put("content", prompt));
@@ -361,7 +325,7 @@ public class DelegadoVirtual extends AppCompatActivity {
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/chat/completions")
                 .post(body)
-                .addHeader("Authorization", "Bearer " + OPENAI_API_KEY ) // ← Cambia por tu clave real
+                .addHeader("Authorization", "Bearer " + OPENAI_API_KEY) // ← Cambia por tu clave real
                 .addHeader("Content-Type", "application/json")
                 .build();
 
@@ -369,12 +333,24 @@ public class DelegadoVirtual extends AppCompatActivity {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+
+                runOnUiThread(() -> {
+                    loadGIF(R.drawable.images);
+                    botonconsultar.setVisibility(View.VISIBLE);
+                    txtv.setVisibility(View.INVISIBLE);
+                    Toast.makeText(DelegadoVirtual.this, "Ocurrio un error, revisa tu conexion de internet e intenta nuevamente.", Toast.LENGTH_LONG).show();
+
+                });
+
                 callback.onError("Error de red: " + e.getMessage());
+                Log.e("EmbeddingSearch", "Fallo en la red: ", e);
+
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful() || response.body() == null) {
+
                     callback.onError("Error en la respuesta: " + response.code() + " - " + response.message());
                     return;
                 }
@@ -395,6 +371,7 @@ public class DelegadoVirtual extends AppCompatActivity {
             }
         });
     }
+
     public String limpiarTextoEmbedding(String texto) {
         if (texto == null) return "";
 
@@ -402,8 +379,8 @@ public class DelegadoVirtual extends AppCompatActivity {
         if (texto.toLowerCase().startsWith("clausula")) {
             int total = texto.length();
             if (total > 500) {
-                // Elimina los primeros y últimos 200 caracteres
-                return texto.substring(250, total - 250);
+                // Elimina los primeros y últimos 310 caracteres
+                return texto.substring(310, total - 310);
             }
         }
 

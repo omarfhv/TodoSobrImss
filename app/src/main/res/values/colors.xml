@@ -2,8 +2,8 @@
 <resources>
     <color name="colorPrimary">#113A32</color>
     <color name="colorPrimaryDark">#5C5C5C</color>
-    <color name="colorfondo">#51716C</color>
-    <color name="colorletras">#FFFFFF</color>
+    <color name="colorfondo">#d9edec</color>
+    <color name="colorletras">#087065</color>
     <color name="colorverdechillon">#32CC39</color>
     <color name="colorPrimaryorig">#154f3a</color>
     <color name="colorPrimaryDarkorig">#5C5C5C</color>

@@ -3,7 +3,7 @@
     android:id="@+id/lytLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorfondo"
     android:orientation="horizontal"
     android:padding="5dip">
 
@@ -19,6 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:paddingLeft="10dip"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/colorletras" />
 
 </LinearLayout>
