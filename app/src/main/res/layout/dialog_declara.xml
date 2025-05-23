@@ -44,7 +44,7 @@
                 android:id="@+id/rbtna"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="#ffffff"
+                android:buttonTint="@color/colorletras"
                 android:checked="true"
                 android:text="SAT"
                 android:textColor="@color/colorletras"
@@ -54,7 +54,7 @@
                 android:id="@+id/rbtnj"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="#ffffff"
+                android:buttonTint="@color/colorletras"
                 android:text="Tablero Anual IMSS"
                 android:textColor="@color/colorletras"
                 android:textSize="20sp" />

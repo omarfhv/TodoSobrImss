@@ -3,7 +3,7 @@
     android:id="@+id/lytLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/colorfondo"
+    android:background="@drawable/boton_principal"
     android:orientation="horizontal"
     android:padding="5dip">
 
@@ -11,7 +11,7 @@
         android:id="@+id/imgIcono"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@mipmap/logo" />
+        android:src="@drawable/iconotarjeton" />
 
     <TextView
         android:id="@+id/txtMensaje"

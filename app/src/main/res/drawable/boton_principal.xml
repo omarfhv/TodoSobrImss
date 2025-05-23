@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <!-- Estado presionado -->
-    <item android:state_pressed="true" android:drawable="@drawable/btnprincipalpress" />
-
-    <!-- Estado habilitado (normal) -->
-    <item android:state_enabled="true" android:drawable="@drawable/btnprincipalnormal" />
-
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <gradient android:angle="270" android:endColor="#BABABA" android:startColor="#AFAFAF" />
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+    <item android:state_enabled="true">
+        <shape android:shape="rectangle">
+            <gradient android:angle="270" android:endColor="#FFFFFF" android:startColor="#FFFFFF" />
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
 </selector>

@@ -3,9 +3,10 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/botonblanco"
+    android:background="@drawable/fondodialogo"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="20sp">
 
 
     <TextView
@@ -46,11 +47,11 @@
     </TextView>
 
     <TextView
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:id="@+id/t4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:text="TRABAJADOR CONFIANZA: Anexar copia de la Licencia Sindical "
         android:textColor="#256F28"
         android:textSize="20dp">
@@ -59,12 +60,12 @@
 
 
     <Button
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
         android:id="@+id/botoncont"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="40dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/boton_principal"
         android:onClick="onclick"

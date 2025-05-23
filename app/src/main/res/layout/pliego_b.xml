@@ -3,16 +3,17 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/boton_principal"
+    android:background="@drawable/fondodialogo"
     android:gravity="center"
+    android:padding="20sp"
     android:orientation="vertical">
 
 
 
 
     <ImageView
-        android:layout_width="320dp"
-        android:layout_height="340dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/b"
         ></ImageView>
 

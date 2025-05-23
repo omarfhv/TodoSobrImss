@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:text="Enero 2025"
-                android:textColor="@color/colorletras"
+                android:textColor="#ffff"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -67,7 +67,7 @@
                 android:layout_weight="1"
                 android:text="Dom"
                 android:textAlignment="center"
-                android:textColor="@color/colorletras"
+                android:textColor="#ffff"
                 android:textStyle="bold" />
 
             <TextView
@@ -76,7 +76,7 @@
                 android:layout_weight="1"
                 android:text="Lun"
                 android:textAlignment="center"
-                android:textColor="@color/colorletras"
+                android:textColor="#ffff"
                 android:textStyle="bold" />
 
             <TextView
@@ -85,7 +85,7 @@
                 android:layout_weight="1"
                 android:text="Mar"
                 android:textAlignment="center"
-                android:textColor="@color/colorletras"
+                android:textColor="#ffff"
                 android:textStyle="bold" />
 
             <TextView
@@ -94,7 +94,7 @@
                 android:layout_weight="1"
                 android:text="Mié"
                 android:textAlignment="center"
-                android:textColor="@color/colorletras"
+                android:textColor="#ffff"
                 android:textStyle="bold" />
 
             <TextView
@@ -103,7 +103,7 @@
                 android:layout_weight="1"
                 android:text="Jue"
                 android:textAlignment="center"
-                android:textColor="@color/colorletras"
+                android:textColor="#ffff"
                 android:textStyle="bold" />
 
             <TextView
@@ -112,7 +112,7 @@
                 android:layout_weight="1"
                 android:text="Vie"
                 android:textAlignment="center"
-                android:textColor="@color/colorletras"
+                android:textColor="#ffff"
                 android:textStyle="bold" />
 
             <TextView
@@ -121,7 +121,7 @@
                 android:layout_weight="1"
                 android:text="Sáb"
                 android:textAlignment="center"
-                android:textColor="@color/colorletras"
+                android:textColor="#ffff"
                 android:textStyle="bold" />
 
         </LinearLayout>

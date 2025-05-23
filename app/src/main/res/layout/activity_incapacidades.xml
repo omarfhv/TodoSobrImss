@@ -26,7 +26,7 @@
         android:gravity="center"
         android:onClick="onClick"
         android:text="RECAIDA"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/colorletras"
         android:textSize="20dp" />
 
     <com.github.barteksc.pdfviewer.PDFView

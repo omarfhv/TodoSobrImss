@@ -36,9 +36,8 @@
 
         <Button
             android:id="@+id/botonno"
-            android:layout_width="60dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:background="@drawable/boton_principal"
             android:text="No ahora"
@@ -46,10 +45,9 @@
 
         <Button
             android:id="@+id/botonsi"
-            android:layout_width="60dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
             android:background="@drawable/boton_principal"
             android:text="OK"
             android:textColor="@color/colorletras" />

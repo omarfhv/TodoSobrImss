@@ -19,13 +19,11 @@ import com.google.android.gms.ads.AdView;
 public class InfoPases extends AppCompatActivity implements View.OnClickListener {
 
     LinearLayout boton29, boton30, boton30bis;
-    ColorDrawable dialogColor;
     AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         //botonatras
         if (getSupportActionBar() != null) {
@@ -66,7 +64,7 @@ public class InfoPases extends AppCompatActivity implements View.OnClickListener
                 builder.setView(vi);
                 final AlertDialog dialog = builder.create();
                 dialog.setCancelable(true);
-                dialog.getWindow().setBackgroundDrawable(dialogColor);
+                MainActivity.quitarbordesdialogo(dialog);
                 Button botonok = vi.findViewById(R.id.botoncont);
                 botonok.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -91,7 +89,7 @@ public class InfoPases extends AppCompatActivity implements View.OnClickListener
                 builders.setView(vis);
                 final AlertDialog dialogo = builders.create();
                 dialogo.setCancelable(true);
-                dialogo.getWindow().setBackgroundDrawable(dialogColor);
+                MainActivity.quitarbordesdialogo(dialogo);
                 Button botonoko = vis.findViewById(R.id.botoncont);
                 botonoko.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -117,7 +115,7 @@ public class InfoPases extends AppCompatActivity implements View.OnClickListener
                 builderss.setView(viss);
                 final AlertDialog dialogos = builderss.create();
                 dialogos.setCancelable(true);
-                dialogos.getWindow().setBackgroundDrawable(dialogColor);
+                MainActivity.quitarbordesdialogo(dialogos);
                 Button botonokos = viss.findViewById(R.id.botoncont);
                 botonokos.setOnClickListener(new View.OnClickListener() {
                     @Override

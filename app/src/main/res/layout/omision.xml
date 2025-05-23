@@ -3,37 +3,37 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@color/colorfondo"
+    android:background="@drawable/fondodialogo"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="20sp">
 
 
     <TextView
         android:id="@+id/texto1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text=" Artículo 28. Cuando el trabajador, habiendo asistido a sus labores
 haya omitido registrar su entrada o salida, deberá ser justificado
 mediante certificación escrita del Jefe de la Dependencia de su
 adscripción o de quien éste último autorice.\n ESTE FORMATO TIENE QUE SER LLENADO Y FIRMADO O TAMBIEN MEDIANTE UN DOCUMENTO ELABORADO Y FIRMADO POR EL JEFE. "
         android:textColor="@color/colorletras"
-        android:gravity="center"
         android:textStyle="bold" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="250dp"
-        android:background="@drawable/omi"
-        ></ImageView>
+        android:background="@drawable/omi"></ImageView>
 
     <Button
         android:id="@+id/botoncont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:onClick="onclick"
         android:layout_marginBottom="40dp"
         android:background="@drawable/boton_principal"
+        android:onClick="onclick"
         android:text="      Continuar       "
         android:textColor="@color/colorletras" />
 </LinearLayout>

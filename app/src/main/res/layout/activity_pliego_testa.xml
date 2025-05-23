@@ -39,12 +39,13 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:padding="10sp"
                     android:id="@+id/botontramite"
-                    android:layout_width="160dp"
-                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    android:background="@drawable/boton_principal"
+                    android:background="@color/colorfondo"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -53,7 +54,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="¿DONDE TRAMITARLO? "
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -62,11 +63,12 @@
                 <LinearLayout
 
                     android:id="@+id/botonrequi"
-                    android:layout_width="160dp"
-                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10sp"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    android:background="@drawable/boton_principal"
+                    android:background="@color/colorfondo"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -75,7 +77,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="REQUISITOS "
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -83,11 +85,15 @@
                 <LinearLayout
 
                     android:id="@+id/botona"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10sp"
+                    android:paddingBottom="10sp"
+                    android:paddingLeft="30sp"
+                    android:paddingRight="30sp"
                     android:layout_gravity="center"
                     android:layout_margin="3dp"
-                    android:background="@drawable/boton_principal"
+                    android:background="@color/colorfondo"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -95,19 +101,23 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="A "
-                        android:textColor="#ffffff"
+                        android:text=" A "
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/botonb"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
+                    android:paddingTop="10sp"
+                    android:paddingBottom="10sp"
+                    android:paddingLeft="30sp"
+                    android:paddingRight="30sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="3dp"
-                    android:background="@drawable/boton_principal"
+                    android:background="@color/colorfondo"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -116,18 +126,22 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="B"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/botonc"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10sp"
+                    android:paddingBottom="10sp"
+                    android:paddingLeft="30sp"
+                    android:paddingRight="30sp"
                     android:layout_gravity="center"
                     android:layout_margin="3dp"
-                    android:background="@drawable/boton_principal"
+                    android:background="@color/colorfondo"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -135,7 +149,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="C"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>

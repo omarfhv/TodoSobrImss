@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text=" MARCA DE INCLUSION 2 Y 3 "
-                    android:textColor="#ffffff"
+                    android:textColor="@color/colorletras"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text=" MARCA DE INCLUSIÓN 4 Y 9 "
-                    android:textColor="#ffffff"
+                    android:textColor="@color/colorletras"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text=" MARCA DE INCLUSIÓN 9 Y 4  "
-                    android:textColor="#ffffff"
+                    android:textColor="@color/colorletras"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -131,7 +131,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text=" MARCA DE INCLUSION 1 Y 1 "
-                    android:textColor="#ffffff"
+                    android:textColor="@color/colorletras"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -154,7 +154,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text=" MARCA DE INCLUSION 0 "
-                    android:textColor="#ffffff"
+                    android:textColor="@color/colorletras"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>

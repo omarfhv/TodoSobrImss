@@ -20,7 +20,6 @@ public class Pases extends AppCompatActivity implements View.OnClickListener {
 
 
     LinearLayout botoninfopas, botoninfoomi;
-    ColorDrawable dialogColor;
     private AdView mAdView;
 
     @Override
@@ -58,7 +57,7 @@ public class Pases extends AppCompatActivity implements View.OnClickListener {
                 builder.setView(vi);
                 final AlertDialog dialog = builder.create();
                 dialog.setCancelable(true);
-                dialog.getWindow().setBackgroundDrawable(dialogColor);
+                MainActivity.quitarbordesdialogo(dialog);
                 Button botonok = vi.findViewById(R.id.botoncont);
                 botonok.setOnClickListener(new View.OnClickListener() {
                     @Override

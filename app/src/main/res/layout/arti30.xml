@@ -3,9 +3,10 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@color/colorfondo"
+    android:background="@drawable/fondodialogo"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="20sp">
 
 
 
@@ -13,20 +14,21 @@
         android:id="@+id/texto1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Cuando un trabajador necesite ausentarse de su lugar de
+        android:text=" * Cuando un trabajador necesite ausentarse de su lugar de
 adscripción para atender asuntos de interés particular dentro del
 mismo edificio o unidad de servicios, avisará a su jefe inmediato
-superior.
-Cuando necesite salir del edificio o unidad de servicios, requerirá
+superior. \n\n
+* Cuando necesite salir del edificio o unidad de servicios, requerirá
 invariablemente un pase de salida debidamente autorizado por el Jefe
 de la Dependencia o de quien haga sus veces y el visto bueno del Jefe
 inmediato superior, con la indicación expresa del tiempo que deberá
-permanecer ausente. El tiempo de que disponga se descontará del
-sueldo. El registro de entrada y salida se hará conforme a lo dispuesto
+permanecer ausente. \n \n * El tiempo de que disponga se descontará del
+sueldo. \n\n* El registro de entrada y salida se hará conforme a lo dispuesto
 en el artículo anterior."
         android:textColor="@color/colorletras"
         android:gravity="center"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textAlignment="inherit"/>
 
     <Button
         android:id="@+id/botoncont"

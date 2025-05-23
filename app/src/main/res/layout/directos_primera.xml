@@ -3,27 +3,25 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@color/colorfondo"
+    android:background="@drawable/fondodialogo"
     android:gravity="center"
-    android:orientation="vertical">
-
-
+    android:orientation="vertical"
+    android:padding="20sp">
 
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="350dp"
-        android:background="@drawable/primera"
-        ></ImageView>
+        android:layout_height="wrap_content"
+        android:background="@drawable/primera" />
 
     <Button
         android:id="@+id/botoncont"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:onClick="onclick"
         android:layout_marginBottom="40dp"
         android:background="@drawable/boton_principal"
+        android:onClick="onclick"
         android:text="      Continuar       "
         android:textColor="@color/colorletras" />
 </LinearLayout>

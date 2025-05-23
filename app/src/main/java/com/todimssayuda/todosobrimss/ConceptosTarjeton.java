@@ -79,7 +79,7 @@ public class ConceptosTarjeton extends AppCompatActivity {
             textView.setTextSize(14);
             textView.setBackground(getResources().getDrawable(R.drawable.boton_principal));
             textView.setElevation(8);
-            textView.setTextColor(Color.WHITE);
+            textView.setTextColor(getColor(R.color.colorletras));
             textView.setPadding(20, 20, 20, 20);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
