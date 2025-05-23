@@ -19,8 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Declaracion ANUAL 2023"
-        android:textColor="#ffff"
+        android:text="Declaracion ANUAL 2025"
+        android:textColor="#087065"
         android:textSize="25dp" />
 
     <TextView
@@ -31,7 +31,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="Recuerden que al total de ingresos se debe restar el ISR retenido, para obtener la REMUNERACION ANUAL NETA."
-        android:textColor="#ffff"
+        android:textColor="#087065"
         android:textSize="17dp">
 
     </TextView>
@@ -80,8 +80,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Descargar Tarjeton Anual 2023"
-                        android:textColor="#ffffff"
+                        android:text="Descargar Tarjeton Anual"
+                        android:textColor="#087065"
                         android:textSize="20dp" />
                 </LinearLayout>
 
@@ -108,7 +108,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Tutorial"
-                        android:textColor="#ffffff"
+                        android:textColor="#087065"
                         android:textSize="20dp" />
 
                 </LinearLayout>
@@ -136,7 +136,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Hacer Declaración Anual"
-                        android:textColor="#ffffff"
+                        android:textColor="#087065"
                         android:textSize="20dp" />
                 </LinearLayout>
 

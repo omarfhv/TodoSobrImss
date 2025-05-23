@@ -47,8 +47,8 @@
 
         <Button
             android:id="@+id/botonokspiner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/boton_principal"
             android:text="Guardar"
@@ -59,8 +59,8 @@
 
     <CheckBox
         android:id="@+id/chbx"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:text="Abrir despues de guardar"
         android:textColor="@color/colorletras" />

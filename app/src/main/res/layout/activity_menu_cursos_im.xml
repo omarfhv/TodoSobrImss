@@ -89,7 +89,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Cursos TÉCNICOS 2024"
+                        android:text="Cursos TÉCNICOS 2025"
                         android:textColor="@color/colorletras"
                         android:textSize="20dp" />
 
@@ -117,7 +117,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Cursos TÉCNICOS UNAM 2024"
+                        android:text="Carrera TÉCNICOS 2025"
                         android:textColor="@color/colorletras"
                         android:textSize="15dp" />
                 </LinearLayout>
@@ -183,7 +183,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Nutrición 2024"
+                        android:text="Nutrición 2025"
                         android:textColor="@color/colorletras"
                         android:textSize="20dp" />
                 </LinearLayout>
