@@ -587,8 +587,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             //web
             case R.id.botonconvocatorias:
-                registroFirebaseAn("btnconvocatorias");
-                cambioActivityUrl("https://sntss.org.mx/convocatorias", "Convocatorias");
+
+              //  registroFirebaseAn("btnconvocatorias");
+               // cambioActivityUrl("https://sntss.org.mx/convocatorias", "Convocatorias");
+                cambioActivity(PdfFromFirebase.class, "Este es el titulo", "becas.pdf");
+
                 break;
 
             //pantalla con boton en actionbar hacia pdf
@@ -844,6 +847,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void cambioActivity(Class c) {
         intent = new Intent(this, c);
+        startActivity(intent);
+        finish();
+    }
+    public void cambioActivity(Class c, String titulo, String nombre) {
+        intent = new Intent(this, c);
+        intent.putExtra("titulo", titulo);
+        intent.putExtra("nombre",nombre);
+        intent.putExtra("claseorigen", MainActivity.class.getName());
         startActivity(intent);
         finish();
     }

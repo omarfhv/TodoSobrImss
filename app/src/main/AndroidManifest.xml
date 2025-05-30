@@ -79,6 +79,7 @@
         <activity android:name=".WbViewTarjeton" />
         <activity android:name=".ShowPdf" />
         <activity android:name=".DelegadoVirtual" />
+        <activity android:name=".PdfFromFirebase" />
         <activity
             android:name=".Splash"
             android:exported="true">
