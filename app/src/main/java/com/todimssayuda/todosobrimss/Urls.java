@@ -2,23 +2,37 @@ package com.todimssayuda.todosobrimss;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
+import android.Manifest;
 import android.app.AlertDialog;
+import android.app.DownloadManager;
+import android.content.ActivityNotFoundException;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.CookieManager;
+import android.webkit.DownloadListener;
+import android.webkit.URLUtil;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -27,12 +41,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+
+import java.io.File;
 
 public class Urls extends AppCompatActivity {
    // AdView mAdView;
@@ -109,6 +126,77 @@ public class Urls extends AppCompatActivity {
             webview.loadUrl(url);
            // webview.loadUrl("https://www.sntss.org.mx/promociones");
             webview.getSettings().setBuiltInZoomControls(true);
+
+            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1001);
+                    return;
+                }
+            }
+
+            webview.setDownloadListener(new DownloadListener() {
+                public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+
+                    Toast.makeText(Urls.this, "Descargando...", Toast.LENGTH_LONG).show();
+
+                    String fileName = URLUtil.guessFileName(url, contentDisposition, mimetype);
+                    Uri uri = Uri.parse(url);
+
+                    DownloadManager.Request request = new DownloadManager.Request(uri);
+                    request.setMimeType(mimetype);
+
+                    // Cookies y user-agent
+                    String cookies = CookieManager.getInstance().getCookie(url);
+                    request.addRequestHeader("cookie", cookies);
+                    request.addRequestHeader("User-Agent", userAgent);
+
+                    request.setDescription("Descargando archivo...");
+                    request.setTitle(fileName);
+                    request.allowScanningByMediaScanner();
+                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_ONLY_COMPLETION);
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName);
+
+                    final DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                    final long downloadId = dm.enqueue(request); // Guardamos el ID de la descarga
+
+                    // Registramos un BroadcastReceiver para saber cuándo se completa la descarga
+                    BroadcastReceiver onComplete = new BroadcastReceiver() {
+                        public void onReceive(Context context, Intent intent) {
+                            long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+                            if (id == downloadId) {
+                                File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
+
+                                if (file.exists()) {
+                                    Uri fileUri = FileProvider.getUriForFile(Urls.this, getPackageName() + ".fileprovider", file);
+                                    Intent openPdfIntent = new Intent(Intent.ACTION_VIEW);
+                                    openPdfIntent.setDataAndType(fileUri, "application/pdf");
+                                    openPdfIntent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                                    openPdfIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+                                    try {
+                                        startActivity(openPdfIntent);
+                                    } catch (ActivityNotFoundException e) {
+                                        e.printStackTrace();
+                                        Toast.makeText(Urls.this, "No se encontró una app para abrir el PDF", Toast.LENGTH_LONG).show();
+                                    }
+                                } else {
+                                    Toast.makeText(Urls.this, "Archivo no encontrado", Toast.LENGTH_SHORT).show();
+                                }
+
+                                // Unregister receiver para no dejarlo colgado
+                                unregisterReceiver(this);
+                            }
+                        }
+                    };
+
+                    // Registrar el BroadcastReceiver
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE), Context.RECEIVER_NOT_EXPORTED);
+                    }
+
+                }
+            });
+
 
 
 

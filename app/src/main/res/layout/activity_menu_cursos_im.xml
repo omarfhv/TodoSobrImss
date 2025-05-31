@@ -117,7 +117,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Carrera TÉCNICOS 2025"
+                        android:text="Carreras TÉCNICAS 2025"
                         android:textColor="@color/colorletras"
                         android:textSize="15sp" />
                 </LinearLayout>

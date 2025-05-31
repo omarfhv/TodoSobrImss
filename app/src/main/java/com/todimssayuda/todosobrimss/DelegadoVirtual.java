@@ -77,13 +77,11 @@ public class DelegadoVirtual extends AppCompatActivity {
         }
 
 
-        loadInter();
-
-
         loadGIF(R.drawable.images);
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        loadInter();
 
         botonconsultar = findViewById(R.id.buttondelegado);
         txtv = findViewById(R.id.textviewdelegado);
@@ -97,6 +95,9 @@ public class DelegadoVirtual extends AppCompatActivity {
                     txtv.setText("Cargando respuesta...");
                     loadGIF(R.drawable.botpensando);
                     botonconsultar.setVisibility(View.INVISIBLE);
+                    if (mInterstitialAd != null) {
+                        mInterstitialAd.show(DelegadoVirtual.this);
+                    }
 
                 });
 
@@ -221,7 +222,7 @@ public class DelegadoVirtual extends AppCompatActivity {
 
     private void loadInter() {
         AdRequest adRequestinter = new AdRequest.Builder().build();
-        InterstitialAd.load(this, String.valueOf(R.string.adinter), adRequestinter, new InterstitialAdLoadCallback() {
+        InterstitialAd.load(this, getResources().getString(R.string.adinterDD), adRequestinter, new InterstitialAdLoadCallback() {
             @Override
             public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
                 Log.d("Intersticial: ", "se ha cargado ");

@@ -55,10 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final int PERMISO_NOTIFICACIONES = 1;
     LinearLayout btn1;
-    LinearLayout botoncalendariocaja, botonconvenioescuela, botonconvocatoria, botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario,
+    LinearLayout botoncalendariocaja, botonconvenioescuela, botontramitejubilacion, botontiempoextra, botonmedianoplazo, botonprestamocarro, botontarjeton, botoncalendario,
             botonpromociones, botonenterate, botonrol, botonconsulta, botoncct, botonfaltas, botontabulador, botoncursos, botonpermutas, botonpases, botonpliego, botonsustis,
-            botondias, botonjubilacion, botontiposdecontrato, botonincapacidades, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro,
-            botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete, botonestatuto, botonanticipo, botondelegadovirtual;
+            botondias, botonjubilacion, botontiposdecontrato, botonseguro, botonrecuperar, botonbono, botonpresta, botonsegunda, botoncalcuvacas, botoncajadeahorro,
+            botonaguinaldo, botonhipotecario, botonconceptos, botonclausulanoventaysiete, botonestatuto, botonanticipo, botondelegadovirtual, botonnoticiasimss, botonconstancia;
     SharedPreferences sharedPref;
     Intent intent;
     InterstitialAd mInterstitialAd;
@@ -160,6 +160,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }, 100);
 
         //asignacion de botones
+
+        botonconstancia = findViewById(R.id.botonconstancia);
+        botonconstancia.setOnClickListener(this);
+
+        botonnoticiasimss = findViewById(R.id.botonnoticiasimss);
+        botonnoticiasimss.setOnClickListener(this);
+
         botonanticipo = findViewById(R.id.botonanticipo);
         botonanticipo.setOnClickListener(this);
 
@@ -184,8 +191,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botonconvenioescuela = findViewById(R.id.botonconvenioescuela);
         botonconvenioescuela.setOnClickListener(this);
 
-        botonconvocatoria = findViewById(R.id.botonconvocatorias);
-        botonconvocatoria.setOnClickListener(this);
+        botontramitejubilacion = findViewById(R.id.botonjubilacion);
+        botontramitejubilacion.setOnClickListener(this);
 
         botonenterate = findViewById(R.id.botonenterate);
         botonenterate.setOnClickListener(this);
@@ -226,14 +233,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botondias = findViewById(R.id.botondias);
         botondias.setOnClickListener(this);
 
-        botonjubilacion = findViewById(R.id.botonjubilacion);
-        botonjubilacion.setOnClickListener(this);
+       // botonjubilacion = findViewById(R.id.botonjubilacion);
+//        botonjubilacion.setOnClickListener(this);
 
         botontiposdecontrato = findViewById(R.id.botoncontratos);
         botontiposdecontrato.setOnClickListener(this);
 
-        botonincapacidades = findViewById(R.id.botonincapa);
-        botonincapacidades.setOnClickListener(this);
+
 
         botonseguro = findViewById(R.id.botonseguro);
         botonseguro.setOnClickListener(this);
@@ -586,11 +592,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 cambioActivityUrl("https://eltioimss.blogspot.com/?m=1", "Notificaciones");
                 break;
             //web
-            case R.id.botonconvocatorias:
+            case R.id.botonjubilacion:
+                cambioActivityPdf("jubila","","Tramite de jubilacion");
 
-              //  registroFirebaseAn("btnconvocatorias");
-               // cambioActivityUrl("https://sntss.org.mx/convocatorias", "Convocatorias");
-                cambioActivity(PdfFromFirebase.class, "Este es el titulo", "becas.pdf");
+               // cambioActivity(PdfFromFirebase.class, "Este es el titulo", "becas.pdf");
 
                 break;
 
@@ -671,16 +676,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 cambioActivityPdf("festivos22", "", "Dias festivos 2024");
                 break;
 
-            case R.id.botonjubilacion:
-                cambioActivityPdf("jubila", "", "Req. para tramitar jubilacion");
+            case R.id.botonnoticiasimss:
+
+                cambioActivityUrl("https://sntss.org.mx/noticias", "Noticias IMSS");
+
                 break;
             //muchos cuadros de texto fijos
             case R.id.botoncontratos:
                 cambioActivity(TiposDeContrato.class);
                 break;
             //pantalla con un boton
-            case R.id.botonincapa:
-                cambioActivity(Incapacidades.class);
+            case R.id.botonconstancia:
+              //  cambioActivity(Incapacidades.class);
+                cambioActivityUrl("https://sntss.org.mx/afiliados","Constancia de afiliacion");
                 break;
 
             case R.id.botonseguro:

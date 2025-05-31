@@ -87,5 +87,5 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/adbanner" />
+        ads:adUnitId="@string/adbannerDD" />
 </RelativeLayout>

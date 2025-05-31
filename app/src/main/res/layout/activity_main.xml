@@ -476,7 +476,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/botonconvocatorias"
+                    android:id="@+id/botonjubilacion"
                     android:layout_width="150dp"
                     android:layout_height="120dp"
                     android:layout_gravity="center"
@@ -489,13 +489,13 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/convocatorias" />
+                        android:background="@drawable/jubilado" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Convocatorias"
+                        android:text="Tramite de jubilacion"
                         android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
@@ -711,7 +711,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/botonjubilacion"
+                    android:id="@+id/botonnoticiasimss"
                     android:layout_width="150dp"
                     android:layout_height="120dp"
                     android:layout_gravity="center"
@@ -724,19 +724,19 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/jubilado" />
+                        android:background="@drawable/noticiaim" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tramite de Jubilacion"
+                        android:text="Noticias IMSS"
                         android:textAlignment="center"
                         android:textColor="@color/colorletras"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/botonincapa"
+                    android:id="@+id/botonconstancia"
                     android:layout_width="150dp"
                     android:layout_height="120dp"
                     android:layout_gravity="center"
@@ -749,12 +749,12 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/incapa" />
+                        android:background="@drawable/constancia" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Incapacidades"
+                        android:text="Constancia de afiliación"
                         android:textAlignment="center"
                         android:textColor="@color/colorletras"
                         android:textStyle="bold" />
