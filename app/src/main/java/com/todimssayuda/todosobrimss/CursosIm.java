@@ -79,6 +79,12 @@ public class CursosIm extends AppCompatActivity implements View.OnClickListener 
 
     }
 
+    public void Emocional(View view) {
+        textview = findViewById(R.id.cursos6);
+        cambioActivitypdf("emocional", "cursos", (String) textview.getText());
+
+    }
+
     public void cambioActivitypdf(String pdf, String clase, String titulo) {
         intent = new Intent(this, ShowPdf.class);
         intent.putExtra("pdf", pdf);

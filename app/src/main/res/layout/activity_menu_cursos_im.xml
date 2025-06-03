@@ -113,11 +113,35 @@
                         android:background="@drawable/btncursos1" />
 
                     <TextView
-                        android:id="@+id/cursos5"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Carreras TÉCNICAS 2025"
+                        android:textColor="@color/colorletras"
+                        android:textSize="15sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/boton_principal"
+                    android:gravity="center"
+                    android:onClick="Emocional"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/emocional" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Afrontamiento emocional"
                         android:textColor="@color/colorletras"
                         android:textSize="15sp" />
                 </LinearLayout>
