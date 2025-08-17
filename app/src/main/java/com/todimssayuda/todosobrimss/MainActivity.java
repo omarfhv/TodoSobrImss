@@ -45,6 +45,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     int contadorads;
     private FirebaseAnalytics mFirebaseAnalytics;
+    private FirebaseRemoteConfig mFirebaseRemoteConfig;
 
 
     @Override
@@ -88,6 +90,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        FirebaseApp.initializeApp(this);
+
+        // Configurar Remote Config
+        mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
+        FirebaseRemoteConfigSettings configSettings =
+                new FirebaseRemoteConfigSettings.Builder()
+                        .setMinimumFetchIntervalInSeconds(3600) // refrescar cada hora
+                        .build();
+        mFirebaseRemoteConfig.setConfigSettingsAsync(configSettings);
+
+        // Valores por defecto (opcionales)
+        mFirebaseRemoteConfig.setDefaultsAsync(R.xml.remote_config);
+
+        // Obtener valores de Remote Config
+        fetchRemoteConfig();
         final Calendar c = Calendar.getInstance();
         int yy = c.get(Calendar.YEAR);
         int mm = c.get(Calendar.MONTH);
@@ -913,5 +930,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    private void fetchRemoteConfig() {
+        mFirebaseRemoteConfig.fetchAndActivate()
+                .addOnCompleteListener(this, new OnCompleteListener<Boolean>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Boolean> task) {
+                        if (task.isSuccessful()) {
+                            boolean updated = task.getResult();
+                            Log.d("RemoteConfig", "Config params updated: " + updated);
 
+                            // Recuperar un valor ejemplo llamado "api_key"
+                            String apiKey = mFirebaseRemoteConfig.getString("api_key");
+                            SharedPreferences sharedPreferences = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("apikey", apiKey);
+                            editor.apply();
+
+                        }
+                    }
+                });
+    }
 }

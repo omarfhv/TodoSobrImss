@@ -16,7 +16,7 @@ import java.util.*;
 
 
 public class EmbeddingSearch {
-    private static final String OPENAI_API_KEY = ;
+
     private static final String OPENAI_EMBEDDING_URL = "https://api.openai.com/v1/embeddings";
     private static final String JSON_FILE_PATH = "embeddings.json"; // Sin "assets/"
 
@@ -28,7 +28,7 @@ public class EmbeddingSearch {
 
 
 
-    public static void obtenerEmbeddingAsync(String texto, EmbeddingCallback callback) {
+    public static void obtenerEmbeddingAsync(String texto, EmbeddingCallback callback, String OAK) {
         OkHttpClient client = new OkHttpClient();
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -44,7 +44,7 @@ public class EmbeddingSearch {
         Request request = new Request.Builder()
                 .url(OPENAI_EMBEDDING_URL)
                 .post(body)
-                .addHeader("Authorization", "Bearer " + OPENAI_API_KEY)
+                .addHeader("Authorization", "Bearer " + OAK)
                 .addHeader("Content-Type", "application/json")
                 .build();
 

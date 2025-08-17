@@ -3,6 +3,7 @@ package com.todimssayuda.todosobrimss;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -63,7 +64,7 @@ public class DelegadoVirtual extends AppCompatActivity {
     private AdView mAdView;
     private boolean continter = false;
     private InterstitialAd mInterstitialAd;
-    private static final String OPENAI_API_KEY = ;
+    private static  String OPENAI_API_KEY = "";
 
     List<String> frasesPropuesta = Arrays.asList(
             "dame una propuesta",
@@ -81,7 +82,8 @@ public class DelegadoVirtual extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-
+        SharedPreferences sharedPreferences = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+        OPENAI_API_KEY = sharedPreferences.getString("apikey", "");
 
         loadGIF(R.drawable.images);
         mAdView = findViewById(R.id.adView1);
@@ -216,7 +218,7 @@ public class DelegadoVirtual extends AppCompatActivity {
 
                             });
                         }
-                    });
+                    }, OPENAI_API_KEY);
                 }
 
 
