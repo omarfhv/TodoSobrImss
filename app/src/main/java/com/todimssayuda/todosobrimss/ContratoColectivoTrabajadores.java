@@ -18,7 +18,7 @@ import com.google.android.gms.ads.AdView;
 public class ContratoColectivoTrabajadores extends AppCompatActivity implements View.OnClickListener {
 
     AdView mAdView;
-    LinearLayout btncompleto, btncct, btntabu, btnprofesio, btncata, btnreglame, btnconve, btnindice;
+    LinearLayout btncompleto, btncct, btntabu, btnprofesio, btncata, btnreglame, btnconve, btnindice, btnmodificaciones;
 
     Intent intent;
     TextView textview;
@@ -62,6 +62,9 @@ public class ContratoColectivoTrabajadores extends AppCompatActivity implements 
 
         btnindice = findViewById(R.id.btnindice);
         btnindice.setOnClickListener(this);
+
+        btnmodificaciones = findViewById(R.id.btnmodificaciones);
+        btnmodificaciones.setOnClickListener(this);
 
 
     }
@@ -157,6 +160,10 @@ public class ContratoColectivoTrabajadores extends AppCompatActivity implements 
                 cambioActivitypdf("contrato7", "modificacioncct", "Índice");
                 break;
 
+            case R.id.btnmodificaciones:
+//se obtiene el titulo directamente del cduadro de texto del layout
+                cambioActivitypdf("modificaciones7", "modificacioncct", "Modificaciones CCT 2025-2027");
+                break;
         }
     }
 

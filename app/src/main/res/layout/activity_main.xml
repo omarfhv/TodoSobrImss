@@ -155,7 +155,8 @@
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tabulador de sueldos"
+                        android:text="Tabulador de sueldos 2025-2027"
+                        android:gravity="center"
                         android:textColor="@color/colorletras"
                         android:textStyle="bold" />
 
@@ -1037,7 +1038,7 @@
         android:background="@color/colorfondo"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <TextView
             android:layout_width="wrap_content"

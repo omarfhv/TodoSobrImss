@@ -64,7 +64,7 @@ public class DelegadoVirtual extends AppCompatActivity {
     private AdView mAdView;
     private boolean continter = false;
     private InterstitialAd mInterstitialAd;
-    private static  String OPENAI_API_KEY = "";
+    private static  String OPENAI_API_KEY = "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";
 
     List<String> frasesPropuesta = Arrays.asList(
             "dame una propuesta",
@@ -360,7 +360,7 @@ public class DelegadoVirtual extends AppCompatActivity {
                     .put("role", "user")
                     .put("content", prompt));
 
-            json.put("model", "gpt-4-turbo");
+            json.put("model", "gpt-3.5-turbo");
             json.put("messages", messages);
             json.put("temperature", 0.2);
         } catch (JSONException e) {

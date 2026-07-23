@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         link = findViewById(R.id.botonenlacefb);
 
 
-        if (yy <= 2025) {
+        if (yy <= 2024) {
             bloqueo.setVisibility(View.INVISIBLE);
         }
 
@@ -664,7 +664,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.botontabula:
-                cambioActivityPdf("tabula", "", "Tabulador 2024");
+                cambioActivityPdf("tabula", "", "Tabulador");
                 break;
 
             case R.id.botoncursos:
@@ -686,7 +686,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.botontxt:
-                cambioActivityPdf("convenio", "", "Convenio TXT 2022");
+                cambioActivityPdf("convenio", "", "Convenio TXT 2024");
                 break;
 
             case R.id.botondias:
